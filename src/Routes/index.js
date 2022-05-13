@@ -1,6 +1,6 @@
 import { Layout } from "antd";
 import React from "react";
-import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Admin from "../pages/Admin/index";
 import NotFound from "../pages/NotFound";
@@ -8,7 +8,7 @@ import FooterComponent from "../components/FooterComponent/index";
 
 //styles
 import styles from "./styles.css";
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 import NavBar2 from "../components/NavBar2";
 
 const { Header, Content, Footer } = Layout;

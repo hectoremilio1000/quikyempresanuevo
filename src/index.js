@@ -11,11 +11,7 @@ import awsconfig from "./aws-exports";
 Amplify.configure(awsconfig);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <Routing />
-  </React.StrictMode>
-);
+root.render(<Routing />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
