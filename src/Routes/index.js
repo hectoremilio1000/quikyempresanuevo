@@ -1,7 +1,6 @@
 import { Layout } from "antd";
 import React from "react";
 import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
-import NavBar from "../components/NavBar";
 import Home from "../pages/Home";
 import Admin from "../pages/Admin/index";
 import NotFound from "../pages/NotFound";
@@ -19,7 +18,6 @@ function Routing() {
     <BrowserRouter>
       <Layout className="layout">
         <Header>
-          {/* <NavBar /> */}
           <NavBar2 />
         </Header>
         <Content className="site-layout-content">
