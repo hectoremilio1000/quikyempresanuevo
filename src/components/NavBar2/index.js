@@ -24,9 +24,7 @@ function NavBar2() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="item-nav">
-            <Nav.Link>
-              <Link to="/admin">Admin</Link>
-            </Nav.Link>
+            <Link to="/admin">Admin</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
