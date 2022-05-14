@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function NavBar2() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className="navbar">
       <Container>
         <Navbar.Brand className="logo">
           <Link to="/">
@@ -24,7 +24,7 @@ function NavBar2() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="item-nav">
-            <Link to="/profile">Usuario</Link>
+            <Link to="/admin">Admin</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

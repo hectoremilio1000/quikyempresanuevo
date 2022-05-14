@@ -1,7 +1,13 @@
 import React from "react";
+import "./styles.css";
+import Banner from "../../components/Banner";
 
 function Home() {
-  return <div> este es el Home</div>;
+  return (
+    <>
+      <Banner />
+    </>
+  );
 }
 
 export default Home;

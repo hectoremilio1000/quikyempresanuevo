@@ -1,0 +1,34 @@
+.bannerTitulo {
+  font-size: 35px !important;
+  color: black;
+  font-weight: 700;
+}
+
+.subtituloBanner {
+  font-size: 30px !important;
+  color: black;
+}
+
+.proximamente {
+  font-size: 25px !important;
+  color: rgb(69, 69, 69) !important;
+  width: 350px;
+}
+
+@media (max-width: 500px) {
+  .bannerTitulo {
+    font-size: 18px !important;
+    color: black;
+    font-weight: 700;
+  }
+
+  .subtituloBanner {
+    font-size: 17px !important;
+    color: black;
+  }
+  .proximamente {
+    font-size: 12px !important;
+    color: rgb(69, 69, 69) !important;
+    width: 130px;
+  }
+}

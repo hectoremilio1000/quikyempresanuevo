@@ -28,7 +28,7 @@ function Routing() {
 
             <Route path="profile" element={<Profile />} />
 
-            <Route path="*" element={<NotFound />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Content>
         <Footer>
