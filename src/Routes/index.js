@@ -10,6 +10,7 @@ import FooterComponent from "../components/FooterComponent/index";
 import styles from "./styles.css";
 import "antd/dist/antd.min.css";
 import NavBar2 from "../components/NavBar2";
+import Profile from "../pages/Profile";
 
 const { Header, Content, Footer } = Layout;
 
@@ -24,6 +25,9 @@ function Routing() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="admin" element={<Admin />} />
+
+            <Route path="profile" element={<Profile />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Content>
