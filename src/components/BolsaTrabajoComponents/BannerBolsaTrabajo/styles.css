@@ -1,0 +1,65 @@
+.bannerFinal {
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 100vh !important;
+}
+
+.titleEnfermera {
+  font-size: 30px;
+  text-align: left !important;
+}
+.sucursalesEnfermera {
+  text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  .titleEnfermera {
+    font-size: 30px;
+    text-align: left !important;
+  }
+
+  .bannerFinal {
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 80vh !important;
+  }
+}
+
+.tituloRapido {
+  font-size: 30px;
+}
+
+.sucursalesEnfermera {
+  text-align: left !important;
+}
+
+@media (max-width: 400px) {
+  .bannerFinal {
+    background-position: top;
+    background-repeat: no-repeat;
+    height: auto !important;
+    background-size: contain !important;
+  }
+
+  .titleEnfermera {
+    font-size: 20px;
+    text-align: left !important;
+  }
+  .sucursalesEnfermera {
+    text-align: left !important;
+  }
+  .nombre_logo_enfermera {
+    height: 70px;
+  }
+}
+
+@media (max-width: 330px) {
+  .bannerFinal {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh !important;
+  }
+  .nombre_logo_enfermera {
+    height: 70px;
+  }
+}

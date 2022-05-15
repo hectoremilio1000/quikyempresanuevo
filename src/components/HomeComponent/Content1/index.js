@@ -23,7 +23,6 @@ function Content1() {
             <Grid item xs={12} md={6}>
               <Card
                 sx={{
-                  height: 200,
                   display: "flex",
                   alignItems: "center",
                   boxShadow: "none",
@@ -51,7 +50,6 @@ function Content1() {
             <Grid item xs={12} md={6}>
               <Card
                 sx={{
-                  height: 200,
                   display: "flex",
                   alignItems: "center",
                   boxShadow: "none",

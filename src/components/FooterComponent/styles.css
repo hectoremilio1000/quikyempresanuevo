@@ -1,0 +1,25 @@
+/*footer*/
+
+.footer {
+  background-color: #2da3cc;
+}
+
+.ulFooter {
+  padding: 0 !important;
+}
+
+.atrevete_footer {
+  font-size: 20px !important;
+}
+.descripcion_footer {
+  font-size: 16px !important;
+}
+
+@media (max-width: 500px) {
+  .atrevete_footer {
+    font-size: 14px !important;
+  }
+  .descripcion_footer {
+    font-size: 11px !important;
+  }
+}

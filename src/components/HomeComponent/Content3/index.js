@@ -4,7 +4,7 @@ import { InlineWidget } from "react-calendly";
 
 function Content3() {
   return (
-    <div id="reserva" className="mt-4">
+    <div id="reserva" className="mt-4 pb-4">
       <section className="jumbotron text-center" id="reserva">
         <div className="container">
           <h1 className="text-center tituloCalendario">

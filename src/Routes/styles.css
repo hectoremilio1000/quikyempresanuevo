@@ -3,11 +3,5 @@
 }
 
 .ant-layout-footer {
-  padding: 56px !important;
-}
-
-@media screen and (max-width: 1000px) {
-  .ant-layout-footer {
-    padding: 24px 15px !important;
-  }
+  padding: 0 !important;
 }
