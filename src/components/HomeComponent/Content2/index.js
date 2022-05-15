@@ -11,7 +11,7 @@ function Content2() {
           Pruebas de COVID con un <b>CLICK</b> o en sucursal
         </h4>
       </div>
-      <div className="row mt-2 mb-2">
+      <div className="row m-2">
         {servicios
           .filter(servicio => servicio.category === "covid")
           .map(servicio => (
