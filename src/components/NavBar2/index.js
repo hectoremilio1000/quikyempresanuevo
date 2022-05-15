@@ -13,10 +13,10 @@ function NavBar2() {
             <img
               alt="Quikyempresa"
               src={
-                "https://imagenesrutalab.s3.amazonaws.com/quikyempresa/logoQuikyempresa3.png"
+                "https://imagenesrutalab.s3.amazonaws.com/sanmateo/logo+nuevo/SAN-MATEO.png"
               }
-              width="130px"
-              height="40px"
+              width="140px"
+              height="50px"
             />
           </Link>
         </Navbar.Brand>

@@ -14,8 +14,8 @@ function Banner() {
           backgroundPosition: "center",
         }}
       >
-        <div className="container-fluid pt-4">
-          <div className="mt-0 col-6 col-sm-7 justify-content-md-start">
+        <div className="container-fluid pt-5">
+          <div className="mt-0 col-6 col-sm-6 justify-content-md-start">
             <h2 className="text-start bannerTitulo">¿Laboratorio Urgente?</h2>
             <h3 className="lead display-5 pb-5 subtituloBanner">
               Servicio a domicilio con un click o en sucursal
@@ -28,7 +28,7 @@ function Banner() {
                 ¡Reserva ya!
               </button>
             </a>
-            <h1 className="pt-3 text-start proximamente">
+            <h1 className="pt-5 text-start proximamente">
               Empresa 100% confiable. Sucursales en la Ciudad de <b>Oaxaca</b> y
               próximamente en <b>CDMX</b>
             </h1>
