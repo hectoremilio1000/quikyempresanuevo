@@ -14,6 +14,7 @@ import Profile from "../pages/Profile";
 import Privacidad from "../pages/Privacidad";
 import Copyright from "../components/Copyright";
 import BolsaTrabajo from "../pages/BolsaTrabajo/index";
+import OtrasPruebas from "../pages/OtrasPruebas/index";
 
 const { Header, Content, Footer } = Layout;
 
@@ -32,6 +33,8 @@ function Routing() {
             <Route path="profile" element={<Profile />} />
             <Route path="privacidad" element={<Privacidad />} />
             <Route path="bolsatrabajo" element={<BolsaTrabajo />} />
+            <Route path="otraspruebas" element={<OtrasPruebas />} />
+
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Content>

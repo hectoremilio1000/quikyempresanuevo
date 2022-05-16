@@ -6,7 +6,7 @@ function Content2() {
   return (
     <div className="body3component" id="pruebasCovid">
       <div className="pt-4 text-center">
-        <h1 className="fw-bold">¿Qué pruebas tienen disponibles?</h1>
+        <h1 className="fw-bold fs-2">¿Qué pruebas tienen disponibles?</h1>
         <h4 className="h5">
           Pruebas de COVID con un <b>CLICK</b> o en sucursal
         </h4>
@@ -15,7 +15,10 @@ function Content2() {
         {servicios
           .filter(servicio => servicio.category === "covid")
           .map(servicio => (
-            <div className="col-12 col-md-4 pb-4 pl-2 subcontainer1body3">
+            <div
+              className="col-12 col-md-4 pb-4 pl-2 subcontainer1body3"
+              key={servicio.id}
+            >
               <img
                 className="img-fluid mx-auto d-block mt-4 mb-2 imagenbody3"
                 src={servicio.imagen}

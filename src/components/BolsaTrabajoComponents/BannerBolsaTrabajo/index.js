@@ -6,7 +6,7 @@ function BannerBolsaTrabajo() {
   return (
     <div className="banner d-flex justify-content-start">
       <header
-        className="col jumbotron jumbotron-fluid bannerFinal"
+        className="col jumbotron jumbotron-fluid bannerEnfermera"
         style={{
           backgroundImage: `url("https://imagenesrutalab.s3.amazonaws.com/sanmateo/enfermera.jpg")`,
           backgroundSize: "cover",

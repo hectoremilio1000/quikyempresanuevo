@@ -9,14 +9,14 @@ function Banner() {
         style={{
           backgroundImage: `url("https://imagenesrutalab.s3.amazonaws.com/sanmateo/banner_laboratorioFaseI.4.jpg")`,
           backgroundSize: "cover",
-          height: "80vh",
+          height: "90vh",
           backgroundPosition: "center",
         }}
       >
         <div className="container-fluid pt-5">
-          <div className="mt-0 col-6 col-sm-6 justify-content-md-start">
+          <div className="mt-0 col-6 col-sm-5 justify-content-md-start pt-4">
             <h2 className="text-start bannerTitulo">¿Laboratorio Urgente?</h2>
-            <h3 className="lead display-5 pb-5 subtituloBanner">
+            <h3 className="lead display-5 pb-5 subtituloBanner pt-4">
               Servicio a domicilio con un click o en sucursal
             </h3>
             <a href="https://wa.me/+5219511028474">

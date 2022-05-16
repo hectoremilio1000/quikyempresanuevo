@@ -1,3 +1,24 @@
+type Enfermeras @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String
+  email: String
+  whats: String
+  direccion: String
+  numexterior: String
+  numinterior: String
+  codigopostal: String
+  colonia: String
+  municipio: String
+  ciudad: String
+  estado: String
+  edad: String
+  cedula: String
+  antiguedad: String
+  especialidad: String
+  curso: String
+  sub: String
+}
+
 enum Roles {
   DOCTOR
   PACIENTE

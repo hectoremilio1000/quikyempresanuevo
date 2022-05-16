@@ -12,7 +12,10 @@ function Content4() {
         </p>
         <div className="container d-flex justify-content-center col-lg-2 col-md-3 col-6">
           <Link to="/bolsatrabajo">
-            <button type="button" className="btn btn-success btn-lg text-white">
+            <button
+              type="button"
+              className="btn btn-success btn-lg text-white fs-6"
+            >
               ¡Inscribirme ya!
             </button>
           </Link>

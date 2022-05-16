@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 
 import somePic from "../../../assets/images/body_2_serviciosSanMateo.jpg";
+import "./styles.css";
+
 function Content1() {
   return (
     <div className="container" style={{ marginBottom: 15, marginTop: 15 }}>
@@ -78,6 +80,7 @@ function Content1() {
         </Grid>
         <Grid item xs={12} lg={4} sx={{ mx: "auto" }}>
           <CardMedia
+            classes="cardFoto"
             image={somePic}
             height="194"
             sx={{
@@ -86,8 +89,11 @@ function Content1() {
               minHeight: 300,
               borderRadius: 5,
               backgroundColor: "rgba(52, 52, 52, 0.8)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+
+              backgroundPosition: {
+                xs: "center",
+                md: "top",
+              },
             }}
           ></CardMedia>
         </Grid>

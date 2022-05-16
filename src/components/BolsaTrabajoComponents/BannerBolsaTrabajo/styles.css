@@ -1,4 +1,4 @@
-.bannerFinal {
+.bannerEnfermera {
   background-position: left;
   background-repeat: no-repeat;
   height: 100vh !important;
@@ -18,7 +18,7 @@
     text-align: left !important;
   }
 
-  .bannerFinal {
+  .bannerEnfermera {
     background-position: bottom;
     background-repeat: no-repeat;
     height: 80vh !important;
@@ -34,7 +34,7 @@
 }
 
 @media (max-width: 400px) {
-  .bannerFinal {
+  .bannerEnfermera {
     background-position: top;
     background-repeat: no-repeat;
     height: auto !important;
@@ -47,17 +47,6 @@
   }
   .sucursalesEnfermera {
     text-align: left !important;
-  }
-  .nombre_logo_enfermera {
-    height: 70px;
-  }
-}
-
-@media (max-width: 330px) {
-  .bannerFinal {
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 80vh !important;
   }
   .nombre_logo_enfermera {
     height: 70px;
