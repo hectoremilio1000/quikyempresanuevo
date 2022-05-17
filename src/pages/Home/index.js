@@ -9,6 +9,7 @@ import Content4 from "../../components/HomeComponent/Content4";
 import Cookies from "../../components/HomeComponent/Cookies";
 import Content5 from "../../components/HomeComponent/Content5";
 import Content6 from "../../components/HomeComponent/Content6";
+import Content7 from "../../components/HomeComponent/Content7";
 
 //cookies
 
@@ -26,6 +27,7 @@ function Home() {
       <Content5 />
       <Content6 />
       <Content4 />
+      <Content7 />
 
       {cookies ? (
         <Cookies cookies={cookies} handlecookies={handlecookies} />

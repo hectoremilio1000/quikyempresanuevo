@@ -5,7 +5,7 @@ function Content4() {
   return (
     <section className="jumbotron text-center mt-4 bg-light pb-4">
       <div className="container">
-        <h1 className="descarga">Buscas trabajo</h1>
+        <h1 className="descarga pt-3">Buscas trabajo</h1>
         <p className="lead text-muted">
           Inscríbete para poder ofrecer el servicio de enfermería a domicilio y
           gana desde el primer día grandes ingresos

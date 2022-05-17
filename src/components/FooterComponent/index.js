@@ -32,7 +32,7 @@ function FooterComponent() {
                 <li className="text-white list-unstyled">Bolsa de trabajo</li>
               </a>
 
-              <a href="/admin" className="text-decoration-none">
+              <a href="/profile" className="text-decoration-none">
                 <li className="text-center text-white list-unstyled">
                   Usuario
                 </li>
@@ -46,6 +46,9 @@ function FooterComponent() {
                 <li className="text-center text-white list-unstyled">
                   Buscador de Pruebas
                 </li>
+              </a>
+              <a href="/blog" className="text-decoration-none">
+                <li className="text-center text-white list-unstyled">Blog</li>
               </a>
             </ul>
           </div>

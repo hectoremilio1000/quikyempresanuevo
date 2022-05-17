@@ -19,14 +19,13 @@ function Banner() {
             <h3 className="lead display-5 pb-5 subtituloBanner pt-4">
               Servicio a domicilio con un click o en sucursal
             </h3>
-            <a href="https://wa.me/+5219511028474">
-              <button
-                type="button"
-                className="btn btn-success btn-lg text-white"
-              >
-                ¡Reserva ya!
-              </button>
-            </a>
+            <div className="d-flex justify-content-start">
+              <a href="https://wa.me/+5219511028474">
+                <button className="btn btn-success rounded mt-3">
+                  ¡Reserva ya!
+                </button>
+              </a>
+            </div>
             <h1 className="pt-5 text-start proximamente">
               Empresa 100% confiable. Sucursales en la Ciudad de <b>Oaxaca</b> y
               próximamente en <b>CDMX</b>
