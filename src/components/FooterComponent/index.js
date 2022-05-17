@@ -42,6 +42,11 @@ function FooterComponent() {
                   Privacidad
                 </li>
               </a>
+              <a href="/otraspruebas" className="text-decoration-none">
+                <li className="text-center text-white list-unstyled">
+                  Otras pruebas
+                </li>
+              </a>
             </ul>
           </div>
         </div>
