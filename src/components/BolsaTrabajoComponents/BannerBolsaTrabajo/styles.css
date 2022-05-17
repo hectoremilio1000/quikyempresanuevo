@@ -1,7 +1,7 @@
 .bannerEnfermera {
-  background-position: left;
+  background-position: initial;
   background-repeat: no-repeat;
-  height: 100vh !important;
+  height: 600px;
 }
 
 .titleEnfermera {
@@ -21,7 +21,6 @@
   .bannerEnfermera {
     background-position: bottom;
     background-repeat: no-repeat;
-    height: 80vh !important;
   }
 }
 
@@ -37,8 +36,8 @@
   .bannerEnfermera {
     background-position: top;
     background-repeat: no-repeat;
-    height: auto !important;
     background-size: contain !important;
+    height: 300px;
   }
 
   .titleEnfermera {

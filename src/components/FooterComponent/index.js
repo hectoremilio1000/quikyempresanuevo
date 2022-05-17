@@ -44,7 +44,7 @@ function FooterComponent() {
               </a>
               <a href="/otraspruebas" className="text-decoration-none">
                 <li className="text-center text-white list-unstyled">
-                  Otras pruebas
+                  Buscador de Pruebas
                 </li>
               </a>
             </ul>

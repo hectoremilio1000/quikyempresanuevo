@@ -2,6 +2,7 @@ import React from "react";
 import { Table, Input, Button, Space } from "antd";
 import Highlighter from "react-highlight-words";
 import { SearchOutlined } from "@ant-design/icons";
+import { Container } from "react-bootstrap";
 
 const data = [
   {
@@ -147,7 +148,16 @@ class OtrasPruebasComponent2 extends React.Component {
         sortDirections: ["descend", "ascend"],
       },
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return (
+      <Container>
+        <div className="pt-4 text-center ps-2 pe-2">
+          <h1 className="fw-bold fs-2">
+            Busca la prueba que más necesitas y solicítala
+          </h1>
+        </div>
+        <Table columns={columns} dataSource={data} />
+      </Container>
+    );
   }
 }
 

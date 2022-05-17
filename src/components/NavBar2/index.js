@@ -24,7 +24,13 @@ function NavBar2() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="item-nav">
-            <Link to="/admin">Admin</Link>
+            <Link to="/admin">Usuario</Link>
+          </Nav>
+          <Nav className="item-nav">
+            <Link to="/otraspruebas">Buscador de pruebas</Link>
+          </Nav>
+          <Nav className="item-nav">
+            <Link to="/bolsatrabajo">Bolsa de trabajo</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

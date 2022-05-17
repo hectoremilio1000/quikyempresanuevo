@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Content4() {
   return (
-    <section className="jumbotron text-center mt-4 mb-4">
+    <section className="jumbotron text-center mt-4 bg-light pb-4">
       <div className="container">
         <h1 className="descarga">Buscas trabajo</h1>
         <p className="lead text-muted">
