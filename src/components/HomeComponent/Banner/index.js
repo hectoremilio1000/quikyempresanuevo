@@ -9,7 +9,7 @@ function Banner() {
         style={{
           backgroundImage: `url("https://imagenesrutalab.s3.amazonaws.com/sanmateo/banner_laboratorioFaseI.4.jpg")`,
           backgroundSize: "cover",
-          height: "90vh",
+
           backgroundPosition: "center",
         }}
       >

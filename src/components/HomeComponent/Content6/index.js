@@ -1,26 +1,37 @@
-import React from "react";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
-const Data = [
-  {
-    id: 1,
-    nombreprueba: "Grupo Sanguíneo y RH",
-    category: "PRUEBA_RAPIDA",
-    imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
-    precio: 60,
-    preciodescuento: 70,
-    descripcionlarga:
-      "Es un método para indicarle cuál es el tipo de sangre que usted tiene. La determinación del grupo sanguíneo se realiza para que usted pueda donar sangre o recibir una transfusión de sangre de manera segura. También se realiza para ver si usted posee una sustancia llamada factor Rh en la superficie de sus glóbulos rojos. No se requiere ayuno para esta prueba.",
-    descripcioncorta:
-      "Pide esta prueba si quieres saber que tipo de sangre y factor Rh eres.",
-    resultados: "RESULTADOS EN dos horas",
-    comentarios: "Es fundamental saber que tipo de sangre y factor contamos.",
-    tipoMuestra: "Muestra sanguínea",
-    requerimiento: "Ninguno",
-  },
-];
+import { Timeline } from "antd";
+import { Container } from "@mui/material";
 
 function Content6() {
-  return <div>Content6</div>;
+  return (
+    <Container>
+      <div className="pt-4 text-center ps-2 pe-2">
+        <h1 className="fw-bold fs-2">
+          Recuerda cómo funciona el servicio a domicilio
+        </h1>
+      </div>
+      <div className="pt-4">
+        <Timeline>
+          <Timeline.Item>Selecciona el Test</Timeline.Item>
+          <Timeline.Item>Reserva y manda tu ubicación</Timeline.Item>
+          <Timeline.Item>Recibe al Laboratorista</Timeline.Item>
+          <Timeline.Item>Checa el resultado</Timeline.Item>
+        </Timeline>
+      </div>
+      <div className="d-flex justify-content-center">
+        <a href="https://wa.me/+5219511028474">
+          <button className="btn btn-success rounded">¡Reserva ya!</button>
+        </a>
+      </div>
+    </Container>
+  );
 }
 
 export default Content6;

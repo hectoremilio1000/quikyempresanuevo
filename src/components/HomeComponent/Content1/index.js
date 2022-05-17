@@ -80,7 +80,7 @@ function Content1() {
         </Grid>
         <Grid item xs={12} lg={4} sx={{ mx: "auto" }}>
           <CardMedia
-            classes="cardFoto"
+            className="cardFoto"
             image={somePic}
             height="194"
             sx={{

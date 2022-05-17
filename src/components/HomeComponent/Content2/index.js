@@ -5,7 +5,7 @@ import "./styles.css";
 function Content2() {
   return (
     <div className="body3component" id="pruebasCovid">
-      <div className="pt-4 text-center">
+      <div className="pt-4 text-center ps-2 pe-2">
         <h1 className="fw-bold fs-2">¿Qué pruebas tienen disponibles?</h1>
         <h4 className="h5">
           Pruebas de COVID con un <b>CLICK</b> o en sucursal

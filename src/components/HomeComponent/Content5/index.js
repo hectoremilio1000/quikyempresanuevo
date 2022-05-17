@@ -133,7 +133,7 @@ function Content5() {
           footer={
             <div>
               <Link to="/otraspruebas">
-                <p class="fs-4 fw-bold">Otras pruebas...</p>
+                <p className="fs-4 fw-bold">Otras pruebas...</p>
               </Link>
             </div>
           }
