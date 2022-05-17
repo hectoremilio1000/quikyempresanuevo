@@ -1,10 +1,12 @@
 import React from "react";
-import Content6 from "../../components/HomeComponent/Content6/index";
+import OtrasPruebasContent1 from "../../components/OtrasPruebasComponent/OtrasPruebasComponent1";
+import OtrasPruebasContent2 from "../../components/OtrasPruebasComponent/OtrasPruebasComponent2";
 
 function OtrasPruebas() {
   return (
     <>
-      <Content6 />
+      <OtrasPruebasContent1 />
+      <OtrasPruebasContent2 />
     </>
   );
 }

@@ -1,0 +1,9 @@
+@media (max-width: 500px) {
+  .stepper1 {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+
+    align-content: center !important;
+    flex-wrap: wrap !important;
+  }
+}
