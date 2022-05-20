@@ -24,7 +24,7 @@ function NavBar2() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="item-nav">
-            <Link to="/profile">Usuario</Link>
+            <Link to="/enrutarUsuario">Usuario</Link>
           </Nav>
           <Nav className="item-nav">
             <Link to="/otraspruebas">Buscador de pruebas</Link>

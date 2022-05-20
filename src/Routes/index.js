@@ -16,6 +16,9 @@ import Copyright from "../components/Copyright";
 import BolsaTrabajo from "../pages/BolsaTrabajo/index";
 import OtrasPruebas from "../pages/OtrasPruebas/index";
 import Blog from "../pages/Blog";
+import Usuario from "../pages/Usuario";
+import ProfileNuevo from "../pages/ProfileNuevo/ProfileNuevo";
+import EnrutarUsuario from "../pages/EnrutarUsuario";
 
 const { Header, Content, Footer } = Layout;
 
@@ -31,12 +34,15 @@ function Routing() {
             <Route path="/" element={<Home />} />
             <Route path="admin" element={<Admin />} />
 
+            <Route path="enrutarUsuario" element={<EnrutarUsuario />} />
+            <Route path="profilenuevo" element={<ProfileNuevo />} />
             <Route path="profile" element={<Profile />} />
+
             <Route path="blog" element={<Blog />} />
             <Route path="privacidad" element={<Privacidad />} />
             <Route path="bolsatrabajo" element={<BolsaTrabajo />} />
             <Route path="otraspruebas" element={<OtrasPruebas />} />
-
+            <Route path="usuario" element={<Usuario />} />
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Content>
