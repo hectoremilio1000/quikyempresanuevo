@@ -79,7 +79,7 @@ function CrearPruebas() {
     console.log("Failed:", errorInfo);
   };
   const onFinish = async values => {
-    console.log("esto es imagen", pruebaDetails.imagenPrueba);
+    console.log("esto es imagen", values);
     try {
       // const pruebaDetails = {
       //   id: uuidv4(),
@@ -144,16 +144,28 @@ function CrearPruebas() {
             onFinishFailed={onFinishFailed}
           >
             <Item
+              label="Nombre común"
+              name="nombreComunPrueba"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa el nombre Común",
+                },
+              ]}
+            >
+              <Input placeholder="Tipo de sangre" />
+            </Item>
+            <Item
               label="Nombre Prueba"
               name="nombrePrueba"
               rules={[
                 {
                   required: true,
-                  message: "Por favor ingresa el nombre de la Prueba",
+                  message: "Por favor ingresa el nombre químico de la Prueba",
                 },
               ]}
             >
-              <Input />
+              <Input placeholder="ej: Nombre químico de la prueba" />
             </Item>
             <Item
               label="Categoría Prueba"
@@ -165,7 +177,7 @@ function CrearPruebas() {
                 },
               ]}
             >
-              <Select>
+              <Select placeholder="Hematología">
                 <Option value="pruebaRapida">Prueba Rápida</Option>
                 <Option value="pruebaNoRapida">Prueba no rápida</Option>
               </Select>
@@ -193,7 +205,11 @@ function CrearPruebas() {
                 },
               ]}
             >
-              <Input />
+              <Select placeholder="DANIA YARELI LÓPEZ GONZÁLEZ">
+                <Option value="luzmaría">LUZ MARÍA GARCÍA GARCÍA</Option>
+                <Option value="daniayareli">DANIA YARELI LÓPEZ GONZÁLEZ</Option>
+                <Option value="davidsandoval">DAVID SANDOVAL CHÁVEZ</Option>
+              </Select>
             </Item>
 
             <Item
@@ -206,7 +222,7 @@ function CrearPruebas() {
                 },
               ]}
             >
-              <InputNumber placeholder="precio" prefix="$" />
+              <InputNumber placeholder="120" prefix="$" />
             </Item>
             <Item
               label="Precio Descuento"
@@ -218,7 +234,7 @@ function CrearPruebas() {
                 },
               ]}
             >
-              <InputNumber placeholder="precio" prefix="$" />
+              <InputNumber placeholder="80" prefix="$" />
             </Item>
             <Item
               label="Descripción larga"
@@ -230,7 +246,12 @@ function CrearPruebas() {
                 },
               ]}
             >
-              <TextArea rows={4} />
+              <TextArea
+                rows={4}
+                placeholder="ej: El examen para determinar el grupo sanguíneo se denomina tipificación ABO. Su muestra de sangre se mezcla con anticuerpos contra sangre tipo A y tipo B. Entonces, la muestra se revisa para ver si los glóbulos sanguíneos se pegan o no. Si los glóbulos permanecen juntos, eso significa que la sangre reaccionó con uno de los anticuerpos.
+
+El segundo paso se llama prueba inversa. La parte líquida de la sangre sin células (suero) se mezcla con sangre que se sabe que pertenece al tipo A o al tipo B. Las personas con sangre tipo A tienen anticuerpos anti-B. Las personas que tienen sangre tipo B tienen anticuerpos anti-A. El tipo de sangre O contiene ambos tipos de anticuerpos."
+              />
             </Item>
             <Item
               label="Descripción corta"
@@ -242,7 +263,10 @@ function CrearPruebas() {
                 },
               ]}
             >
-              <TextArea rows={2} />
+              <TextArea
+                rows={2}
+                placeholder="ej: Solicita esta prueba para conocer tu grupo sanguíneo"
+              />
             </Item>
             <Item
               label="Tiempo de entrega"
@@ -254,17 +278,67 @@ function CrearPruebas() {
                 },
               ]}
             >
-              <Input placeholder="Resultados en 24 a 48 horas" />
+              <Input placeholder="ej: Resultados en 24 a 48 horas" />
             </Item>
-            <Item label="Comentarios:" name="comentariosPrueba">
-              <Input placeholder="Prueba post-vacuna o post-infección ..." />
+
+            <Item
+              label="Indicaciones"
+              name="indicacionesprueba"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor escribe la indicación al paciente",
+                },
+              ]}
+            >
+              <TextArea
+                rows={3}
+                placeholder="ej: Recolectar aproximadamente 10 ml (mitad de frasco) de orina (primera o segunda de la mañana) en frasco de plástico estéril. No deben transcurrir más de 2 horas de recolección antes de ir a dejarlo al laboratorio."
+              />
             </Item>
-            <Item label="Tipo de Muestra" name="tipoMuestraPrueba">
-              <Input placeholder="Muestra de sangre" />
+            <Item
+              label="Tipo de Muestra"
+              name="tipoMuestraPrueba"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa el tiempo de entrega",
+                },
+              ]}
+            >
+              <Select placeholder="Heces">
+                <Option value="heces">Heces</Option>
+                <Option value="suero">Suero</Option>
+                <Option value="sangretotal">Sangre total</Option>
+                <Option value="orina">Orina</Option>
+                <Option value="exsudadofaringeo">Exsudado faríngeo</Option>
+                <Option value="exudadonasofaringeo">
+                  Exudado Nasofaríngeo
+                </Option>
+                <Option value="exudadouretral">Exudado Uretral</Option>
+                <Option value="biopsiasorganosespeciales">
+                  Biopsias de organos especiales
+                </Option>
+              </Select>
             </Item>
-            <Item label="Requerimientos extra" name="requerimientoPrueba">
-              <Input placeholder="Pedir vaso para orina..." />
+
+            <Item
+              label="Tipo de Contenedor"
+              name="tipocontenedor"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa el tiempo de contenedor",
+                },
+              ]}
+            >
+              <Select placeholder="Frasco estéril aprox 50 ml">
+                <Option value="frascoesterilaprox50ml">
+                  Frasco estéril aprox 50 ml
+                </Option>
+              </Select>
             </Item>
+
             <Item
               wrapperCol={{
                 offset: 8,
