@@ -14,7 +14,7 @@ import { UploadOutlined } from "@ant-design/icons";
 import { v4 as uuidv4 } from "uuid";
 // import { API, graphqlOperation, Storage } from "aws-amplify";
 // import { createPruebas } from "../../../src/graphql/mutations";
-import config from "../../aws-exports";
+import config from "../../../../../aws-exports";
 
 //import config storage
 const {
