@@ -5,3 +5,7 @@
 .ant-layout-footer {
   padding: 0 !important;
 }
+
+.ant-layout-header {
+  background: #fff !important;
+}

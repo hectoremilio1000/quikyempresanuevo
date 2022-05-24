@@ -26,7 +26,7 @@ function Routing() {
   return (
     <BrowserRouter>
       <Layout className="layout">
-        <Header>
+        <Header className="header">
           <NavBar2 />
         </Header>
         <Content className="site-layout-content">

@@ -84,10 +84,6 @@ function LayoutAdministrador({ user }) {
   const [current, setCurrent] = useState("");
   const [collapsed, setCollapsed] = useState(false);
 
-  const onClick = e => {
-    console.log("click ", e);
-  };
-
   const toggle = () => {
     setCollapsed(!collapsed);
   };

@@ -1,43 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { Menu } from "antd";
+import {
+  SmileOutlined,
+  GlobalOutlined,
+  FileSearchOutlined,
+  DollarCircleOutlined,
+} from "@ant-design/icons";
+
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
+const items = [
+  getItem("Menú", "sub1", null, [
+    getItem("Usuario", "enrutarUsuario", <SmileOutlined />),
+    getItem("Buscador de pruebas", "otraspruebas", <FileSearchOutlined />),
+    getItem("Bolsa de Trabajo", "bolsatrabajo", <DollarCircleOutlined />),
+    getItem("Blog", "blog", <GlobalOutlined />),
+  ]),
+];
 
 function NavBar2() {
-  return (
-    <Navbar bg="light" expand="lg" className="navbar">
-      <Container>
-        <Navbar.Brand className="logo">
-          <Link to="/">
-            <img
-              alt="Quikyempresa"
-              src={
-                "https://imagenesrutalab.s3.amazonaws.com/sanmateo/logo+nuevo/SAN-MATEO.png"
-              }
-              width="140px"
-              height="50px"
-            />
-          </Link>
-        </Navbar.Brand>
+  const [current, setCurrent] = useState("");
+  const navigate = useNavigate();
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="item-nav">
-            <Link to="/enrutarUsuario">Usuario</Link>
-          </Nav>
-          <Nav className="item-nav">
-            <Link to="/otraspruebas">Buscador de pruebas</Link>
-          </Nav>
-          <Nav className="item-nav">
-            <Link to="/bolsatrabajo">Bolsa de trabajo</Link>
-          </Nav>
-          <Nav className="item-nav">
-            <Link to="/blog">Blog</Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+  const cambiarComponent = e => {
+    setCurrent(e.key);
+    navigate(`${e.key}`);
+  };
+  return (
+    <>
+      <div className="logoPrincipal">
+        <Link to="/">
+          <img
+            alt="Quikyempresa"
+            src={
+              "https://imagenesrutalab.s3.amazonaws.com/sanmateo/logo+nuevo/SAN-MATEO.png"
+            }
+            width="140px"
+            height="50px"
+          />
+        </Link>
+      </div>
+      <Menu
+        selectedKeys={current}
+        onClick={cambiarComponent}
+        mode="horizontal"
+        items={items}
+        className="menuPrincipal"
+      />
+    </>
   );
 }
 

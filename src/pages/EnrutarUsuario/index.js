@@ -39,7 +39,7 @@ function EnrutarUsuario() {
 
   if (user) {
     return (
-      <Container>
+      <>
         <LayoutAdministrador user={user} />
 
         <Button
@@ -55,7 +55,7 @@ function EnrutarUsuario() {
         >
           Salir
         </Button>
-      </Container>
+      </>
     );
   }
 
