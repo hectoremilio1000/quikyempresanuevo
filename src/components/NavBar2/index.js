@@ -59,6 +59,7 @@ function NavBar2() {
         mode="horizontal"
         items={items}
         className="menuPrincipal"
+        style={{ minWidth: 100 }}
       />
     </>
   );
