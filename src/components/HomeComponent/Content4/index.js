@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -12,12 +13,16 @@ function Content4() {
         </p>
         <div className="container d-flex justify-content-center col-lg-2 col-md-3 col-6">
           <Link to="/bolsatrabajo">
-            <button
-              type="button"
-              className="btn btn-success btn-lg text-white fs-6"
+            <Button
+              style={{
+                marginTop: 4,
+                backgroundColor: "#00A4CC",
+                borderRadius: 5,
+                color: "white",
+              }}
             >
-              ¡Inscribirme ya!
-            </button>
+              ¡Postularme ya!{" "}
+            </Button>
           </Link>
         </div>
       </div>

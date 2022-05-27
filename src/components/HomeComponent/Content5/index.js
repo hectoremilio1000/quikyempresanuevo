@@ -121,7 +121,7 @@ function Content5() {
       <div>
         <List
           grid={{
-            gutter: 20,
+            gutter: 60,
             xs: 1,
             sm: 2,
             md: 4,
@@ -144,7 +144,7 @@ function Content5() {
             >
               <Card
                 hoverable
-                style={{ width: 240, borderRadius: 10 }}
+                style={{ borderRadius: 10 }}
                 bordered={false}
                 sx={{
                   borderRadius: 10,
@@ -170,7 +170,10 @@ function Content5() {
                 >
                   <a
                     href="https://wa.me/+5219511028474"
-                    style={{ color: "white", textDecoration: "none" }}
+                    style={{
+                      color: "white",
+                      textDecoration: "none",
+                    }}
                   >
                     {" "}
                     ¡Reserva ya!{" "}

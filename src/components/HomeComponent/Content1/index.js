@@ -12,73 +12,65 @@ import "./styles.css";
 
 function Content1() {
   return (
-    <div className="container" style={{ marginBottom: 15, marginTop: 15 }}>
-      <Grid
-        item
-        xs={11}
-        // spacing={3}
-        alignItems="center"
-        sx={{ mx: "auto" }}
-      >
-        <Grid item xs={12} lg={7} sx={{ ml: "auto", mb: 3 }}>
-          <Grid container spacing={3} sx={{ mt: { xs: 0, pd: 3 } }}>
-            <Grid item xs={12} md={6}>
-              <Card
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  boxShadow: "none",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="h5"
-                    component="div"
-                    sx={{ textAlign: "center" }}
-                  >
-                    ¿Quiénes somos?
-                  </Typography>
-                  <Typography
-                    sx={{ mb: 1.5, textAlign: "center" }}
-                    color="text.secondary"
-                  >
-                    Somos una empresa de laboratorios de Test Clínicos
-                    comprometida a ofrecer servicios de Primer Mundo a precios
-                    accesibles para toda la población.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Card
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  boxShadow: "none",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="h5"
-                    component="div"
-                    sx={{ textAlign: "center" }}
-                  >
-                    ¿Cómo podemos dar estos precios?
-                  </Typography>
-                  <Typography
-                    sx={{ mb: 1.5, textAlign: "center" }}
-                    color="text.secondary"
-                  >
-                    Nuestra misión es cuidar del paciente y sus ingresos sobre
-                    todo en esta etapa de pandemia, ofreciendo la mayor
-                    confidencialidad y confiabilidad en cada test clínico.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+    <div style={{ marginBottom: 15, marginTop: 15 }}>
+      <Grid container alignItems="center">
+        <Grid item container xs={12} md={6}>
+          <Grid item xs={12} md={12}>
+            <Card
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                boxShadow: "none",
+              }}
+            >
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="div"
+                  sx={{ textAlign: "center" }}
+                >
+                  ¿Quiénes somos?
+                </Typography>
+                <Typography
+                  sx={{ mb: 1.5, textAlign: "center" }}
+                  color="text.secondary"
+                >
+                  Somos una empresa de laboratorios de Test Clínicos
+                  comprometida a ofrecer servicios de Primer Mundo a precios
+                  accesibles para toda la población.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={12}>
+            <Card
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                boxShadow: "none",
+              }}
+            >
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="div"
+                  sx={{ textAlign: "center" }}
+                >
+                  ¿Cómo podemos dar estos precios?
+                </Typography>
+                <Typography
+                  sx={{ mb: 1.5, textAlign: "center" }}
+                  color="text.secondary"
+                >
+                  Nuestra misión es cuidar del paciente y sus ingresos sobre
+                  todo en esta etapa de pandemia, ofreciendo la mayor
+                  confidencialidad y confiabilidad en cada test clínico.
+                </Typography>
+              </CardContent>
+            </Card>
           </Grid>
         </Grid>
-        <Grid item xs={12} lg={4} sx={{ mx: "auto" }}>
+        <Grid item xs={12} md={6} className="gridFoto">
           <CardMedia
             className="cardFoto"
             image={somePic}

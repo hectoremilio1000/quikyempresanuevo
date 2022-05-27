@@ -37,6 +37,7 @@ import CrearResultado from "../Components/Resultados/CrearResultado/index";
 import ListaResultados from "../Components/Resultados/ListaResultados/index";
 import CrearBlog from "../Components/Blog/CrearBlog/index";
 import ListaBlog from "../Components/Blog/ListaBlogs/index";
+import Cortes from "../Components/Administrador/Cortes";
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -77,6 +78,9 @@ const items = [
   getItem("Blog", "sub6", <HddOutlined />, [
     getItem("Crear Blog", "11", <LaptopOutlined />),
     getItem("Editar Blog", "12", <GroupOutlined />),
+  ]),
+  getItem("Administrador", "sub7", <HddOutlined />, [
+    getItem("Cortes", "13", <LaptopOutlined />),
   ]),
 ];
 
@@ -220,6 +224,13 @@ function LayoutAdministrador({ user }) {
                 style={{ minHeight: 100 }}
               >
                 <ListaBlog />
+              </div>
+            ) : current === "13" ? (
+              <div
+                className="site-layout-background"
+                style={{ minHeight: 100 }}
+              >
+                <Cortes />
               </div>
             ) : (
               <div></div>

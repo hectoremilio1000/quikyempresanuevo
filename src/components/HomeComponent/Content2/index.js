@@ -16,7 +16,7 @@ function Content2() {
           .filter(servicio => servicio.category === "covid")
           .map(servicio => (
             <div
-              className="col-12 col-md-4 pb-4 pl-2 subcontainer1body3"
+              className="col-12 col-xs-4 col-md-4 pb-4 pl-2 subcontainer1body3"
               key={servicio.id}
             >
               <img
