@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "antd";
+import servicios from "../../../../../assets/data2/servicios";
 const columns = [
   {
     title: "Nombre",
@@ -81,11 +82,15 @@ const columns = [
 ];
 
 function ListaPruebas() {
-  const pruebas = [];
   return (
     <>
       <h4 className="p-2">Lista pruebas</h4>
-      <Table dataSource={pruebas} columns={columns} scroll={{ x: 2000 }} />
+      <Table
+        dataSource={servicios}
+        columns={columns}
+        scroll={{ x: 2000 }}
+        rowKey="key"
+      />
     </>
   );
 }
