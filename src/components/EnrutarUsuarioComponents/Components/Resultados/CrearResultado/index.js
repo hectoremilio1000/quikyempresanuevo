@@ -1,7 +1,7 @@
 import React from "react";
 
 function CrearResultado() {
-  return <div>CrearResultado</div>;
+  return <div>CrearResultado final</div>;
 }
 
 export default CrearResultado;
