@@ -8,6 +8,11 @@ import LayoutAdministrador from "../../components/EnrutarUsuarioComponents/Layou
 
 function EnrutarUsuario() {
   const [user, setUser] = useState(null);
+  const [datosUsuario, setDatosUsuario] = useState({
+    sub: "",
+    email: "",
+    grupo: "",
+  });
 
   let navigate = useNavigate();
 
@@ -23,9 +28,8 @@ function EnrutarUsuario() {
 
   async function checkUser() {
     try {
-      const data = await Auth.currentUserPoolUser();
-      const userInfo = { username: data.username, ...data.attributes };
-      setUser(userInfo);
+      const data = await Auth.currentAuthenticatedUser({ bypassCache: true });
+      setUser(data);
     } catch (err) {
       console.log("error: ", err);
     }
@@ -40,7 +44,7 @@ function EnrutarUsuario() {
   if (user) {
     return (
       <>
-        <LayoutAdministrador user={user} />
+        <LayoutAdministrador />
 
         <Button
           onClick={signOut}
@@ -60,6 +64,16 @@ function EnrutarUsuario() {
   }
 
   return <FormOtro setUser={setUser} />;
+
+  // if (user && tipo?.includes("Doctor")) {
+  //   <>hola doctor</>;
+  // }
+  // if (user && tipo?.includes("Paciente")) {
+  //   <>hola paciente</>;
+  // }
+  // if (user && tipo?.includes("Ninguno")) {
+  //   <>hola ninguno</>;
+  // }
 }
 
 export default EnrutarUsuario;

@@ -4,27 +4,15 @@ import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const listData = [];
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: "https://ant.design",
-    title: `ant design part ${i}`,
-    avatar: "https://joeschmoe.io/api/v1/random",
-    description:
-      "Ant Design, a design language for background applications, is refined by Ant UED Team.",
-    content:
-      "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
-  });
-}
-
 const listItems = [
   {
-    href: "http://localhost:3000/blog",
-    title: "Entiende tus resultados de laboratorio",
+    href: "/blog",
+    title: "¿Cuál es la prueba COVID que necesito?",
     avatar: "https://joeschmoe.io/api/v1/random",
-    description: "Sabes cómo entender tus resultados de laboratorio?",
+    description:
+      "¿Sabes cual prueba de COVID es la que debes solicitar en caso de que presentes Síntomas?",
     content:
-      "Entender tus resultados de laboratorio es muy fácil sólo tienes que...",
+      "Es importante entender que la prueba que solicites depende de muchos factores, por ejemplo...",
   },
 ];
 

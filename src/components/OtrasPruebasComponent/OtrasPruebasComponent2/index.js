@@ -152,10 +152,11 @@ class OtrasPruebasComponent2 extends React.Component {
       <Container>
         <div className="pt-4 text-center ps-2 pe-2">
           <h1 className="fw-bold fs-2">
-            Busca la prueba que más necesitas y solicítala
+            Muy pronto podrás encontrar un servicio inteligente para buscar las
+            pruebas que necesites...
           </h1>
         </div>
-        <Table columns={columns} dataSource={data} />
+        {/* <Table columns={columns} dataSource={data} /> */}
       </Container>
     );
   }

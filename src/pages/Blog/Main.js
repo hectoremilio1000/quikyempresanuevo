@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import { Link } from "react-router-dom";
+import { Image } from "antd";
 // import Markdown from "./Markdown";
 
 function Main({ posts, url, title }) {
@@ -30,17 +31,26 @@ function Main({ posts, url, title }) {
           <Typography component="h2" variant="h5">
             {post.title}
           </Typography>
+
           <Typography variant="subtitle1" color="text.secondary">
             {post.date}
           </Typography>
-          <p style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-            {truncate(post.body)}
+          <Typography component="subtitle2" variant="text.secondary">
+            {post.nombre}
+          </Typography>
+          <Image width={"100%"} src={post.image1} />
+          <p
+            style={{ overflow: "hidden", textOverflow: "ellipsis" }}
+            className="mt-4"
+          >
+            {/* {truncate(post.body)} */}
+            {post.body}
           </p>
-          <Link to={`${url}/${post.id}`}>
+          {/* <Link to={`${url}/${post.id}`}>
             <Typography variant="subtitle1" color="primary">
               Continuar leyendo
             </Typography>
-          </Link>
+          </Link> */}
         </div>
       ))}
     </Grid>

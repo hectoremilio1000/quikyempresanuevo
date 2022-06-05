@@ -1,3 +1,32 @@
+enum ROLE {
+  DOCTOR
+  PACIENTE
+  ADMIN
+}
+
+type Pruebas @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String
+  imagen: String
+  categoria: String
+}
+
+enum CATEGORIABLOG {
+  MAIN
+  SUBMAIN
+  NORMAL
+}
+
+type BLOG @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  titulo: String
+  text: String
+  foto: String
+  categoria: CATEGORIABLOG
+  fecha: AWSDate
+  creadoPor: String
+}
+
 type Enfermeras @model @auth(rules: [{allow: public}]) {
   id: ID!
   nombre: String
@@ -19,19 +48,12 @@ type Enfermeras @model @auth(rules: [{allow: public}]) {
   sub: String
 }
 
-enum Roles {
-  DOCTOR
-  PACIENTE
-  ADMIN
-  EMPLEADO
-}
-
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   nombre: String
   email: String
   whatsapp: String
-  role: Roles
+  role: ROLE
   sub: String
 }
  

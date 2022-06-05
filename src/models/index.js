@@ -2,17 +2,25 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
-const Roles = {
+const Role = {
   "DOCTOR": "DOCTOR",
   "PACIENTE": "PACIENTE",
-  "ADMIN": "ADMIN",
-  "EMPLEADO": "EMPLEADO"
+  "ADMIN": "ADMIN"
 };
 
-const { Enfermeras, User } = initSchema(schema);
+const Categoriablog = {
+  "MAIN": "MAIN",
+  "SUBMAIN": "SUBMAIN",
+  "NORMAL": "NORMAL"
+};
+
+const { Pruebas, BLOG, Enfermeras, User } = initSchema(schema);
 
 export {
+  Pruebas,
+  BLOG,
   Enfermeras,
   User,
-  Roles
+  Role,
+  Categoriablog
 };

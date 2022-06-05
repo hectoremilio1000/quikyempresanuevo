@@ -47,5 +47,12 @@
         }
       }
     }
+  },
+  "storage": {
+    "s3quikyempresanuevostorage216a55a9": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
   }
 }

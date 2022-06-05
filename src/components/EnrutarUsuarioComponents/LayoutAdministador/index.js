@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Menu, Typography } from "antd";
 import {
   UserOutlined,
@@ -22,6 +22,9 @@ import {
   HddOutlined,
   GroupOutlined,
   LaptopOutlined,
+  MonitorOutlined,
+  ReconciliationOutlined,
+  ScheduleOutlined,
 } from "@ant-design/icons";
 
 import "./styles.css";
@@ -38,6 +41,12 @@ import ListaResultados from "../Components/Resultados/ListaResultados/index";
 import CrearBlog from "../Components/Blog/CrearBlog/index";
 import ListaBlog from "../Components/Blog/ListaBlogs/index";
 import Cortes from "../Components/Administrador/Cortes";
+import Enfermeras from "../Components/Empleo/Enfermeras";
+import General from "../Components/Empleo/General";
+import { Auth, DataStore } from "aws-amplify";
+import { User } from "../../../models";
+import BaseDatosUsuario from "../Components/BaseDatosUsuario";
+import LayoutPaciente from "../LayoutPaciente";
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -82,11 +91,18 @@ const items = [
   getItem("Administrador", "sub7", <HddOutlined />, [
     getItem("Cortes", "13", <LaptopOutlined />),
   ]),
+  getItem("Empleo", "sub8", <MonitorOutlined />, [
+    getItem("Enfermera", "14", <ReconciliationOutlined />),
+    getItem("General", "15", <ScheduleOutlined />),
+  ]),
 ];
 
-function LayoutAdministrador({ user }) {
+function LayoutAdministrador() {
   const [current, setCurrent] = useState("");
   const [collapsed, setCollapsed] = useState(false);
+  const [authUser, setAuthUser] = useState(null);
+  const [dbUser, setDbUser] = useState(null);
+  const sub = authUser?.attributes?.sub;
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -96,7 +112,31 @@ function LayoutAdministrador({ user }) {
     setCurrent(e.key);
   };
 
-  if (user) {
+  useEffect(() => {
+    Auth.currentAuthenticatedUser({ bypassCache: true }).then(setAuthUser);
+  }, []);
+
+  useEffect(() => {
+    if (!sub) {
+      return;
+    }
+    DataStore.query(User, user => user.sub("eq", sub)).then(users =>
+      setDbUser(users[0])
+    );
+  }, [sub]);
+
+  console.log("nuevo", dbUser);
+  console.log("nuevo 3", dbUser?.role);
+
+  if (dbUser && dbUser.role === "DOCTOR") {
+    return (
+      <>
+        <h1>hola doctor</h1>
+      </>
+    );
+  } else if (dbUser && dbUser.role === "PACIENTE") {
+    return <LayoutPaciente />;
+  } else if (dbUser) {
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -136,7 +176,7 @@ function LayoutAdministrador({ user }) {
             </div>
             <div>
               <p style={{ textAlign: "center" }} className="textAdminHeader">
-                Administrador, hola {user.email}
+                Administrador, hola
               </p>
             </div>
           </Header>
@@ -232,6 +272,20 @@ function LayoutAdministrador({ user }) {
               >
                 <Cortes />
               </div>
+            ) : current === "14" ? (
+              <div
+                className="site-layout-background"
+                style={{ minHeight: 100 }}
+              >
+                <Enfermeras />
+              </div>
+            ) : current === "15" ? (
+              <div
+                className="site-layout-background"
+                style={{ minHeight: 100 }}
+              >
+                <General />
+              </div>
             ) : (
               <div></div>
             )}
@@ -239,9 +293,7 @@ function LayoutAdministrador({ user }) {
         </Layout>
       </Layout>
     );
-  } else {
-    return;
-  }
+  } else return <BaseDatosUsuario sub={sub} />;
 }
 
 export default LayoutAdministrador;

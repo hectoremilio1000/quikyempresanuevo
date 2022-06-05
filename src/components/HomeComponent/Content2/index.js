@@ -31,7 +31,7 @@ function Content2() {
                 <p className="text-center mb-2 muestraCard">
                   {servicio.tipoMuestra}
                 </p>
-                {/* <p className="text-center mb-2">{servicios[0].descripcioncorta}</p> */}
+
                 <p className="text-center mb-2 resultadosCard">
                   {servicio.resultados}
                 </p>

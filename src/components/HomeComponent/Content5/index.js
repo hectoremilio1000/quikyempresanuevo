@@ -32,25 +32,13 @@ const Pasos = [
   },
 ];
 
-const listData = [];
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: "https://ant.design",
-    title: `ant design part ${i}`,
-    avatar: "https://joeschmoe.io/api/v1/random",
-    description:
-      "Ant Design, a design language for background applications, is refined by Ant UED Team.",
-    content:
-      "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
-  });
-}
-
 const DataNew = [
   {
     id: 1,
     nombreprueba: "Grupo Sanguíneo y RH",
     category: "PRUEBA_RAPIDA",
-    imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
+    imagen:
+      "https://img.freepik.com/vector-gratis/examen-sangre-coronavirus_23-2148540142.jpg",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:
@@ -64,16 +52,16 @@ const DataNew = [
   },
   {
     id: 2,
-    nombreprueba: "Grupo Sanguíneo y RH",
+    nombreprueba: "Prueba Antidoping (6 drogas)",
     category: "PRUEBA_RAPIDA",
     imagen:
-      "https://imagenesrutalab.s3.amazonaws.com/sanmateo/servicios/anticuerpos.jpg",
+      "https://img.freepik.com/vector-gratis/prueba-orina-chequeo-enfermedades-hospital-o-laboratorio-clinico_87771-10493.jpg",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:
       "Es un método para indicarle cuál es el tipo de sangre que usted tiene. La determinación del grupo sanguíneo se realiza para que usted pueda donar sangre o recibir una transfusión de sangre de manera segura. También se realiza para ver si usted posee una sustancia llamada factor Rh en la superficie de sus glóbulos rojos. No se requiere ayuno para esta prueba.",
     descripcioncorta:
-      "Pide esta prueba si quieres saber que tipo de sangre y factor Rh eres.",
+      "Prueba en la cual se hace la detección de 6 tipos de drogas en el cuerpo humano.",
     resultados: "RESULTADOS EN dos horas",
     comentarios: "Es fundamental saber que tipo de sangre y factor contamos.",
     tipoMuestra: "Muestra sanguínea",
@@ -81,16 +69,16 @@ const DataNew = [
   },
   {
     id: 3,
-    nombreprueba: "Grupo Sanguíneo y RH",
+    nombreprueba: "Glucosa Capilar",
     category: "PRUEBA_RAPIDA",
     imagen:
-      "https://imagenesrutalab.s3.amazonaws.com/sanmateo/servicios/PCR.jpg",
+      "https://img.freepik.com/vector-gratis/ilustracion-concepto-diabetes_114360-3670.jpg",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:
       "Es un método para indicarle cuál es el tipo de sangre que usted tiene. La determinación del grupo sanguíneo se realiza para que usted pueda donar sangre o recibir una transfusión de sangre de manera segura. También se realiza para ver si usted posee una sustancia llamada factor Rh en la superficie de sus glóbulos rojos. No se requiere ayuno para esta prueba.",
     descripcioncorta:
-      "Pide esta prueba si quieres saber que tipo de sangre y factor Rh eres.",
+      "Esta prueba es una medición de glucosa de manera rápida por medio de un glucómetro",
     resultados: "RESULTADOS EN dos horas",
     comentarios: "Es fundamental saber que tipo de sangre y factor contamos.",
     tipoMuestra: "Muestra sanguínea",
@@ -98,15 +86,16 @@ const DataNew = [
   },
   {
     id: 4,
-    nombreprueba: "Grupo Sanguíneo y RH",
+    nombreprueba: "Biometría Hemática",
     category: "PRUEBA_RAPIDA",
-    imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
+    imagen:
+      "https://img.freepik.com/vector-gratis/ilustracion-concepto-desarrollo-vacunas_114360-2233.jpg",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:
       "Es un método para indicarle cuál es el tipo de sangre que usted tiene. La determinación del grupo sanguíneo se realiza para que usted pueda donar sangre o recibir una transfusión de sangre de manera segura. También se realiza para ver si usted posee una sustancia llamada factor Rh en la superficie de sus glóbulos rojos. No se requiere ayuno para esta prueba.",
     descripcioncorta:
-      "Pide esta prueba si quieres saber que tipo de sangre y factor Rh eres.",
+      "Este examen se hace a la sangre e inspecciona las células que la componen y están presentes en ella.",
     resultados: "RESULTADOS EN dos horas",
     comentarios: "Es fundamental saber que tipo de sangre y factor contamos.",
     tipoMuestra: "Muestra sanguínea",

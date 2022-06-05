@@ -1,13 +1,26 @@
 import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
 
-export enum Roles {
+export enum Role {
   DOCTOR = "DOCTOR",
   PACIENTE = "PACIENTE",
-  ADMIN = "ADMIN",
-  EMPLEADO = "EMPLEADO"
+  ADMIN = "ADMIN"
+}
+
+export enum Categoriablog {
+  MAIN = "MAIN",
+  SUBMAIN = "SUBMAIN",
+  NORMAL = "NORMAL"
 }
 
 
+
+type PruebasMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type BLOGMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
 
 type EnfermerasMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
@@ -15,6 +28,31 @@ type EnfermerasMetaData = {
 
 type UserMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class Pruebas {
+  readonly id: string;
+  readonly nombre?: string | null;
+  readonly imagen?: string | null;
+  readonly categoria?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<Pruebas, PruebasMetaData>);
+  static copyOf(source: Pruebas, mutator: (draft: MutableModel<Pruebas, PruebasMetaData>) => MutableModel<Pruebas, PruebasMetaData> | void): Pruebas;
+}
+
+export declare class BLOG {
+  readonly id: string;
+  readonly titulo?: string | null;
+  readonly text?: string | null;
+  readonly foto?: string | null;
+  readonly categoria?: Categoriablog | keyof typeof Categoriablog | null;
+  readonly fecha?: string | null;
+  readonly creadoPor?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<BLOG, BLOGMetaData>);
+  static copyOf(source: BLOG, mutator: (draft: MutableModel<BLOG, BLOGMetaData>) => MutableModel<BLOG, BLOGMetaData> | void): BLOG;
 }
 
 export declare class Enfermeras {
@@ -47,7 +85,7 @@ export declare class User {
   readonly nombre?: string | null;
   readonly email?: string | null;
   readonly whatsapp?: string | null;
-  readonly role?: Roles | keyof typeof Roles | null;
+  readonly role?: Role | keyof typeof Role | null;
   readonly sub?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;

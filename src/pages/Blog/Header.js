@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -8,7 +7,8 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 
 function Header(props) {
-  const { sections, title } = props;
+  const { title } = props;
+  const { sections } = props;
 
   return (
     <React.Fragment>
@@ -29,31 +29,21 @@ function Header(props) {
         variant="dense"
         sx={{ justifyContent: "space-between", overflowX: "auto" }}
       >
-        {sections.map(section => (
+        {/* {sections.map(item => (
           <Link
             color="inherit"
             noWrap
-            key={section.title}
+            key={item[2]}
             variant="body2"
-            href={section.url}
+            href={item[1]}
             sx={{ p: 1, flexShrink: 0 }}
           >
-            {section.title}
+            {item[0]}
           </Link>
-        ))}
+        ))} */}
       </Toolbar>
     </React.Fragment>
   );
 }
-
-Header.propTypes = {
-  sections: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default Header;

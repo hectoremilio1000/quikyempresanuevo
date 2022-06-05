@@ -1,5 +1,174 @@
 export const schema = {
     "models": {
+        "Pruebas": {
+            "name": "Pruebas",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "nombre": {
+                    "name": "nombre",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "imagen": {
+                    "name": "imagen",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "categoria": {
+                    "name": "categoria",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Pruebas",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "BLOG": {
+            "name": "BLOG",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "titulo": {
+                    "name": "titulo",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "text": {
+                    "name": "text",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "foto": {
+                    "name": "foto",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "categoria": {
+                    "name": "categoria",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Categoriablog"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "fecha": {
+                    "name": "fecha",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "creadoPor": {
+                    "name": "creadoPor",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "BLOGS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Enfermeras": {
             "name": "Enfermeras",
             "fields": {
@@ -206,7 +375,7 @@ export const schema = {
                     "name": "role",
                     "isArray": false,
                     "type": {
-                        "enum": "Roles"
+                        "enum": "Role"
                     },
                     "isRequired": false,
                     "attributes": []
@@ -262,16 +431,23 @@ export const schema = {
         }
     },
     "enums": {
-        "Roles": {
-            "name": "Roles",
+        "Role": {
+            "name": "Role",
             "values": [
                 "DOCTOR",
                 "PACIENTE",
-                "ADMIN",
-                "EMPLEADO"
+                "ADMIN"
+            ]
+        },
+        "Categoriablog": {
+            "name": "Categoriablog",
+            "values": [
+                "MAIN",
+                "SUBMAIN",
+                "NORMAL"
             ]
         }
     },
     "nonModels": {},
-    "version": "46c6ddad70c00bd88eda284491d225ae"
+    "version": "518a313f7044933ed0f4c910a6945cf1"
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "antd";
-import servicios from "../../../../../assets/data2/servicios";
+import servicios from "../../../../../assets/data2/servicios2";
 const columns = [
   {
     title: "Nombre",
