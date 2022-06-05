@@ -135,7 +135,7 @@ function LayoutAdministrador() {
       </>
     );
   } else if (dbUser && dbUser.role === "PACIENTE") {
-    return <LayoutPaciente />;
+    return <LayoutPaciente dbUser={dbUser} />;
   } else if (dbUser) {
     return (
       <Layout>

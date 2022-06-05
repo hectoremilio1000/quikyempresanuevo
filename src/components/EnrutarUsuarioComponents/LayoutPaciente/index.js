@@ -3,30 +3,12 @@ import React, { useState } from "react";
 import ListaPruebas from "../ComponentsPaciente/ListaPruebas/index";
 import SolicitarPruebas from "../ComponentsPaciente/SolicitarPruebas/index";
 import {
-  UserOutlined,
   MedicineBoxOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UnorderedListOutlined,
-  ContactsOutlined,
-  ReadOutlined,
-  BranchesOutlined,
-  ContainerOutlined,
-  HighlightOutlined,
-  AppstoreOutlined,
-  FolderAddOutlined,
   PlusCircleOutlined,
   SmileOutlined,
-  TeamOutlined,
-  FilePdfOutlined,
-  FileSearchOutlined,
-  FileDoneOutlined,
-  HddOutlined,
-  GroupOutlined,
-  LaptopOutlined,
   MonitorOutlined,
-  ReconciliationOutlined,
-  ScheduleOutlined,
 } from "@ant-design/icons";
 
 const { Header, Content, Sider } = Layout;
@@ -94,7 +76,7 @@ function LayoutPaciente({ dbUser }) {
           </div>
           <div>
             <p style={{ textAlign: "center" }} className="textAdminHeader">
-              Hola Paciente {dbUser ? <h1>{dbUser.nombre}</h1> : <></>}
+              Hola Paciente {dbUser ? <p>{dbUser.nombre}</p> : <></>}
             </p>
           </div>
         </Header>
