@@ -76,7 +76,7 @@ function LayoutPaciente({ dbUser }) {
           </div>
           <div>
             <p style={{ textAlign: "center" }} className="textAdminHeader">
-              Hola Paciente {dbUser ? <p>{dbUser.nombre}</p> : <></>}
+              Hola Paciente {dbUser ? <>{dbUser.nombre}</> : <></>}
             </p>
           </div>
         </Header>
@@ -87,7 +87,7 @@ function LayoutPaciente({ dbUser }) {
             </div>
           ) : current === "2" ? (
             <div className="site-layout-background" style={{ minHeight: 100 }}>
-              <SolicitarPruebas />
+              <SolicitarPruebas dbUser={dbUser} />
             </div>
           ) : current === "3" ? (
             <div className="site-layout-background" style={{ minHeight: 100 }}>

@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import pdf from "../../../../../../assets/estudios/resultadoPCRCOVIDGUILLERMO.pdf";
-import { Worker } from "@react-pdf-viewer/core";
-import { Viewer } from "@react-pdf-viewer/core";
-import "@react-pdf-viewer/core/lib/styles/index.css";
 import { useParams } from "react-router-dom";
 
-import { Layout, Menu } from "antd";
-import ListaPruebas from "../../../ListaPruebas/index";
-import SolicitarPruebas from "../../../SolicitarPruebas/index";
+import { Layout } from "antd";
 
 import {
   MedicineBoxOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
   PlusCircleOutlined,
   SmileOutlined,
   MonitorOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
 } from "@ant-design/icons";
 
 const { Header, Content, Sider } = Layout;
@@ -30,29 +25,47 @@ function getItem(label, key, icon, children, type) {
   };
 }
 
-const items = [
-  getItem("Pruebas", "sub1", <MedicineBoxOutlined />, [
-    getItem("Lista Pruebas", "1", <MonitorOutlined />),
-    getItem("Solicitar Pruebas", "2", <PlusCircleOutlined />),
-  ]),
-
-  getItem("Profie", "3", <SmileOutlined />),
-];
-
 function VerPrueba() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggle = () => {
+    setCollapsed(!collapsed);
+  };
+
   const { id } = useParams();
+
   return (
-    <div
-      style={{
-        border: "1px solid rgba(0, 0, 0, 0.3)",
-        height: "750px",
-      }}
-    >
-      <p className="fs-5">Estudio {id}</p>
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">
-        <Viewer fileUrl={pdf} />;
-      </Worker>
-    </div>
+    <Layout>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="logo" />
+      </Sider>
+      <Layout>
+        <Header
+          className="site-layout-sub-header-background"
+          style={{
+            padding: 0,
+            height: 100,
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          <div>
+            {React.createElement(
+              collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+              {
+                className: "trigger hamburguesaMenu",
+                onClick: toggle,
+              }
+            )}
+          </div>
+          <div>
+            <p style={{ textAlign: "center" }} className="textAdminHeader">
+              Estudio {id}
+            </p>
+          </div>
+        </Header>
+      </Layout>
+    </Layout>
   );
 }
 

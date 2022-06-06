@@ -57,7 +57,7 @@ function EnrutarUsuario() {
             borderStyle: "solid",
           }}
         >
-          Salir
+          Cerrar Sesión
         </Button>
       </>
     );

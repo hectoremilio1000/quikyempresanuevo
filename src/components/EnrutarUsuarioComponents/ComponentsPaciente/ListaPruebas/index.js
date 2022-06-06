@@ -19,7 +19,9 @@ const columns = [
     dataIndex: "pdf",
     key: "pdf",
     render: pdf => (
-      <h5 className="text-center bg-primary text-white badge">Ver pdf</h5>
+      <button type="button" className="btn btn-primary">
+        Ver PDF
+      </button>
     ),
   },
 ];

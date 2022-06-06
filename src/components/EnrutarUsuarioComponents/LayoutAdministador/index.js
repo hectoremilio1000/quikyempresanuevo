@@ -113,7 +113,7 @@ function LayoutAdministrador() {
   };
 
   useEffect(() => {
-    Auth.currentAuthenticatedUser({ bypassCache: true }).then(setAuthUser);
+    Auth.currentAuthenticatedUser().then(setAuthUser);
   }, []);
 
   useEffect(() => {
@@ -125,18 +125,15 @@ function LayoutAdministrador() {
     );
   }, [sub]);
 
-  console.log("nuevo", dbUser);
-  console.log("nuevo 3", dbUser?.role);
-
   if (dbUser && dbUser.role === "DOCTOR") {
     return (
       <>
-        <h1>hola doctor</h1>
+        <h1>hola doctor, aún estamos trabajando en tu módulo</h1>
       </>
     );
   } else if (dbUser && dbUser.role === "PACIENTE") {
     return <LayoutPaciente dbUser={dbUser} />;
-  } else if (dbUser) {
+  } else if (dbUser && dbUser.role === "ADMIN") {
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
