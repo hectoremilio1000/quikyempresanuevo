@@ -9,22 +9,19 @@ import EnrutarUsuario from "../../pages/EnrutarUsuario";
 import Profile from "../../pages/Profile";
 import Privacidad from "../../pages/Privacidad";
 import Home from "../../pages/Home";
-import Admin from "../../pages/Admin/index";
-import Enfermeras from "../EnrutarUsuarioComponents/Components/Empleo/Enfermeras/index";
 import VerPrueba from "../EnrutarUsuarioComponents/ComponentsPaciente/ListaPruebas/ListaEstudios/VerPrueba/index";
+import Administrador from "../../pages/Administrador/index";
 
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="admin" element={<Admin />} />
 
       <Route path="enrutarUsuario" element={<EnrutarUsuario />} />
       <Route path="enrutarUsuario/paciente/:id" element={<VerPrueba />} />
       <Route path="profilenuevo" element={<ProfileNuevo />} />
       <Route path="profile" element={<Profile />} />
-
-      <Route path="profile" element={<Profile />} />
+      <Route path="admin" element={<Administrador />} />
 
       <Route path="blog" element={<Blog />} />
       <Route path="blog/:id" element={<Blog />} />

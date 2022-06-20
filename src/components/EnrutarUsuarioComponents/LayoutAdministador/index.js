@@ -132,8 +132,8 @@ function LayoutAdministrador() {
       </>
     );
   } else if (dbUser && dbUser.role === "PACIENTE") {
-    return <LayoutPaciente dbUser={dbUser} />;
-  } else if (dbUser && dbUser.role === "ADMIN") {
+    // return <LayoutPaciente dbUser={dbUser} />;
+    // } else if (dbUser && dbUser.role === "ADMIN") {
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
