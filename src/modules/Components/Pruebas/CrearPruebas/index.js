@@ -10,7 +10,6 @@ import {
   Upload,
 } from "antd";
 import React, { useState } from "react";
-import { UploadOutlined } from "@ant-design/icons";
 const { Title } = Typography;
 const { Item } = Form;
 const { Option } = Select;

@@ -7,8 +7,6 @@ import { DataStore, Auth } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import { User } from "../../models";
 
-import Form from "../../components/Admin/Form/Form";
-
 //navigation
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -53,8 +51,6 @@ function Profile() {
   useEffect(() => {
     checarDatos();
   }, [sub]);
-
-  const [form] = Form.useForm();
 
   const onFinish = values => {
     try {
