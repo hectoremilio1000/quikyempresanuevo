@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import pdf from "../../../../../assets/estudios/resultadoPCRCOVIDGUILLERMO.pdf";
+import pdf from "../../../../../../assets/estudios/resultadoPCRCOVIDGUILLERMO.pdf";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -45,12 +45,13 @@ function VerPrueba() {
           padding: 0,
           height: "80vh",
           justifyContent: "space-around",
+          marginBottom: 100,
         }}
       >
         <Button variant="info" onClick={() => navigate(-1)}>
           Regresar
         </Button>
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <div style={{ marginBottom: 20 }}>
           <p
             style={{ textAlign: "center", lineHeight: "0", marginBottom: "0" }}
             className="textAdminHeader"
@@ -58,8 +59,12 @@ function VerPrueba() {
             Estudio {id}
           </p>
         </div>
+        {/* <div>
+          <embed src={pdf} width="100%" height="80vh" />
+        </div> */}
+
         <div>
-          <h2>ver estudio</h2>
+          <iframe src={pdf} style={{ width: "100%", height: "80vh" }}></iframe>
         </div>
       </Header>
     </Container>

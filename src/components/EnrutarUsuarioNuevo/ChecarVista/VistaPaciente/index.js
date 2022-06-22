@@ -29,7 +29,7 @@ const items = [
     getItem("Solicitar Pruebas", "2", <PlusCircleOutlined />),
   ]),
 
-  getItem("Profie", "3", <SmileOutlined />),
+  // getItem("Profie", "3", <SmileOutlined />),
 ];
 
 function VistaPaciente({ dbUser }) {
@@ -90,13 +90,14 @@ function VistaPaciente({ dbUser }) {
             <div className="site-layout-background" style={{ minHeight: 100 }}>
               <SolicitarPruebas dbUser={dbUser} />
             </div>
-          ) : current === "3" ? (
-            <div className="site-layout-background" style={{ minHeight: 100 }}>
-              Profile
-            </div>
           ) : (
             <div></div>
           )}
+          {/* ) : current === "3" ? (
+            <div className="site-layout-background" style={{ minHeight: 100 }}>
+              Profile
+            </div>
+          ) */}
         </Content>
       </Layout>
     </Layout>
