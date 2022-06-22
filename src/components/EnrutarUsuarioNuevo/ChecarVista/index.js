@@ -2,7 +2,8 @@ import React from "react";
 import VistaPaciente from "./VistaPaciente";
 import VistaDoctor from "./VistaDoctor/index";
 
-function ChecarVista({ role, dbUser }) {
+function ChecarVista(dbUser) {
+  let role = dbUser?.role;
   return (
     <>
       {role === "PACIENTE" ? (

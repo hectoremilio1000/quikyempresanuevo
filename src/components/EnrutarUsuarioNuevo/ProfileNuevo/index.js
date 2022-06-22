@@ -16,7 +16,7 @@ const layout = {
   },
 };
 
-function ProfileNuevo({ sub, setDbUser, dbUser }) {
+function ProfileNuevo({ sub, setDbUser }) {
   const onFinish = async values => {
     try {
       const user = await DataStore.save(

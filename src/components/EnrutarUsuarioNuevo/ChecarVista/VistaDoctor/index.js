@@ -75,7 +75,7 @@ function VistaDoctor({ dbUser }) {
           </div>
           <div>
             <p style={{ textAlign: "center" }} className="textAdminHeader">
-              Hola Paciente {dbUser ? <>{dbUser.nombre}</> : <></>}
+              Hola Doctor {dbUser.dbUser.nombre}
             </p>
           </div>
         </Header>

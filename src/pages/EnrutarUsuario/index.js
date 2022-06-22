@@ -33,26 +33,28 @@ function EnrutarUsuario({ signOut, user }) {
   const sub = authUser?.attributes?.sub;
 
   useEffect(() => {
-    Auth.currentAuthenticatedUser().then(setAuthUser);
+    Auth.currentAuthenticatedUser({
+      bypassCache: false, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+    })
+      .then(setAuthUser)
+      .catch(err => console.log(err));
   }, []);
 
   useEffect(() => {
-    if (sub) {
-      DataStore.query(User, user => user.sub("eq", sub)).then(users =>
-        setDbUser(users[0])
-      );
+    if (!sub) {
+      return;
     }
+    DataStore.query(User, user => user.sub("eq", sub)).then(users =>
+      setDbUser(users[0])
+    );
+
     return;
   }, [sub]);
 
-  console.log(dbUser);
-
-  const role = dbUser?.role;
-
-  if (dbUser && role) {
+  if (!dbUser) {
     return (
       <>
-        <ChecarVista role={role} dbUser={dbUser} />
+        <ProfileNuevo sub={sub} setDbUser={setDbUser} />
         <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
           Cerrar Sesión
         </Button>
@@ -61,7 +63,7 @@ function EnrutarUsuario({ signOut, user }) {
   } else {
     return (
       <>
-        <ProfileNuevo sub={sub} setDbUser={setDbUser} dbUser={dbUser} />
+        <ChecarVista dbUser={dbUser} />
         <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
           Cerrar Sesión
         </Button>
