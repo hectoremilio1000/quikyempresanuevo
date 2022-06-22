@@ -1,5 +1,6 @@
 import React from "react";
 import VistaPaciente from "./VistaPaciente";
+import VistaDoctor from "./VistaDoctor/index";
 
 function ChecarVista({ role, dbUser }) {
   return (
@@ -9,7 +10,7 @@ function ChecarVista({ role, dbUser }) {
           <VistaPaciente dbUser={dbUser} />
         </>
       ) : (
-        <>hola doctor</>
+        <VistaDoctor dbUser={dbUser} />
       )}
     </>
   );
