@@ -3,7 +3,8 @@ import VistaPaciente from "./VistaPaciente";
 import VistaDoctor from "./VistaDoctor/index";
 
 function ChecarVista(dbUser) {
-  let role = dbUser?.role;
+  let role = dbUser?.dbUser?.role;
+  console.log(role);
   return (
     <>
       {role === "PACIENTE" ? (
