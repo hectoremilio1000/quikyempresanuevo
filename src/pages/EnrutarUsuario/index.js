@@ -41,39 +41,50 @@ function EnrutarUsuario({ signOut, user }) {
   }, []);
 
   useEffect(() => {
-    if (sub) {
-      DataStore.query(User, user => user.sub("eq", sub)).then(users =>
-        setDbUser(users[0])
-      );
+    if (!sub) {
+      return;
     }
-    return;
+    DataStore.query(User, user => user.sub("eq", sub)).then(users =>
+      setDbUser(users[0])
+    );
   }, [sub]);
 
-  if (dbUser) {
-    return (
-      <>
-        {/* <ChecarVista dbUser={dbUser} /> */}
-        hola1
-        <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
-          Cerrar Sesión
-        </Button>
-      </>
-    );
+  console.log(sub);
+
+  {
+    /* <ChecarVista dbUser={dbUser} /> */
   }
 
   return (
     <>
-      <ProfileNuevo
-        sub={sub}
-        setDbUser={setDbUser}
-        dbUser={dbUser}
-        setAuthUser={setAuthUser}
-      />
+      {dbUser ? <>hola1</> : <>hola2</>}
       <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
         Cerrar Sesión
       </Button>
     </>
   );
 }
+
+//   {dbUser ? (
+//     <>
+//       hola1
+//       <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
+//         Cerrar Sesión
+//       </Button>
+//     </>
+//   ) :  (
+//   <>
+//     <ProfileNuevo
+//       // sub={sub}
+//       // setDbUser={setDbUser}
+//       // dbUser={dbUser}
+//       // setAuthUser={setAuthUser}
+//     />
+//     <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
+//       Cerrar Sesión
+//     </Button>
+//   </>
+// )}
+// )
 
 export default withAuthenticator(EnrutarUsuario);

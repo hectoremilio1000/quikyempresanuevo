@@ -17,30 +17,11 @@ const layout = {
   },
 };
 
-function ProfileNuevo({ sub, setDbUser, dbUser, setAuthUser }) {
+function ProfileNuevo({ sub, setDbUser, dbUser }) {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [role, setRole] = useState("");
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    Auth.currentAuthenticatedUser({
-      bypassCache: false, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-    })
-      .then(setAuthUser)
-      .catch(err => console.log(err));
-  }, []);
-
-  useEffect(() => {
-    if (sub) {
-      DataStore.query(User, user => user.sub("eq", sub)).catch(error =>
-        console.log(error)
-      );
-    }
-    return;
-  }, [sub]);
 
   const onSave = async () => {
     try {
@@ -80,50 +61,47 @@ function ProfileNuevo({ sub, setDbUser, dbUser, setAuthUser }) {
   //   }
   // };
 
-  if (!dbUser) {
-    return (
-      <div style={{ margin: 20 }}>
-        <p className="display-6 text-center">Por favor ingresa tus datos</p>
+  return (
+    <div style={{ margin: 20 }}>
+      <p className="display-6 text-center">Por favor ingresa tus datos</p>
 
-        <Input
-          value={nombre}
-          onChange={e => setNombre(e.target.value)}
-          placeholder="Nombre Completo"
-          style={styles.input}
-        />
+      <Input
+        value={nombre}
+        onChange={e => setNombre(e.target.value)}
+        placeholder="Nombre Completo"
+        style={styles.input}
+      />
 
-        <Input
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="Email"
-          style={styles.input}
-        />
+      <Input
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        placeholder="Email"
+        style={styles.input}
+      />
 
-        <Input
-          value={whatsapp}
-          onChange={e => setWhatsapp(e.target.value)}
-          placeholder="whatsapp"
-          style={styles.input}
-        />
+      <Input
+        value={whatsapp}
+        onChange={e => setWhatsapp(e.target.value)}
+        placeholder="whatsapp"
+        style={styles.input}
+      />
 
-        <Select
-          placeholder="Selecciona tu role"
-          onChange={value => {
-            setRole(value);
-          }}
-        >
-          <Option value="DOCTOR">Doctor</Option>
-          <Option value="PACIENTE">Paciente</Option>
-        </Select>
-        <div>
-          <Button title="Save" onClick={onSave}>
-            Guardar
-          </Button>
-        </div>
+      <Select
+        placeholder="Selecciona tu role"
+        onChange={value => {
+          setRole(value);
+        }}
+      >
+        <Option value="DOCTOR">Doctor</Option>
+        <Option value="PACIENTE">Paciente</Option>
+      </Select>
+      <div>
+        <Button title="Save" onClick={onSave}>
+          Guardar
+        </Button>
       </div>
-    );
-  }
-  return;
+    </div>
+  );
 }
 
 const styles = {
