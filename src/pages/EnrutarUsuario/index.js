@@ -49,30 +49,31 @@ function EnrutarUsuario({ signOut, user }) {
     return;
   }, [sub]);
 
-  if (!dbUser) {
+  if (dbUser) {
     return (
       <>
-        <ProfileNuevo
-          sub={sub}
-          setDbUser={setDbUser}
-          dbUser={dbUser}
-          setAuthUser={setAuthUser}
-        />
-        <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
-          Cerrar Sesión
-        </Button>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <ChecarVista dbUser={dbUser} />
+        {/* <ChecarVista dbUser={dbUser} /> */}
+        hola1
         <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
           Cerrar Sesión
         </Button>
       </>
     );
   }
+
+  return (
+    <>
+      <ProfileNuevo
+        sub={sub}
+        setDbUser={setDbUser}
+        dbUser={dbUser}
+        setAuthUser={setAuthUser}
+      />
+      <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
+        Cerrar Sesión
+      </Button>
+    </>
+  );
 }
 
 export default withAuthenticator(EnrutarUsuario);
