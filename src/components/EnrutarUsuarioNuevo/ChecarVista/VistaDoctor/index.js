@@ -5,7 +5,6 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   PlusCircleOutlined,
-  SmileOutlined,
   MonitorOutlined,
 } from "@ant-design/icons";
 import ListaPacientes from "./ListaPacientes";

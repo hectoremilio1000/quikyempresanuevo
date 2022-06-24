@@ -41,20 +41,23 @@ function EnrutarUsuario({ signOut, user }) {
   }, []);
 
   useEffect(() => {
-    if (!sub) {
-      return;
+    if (sub) {
+      DataStore.query(User, user => user.sub("eq", sub)).then(users =>
+        setDbUser(users[0])
+      );
     }
-    DataStore.query(User, user => user.sub("eq", sub)).then(users =>
-      setDbUser(users[0])
-    );
-
     return;
   }, [sub]);
 
   if (!dbUser) {
     return (
       <>
-        <ProfileNuevo sub={sub} setDbUser={setDbUser} />
+        <ProfileNuevo
+          sub={sub}
+          setDbUser={setDbUser}
+          dbUser={dbUser}
+          setAuthUser={setAuthUser}
+        />
         <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
           Cerrar Sesión
         </Button>

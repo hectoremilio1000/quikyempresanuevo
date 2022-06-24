@@ -4,7 +4,7 @@ import VistaDoctor from "./VistaDoctor/index";
 
 function ChecarVista(dbUser) {
   let role = dbUser?.dbUser?.role;
-  console.log(role);
+
   return (
     <>
       {role === "PACIENTE" ? (

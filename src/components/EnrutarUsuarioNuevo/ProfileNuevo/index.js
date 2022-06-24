@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Input, Button, Select, message, Form } from "antd";
+import { Input, Button, Select, message, Text } from "antd";
 import "./styles.css";
 import { DataStore, Auth } from "aws-amplify";
 import { Container } from "react-bootstrap";
 import { User } from "../../../models";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 
@@ -16,109 +17,128 @@ const layout = {
   },
 };
 
-function ProfileNuevo({ sub, setDbUser }) {
-  const onFinish = async values => {
+function ProfileNuevo({ sub, setDbUser, dbUser, setAuthUser }) {
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [role, setRole] = useState("");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    Auth.currentAuthenticatedUser({
+      bypassCache: false, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+    })
+      .then(setAuthUser)
+      .catch(err => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    if (sub) {
+      DataStore.query(User, user => user.sub("eq", sub)).catch(error =>
+        console.log(error)
+      );
+    }
+    return;
+  }, [sub]);
+
+  const onSave = async () => {
     try {
       const user = await DataStore.save(
         new User({
-          nombre: values.nombreUsuario,
-          email: values.emailUsuario,
-          whatsapp: values.whatsUsuario,
-          role: values.roleUsuario,
+          nombre: nombre,
+          email: email,
+          whatsapp: whatsapp,
+          role: role,
           sub: sub,
         })
       );
       setDbUser(user);
 
-      message.info("gracias por registrar tus datos");
+      console.log("enviado");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const onFinishFailed = errorInfo => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinish = async values => {
+  //   try {
+  //     const user = await DataStore.save(
+  //       new User({
+  //         nombre: values.nombreUsuario,
+  //         email: values.emailUsuario,
+  //         whatsapp: values.whatsUsuario,
+  //         role: values.roleUsuario,
+  //         sub: sub,
+  //       })
+  //     );
+  //     setDbUser(user);
 
-  return (
-    <Container style={{ marginTop: 20 }}>
-      <p className="display-6 text-center">Por favor ingresa tus datos</p>
-      <Form
-        name="control-hooks"
-        {...layout}
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <Form.Item
-          label="Nombre Completo"
-          name="nombreUsuario"
-          rules={[
-            {
-              required: true,
-              message: "Por favor escribe tu nombre completo",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Email:"
-          name="emailUsuario"
-          rules={[
-            {
-              required: true,
-              message: "Por favor ingresa tu email",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
+  //     message.info("gracias por registrar tus datos");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-        <Form.Item
-          label="Whats:"
-          name="whatsUsuario"
-          rules={[
-            {
-              required: true,
-              message: "Por favor ingresa tu whatsapp",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
+  if (!dbUser) {
+    return (
+      <div style={{ margin: 20 }}>
+        <p className="display-6 text-center">Por favor ingresa tus datos</p>
 
-        <Form.Item
-          label="Role"
-          name="roleUsuario"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Select placeholder="Selecciona tu role" allowClear>
-            <Option value="DOCTOR">Doctor</Option>
-            <Option value="PACIENTE">Paciente</Option>
-          </Select>
-        </Form.Item>
+        <Input
+          value={nombre}
+          onChange={e => setNombre(e.target.value)}
+          placeholder="Nombre Completo"
+          style={styles.input}
+        />
 
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
+        <Input
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="Email"
+          style={styles.input}
+        />
+
+        <Input
+          value={whatsapp}
+          onChange={e => setWhatsapp(e.target.value)}
+          placeholder="whatsapp"
+          style={styles.input}
+        />
+
+        <Select
+          placeholder="Selecciona tu role"
+          onChange={value => {
+            setRole(value);
           }}
         >
-          <Button type="primary" htmlType="submit">
-            Registrarme
+          <Option value="DOCTOR">Doctor</Option>
+          <Option value="PACIENTE">Paciente</Option>
+        </Select>
+        <div>
+          <Button title="Save" onClick={onSave}>
+            Guardar
           </Button>
-        </Form.Item>
-      </Form>
-    </Container>
-  );
+        </div>
+      </div>
+    );
+  }
+  return;
 }
+
+const styles = {
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: "center",
+    margin: 10,
+  },
+  input: {
+    margin: 10,
+    backgroundColor: "white",
+    padding: 8,
+    borderRadius: 5,
+  },
+};
 
 export default ProfileNuevo;
