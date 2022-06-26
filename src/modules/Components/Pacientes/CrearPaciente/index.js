@@ -81,15 +81,58 @@ function CrearPaciente() {
             <Input />
           </Item>
 
+          <Item
+              label="Sexo"
+              name="sexo"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa el sexo del paciente",
+                },
+              ]}
+              
+            >
+              <Select placeholder="Hombre">
+                <Option value="hombre">Hombre</Option>
+                <Option value="mujer">Mujer</Option>
+               
+              </Select>
+            </Item>
+
           <Item label="Fecha de nacimiento" name="fechaNacimientoPaciente">
             <DatePicker placeholder="fecha" />
           </Item>
           <Item label="Edad" name="edadPaciente">
             <InputNumber style={{ width: "50%" }} placeholder="solo números" />
           </Item>
-          <Item label="Dirección" name="direccionPaciente">
-            <Input placeholder="Independencia 1423 colonia centro c.p. 68000 Oaxaca de Juárez Oaxaca" />
+          <Item label="Calle" name="calle">
+            <Input placeholder="Independencia" />
           </Item>
+          <Item label="Num. ext." name="numexterior">
+            <Input placeholder="132" />
+          </Item>
+          <Item label="Num. int." name="numinterior">
+            <Input placeholder="2" />
+          </Item>
+          <Item label="C.P." name="cp">
+            <Input placeholder="68000" />
+          </Item>
+          <Item label="Colonia" name="colonia">
+            <Input placeholder="centro" />
+          </Item>
+          <Item label="Municipio" name="municipio">
+            <Input placeholder="Oaxaca de Juárez" />
+          </Item>
+          <Item label="Estado" name="estado">
+            <Input placeholder="Oaxaca" />
+          </Item>
+          <Item label="País" name="pais">
+            <Input placeholder="México" />
+          </Item>
+          <Item label="Email" name="email">
+            <Input placeholder="ejemplo@hotmail.com" />
+          </Item>
+          
           <Item
             label="Email o whats escoger"
             name="correoelectronicoWhatsescogerPaciente"

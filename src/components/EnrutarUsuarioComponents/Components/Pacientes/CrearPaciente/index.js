@@ -81,6 +81,23 @@ function CrearPaciente() {
             <Input />
           </Item>
 
+          <Item
+              label="Sexo"
+              name="sexo"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa el sexo del paciente",
+                },
+              ]}
+            >
+              <Select placeholder="Hombre">
+                <Option value="hombre">Hombre</Option>
+                <Option value="mujer">Mujer</Option>
+               
+              </Select>
+            </Item>
+
           <Item label="Fecha de nacimiento" name="fechaNacimientoPaciente">
             <DatePicker placeholder="fecha" />
           </Item>
