@@ -8,7 +8,11 @@ import Profile from "../../pages/Profile";
 import Privacidad from "../../pages/Privacidad";
 import Home from "../../pages/Home";
 import VerPrueba from "../EnrutarUsuarioNuevo/ChecarVista/VistaPaciente/ListaPruebas/VerPrueba";
-import Administrador from "../../pages/Administrador/index";
+import UsuarioPaciente from "../../pages/EnrutarUsuario/UsuarioPaciente/index";
+import UsuarioDoctor from "../../pages/EnrutarUsuario/UsuarioDoctor/index";
+import { Authenticator } from "@aws-amplify/ui-react";
+import Administrador2 from "../../pages/Administrador2/index";
+import Administrador from "../../pages/Administrador";
 
 function AppRoutes() {
   return (
@@ -16,10 +20,13 @@ function AppRoutes() {
       <Route path="/" element={<Home />} />
 
       <Route path="enrutarUsuario" element={<EnrutarUsuario />} />
-      <Route path="enrutarUsuario/paciente/:id" element={<VerPrueba />} />
 
-      <Route path="profile" element={<Profile />} />
-      <Route path="admin" element={<Administrador />} />
+      <Route path="enrutarUsuario/paciente" element={<UsuarioPaciente />} />
+      <Route path="enrutarUsuario/doctor" element={<UsuarioDoctor />} />
+      <Route path="enrutarUsuario/paciente/:id" element={<VerPrueba />} />
+      <Route path="enrutarUsuario/profile" element={<Profile />} />
+      <Route path="admin" element={<Administrador2/>} />
+      <Route path="admin2" element={<Administrador />} />
 
       <Route path="blog" element={<Blog />} />
       <Route path="blog/:id" element={<Blog />} />

@@ -8,6 +8,7 @@ import { Button } from "react-bootstrap";
 import { User } from "../../models";
 import ProfileNuevo from "../../components/EnrutarUsuarioNuevo/ProfileNuevo";
 import ChecarVista from "../../components/EnrutarUsuarioNuevo/ChecarVista";
+import { useNavigate } from "react-router-dom";
 
 I18n.putVocabularies(translations);
 I18n.setLanguage("es");
@@ -31,6 +32,7 @@ function EnrutarUsuario({ signOut, user }) {
   const [authUser, setAuthUser] = useState(null);
   const [dbUser, setDbUser] = useState(null);
   const sub = authUser?.attributes?.sub;
+  const navigate = useNavigate();
 
   useEffect(() => {
     Auth.currentAuthenticatedUser({
@@ -49,18 +51,17 @@ function EnrutarUsuario({ signOut, user }) {
     );
   }, [sub]);
 
-  console.log(sub);
-
   {
     /* <ChecarVista dbUser={dbUser} /> */
   }
 
   return (
     <>
-      {dbUser ? <>hola1</> : <>hola2</>}
+      <>hola3</>
+      {/* {dbUser ? {} : <>hola2</>}
       <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
         Cerrar Sesión
-      </Button>
+      </Button> */}
     </>
   );
 }
