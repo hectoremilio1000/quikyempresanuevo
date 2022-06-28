@@ -34,7 +34,7 @@ function FooterComponent() {
 
               <a href="/enrutarUsuario" className="text-decoration-none">
                 <li className="text-center text-white list-unstyled">
-                  Usuario
+                  Paciente
                 </li>
               </a>
               <a href="/privacidad" className="text-decoration-none">

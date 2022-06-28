@@ -13,13 +13,15 @@ import UsuarioDoctor from "../../pages/EnrutarUsuario/UsuarioDoctor/index";
 import { Authenticator } from "@aws-amplify/ui-react";
 import Administrador2 from "../../pages/Administrador2/index";
 import Administrador from "../../pages/Administrador";
+import VistaPaciente2 from '../../modules/VistaPaciente2/index';
+
 
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
 
-      <Route path="enrutarUsuario" element={<EnrutarUsuario />} />
+      <Route path="enrutarUsuario" element={<VistaPaciente2 />} />
 
       <Route path="enrutarUsuario/paciente" element={<UsuarioPaciente />} />
       <Route path="enrutarUsuario/doctor" element={<UsuarioDoctor />} />

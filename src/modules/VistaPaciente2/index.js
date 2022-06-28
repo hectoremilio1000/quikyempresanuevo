@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Layout, Menu } from "antd";
 import { Button } from "react-bootstrap";
-import itemsRoutes2 from "./itemRoutes2";
-
-import HeaderLayoutAdmin2 from "./ContentLayout2/HeaderLayoutAdmin2";
-import CrearResultado from './ContentLayout2/CrearResultado';
-
 import { Content } from "antd/lib/layout/layout";
-import ListaResultados from '../Components/Resultados/ListaResultados/index';
+import itemsRoutes3 from './itemsRoutes3/index';
+import HeaderLayoutAdmin3 from './HeaderLayoutAdmin3/index';
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import ListaEstudios from './Estudios/ListaEstudios/index';
+import SolicitarEstudios from './Estudios/SolicitarEstudios/index';
 
 const { Sider } = Layout;
 
-function LayoutAdmin2({ signOut }) {
-    const [collapsed, setCollapsed] = useState(false);
+function VistaPaciente2({ signOut, user }) {
+  const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState("");
+
+  const email = user?.attributes?.email
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -31,31 +32,29 @@ function LayoutAdmin2({ signOut }) {
             mode="inline"
             selectedKeys={current}
             onClick={cambiarComponent}
-            items={itemsRoutes2}
+            items={itemsRoutes3}
           ></Menu>
         </Sider>
-    
-    <Layout>
-    <HeaderLayoutAdmin2 collapsed={collapsed} toggle={toggle} />
+        <Layout>
+    <HeaderLayoutAdmin3 collapsed={collapsed} toggle={toggle} email={email}/>
     <Content style={{ margin: "24px 16px 0" }}>
       {current === "1" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <CrearResultado />
+          <ListaEstudios />
         </div>
       ) : current === "2" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <ListaResultados />
+          <SolicitarEstudios />
         </div>
       ) : <div></div>}
       </Content>
     </Layout>
-    </Layout>
-    <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
+        </Layout>
+        <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
         Cerrar Sesión
       </Button>
-
-    </>
+        </>
   )
 }
 
-export default LayoutAdmin2
+export default withAuthenticator(VistaPaciente2)
