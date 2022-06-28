@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Input, Button, Select, message, Text } from "antd";
 import { v4 as uuidv4 } from 'uuid';
-import { DataStore, Auth } from "aws-amplify";
+import { DataStore, Auth, Storage } from "aws-amplify";
 import { Container } from "react-bootstrap";
 import config from '../../../../aws-exports'
+
+
 
 import { useNavigate } from "react-router-dom";
 
@@ -30,8 +32,8 @@ function CrearResultado() {
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [role, setRole] = useState("");
-  const [file, setFile] = useState(null)
-  const [images, setImages] = useState ([])
+  const [image, setImage] = useState ([])
+  const [paciente2, setPaciente2] = useState(null)
 
   const onChange = async (e)=>{
     e.preventDefault();
@@ -42,28 +44,38 @@ function CrearResultado() {
    const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
 
    try {
-    
+    await Storage.put(
+      key,fileUpload,{
+        level:'public',
+        contentType:fileExtension,
+      }
+    )
+    setImage(url)
+    console.log("archivo guardado")
    } catch (error) {
-    
+    console.log(error);
    }
-   
-
-   console.log(fileUpload)
-   console.log(fileExtension)
-   console.log(fileName)
-   console.log(key)
-   console.log(url)
-
-   
     
-    setFile(file)
   }
 
-  const onSave = ()=>{
-console.log(
-  nombre, apellidoPaterno, apellidoMaterno, email, whatsapp, role, file
-)
+  const onSave = async ()=>{
+
+    //   const newpaciente = await DataStore.save(
+    //     new Paciente2({
+    //     "nombrecompleto": "Lorem ipsum dolor sit amet",
+    //     "apellidopaterno": "Lorem ipsum dolor sit amet",
+    //     "apellidomaterno": "Lorem ipsum dolor sit amet",
+    //     "email": "Lorem ipsum dolor sit amet",
+    //     "whatsapp": "Lorem ipsum dolor sit amet",
+    //     "pdfresultado": "Lorem ipsum dolor sit amet",
+    //     "role": "PACIENTE",
+    //     "pacientesub": "Lorem ipsum dolor sit amet"
+    //   })
+    // );
+    //   setPaciente2(newpaciente)
+      
   }
+  console.log(paciente2)
 
   return (
     <div style={{ margin: 20 }}>

@@ -35,9 +35,7 @@ function Content1() {
                   sx={{ mb: 1.5, textAlign: "center" }}
                   color="text.secondary"
                 >
-                  Somos una empresa de laboratorios de Test Clínicos
-                  comprometida a ofrecer servicios de Primer Mundo a precios
-                  accesibles para toda la población.
+                  Somos la primer empresa de Laboratorios Clínicos en México enfocada al servicio de Pruebas de Laboratorio a Domicilio.
                 </Typography>
               </CardContent>
             </Card>
@@ -56,15 +54,13 @@ function Content1() {
                   component="div"
                   sx={{ textAlign: "center" }}
                 >
-                  ¿Cómo podemos dar estos precios?
+                  Cumplimos con los estándares más altos en Calidad
                 </Typography>
                 <Typography
                   sx={{ mb: 1.5, textAlign: "center" }}
                   color="text.secondary"
                 >
-                  Nuestra misión es cuidar del paciente y sus ingresos sobre
-                  todo en esta etapa de pandemia, ofreciendo la mayor
-                  confidencialidad y confiabilidad en cada test clínico.
+                  Nuestra misión es cuidar del paciente ofreciéndole los estándares más altos en Calidad, con reconocimiento por parte de INDRE, EMA, PACAL, CDC y RIQAS.
                 </Typography>
               </CardContent>
             </Card>

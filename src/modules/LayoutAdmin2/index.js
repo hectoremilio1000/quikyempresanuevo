@@ -8,10 +8,11 @@ import CrearResultado from './ContentLayout2/CrearResultado';
 
 import { Content } from "antd/lib/layout/layout";
 import ListaResultados from '../Components/Resultados/ListaResultados/index';
+import CrearResultado2 from './ContentLayout2/CrearResultado2/index';
 
 const { Sider } = Layout;
 
-function LayoutAdmin2({ signOut }) {
+function LayoutAdmin2({ signOut, user, sub }) {
     const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState("");
 
@@ -21,6 +22,7 @@ function LayoutAdmin2({ signOut }) {
   const cambiarComponent = e => {
     setCurrent(e.key);
   };
+  
   return (
     <>
     <Layout>
@@ -40,7 +42,7 @@ function LayoutAdmin2({ signOut }) {
     <Content style={{ margin: "24px 16px 0" }}>
       {current === "1" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <CrearResultado />
+          <CrearResultado2/>
         </div>
       ) : current === "2" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>

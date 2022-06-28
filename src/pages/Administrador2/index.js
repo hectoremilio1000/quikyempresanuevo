@@ -36,14 +36,14 @@ function Administrador({ signOut, user }) {
     fetchUser();
   }, []);
 
-  if (sub && sub === "67cb96dc-15c4-42cb-9f27-123b6bd03001") {
-    return <LayoutAdmin2 signOut={signOut} />;
+  if (sub && sub === "2a5a7e1c-87e3-4f03-a581-620a1779330e") {
+    return <LayoutAdmin2 signOut={signOut} user={user} sub={sub}/>;
   } else {
     return (
       <Container className="mt-2 mb-2">
         <h3>
           Hola {user.attributes.email} no eres Admin por favor si eres
-          paciente/doctor ve a Usuario y si no regresa a Inicio
+          Paciente ve a Menú y da click en Paciente y si no regresa a Inicio.
         </h3>
 
         <Button onClick={signOut} variant="warning">
