@@ -1,4 +1,11 @@
 export type AmplifyDependentResourcesAttributes = {
+    "api": {
+        "quikyempresanuevo": {
+            "GraphQLAPIKeyOutput": "string",
+            "GraphQLAPIIdOutput": "string",
+            "GraphQLAPIEndpointOutput": "string"
+        }
+    },
     "auth": {
         "quikyempresanuevo": {
             "IdentityPoolId": "string",
@@ -8,19 +15,6 @@ export type AmplifyDependentResourcesAttributes = {
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string"
-        }
-    },
-    "api": {
-        "quikyempresanuevo": {
-            "GraphQLAPIKeyOutput": "string",
-            "GraphQLAPIIdOutput": "string",
-            "GraphQLAPIEndpointOutput": "string"
-        }
-    },
-    "storage": {
-        "s3quikyempresanuevostorage216a55a9": {
-            "BucketName": "string",
-            "Region": "string"
         }
     }
 }

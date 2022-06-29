@@ -3,7 +3,7 @@ import { Input, Button, Select, message, Text } from "antd";
 import "./styles.css";
 import { DataStore, Auth } from "aws-amplify";
 import { Container } from "react-bootstrap";
-import { User } from "../../../models";
+// import { User } from "../../../models";
 import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
@@ -24,22 +24,22 @@ function ProfileNuevo({ sub, setDbUser, dbUser }) {
   const [role, setRole] = useState("");
 
   const onSave = async () => {
-    try {
-      const user = await DataStore.save(
-        new User({
-          nombre: nombre,
-          email: email,
-          whatsapp: whatsapp,
-          role: role,
-          sub: sub,
-        })
-      );
-      setDbUser(user);
+    // try {
+    //   const user = await DataStore.save(
+    //     new User({
+    //       nombre: nombre,
+    //       email: email,
+    //       whatsapp: whatsapp,
+    //       role: role,
+    //       sub: sub,
+    //     })
+    //   );
+    //   setDbUser(user);
 
-      console.log("enviado");
-    } catch (error) {
-      console.log(error);
-    }
+    //   console.log("enviado");
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   // const onFinish = async values => {

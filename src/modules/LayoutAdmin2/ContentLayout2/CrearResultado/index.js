@@ -75,7 +75,7 @@ function CrearResultado() {
     //   setPaciente2(newpaciente)
       
   }
-  console.log(paciente2)
+
 
   return (
     <div style={{ margin: 20 }}>

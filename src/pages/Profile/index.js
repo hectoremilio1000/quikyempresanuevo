@@ -5,7 +5,7 @@ import "./styles.css";
 
 import { DataStore, Auth } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import { User } from "../../models";
+// import { User } from "../../models";
 
 //navigation
 import { Navigate, useNavigate } from "react-router-dom";
@@ -43,9 +43,9 @@ function Profile() {
   }, [authUser]);
 
   const checarDatos = async () => {
-    const DatosUsuario = await DataStore.query(User, user =>
-      user.sub("eq", sub)
-    ).then(users => setDbUser(users[0]));
+    // const DatosUsuario = await DataStore.query(User, user =>
+    //   user.sub("eq", sub)
+    // ).then(users => setDbUser(users[0]));
   };
 
   useEffect(() => {
@@ -53,21 +53,21 @@ function Profile() {
   }, [sub]);
 
   const onFinish = values => {
-    try {
-      DataStore.save(
-        new User({
-          nombre: values.nombreUsuario,
-          email: values.emailUsuario,
-          whatsapp: values.whatsUsuario,
-          role: values.roleUsuario,
-          sub: sub,
-        })
-      );
-      message.info("gracias por registrar tus datos");
-      navigate("/usuario");
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   DataStore.save(
+    //     new User({
+    //       nombre: values.nombreUsuario,
+    //       email: values.emailUsuario,
+    //       whatsapp: values.whatsUsuario,
+    //       role: values.roleUsuario,
+    //       sub: sub,
+    //     })
+    //   );
+    //   message.info("gracias por registrar tus datos");
+    //   navigate("/usuario");
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   const onFinishFailed = errorInfo => {

@@ -42,7 +42,7 @@ function LayoutAdmin2({ signOut, user, sub }) {
     <Content style={{ margin: "24px 16px 0" }}>
       {current === "1" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <CrearResultado2/>
+          <CrearResultado/>
         </div>
       ) : current === "2" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>

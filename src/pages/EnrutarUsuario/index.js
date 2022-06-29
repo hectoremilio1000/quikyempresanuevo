@@ -5,7 +5,7 @@ import { Auth, I18n, DataStore } from "aws-amplify";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import { User } from "../../models";
+// import { User } from "../../models";
 import ProfileNuevo from "../../components/EnrutarUsuarioNuevo/ProfileNuevo";
 import ChecarVista from "../../components/EnrutarUsuarioNuevo/ChecarVista";
 import { useNavigate } from "react-router-dom";
@@ -43,12 +43,12 @@ function EnrutarUsuario({ signOut, user }) {
   }, []);
 
   useEffect(() => {
-    if (!sub) {
-      return;
-    }
-    DataStore.query(User, user => user.sub("eq", sub)).then(users =>
-      setDbUser(users[0])
-    );
+    // if (!sub) {
+    //   return;
+    // }
+    // DataStore.query(User, user => user.sub("eq", sub)).then(users =>
+    //   setDbUser(users[0])
+    // );
   }, [sub]);
 
   {

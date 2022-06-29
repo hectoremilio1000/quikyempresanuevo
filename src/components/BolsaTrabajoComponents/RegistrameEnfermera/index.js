@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 
 import { DataStore } from "aws-amplify";
 
-import { Enfermeras } from "../../../models";
+// import { Enfermeras } from "../../../models";
 import { message } from "antd";
 
 const { Option } = Select;
@@ -22,35 +22,35 @@ function RegistrameEnfermera() {
   const [form] = Form.useForm();
 
   const onFinish = values => {
-    try {
-      DataStore.save(
-        new Enfermeras({
-          nombre: values.nombre,
-          email: values.email,
-          whats: values.whats,
-          direccion: values.direccion,
-          numexterior: values.numexterior,
-          numinterior: values.numinterior,
-          codigopostal: values.codigopostal,
-          colonia: values.colonia,
-          municipio: values.municipio,
-          ciudad: values.ciudad,
-          estado: values.estado,
-          edad: values.edad,
-          cedula: values.cedulaprofesional,
-          antiguedad: values.antiguedad,
-          especialidad: values.especialidad,
-          curso: values.cursoespecializado,
-          sub: "1",
-        })
-      );
+    // try {
+    //   // DataStore.save(
+    //   //   new Enfermeras({
+    //   //     nombre: values.nombre,
+    //   //     email: values.email,
+    //   //     whats: values.whats,
+    //   //     direccion: values.direccion,
+    //   //     numexterior: values.numexterior,
+    //   //     numinterior: values.numinterior,
+    //   //     codigopostal: values.codigopostal,
+    //   //     colonia: values.colonia,
+    //   //     municipio: values.municipio,
+    //   //     ciudad: values.ciudad,
+    //   //     estado: values.estado,
+    //   //     edad: values.edad,
+    //   //     cedula: values.cedulaprofesional,
+    //   //     antiguedad: values.antiguedad,
+    //   //     especialidad: values.especialidad,
+    //   //     curso: values.cursoespecializado,
+    //   //     sub: "1",
+    //   //   })
+    //   );
 
-      message.info("valores enviados");
-      console.log(values);
-      form.resetFields();
-    } catch (error) {
-      console.log(error);
-    }
+    //   message.info("valores enviados");
+    //   console.log(values);
+    //   form.resetFields();
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   const onFinishFailed = errorInfo => {

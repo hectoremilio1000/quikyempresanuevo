@@ -14,6 +14,7 @@ import { Authenticator } from "@aws-amplify/ui-react";
 import Administrador2 from "../../pages/Administrador2/index";
 import Administrador from "../../pages/Administrador";
 import VistaPaciente2 from '../../modules/VistaPaciente2/index';
+import VerResultado from '../../modules/Components/Resultados/ListaResultados/VerResultado';
 
 
 function AppRoutes() {
@@ -29,7 +30,7 @@ function AppRoutes() {
       <Route path="enrutarUsuario/profile" element={<Profile />} />
       <Route path="admin" element={<Administrador2/>} />
       <Route path="admin2" element={<Administrador />} />
-
+      <Route path="admin/paciente/:id" element={<VerResultado/>} />
       <Route path="blog" element={<Blog />} />
       <Route path="blog/:id" element={<Blog />} />
       <Route path="privacidad" element={<Privacidad />} />
