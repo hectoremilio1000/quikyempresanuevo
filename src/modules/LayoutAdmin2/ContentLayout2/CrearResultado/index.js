@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Input, Button, Select, message, Text } from "antd";
+import { Input, Button, Select, message, Text, Divider } from "antd";
 import { v4 as uuidv4 } from 'uuid';
 import { DataStore, Auth, Storage } from "aws-amplify";
 import { Container } from "react-bootstrap";
@@ -32,31 +32,35 @@ function CrearResultado() {
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [role, setRole] = useState("");
-  const [image, setImage] = useState ([])
+  const [pdf, setPDF] = useState ([])
+  const [image2, setImage2] = useState ([])
   const [paciente2, setPaciente2] = useState(null)
 
   const onChange = async (e)=>{
     e.preventDefault();
-   const fileUpload = e.target.files[0];
-   const fileExtension = fileUpload.name.split(".")[1];
-   const fileName = fileUpload.name.split(".")[0];
-   const key = `images/${uuidv4()}${fileName}.${fileExtension}`;
+   const file = e.target.files[0];
+   const extension = file.name.split(".")[1];
+   const name = file.name.split(".")[0];
+   const key = `images/${uuidv4()}${name}.${extension}`;
    const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
 
    try {
     await Storage.put(
-      key,fileUpload,{
+      key,file,{
         level:'public',
-        contentType:fileExtension,
+        contentType:file.type,
       }
     )
-    setImage(url)
+    const pdf = await Storage.get(key, {level:'public'})
+    setPDF(pdf)
     console.log("archivo guardado")
    } catch (error) {
     console.log(error);
    }
     
   }
+
+  
 
   const onSave = async ()=>{
 
@@ -118,9 +122,12 @@ function CrearResultado() {
 
 Sube resultado en pdf:
       <input type="file"
-      onChange={onChange} />
+      accept="pdf"
+      onChange={e=> onChange(e)} />
       </p>
 </div>
+
+{/* {pdf ?  <iframe src={pdf} title="32ds"/> : <></>} */}
       <Select
       style={{margin:10}}
         placeholder="Selecciona el role"
@@ -140,6 +147,10 @@ Sube resultado en pdf:
           Guardar
         </Button>
       </div>
+  
+     
+     
+      
     </div>
   )
 }
