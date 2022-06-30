@@ -13,4 +13,7 @@ type Paciente @model @auth(rules: [{allow: public}]) {
   role: ROLE
   image: String
   pacienteSub: String
+  url: String
+  key: String
 }
+ 

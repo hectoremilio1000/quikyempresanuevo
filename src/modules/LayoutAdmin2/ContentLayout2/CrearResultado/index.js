@@ -8,6 +8,7 @@ import config from '../../../../aws-exports'
 
 
 import { useNavigate } from "react-router-dom";
+import { Paciente } from "../../../../models";
 
 const {
   aws_user_files_s3_bucket_region: region,
@@ -33,7 +34,8 @@ function CrearResultado() {
   const [whatsapp, setWhatsapp] = useState("");
   const [role, setRole] = useState("");
   const [pdf, setPDF] = useState ([])
-  const [image2, setImage2] = useState ([])
+  const [url, setUrl] = useState("");
+  const [key, setKey] = useState("")
   const [paciente2, setPaciente2] = useState(null)
 
   const onChange = async (e)=>{
@@ -53,6 +55,8 @@ function CrearResultado() {
     )
     const pdf = await Storage.get(key, {level:'public'})
     setPDF(pdf)
+    setUrl(url)
+    setKey(key)
     console.log("archivo guardado")
    } catch (error) {
     console.log(error);
@@ -64,20 +68,21 @@ function CrearResultado() {
 
   const onSave = async ()=>{
 
-    //   const newpaciente = await DataStore.save(
-    //     new Paciente2({
-    //     "nombrecompleto": "Lorem ipsum dolor sit amet",
-    //     "apellidopaterno": "Lorem ipsum dolor sit amet",
-    //     "apellidomaterno": "Lorem ipsum dolor sit amet",
-    //     "email": "Lorem ipsum dolor sit amet",
-    //     "whatsapp": "Lorem ipsum dolor sit amet",
-    //     "pdfresultado": "Lorem ipsum dolor sit amet",
-    //     "role": "PACIENTE",
-    //     "pacientesub": "Lorem ipsum dolor sit amet"
-    //   })
-    // );
-    //   setPaciente2(newpaciente)
-      
+      const newpaciente = await DataStore.save(
+        new Paciente({
+        nombre: nombre,
+        apellidoPaterno: apellidoPaterno,
+        apellidoMaterno: apellidoMaterno,
+        email: email,
+        whatsapp: whatsapp,
+        role: role,
+        image:pdf,
+        key:key,
+        url:url,
+      })
+    );
+      setPaciente2(newpaciente)
+      message.success("El paciente se ha creado");
   }
 
 
@@ -126,8 +131,9 @@ Sube resultado en pdf:
       onChange={e=> onChange(e)} />
       </p>
 </div>
-
-{/* {pdf ?  <iframe src={pdf} title="32ds"/> : <></>} */}
+<div>
+{pdf ?  <iframe src={pdf} title="32ds"/> : <></>}
+</div>
       <Select
       style={{margin:10}}
         placeholder="Selecciona el role"

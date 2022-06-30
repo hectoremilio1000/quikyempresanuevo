@@ -9,6 +9,7 @@ import { Button, Container } from "react-bootstrap";
 import { DataStore, Storage } from "aws-amplify";
 import { Paciente } from "../../../../../models";
 
+
 const { Header, Content, Sider } = Layout;
 
 function getItem(label, key, icon, children, type) {
@@ -23,29 +24,44 @@ function getItem(label, key, icon, children, type) {
 
 function VerResultado() {
     const [collapsed, setCollapsed] = useState(false);
-    const [imagen, setImagen] = useState("");
-    const [resultados, setResultados] = useState([])
+    // const [pdf, setPDF] = useState("");
+    const [resultado, setResultado] = useState([])
+    const [pacientes, setPacientes] = useState([])
 
   const navigate = useNavigate();
 
-  const toggle = () => {
-    setCollapsed(!collapsed);
-  };
-
   const { id } = useParams();
 
+
+
   useEffect(() => {
-    DataStore.query(Paciente, id).then(resultados => setResultados(resultados[0]))
+    DataStore.query(Paciente).then(pacientes=>setPacientes(pacientes))
+  }, [])
+
+
+  useEffect(() => {
+    DataStore.query(Paciente, id).then(setResultado)
   }, [id])
-
-
-  useEffect(() => {
-    if(!resultados){
-      return
-    }
-    Storage.get(resultados.image).then(imagen=>setImagen(imagen))
-  }, [resultados])
   
+
+ 
+  // console.log(resultado)
+
+ const pdf = resultado?.image;
+ 
+
+
+
+
+
+  // useEffect(() => {
+  //   if(!resultados){
+  //     return
+  //   }
+  //   Storage.get(resultados.image).then(imagen=>setPDF(imagen))
+  // }, [resultados])
+  
+
 
   return (
     <Container>
@@ -69,14 +85,10 @@ function VerResultado() {
             Estudio {id}
           </p>
         </div>
-        {/* <div>
-          <embed src={pdf} width="100%" height="80vh" />
-        </div> */}
+        <div style={{display:"flex", justifyContent:"center", width:"100%"}}>
+{pdf ?  <iframe src={pdf} title={resultado?.id} style={{width:"100%", height:"80vh"}}/> : <></>}
+</div>
 
-        <div>
-        {imagen ? <iframe src={imagen} style={{ width: "100%", height: "80vh" }}></iframe> : <></>}
-          
-        </div>
       </Header>
     </Container>
   )

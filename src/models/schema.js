@@ -68,6 +68,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "url": {
+                    "name": "url",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "key": {
+                    "name": "key",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -121,5 +135,5 @@ export const schema = {
         }
     },
     "nonModels": {},
-    "version": "7f813926256ddd96ad47faae16c515b5"
+    "version": "a154d06f6a28c9ac16e74a378fbcacac"
 };
