@@ -47,7 +47,7 @@ function VerResultado() {
  
   // console.log(resultado)
 
- const pdf = resultado?.image;
+let pdf = resultado?.url;
  
 
 

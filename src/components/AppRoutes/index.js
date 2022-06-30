@@ -26,7 +26,7 @@ function AppRoutes() {
 
       <Route path="enrutarUsuario/paciente" element={<UsuarioPaciente />} />
       <Route path="enrutarUsuario/doctor" element={<UsuarioDoctor />} />
-      <Route path="enrutarUsuario/paciente/:id" element={<VerPrueba />} />
+      <Route path="enrutarUsuario/:id" element={<VerPrueba />} />
       <Route path="enrutarUsuario/profile" element={<Profile />} />
       <Route path="admin" element={<Administrador2/>} />
       <Route path="admin2" element={<Administrador />} />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Input, Button, Select, message, Text, Divider } from "antd";
+import { Input, Button, Select, message, Text, DatePicker } from "antd";
 import { v4 as uuidv4 } from 'uuid';
 import { DataStore, Auth, Storage } from "aws-amplify";
 import { Container } from "react-bootstrap";
@@ -36,7 +36,10 @@ function CrearResultado() {
   const [pdf, setPDF] = useState ([])
   const [url, setUrl] = useState("");
   const [key, setKey] = useState("")
-  const [paciente2, setPaciente2] = useState(null)
+  const [paciente2, setPaciente2] = useState(null);
+  const [fechaOrden, setFechaOrden] = useState("");
+  const [estudios,setEstudios] = useState("")
+
 
   const onChange = async (e)=>{
     e.preventDefault();
@@ -64,7 +67,11 @@ function CrearResultado() {
     
   }
 
-  
+  const onChange2 = (value, dateString) => {
+    setFechaOrden(dateString)
+  };
+
+
 
   const onSave = async ()=>{
 
@@ -79,12 +86,14 @@ function CrearResultado() {
         image:pdf,
         key:key,
         url:url,
+        fechaOrden:fechaOrden,
+        estudios:estudios,
       })
     );
       setPaciente2(newpaciente)
+      
       message.success("El paciente se ha creado");
   }
-
 
   return (
     <div style={{ margin: 20 }}>
@@ -108,7 +117,7 @@ function CrearResultado() {
         placeholder="Apellido materno"
         style={styles.input}
       />
-
+<DatePicker onChange={onChange2} style={styles.input}/>
       <Input
         value={email}
         onChange={e => setEmail(e.target.value)}
@@ -120,6 +129,12 @@ function CrearResultado() {
         value={whatsapp}
         onChange={e => setWhatsapp(e.target.value)}
         placeholder="whatsapp"
+        style={styles.input}
+      />
+       <Input
+        value={estudios}
+        onChange={e => setEstudios(e.target.value)}
+        placeholder="Estudios"
         style={styles.input}
       />
       <div style={{margin:10}}>

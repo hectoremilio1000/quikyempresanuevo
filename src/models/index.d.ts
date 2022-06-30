@@ -20,9 +20,10 @@ export declare class Paciente {
   readonly whatsapp?: string | null;
   readonly role?: Role | keyof typeof Role | null;
   readonly image?: string | null;
-  readonly pacienteSub?: string | null;
   readonly url?: string | null;
   readonly key?: string | null;
+  readonly fechaOrden?: string | null;
+  readonly estudios?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Paciente, PacienteMetaData>);

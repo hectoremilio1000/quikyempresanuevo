@@ -1,19 +1,12 @@
-import React, { useState } from "react";
-import pdf from "../../../../../../assets/estudios/resultadoPCRCOVIDGUILLERMO.pdf";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { Layout } from "antd";
 
-import {
-  MedicineBoxOutlined,
-  PlusCircleOutlined,
-  SmileOutlined,
-  MonitorOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-} from "@ant-design/icons";
 import { Button, Container } from "react-bootstrap";
+import { DataStore, Storage } from "aws-amplify";
+import {Paciente} from '../../../../../../models'
 
 const { Header, Content, Sider } = Layout;
 
@@ -28,14 +21,15 @@ function getItem(label, key, icon, children, type) {
 }
 
 function VerPrueba() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [resultado, setResultado] = useState([])
   const navigate = useNavigate();
 
-  const toggle = () => {
-    setCollapsed(!collapsed);
-  };
-
   const { id } = useParams();
+
+  useEffect(() => {
+    DataStore.query(Paciente, id).then(setResultado)
+  }, [id]);
+let pdf = resultado?.url
 
   return (
     <Container>
@@ -59,13 +53,14 @@ function VerPrueba() {
             Estudio {id}
           </p>
         </div>
-        {/* <div>
-          <embed src={pdf} width="100%" height="80vh" />
-        </div> */}
+        {/* <div style={{display:"flex", justifyContent:"center", width:"100%"}}>
+{pdf ?  <iframe src={pdf} title={resultado?.id} style={{width:"100%", height:"80vh"}}/> : <></>}
+</div> */}
 
-        <div>
-          <iframe src={pdf} style={{ width: "100%", height: "80vh" }}></iframe>
-        </div>
+<div style={{display:"flex", justifyContent:"center", width:"100%"}}>
+{pdf ?  <iframe src={pdf} title={resultado?.id} style={{width:"100%", height:"80vh"}}/> : <></>}
+</div>
+
       </Header>
     </Container>
   );

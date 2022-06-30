@@ -61,13 +61,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "pacienteSub": {
-                    "name": "pacienteSub",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "url": {
                     "name": "url",
                     "isArray": false,
@@ -77,6 +70,20 @@ export const schema = {
                 },
                 "key": {
                     "name": "key",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "fechaOrden": {
+                    "name": "fechaOrden",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "estudios": {
+                    "name": "estudios",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -135,5 +142,5 @@ export const schema = {
         }
     },
     "nonModels": {},
-    "version": "a154d06f6a28c9ac16e74a378fbcacac"
+    "version": "00d084f07459b13755ac5118e583b97f"
 };

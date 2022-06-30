@@ -36,8 +36,6 @@ function Administrador({ signOut, user }) {
     fetchUser();
   }, []);
 
-  console.log(authUser)
-
   if (sub && sub === "dd2c420b-1088-41b1-8712-98e02ea5911b") {
     return <LayoutAdmin2 signOut={signOut} user={user} sub={sub}/>;
   } else {
