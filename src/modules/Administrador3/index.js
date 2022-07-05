@@ -68,7 +68,7 @@ function Administrador3() {
     return (
       <Container className="mt-2 mb-2">
         <h3>
-          Hola {authUser.attributes.email} no eres Admin por favor si eres
+          Hola {authUser.attributes.email} no eres Admin, por favor si eres
           Paciente ve a Menú y da click en Paciente y si no regresa a Inicio.
         </h3>
 
