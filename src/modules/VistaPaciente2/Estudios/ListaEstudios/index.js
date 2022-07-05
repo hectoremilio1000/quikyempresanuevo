@@ -35,7 +35,7 @@ const columns = [
     key: "imagen",
     render: pdf => (
       <button type="button" className="btn btn-primary">
-        Ver PDF
+        Ver PDF 
       </button>
     ),
   },

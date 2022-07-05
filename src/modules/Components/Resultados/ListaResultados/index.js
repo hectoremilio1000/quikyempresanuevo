@@ -1,32 +1,24 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Table, Popconfirm, Button } from "antd";
 import estudios from "../../../../assets/data2/estudios";
-import { DataStore } from 'aws-amplify';
-import {Paciente} from '../../../../models'
+import { DataStore } from "aws-amplify";
+import { Paciente } from "../../../../models";
 import { useNavigate } from "react-router-dom";
 
-
-
-
-
-
 function ListaResultados() {
-  const [paciente,setPaciente]=useState([])
+  const [paciente, setPaciente] = useState([]);
   const navigate = useNavigate();
 
-  
-
   useEffect(() => {
-  DataStore.query(Paciente).then(users=>setPaciente(users))
+    DataStore.query(Paciente).then(users => setPaciente(users));
   }, []);
 
-  const deleteEstudio = async estudio =>{
+  const deleteEstudio = async estudio => {
     await DataStore.delete(estudio);
-    setPaciente(paciente.filter((p)=>p.id !== estudio.id))
-    
-  }
+    setPaciente(paciente.filter(p => p.id !== estudio.id));
+  };
 
-  console.log(paciente)
+  console.log(paciente);
 
   const columns = [
     {
@@ -52,42 +44,49 @@ function ListaResultados() {
     {
       title: "fecha",
       dataIndex: "fechaOrden",
-      key:"fechaOrden",
-      defaultSortOrder: 'ascend',
-     
+      key: "fechaOrden",
+      defaultSortOrder: "ascend",
     },
     {
       title: "Ver Pdf",
       key: "verPdf",
-      render: (_,item)=><Button type="primary" onClick={()=>navigate(`paciente/${item.id}`)}> Ver PDF
-      </Button>
+      render: (_, item) => (
+        <Button
+          type="primary"
+          onClick={() =>
+            navigate(`/admin/paciente/${item.id}`, { replace: true })
+          }
+        >
+          {" "}
+          Ver PDF
+        </Button>
+      ),
     },
     {
-      title:"Action",
-      key:"action",
-      render:(_, item)=>(<Popconfirm placement="topLeft" title={"Seguro quieres borrar este estudio"} onConfirm={()=>deleteEstudio(item)} onTest="Sí" cancelText="No">
-        <Button danger>Eliminar</Button>
-      </Popconfirm>
-  
-      )
-    }
-    
+      title: "Action",
+      key: "action",
+      render: (_, item) => (
+        <Popconfirm
+          placement="topLeft"
+          title={"Seguro quieres borrar este estudio"}
+          onConfirm={() => deleteEstudio(item)}
+          onTest="Sí"
+          cancelText="No"
+        >
+          <Button danger>Eliminar</Button>
+        </Popconfirm>
+      ),
+    },
   ];
- 
 
   return (
     <div>
       <h3 className="lead display-5 pb-5 subtituloBanner pt-4 text-center">
         Los resultados que has creado hasta el momento son:
       </h3>
-      <Table
-        dataSource={paciente}
-        columns={columns}
-        rowKey="id"
-        
-      />
+      <Table dataSource={paciente} columns={columns} rowKey="id" />
     </div>
-  )
+  );
 }
 
 export default ListaResultados;

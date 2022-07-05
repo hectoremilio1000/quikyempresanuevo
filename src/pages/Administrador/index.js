@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import LayoutAdministrador from "../../modules/LayoutAdministrador/index";
 I18n.putVocabularies(translations);
-I18n.setLanguage("es");
+
 I18n.putVocabularies({
   es: {
     "Sign In": "Iniciar Sesión",

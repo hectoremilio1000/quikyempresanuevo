@@ -50,7 +50,7 @@ function FooterComponent() {
               <a href="/blog" className="text-decoration-none">
                 <li className="text-center text-white list-unstyled">Blog</li>
               </a>
-              <a href="/admin" className="text-decoration-none">
+              <a href="/admin/signin" className="text-decoration-none">
                 <li className="text-center text-white list-unstyled">
                   Administrador
                 </li>

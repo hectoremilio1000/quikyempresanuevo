@@ -24,7 +24,7 @@ function getItem(label, key, icon, children, type) {
 
 const items = [
   getItem("Menú", "sub1", null, [
-    getItem("Paciente", "enrutarUsuario", <SmileOutlined />),
+    getItem("Paciente", "enrutarUsuario/signin", <SmileOutlined />),
     getItem("Buscador de pruebas", "otraspruebas", <FileSearchOutlined />),
     getItem("Bolsa de Trabajo", "bolsatrabajo", <DollarCircleOutlined />),
     getItem("Blog", "blog", <GlobalOutlined />),

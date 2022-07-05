@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Layout, Menu } from "antd";
 import { Button } from "react-bootstrap";
 import { Content } from "antd/lib/layout/layout";
-import itemsRoutes3 from './itemsRoutes3/index';
-import HeaderLayoutAdmin3 from './HeaderLayoutAdmin3/index';
+import itemsRoutes3 from "./itemsRoutes3/index";
+import HeaderLayoutAdmin3 from "./HeaderLayoutAdmin3/index";
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import ListaEstudios from './Estudios/ListaEstudios/index';
-import SolicitarEstudios from './Estudios/SolicitarEstudios/index';
+import ListaEstudios from "./Estudios/ListaEstudios/index";
+import SolicitarEstudios from "./Estudios/SolicitarEstudios/index";
+import { Auth } from "aws-amplify";
+import { useNavigate } from "react-router-dom";
 
 const { Sider } = Layout;
 
-function VistaPaciente2({ signOut, user }) {
+function VistaPaciente2() {
+  const [authUser, setAuthUser] = useState(undefined);
   const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState("");
+  const navigate = useNavigate();
 
-  const email = user?.attributes?.email
+  const checkUser = async () => {
+    try {
+      const authUser = await Auth.currentAuthenticatedUser();
+      setAuthUser(authUser);
+    } catch (error) {
+      setAuthUser(null);
+    }
+  };
+
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  const email = authUser?.username;
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -22,12 +39,18 @@ function VistaPaciente2({ signOut, user }) {
   const cambiarComponent = e => {
     setCurrent(e.key);
   };
+
+  const SignOut = () => {
+    Auth.signOut();
+    navigate("/enrutarUsuario/signin", { replace: true });
+  };
+
   return (
     <>
-    <Layout>
+      <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
-        <Menu
+          <div className="logo" />
+          <Menu
             theme="dark"
             mode="inline"
             selectedKeys={current}
@@ -36,25 +59,37 @@ function VistaPaciente2({ signOut, user }) {
           ></Menu>
         </Sider>
         <Layout>
-    <HeaderLayoutAdmin3 collapsed={collapsed} toggle={toggle} email={email}/>
-    <Content style={{ margin: "24px 16px 0" }}>
-      {current === "1" ? (
-        <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <ListaEstudios />
-        </div>
-      ) : current === "2" ? (
-        <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <SolicitarEstudios />
-        </div>
-      ) : <div></div>}
-      </Content>
-    </Layout>
+          <HeaderLayoutAdmin3
+            collapsed={collapsed}
+            toggle={toggle}
+            email={email}
+          />
+          <Content style={{ margin: "24px 16px 0" }}>
+            {current === "1" ? (
+              <div
+                className="site-layout-background"
+                style={{ minHeight: 100 }}
+              >
+                <ListaEstudios />
+              </div>
+            ) : current === "2" ? (
+              <div
+                className="site-layout-background"
+                style={{ minHeight: 100 }}
+              >
+                <SolicitarEstudios />
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </Content>
         </Layout>
-        <Button onClick={signOut} variant="warning" style={{ width: "100%" }}>
+      </Layout>
+      <Button onClick={SignOut} variant="warning" style={{ width: "100%" }}>
         Cerrar Sesión
       </Button>
-        </>
-  )
+    </>
+  );
 }
 
-export default withAuthenticator(VistaPaciente2)
+export default VistaPaciente2;
