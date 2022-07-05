@@ -35,7 +35,7 @@ function Content1() {
                   sx={{ mb: 1.5, textAlign: "center" }}
                   color="text.secondary"
                 >
-                  Somos la primer empresa de Laboratorios Clínicos en México enfocada al servicio de Pruebas de Laboratorio a Domicilio.
+                  Somos la primer empresa de Laboratorios Clínicos en México enfocada al servicio de Pruebas de Laboratorio a Domicilio
                 </Typography>
               </CardContent>
             </Card>
