@@ -31,6 +31,9 @@ function VerPrueba() {
   }, [id]);
   let pdf = resultado?.url;
   let pdf2 = resultado?.url2;
+  let fecha = resultado?.fechaOrden;
+
+  console.log(resultado);
 
   return (
     <Container>
@@ -51,7 +54,7 @@ function VerPrueba() {
             style={{ textAlign: "center", lineHeight: "0", marginBottom: "0" }}
             className="textAdminHeader"
           >
-            Estudio {id}
+            Estudios {fecha}
           </p>
         </div>
         {/* <div style={{display:"flex", justifyContent:"center", width:"100%"}}>

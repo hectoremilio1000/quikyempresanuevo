@@ -32,6 +32,9 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
 
+      <Route path="enrutarUsuario/:id" element={<VerPrueba />} />
+      <Route path="enrutarUsuario/dashboard" element={<VistaPaciente2 />} />
+
       <Route path="enrutarUsuario/signin" element={<SignInPaciente />} />
       <Route path="enrutarUsuario/signup" element={<SignUpPaciente />} />
       <Route
@@ -46,11 +49,9 @@ function AppRoutes() {
         path="enrutarUsuario/newpassword"
         element={<NewPasswordPaciente />}
       />
-      <Route path="enrutarUsuario/dashboard" element={<VistaPaciente2 />} />
 
-      <Route path="enrutarUsuario/paciente" element={<UsuarioPaciente />} />
       <Route path="enrutarUsuario/doctor" element={<UsuarioDoctor />} />
-      <Route path="enrutarUsuario/:id" element={<VerPrueba />} />
+
       <Route path="enrutarUsuario/profile" element={<Profile />} />
       <Route path="admin/dashboard" element={<Administrador3 />} />
 

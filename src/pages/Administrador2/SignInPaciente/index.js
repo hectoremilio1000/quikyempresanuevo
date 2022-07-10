@@ -19,7 +19,7 @@ const SignInPaciente = () => {
   const checkUser = async () => {
     try {
       await Auth.currentAuthenticatedUser({ bypassCache: true });
-      navigate("/admin/dashboard", { replace: true });
+      navigate("/enrutarUsuario/dashboard", { replace: true });
     } catch (error) {
       return;
     }
