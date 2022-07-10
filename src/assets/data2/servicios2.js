@@ -18,6 +18,44 @@ const servicios = [
     creadoPorPrueba: "LUZ MARIA",
   },
   {
+    id: "1a",
+    titulo: "Química sanguínea",
+    category: "home",
+    imagen:
+      "https://quikyempresanuevo-storage-03418b58110747-dev.s3.amazonaws.com/public/images/home/quimicasanguinea+copy.jpg",
+    precio: 1500,
+    oldPrice: 1800,
+    descripcionLarga:
+      "Método específico para determinar la presencia del virus. Idealmente se utiliza en pacientes que presentan síntomas agudos para confirmar la enfermedad. Es recomendada si el paciente tuvo contacto con una persona diagnosticada, incluso si no presenta síntomas. Se requiere la recolección de células infectadas de la nasofaringe y orofaringe del paciente mediante un hisopo. Se requiere ayuno de 4- 5 horas.",
+    descripcioncorta:
+      "Es una serie de pruebas de sangre que analizan diversos elementos en el suero sanguíneo",
+    resultados: "RESULTADOS EN 2 o 6 horas",
+    comentarios:
+      "Es una serie de pruebas de sangre que analizan diversos elementos en el suero sanguíneo.",
+    tipoMuestra: "Sangre",
+    requerimiento: "Ninguno",
+    creadoPorPrueba: "LUZ MARIA",
+  },
+  {
+    id: "2a",
+    titulo: "Prueba de Antígeno (prueba rápida)",
+    category: "home",
+    imagen:
+      "https://quikyempresanuevo-storage-03418b58110747-dev.s3.amazonaws.com/public/images/home/antigeno.jpg",
+    precio: "",
+    oldPrice: "",
+    tiempoResultado: 30,
+    descripcion:
+      "Una prueba rápida de antígenos o prueba rápida es una prueba de diagnóstico rápida que directamente detecta la presencia o ausencia de un antígeno, en este caso para detectar la presencia de SARS-CoV-2, el virus que causa COVID-19. Las pruebas rápidas son un tipo de pruebas de flujo lateral que detectan proteínas, lo que las distingue de otras pruebas médicas que detectan anticuerpos (pruebas de anticuerpos) o ácido nucleico (pruebas de ácido nucleico), de tipo laboratorio o punto de atención.",
+    descripcioncorta:
+      "Prueba rápida para detectar la presencia de COVID-19 en tu cuerpo",
+    resultados: "RESULTADOS EN 2 horas",
+    comentarios:
+      "Prueba rápida para detectar la presencia de COVID-19 en tu cuerpo.",
+    tipoMuestra: "Muestra de nariz",
+    requerimiento: "Ninguno",
+  },
+  {
     id: "2",
     titulo: "PRUEBA DE ANTÍGENO (prueba rápida)",
     category: "covid",
@@ -180,6 +218,24 @@ const servicios = [
     resultados: "RESULTADOS EN 10 minutos",
     comentarios: "Evalúa la actividad de la coagulación de tu cuerpo.",
     tipoMuestra: "Muestra sanguínea",
+    requerimiento: "No requiere ayuno",
+  },
+  {
+    id: "10a",
+    titulo: "Ego",
+    category: "home",
+    imagen:
+      "https://quikyempresanuevo-storage-03418b58110747-dev.s3.amazonaws.com/public/images/home/orina.jpg",
+    precio: 90,
+    oldPrice: 110,
+    descripcion:
+      "“Consiste en una prueba rápida que puede realizarse al lado de la persona antes, durante y después de la cirugía o de otros procedimientos médicos.",
+    descripcioncorta:
+      "El examen general de orina es un examen de tu orina el cual se utiliza para revisar signos de algunas condiciones comunes o padecimientos",
+    resultados: "RESULTADOS EN 2 a 4 horas",
+    comentarios:
+      "El examen general de orina es un examen de tu orina el cual se utiliza para revisar signos de algunas condiciones comunes o padecimientos.",
+    tipoMuestra: "Orina",
     requerimiento: "No requiere ayuno",
   },
   {

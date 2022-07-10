@@ -8,12 +8,13 @@ function Content2() {
       <div className="pt-4 text-center ps-2 pe-2">
         <h1 className="fw-bold fs-2">¿Qué pruebas tienen disponibles?</h1>
         <h4 className="h5">
-          Pruebas de COVID con un <b>CLICK</b> o en sucursal
+          Contamos con todas las pruebas que requieras con un <b>CLICK</b> o en
+          sucursal
         </h4>
       </div>
       <div className="row m-2">
         {servicios
-          .filter(servicio => servicio.category === "covid")
+          .filter(servicio => servicio.category === "home")
           .map(servicio => (
             <div
               className="col-12 col-xs-4 col-md-4 pb-4 pl-2 subcontainer1body3"

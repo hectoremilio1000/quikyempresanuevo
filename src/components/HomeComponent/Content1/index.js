@@ -68,6 +68,33 @@ function Content1() {
               </CardContent>
             </Card>
           </Grid>
+          <Grid item xs={12} md={12}>
+            <Card
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                boxShadow: "none",
+              }}
+            >
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="div"
+                  sx={{ textAlign: "center" }}
+                >
+                  Único Laboratorio en México con Banco de Datos de por Vida
+                </Typography>
+                <Typography
+                  sx={{ mb: 1.5, textAlign: "center" }}
+                  color="text.secondary"
+                >
+                  Nunca más vuelvas a perder un estudio, te ofrecemos un banco
+                  de datos de tus estudios para que puedas consultarlos de por
+                  vida.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
         <Grid item xs={12} md={6} className="gridFoto">
           <CardMedia
