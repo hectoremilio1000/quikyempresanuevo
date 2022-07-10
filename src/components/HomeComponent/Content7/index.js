@@ -70,7 +70,14 @@ function Content7() {
                 key="list-vertical-message"
               />,
             ]}
-            extra={<img width={272} alt="logo" src={listItems[0].image} />}
+            extra={
+              <img
+                width={272}
+                alt="logo"
+                src={listItems[0].image}
+                style={{ borderRadius: 5 }}
+              />
+            }
           >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}

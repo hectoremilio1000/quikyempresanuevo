@@ -7,7 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 
-import somePic from "../../../assets/images/body_2_serviciosSanMateo.jpg";
+import somePic from "../../../assets/images/homeContent1/friendly-hospital-phlebotomist-collecting-blood-sample-from-patient-lab-preparation-blood-test-by-female-doctor-medical-uniform-table-white-bright-room_657921-879.jpg";
 import "./styles.css";
 
 function Content1() {
@@ -35,7 +35,8 @@ function Content1() {
                   sx={{ mb: 1.5, textAlign: "center" }}
                   color="text.secondary"
                 >
-                  Somos la primer empresa de Laboratorios Clínicos en México enfocada al servicio de Pruebas de Laboratorio a Domicilio
+                  Somos la primer empresa de Laboratorios Clínicos en México
+                  enfocada al servicio de Pruebas de Laboratorio a Domicilio
                 </Typography>
               </CardContent>
             </Card>
@@ -60,7 +61,9 @@ function Content1() {
                   sx={{ mb: 1.5, textAlign: "center" }}
                   color="text.secondary"
                 >
-                  Nuestra misión es cuidar del paciente ofreciéndole los estándares más altos en Calidad, con reconocimiento por parte de INDRE, EMA, PACAL, CDC y RIQAS.
+                  Nuestra misión es cuidar del paciente ofreciéndole los
+                  estándares más altos en Calidad, con reconocimiento por parte
+                  de INDRE, EMA, PACAL, CDC y RIQAS.
                 </Typography>
               </CardContent>
             </Card>

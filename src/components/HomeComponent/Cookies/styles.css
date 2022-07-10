@@ -60,18 +60,19 @@
 @media (max-width: 500px) {
   .container-cookies {
     position: absolute;
-    bottom: 100px;
+    top: 130px;
     left: 60px;
     width: 250px;
-    padding: 10px 20px;
+    padding: 20px 10px;
     background: #fff;
+    bottom: 400px;
   }
   .body-cookies h1 {
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 500;
   }
   .body-cookies p {
-    font-size: 12px;
+    font-size: 9px;
     font-weight: 400;
   }
   .body-cookies button {
@@ -81,6 +82,7 @@
     border-style: none;
     border-radius: 50px;
     font-size: 11px;
+    margin-top: 10px;
     margin-bottom: 20px;
   }
 }

@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Header from "./Header";
 import MainFeaturedPost from "./MainFeaturedPost";
@@ -115,23 +115,18 @@ const sidebar = {
   title: "San Mateo",
   description:
     "Creemos que la información actualizada y de mayor impacto debe de estar al alcance de nuestros pacientes en tiempo real",
-  archives: [
-    { title: "March 2020", url: "#" },
-    { title: "February 2020", url: "#" },
-    { title: "January 2020", url: "#" },
-    { title: "November 1999", url: "#" },
-    { title: "October 1999", url: "#" },
-    { title: "September 1999", url: "#" },
-    { title: "August 1999", url: "#" },
-    { title: "July 1999", url: "#" },
-    { title: "June 1999", url: "#" },
-    { title: "May 1999", url: "#" },
-    { title: "April 1999", url: "#" },
-  ],
+  archives: [{ title: "2022", url: "#" }],
   social: [
-    { name: "GitHub", icon: GitHubIcon },
-    { name: "Twitter", icon: TwitterIcon },
-    { name: "Facebook", icon: FacebookIcon },
+    {
+      name: "Instagram",
+      icon: InstagramIcon,
+      url: "https://www.instagram.com/laboratoriossanmateo/",
+    },
+    {
+      name: "Facebook",
+      icon: FacebookIcon,
+      url: "https://ms-my.facebook.com/pg/Laboratorios-San-Mateo-100768022337271",
+    },
   ],
 };
 
