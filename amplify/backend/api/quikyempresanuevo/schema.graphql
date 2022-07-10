@@ -16,5 +16,13 @@ type Paciente @model @auth(rules: [{allow: public}]) {
   key: String
   fechaOrden: String
   estudios: String
+  image2: String
+  estudios3: String
+  estudios2: String
+  url2: String
+  key2: String
+  image3: String
+  url3: String
+  key3: String
 }
  

@@ -20,6 +20,7 @@ import { Container } from "react-bootstrap";
 
 function Administrador3() {
   const [authUser, setAuthUser] = useState(undefined);
+
   const sub = authUser?.attributes?.sub;
 
   const { tokens } = useTheme();
@@ -44,16 +45,6 @@ function Administrador3() {
     navigate("/admin/signin", { replace: true });
   };
 
-  // useEffect(() => {
-  //   const listener = data => {
-  //     if (data.payload.event === "signIn" || data.payload.event === "signOut") {
-  //       checkUser();
-  //     }
-  //   };
-  //   Hub.listen("auth", listener);
-  //   return () => Hub.remove("auth", listener);
-  // }, []);
-
   if (authUser === undefined) {
     return (
       <div style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -62,9 +53,9 @@ function Administrador3() {
     );
   }
 
-  if (sub && sub === "dcd1e81a-2919-4359-a851-987f926932b1") {
-    return <LayoutAdmin2 signOut={SignOut} user={authUser} sub={sub} />;
-  } else {
+  let hector = authUser?.signInUserSession?.idToken?.payload["cognito:groups"];
+  console.log(hector);
+  if (hector === undefined) {
     return (
       <Container className="mt-2 mb-2">
         <h3>
@@ -78,14 +69,15 @@ function Administrador3() {
       </Container>
     );
   }
-}
 
-//   authUser ? (<View backgroundColor={tokens.colors.background.secondary} padding={tokens.space.medium} style={styles.root}>
-//   <Card style={styles.container}>
-//     <h2>Hola Admin</h2>
-//     <div style={styles.subcontainer}></div>
-//   </Card>
-// </View>) : <></>
+  if (hector[0] === "Admin") {
+    return (
+      <>
+        <LayoutAdmin2 signOut={SignOut} user={authUser} sub={sub} />
+      </>
+    );
+  }
+}
 
 const styles = {
   root: {

@@ -72,7 +72,7 @@ function ConfirmEmailPaciente() {
       style={styles.root}
     >
       <Card style={styles.container}>
-        <TituloCustom titulo="Confirma tu email con el código que te envíamos" />
+        <TituloCustom titulo="Confirma tu email con la clave que te envíamos" />
 
         <Form onFinish={onFinish}>
           <Form.Item
@@ -100,7 +100,7 @@ function ConfirmEmailPaciente() {
               },
             ]}
           >
-            <Input placeholder="Código de Verificación enviado a Email" />
+            <Input placeholder="Clave de Verificación enviado a Email" />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button

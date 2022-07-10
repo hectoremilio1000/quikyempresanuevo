@@ -24,6 +24,14 @@ export declare class Paciente {
   readonly key?: string | null;
   readonly fechaOrden?: string | null;
   readonly estudios?: string | null;
+  readonly image2?: string | null;
+  readonly estudios3?: string | null;
+  readonly estudios2?: string | null;
+  readonly url2?: string | null;
+  readonly key2?: string | null;
+  readonly image3?: string | null;
+  readonly url3?: string | null;
+  readonly key3?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Paciente, PacienteMetaData>);

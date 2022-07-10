@@ -89,6 +89,62 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "image2": {
+                    "name": "image2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "estudios3": {
+                    "name": "estudios3",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "estudios2": {
+                    "name": "estudios2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "url2": {
+                    "name": "url2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "key2": {
+                    "name": "key2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "image3": {
+                    "name": "image3",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "url3": {
+                    "name": "url3",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "key3": {
+                    "name": "key3",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -142,5 +198,5 @@ export const schema = {
         }
     },
     "nonModels": {},
-    "version": "00d084f07459b13755ac5118e583b97f"
+    "version": "ed6ca5c7be83c50ecc48e2ebc7e84bd5"
 };

@@ -97,7 +97,7 @@ function SignUp() {
                   }
                   return Promise.reject(
                     new Error(
-                      "El nombre de usuario y la contraseña debe ser la misma"
+                      "El nombre de usuario y el email deben ser el mismo"
                     )
                   );
                 },
@@ -133,7 +133,7 @@ function SignUp() {
                 borderColor: "#30AFD3",
               }}
             >
-              Iniciar Sesión
+              Registrarme
             </Button>
           </Form.Item>
         </Form>

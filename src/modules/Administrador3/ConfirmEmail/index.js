@@ -72,7 +72,7 @@ function ConfirmEmail() {
       style={styles.root}
     >
       <Card style={styles.container}>
-        <TituloCustom titulo="Confirma tu email con el código que te envíamos" />
+        <TituloCustom titulo="Confirma tu email con la clave que te envíamos" />
 
         <Form onFinish={onFinish}>
           <Form.Item
@@ -96,11 +96,11 @@ function ConfirmEmail() {
             rules={[
               {
                 required: true,
-                message: "Por favor ingresa tu código!",
+                message: "Por favor ingresa tu clave!",
               },
             ]}
           >
-            <Input placeholder="Código de Verificación enviado a Email" />
+            <Input placeholder="Clave de Verificación enviado a Email" />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button
@@ -121,7 +121,7 @@ function ConfirmEmail() {
             Regresar a Iniciar Sesión
           </Button>
           <Button type="text" onClick={ResendCode}>
-            Reenviar código
+            Reenviar clave
           </Button>
         </div>
       </Card>
