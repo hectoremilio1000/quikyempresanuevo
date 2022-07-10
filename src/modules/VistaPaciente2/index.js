@@ -48,7 +48,7 @@ function VistaPaciente2() {
   return (
     <>
       <Layout>
-        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <Sider width={150} trigger={null} collapsible collapsed={collapsed}>
           <div className="logo" />
           <Menu
             theme="dark"
