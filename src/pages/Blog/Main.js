@@ -46,6 +46,30 @@ function Main({ posts, url, title }) {
             {/* {truncate(post.body)} */}
             {post.body}
           </p>
+          <Image width={"100%"} src={post.image2} />
+          <p
+            style={{ overflow: "hidden", textOverflow: "ellipsis" }}
+            className="mt-4"
+          >
+            {/* {truncate(post.body)} */}
+            {post.text1}
+          </p>
+          <Image width={"100%"} src={post.image3} />
+          <p
+            style={{ overflow: "hidden", textOverflow: "ellipsis" }}
+            className="mt-4"
+          >
+            {/* {truncate(post.body)} */}
+            {post.text2}
+          </p>
+          <Image width={"100%"} src={post.image4} />
+          <p
+            style={{ overflow: "hidden", textOverflow: "ellipsis" }}
+            className="mt-4"
+          >
+            {/* {truncate(post.body)} */}
+            {post.text3}
+          </p>
           {/* <Link to={`${url}/${post.id}`}>
             <Typography variant="subtitle1" color="primary">
               Continuar leyendo

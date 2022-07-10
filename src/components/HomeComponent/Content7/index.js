@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 const listItems = [
   {
     href: "/blog",
-    title: "¿Cuál es la prueba COVID que necesito?",
-    avatar: "https://joeschmoe.io/api/v1/random",
+    title: "¿Centaurus 5 veces más contagiosa?",
+    avatar: "https://joeschmoe.io/api/v1/jon",
     description:
       "¿Sabes cual prueba de COVID es la que debes solicitar en caso de que presentes Síntomas?",
     content:
-      "Es importante entender que la prueba que solicites depende de muchos factores, por ejemplo...",
+      "La OMS comenta que se está expandiendo a una velocidad mayor que Omicrón...",
+    image:
+      "https://quikyempresanuevo-storage-03418b58110747-dev.s3.amazonaws.com/public/images/imagenesblog/centaurus+covid+child+muerte+mexico.png",
   },
 ];
 
@@ -28,11 +30,8 @@ function Content7() {
     <Container className="mb-4">
       <div className="pt-4 text-center ps-2 pe-2">
         <h1 className="fw-bold fs-2">
-          Quieres conocer las noticias más relevantes de medicina en general
+          Conoce las noticias más relevantes de medicina en general
         </h1>
-        <h4 className="h5">
-          Visita nuestro <b>Blog</b>
-        </h4>
       </div>
       <List
         itemLayout="vertical"
@@ -71,13 +70,7 @@ function Content7() {
                 key="list-vertical-message"
               />,
             ]}
-            extra={
-              <img
-                width={272}
-                alt="logo"
-                src="https://www.paho.org/sites/default/files/styles/max_1500x1500/public/2020-03/blue-covid-banner.jpg?itok=N2g8afH3"
-              />
-            }
+            extra={<img width={272} alt="logo" src={listItems[0].image} />}
           >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}

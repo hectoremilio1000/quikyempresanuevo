@@ -6,8 +6,8 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 
-function MainFeaturedPost(props) {
-  const { post } = props;
+function MainFeaturedPost({ portada }) {
+  console.log(portada);
 
   return (
     <Paper
@@ -16,18 +16,19 @@ function MainFeaturedPost(props) {
         backgroundColor: "grey.800",
         color: "#fff",
         mb: 4,
+        height: "50vh",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundImage: `url(${post.image})`,
+        backgroundImage: `url(${portada[0].imagenportada})`,
       }}
     >
       {/* Increase the priority of the hero background image */}
       {
         <img
           style={{ display: "none" }}
-          src={post.image}
-          alt={post.imageText}
+          src={portada[0].imagenportada}
+          alt={portada[0].textoprincipal}
         />
       }
       <Box
@@ -55,14 +56,14 @@ function MainFeaturedPost(props) {
               color="inherit"
               gutterBottom
             >
-              {post.title}
+              {portada[0].textoprincipal}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
+              {portada[0].textosecundario}
             </Typography>
-            <Link variant="subtitle1" href="#">
-              {post.linkText}
-            </Link>
+            {/* <Link variant="subtitle1" href="#">
+              {porta.linkText}
+            </Link> */}
           </Box>
         </Grid>
       </Grid>

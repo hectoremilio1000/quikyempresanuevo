@@ -23,11 +23,11 @@ function Home() {
       <Banner />
       <Content1 />
       <Content2 />
+      <Content7 />
       <Content3 />
       <Content5 />
       <Content6 />
       <Content4 />
-      <Content7 />
 
       {cookies ? (
         <Cookies cookies={cookies} handlecookies={handlecookies} />
