@@ -6,7 +6,7 @@ import { Layout } from "antd";
 
 import { Button, Container } from "react-bootstrap";
 import { DataStore, Storage } from "aws-amplify";
-import {Paciente} from '../../../../../../models'
+import { Paciente } from "../../../../../../models";
 
 const { Header, Content, Sider } = Layout;
 
@@ -21,15 +21,16 @@ function getItem(label, key, icon, children, type) {
 }
 
 function VerPrueba() {
-  const [resultado, setResultado] = useState([])
+  const [resultado, setResultado] = useState([]);
   const navigate = useNavigate();
 
   const { id } = useParams();
 
   useEffect(() => {
-    DataStore.query(Paciente, id).then(setResultado)
+    DataStore.query(Paciente, id).then(setResultado);
   }, [id]);
-let pdf = resultado?.url
+  let pdf = resultado?.url;
+  let pdf2 = resultado?.url2;
 
   return (
     <Container>
@@ -57,10 +58,30 @@ let pdf = resultado?.url
 {pdf ?  <iframe src={pdf} title={resultado?.id} style={{width:"100%", height:"80vh"}}/> : <></>}
 </div> */}
 
-<div style={{display:"flex", justifyContent:"center", width:"100%"}}>
-{pdf ?  <iframe src={pdf} title={resultado?.id} style={{width:"100%", height:"80vh"}}/> : <></>}
-</div>
-
+        <div style={{ width: "100%" }}>
+          {pdf ? (
+            <div>
+              <iframe
+                src={pdf}
+                title={resultado?.id}
+                style={{ width: "100%", height: "35vh" }}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+          {pdf2 ? (
+            <div>
+              <iframe
+                src={pdf2}
+                title={resultado?.id}
+                style={{ width: "100%", height: "35vh" }}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
       </Header>
     </Container>
   );

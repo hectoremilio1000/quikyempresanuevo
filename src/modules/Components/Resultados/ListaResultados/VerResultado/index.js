@@ -43,7 +43,6 @@ function VerResultado() {
 
   let pdf = resultado?.url;
   let pdf2 = resultado?.url2;
-  console.log(resultado);
 
   // useEffect(() => {
   //   if(!resultados){
