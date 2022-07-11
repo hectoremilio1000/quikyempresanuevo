@@ -30,11 +30,28 @@ import NewPasswordPaciente from "../../pages/Administrador2/NewPasswordPaciente/
 function AppRoutes() {
   return (
     <Routes>
+      {/* routes nav y home */}
+      <Route path="blog" element={<Blog />} />
+      <Route path="privacidad" element={<Privacidad />} />
+      <Route path="bolsatrabajo" element={<BolsaTrabajo />} />
+      <Route path="otraspruebas" element={<OtrasPruebas />} />
       <Route path="/" element={<Home />} />
+      <Route path="blog/:id" element={<Blog />} />
 
-      <Route path="enrutarUsuario/:id" element={<VerPrueba />} />
-      <Route path="enrutarUsuario/dashboard" element={<VistaPaciente2 />} />
+      {/* routes administrador */}
 
+      <Route path="admin/signin" element={<SignIn />} />
+      <Route path="admin/signup" element={<SignUp />} />
+      <Route path="admin/confirmemail" element={<ConfirmEmail />} />
+      <Route path="admin/forgotpassword" element={<ForgotPassword />} />
+      <Route path="admin/newpassword" element={<NewPassword />} />
+      <Route path="admin/dashboard" element={<Administrador3 />} />
+
+      {/* rotues paciente */}
+
+      <Route path="admin1" element={<Administrador2 />} />
+      <Route path="admin2" element={<Administrador />} />
+      <Route path="admin/paciente/:id" element={<VerResultado />} />
       <Route path="enrutarUsuario/signin" element={<SignInPaciente />} />
       <Route path="enrutarUsuario/signup" element={<SignUpPaciente />} />
       <Route
@@ -49,26 +66,13 @@ function AppRoutes() {
         path="enrutarUsuario/newpassword"
         element={<NewPasswordPaciente />}
       />
+      <Route path="enrutarUsuario/dashboard" element={<VistaPaciente2 />} />
+      <Route path="enrutarUsuario/:id" element={<VerPrueba />} />
+
+      {/* routes por definir */}
 
       <Route path="enrutarUsuario/doctor" element={<UsuarioDoctor />} />
-
       <Route path="enrutarUsuario/profile" element={<Profile />} />
-      <Route path="admin/dashboard" element={<Administrador3 />} />
-
-      <Route path="admin/signin" element={<SignIn />} />
-      <Route path="admin/signup" element={<SignUp />} />
-      <Route path="admin/confirmemail" element={<ConfirmEmail />} />
-      <Route path="admin/forgotpassword" element={<ForgotPassword />} />
-      <Route path="admin/newpassword" element={<NewPassword />} />
-
-      <Route path="admin1" element={<Administrador2 />} />
-      <Route path="admin2" element={<Administrador />} />
-      <Route path="admin/paciente/:id" element={<VerResultado />} />
-      <Route path="blog" element={<Blog />} />
-      <Route path="blog/:id" element={<Blog />} />
-      <Route path="privacidad" element={<Privacidad />} />
-      <Route path="bolsatrabajo" element={<BolsaTrabajo />} />
-      <Route path="otraspruebas" element={<OtrasPruebas />} />
 
       {/* <Route path="*" element={<NotFound />} /> */}
     </Routes>

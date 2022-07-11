@@ -15,8 +15,8 @@ function FooterComponent() {
               Atrévete a conocer los Laboratorios con la Mayor Calidad
             </h5>
             <p className="text-white descripcion_footer text-center">
-              Servicios de test de laboratorio con un servicio de primer nivel a
-              precios accesibles.
+              Servicios de test de laboratorio a domicilio con la mayor
+              confiabilidad y confidencialidad.
             </p>
           </div>
           <div className="col-6 text-center">
