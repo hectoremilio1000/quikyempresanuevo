@@ -56,18 +56,19 @@ const itemsRoutes = [
   getItem("Resultados", "sub5", <FilePdfOutlined />, [
     getItem("Crear Resultado", "9", <FileDoneOutlined />),
     getItem("Lista de Resultados", "10", <FileSearchOutlined />),
+    getItem("Resultado Prueba", "11", <FileSearchOutlined />),
   ]),
 
   getItem("Blog", "sub6", <HddOutlined />, [
-    getItem("Crear Blog", "11", <LaptopOutlined />),
-    getItem("Editar Blog", "12", <GroupOutlined />),
+    getItem("Crear Blog", "12", <LaptopOutlined />),
+    getItem("Editar Blog", "13", <GroupOutlined />),
   ]),
   getItem("Administrador", "sub7", <HddOutlined />, [
-    getItem("Cortes", "13", <LaptopOutlined />),
+    getItem("Cortes", "14", <LaptopOutlined />),
   ]),
   getItem("Empleo", "sub8", <MonitorOutlined />, [
-    getItem("Enfermera", "14", <ReconciliationOutlined />),
-    getItem("General", "15", <ScheduleOutlined />),
+    getItem("Enfermera", "15", <ReconciliationOutlined />),
+    getItem("General", "16", <ScheduleOutlined />),
   ]),
 ];
 

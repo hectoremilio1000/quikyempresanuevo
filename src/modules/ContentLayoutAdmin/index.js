@@ -15,6 +15,7 @@ import ListaBlog from "../Components/Blog/ListaBlogs";
 import Cortes from "../Components/Administrador/Cortes";
 import Enfermeras from "../Components/Empleo/Enfermeras";
 import General from "../Components/Empleo/General";
+import ResultadoPrueba from "../Components/Resultados/ResultadoPrueba/index";
 const { Content } = Layout;
 
 function ContentLayoutAdmin({ current }) {
@@ -62,21 +63,25 @@ function ContentLayoutAdmin({ current }) {
         </div>
       ) : current === "11" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <CrearBlog />
+          <ResultadoPrueba />
         </div>
       ) : current === "12" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <ListaBlog />
+          <CrearBlog />
         </div>
       ) : current === "13" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <Cortes />
+          <ListaBlog />
         </div>
       ) : current === "14" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <Enfermeras />
+          <Cortes />
         </div>
       ) : current === "15" ? (
+        <div className="site-layout-background" style={{ minHeight: 100 }}>
+          <Enfermeras />
+        </div>
+      ) : current === "16" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
           <General />
         </div>

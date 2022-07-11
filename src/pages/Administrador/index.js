@@ -4,6 +4,8 @@ import "@aws-amplify/ui-react/styles.css";
 import { Auth, I18n } from "aws-amplify";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Spin } from "antd";
+import { useNavigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import LayoutAdministrador from "../../modules/LayoutAdministrador/index";
 I18n.putVocabularies(translations);
@@ -24,9 +26,11 @@ I18n.putVocabularies({
   },
 });
 
-function Administrador({ signOut, user }) {
+function Administrador() {
   const [authUser, setAuthUser] = useState("");
   const sub = authUser?.attributes?.sub;
+
+  const navigate = useNavigate();
 
   const fetchUser = async () => {
     const authUser = await Auth.currentAuthenticatedUser();
@@ -36,22 +40,54 @@ function Administrador({ signOut, user }) {
     fetchUser();
   }, []);
 
-  if (sub && sub === "67cb96dc-15c4-42cb-9f27-123b6bd03001") {
-    return <LayoutAdministrador signOut={signOut} />;
-  } else {
+  if (authUser === undefined) {
+    return (
+      <div style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Spin />
+      </div>
+    );
+  }
+
+  const SignOut = () => {
+    Auth.signOut();
+    navigate("/", { replace: true });
+  };
+
+  let hector = authUser?.signInUserSession?.idToken?.payload["cognito:groups"];
+  if (hector === undefined) {
     return (
       <Container className="mt-2 mb-2">
         <h3>
-          Hola {user.attributes.email} no eres Admin por favor si eres
-          paciente/doctor ve a Usuario y si no regresa a Inicio
+          Hola {authUser?.attributes?.email} no eres Admin, por favor si eres
+          Paciente ve a Menú y da click en Paciente y si no regresa a Inicio.
         </h3>
 
-        <Button onClick={signOut} variant="warning">
+        <Button onClick={SignOut} variant="warning">
           Cerrar Sesión
         </Button>
       </Container>
     );
   }
+
+  if (hector[0] === "Admin") {
+    return (
+      <>
+        <LayoutAdministrador signOut={SignOut} user={authUser} sub={sub} />
+      </>
+    );
+  }
 }
+
+const styles = {
+  root: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  container: {
+    width: 600,
+    maxWidth: 500,
+  },
+  subcontainer: {},
+};
 
 export default withAuthenticator(Administrador);

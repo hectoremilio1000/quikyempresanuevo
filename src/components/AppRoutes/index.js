@@ -49,8 +49,6 @@ function AppRoutes() {
 
       {/* rotues paciente */}
 
-      <Route path="admin1" element={<Administrador2 />} />
-      <Route path="admin2" element={<Administrador />} />
       <Route path="admin/paciente/:id" element={<VerResultado />} />
       <Route path="enrutarUsuario/signin" element={<SignInPaciente />} />
       <Route path="enrutarUsuario/signup" element={<SignUpPaciente />} />
@@ -69,10 +67,14 @@ function AppRoutes() {
       <Route path="enrutarUsuario/dashboard" element={<VistaPaciente2 />} />
       <Route path="enrutarUsuario/:id" element={<VerPrueba />} />
 
+      {/* rotue administrador con todos los componentes */}
+      <Route path="admin2" element={<Administrador />} />
+
       {/* routes por definir */}
 
       <Route path="enrutarUsuario/doctor" element={<UsuarioDoctor />} />
       <Route path="enrutarUsuario/profile" element={<Profile />} />
+      <Route path="admin1" element={<Administrador2 />} />
 
       {/* <Route path="*" element={<NotFound />} /> */}
     </Routes>
