@@ -63,7 +63,7 @@ function ContentLayoutAdmin({ current }) {
         </div>
       ) : current === "11" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <ResultadoPrueba />
+          <ResultadoPrueba style={{ width: "100%" }} />
         </div>
       ) : current === "12" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
