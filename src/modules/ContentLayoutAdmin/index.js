@@ -86,7 +86,7 @@ function ContentLayoutAdmin({ current }) {
           <General />
         </div>
       ) : (
-        <div></div>
+        <div style={{}}></div>
       )}
     </Content>
   );
