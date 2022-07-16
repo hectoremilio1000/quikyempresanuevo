@@ -90,6 +90,7 @@ function CrearResultado() {
   const [mostrar, setMostrar] = useState(false);
 
   const [datosPDF, setDatosPDF] = useState({});
+  const [listo, setListo] = useState(false);
 
   const calculoIMC = async () => {
     return await setIMCPaciente((pesoPaciente / alturaPaciente).toFixed(2));
@@ -240,6 +241,10 @@ function CrearResultado() {
     setCrearPDF(!crearPDF);
   };
 
+  const onListo = () => {
+    setListo(!listo);
+  };
+
   return (
     <div style={{ margin: 20 }}>
       <p className="display-6 text-center">Por favor ingresa tus datos</p>
@@ -260,7 +265,7 @@ function CrearResultado() {
             backgroundColor: "white",
             padding: 5,
             borderRadius: 5,
-            width: 150,
+            width: 125,
           }}
         />
         <div>
@@ -273,7 +278,7 @@ function CrearResultado() {
               backgroundColor: "white",
               padding: 5,
               borderRadius: 5,
-              width: 150,
+              width: 125,
             }}
           />
         </div>
@@ -286,7 +291,7 @@ function CrearResultado() {
             backgroundColor: "white",
             padding: 5,
             borderRadius: 5,
-            width: 150,
+            width: 125,
           }}
         />
       </div>
@@ -299,7 +304,7 @@ function CrearResultado() {
           backgroundColor: "white",
           padding: 5,
           borderRadius: 5,
-          width: 150,
+          width: 125,
         }}
       />
       <div>
@@ -312,7 +317,7 @@ function CrearResultado() {
             backgroundColor: "white",
             padding: 5,
             borderRadius: 5,
-            width: 150,
+            width: 125,
           }}
         />
       </div>
@@ -326,7 +331,7 @@ function CrearResultado() {
             backgroundColor: "white",
             padding: 5,
             borderRadius: 5,
-            width: 150,
+            width: 125,
           }}
         />
       </div>
@@ -340,7 +345,7 @@ function CrearResultado() {
             backgroundColor: "white",
             padding: 5,
             borderRadius: 5,
-            width: 150,
+            width: 125,
           }}
         />
       </div>
@@ -358,7 +363,7 @@ function CrearResultado() {
         <DatePicker
           onChange={DateFechaIngresoPaciente}
           style={{
-            width: 200,
+            width: 125,
             margin: 10,
             backgroundColor: "white",
             padding: 8,
@@ -372,7 +377,7 @@ function CrearResultado() {
         <TimePicker
           onChange={HourHoraIngresoPaciente}
           style={{
-            width: 200,
+            width: 125,
             margin: 10,
             backgroundColor: "white",
             padding: 8,
@@ -386,7 +391,7 @@ function CrearResultado() {
         <DatePicker
           onChange={DateFechaOrdenPaciente}
           style={{
-            width: 200,
+            width: 125,
             margin: 10,
             backgroundColor: "white",
             padding: 8,
@@ -400,7 +405,7 @@ function CrearResultado() {
         <TimePicker
           onChange={HourHoraOrdenPaciente}
           style={{
-            width: 200,
+            width: 125,
             margin: 10,
             backgroundColor: "white",
             padding: 8,
@@ -456,7 +461,7 @@ function CrearResultado() {
         style={styles.input}
       />
       <Select
-        style={{ margin: 10 }}
+        style={{ margin: 10, width: 125 }}
         placeholder="Resultado prueba"
         onChange={value => {
           setResultadoPrueba(value);
@@ -478,7 +483,17 @@ function CrearResultado() {
       </div>
 
       <div width="100%">
-        {crearPDF ? <ResultadoPrueba datosPacienteNuevo={datosPDF} /> : <></>}
+        {crearPDF ? (
+          <>
+            <p>
+              Para guardar el pdf da click derecho en él o en el botón de bajar,
+              si estás en el celular toma captura de pantalla y mándalo.
+            </p>
+            <ResultadoPrueba datosPacienteNuevo={datosPDF} />
+          </>
+        ) : (
+          <></>
+        )}
       </div>
 
       {/* <PDFDownloadLink
@@ -490,29 +505,32 @@ function CrearResultado() {
         }
       </PDFDownloadLink> */}
 
-      <Input
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        placeholder="Email"
-        style={styles.input}
-      />
-
-      <Input
-        value={whatsapp}
-        onChange={e => setWhatsapp(e.target.value)}
-        placeholder="whatsapp"
-        style={styles.input}
-      />
-
-      <div style={{ margin: 10 }}>
-        <p>
-          Sube un resultado en pdf:
-          <input type="file" accept="pdf" onChange={e => onChange(e)} />
-        </p>
-      </div>
-      <div>{pdf ? <iframe src={pdf} title="32ds" /> : <></>}</div>
-      <div style={{ margin: 10 }}>
-        {/* <div className="d-flex">
+      <div>
+        <p>Estás Listo para subir tu resultado?</p>
+        <Button onClick={onListo}>Estoy listo</Button>
+        {listo ? (
+          <>
+            <Input
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Email"
+              style={styles.input}
+            />
+            <Input
+              value={whatsapp}
+              onChange={e => setWhatsapp(e.target.value)}
+              placeholder="whatsapp"
+              style={styles.input}
+            />
+            <div style={{ margin: 10 }}>
+              <p>
+                Sube un resultado en pdf:
+                <input type="file" accept="pdf" onChange={e => onChange(e)} />
+              </p>
+            </div>
+            <div>{pdf ? <iframe src={pdf} title="32ds" /> : <></>}</div>
+            <div style={{ margin: 10 }}>
+              {/* <div className="d-flex">
           <p className="h5"> Más estudios? </p>
           <PlusCircleOutlined
             onClick={onMostrar}
@@ -520,35 +538,44 @@ function CrearResultado() {
           />
         </div> */}
 
-        {/* {mostrar ? ( */}
-        <>
-          {" "}
-          <p>
-            Sube segundo resultado en pdf:
-            <input type="file" accept="pdf" onChange={e => onChange2(e)} />
-          </p>
-          <div>{pdf2 ? <iframe src={pdf2} title="33ds" /> : <></>}</div>
-        </>
-        {/* ) : (
+              {/* {mostrar ? ( */}
+              <>
+                {" "}
+                <p>
+                  Sube segundo resultado en pdf:
+                  <input
+                    type="file"
+                    accept="pdf"
+                    onChange={e => onChange2(e)}
+                  />
+                </p>
+                <div>{pdf2 ? <iframe src={pdf2} title="33ds" /> : <></>}</div>
+              </>
+              {/* ) : (
           <></>
         )} */}
-      </div>
+            </div>
 
-      <Select
-        style={{ margin: 10 }}
-        placeholder="Selecciona el role"
-        onChange={value => {
-          setRole(value);
-        }}
-      >
-        <Option value="DOCTOR">Doctor</Option>
-        <Option value="PACIENTE">Paciente</Option>
-      </Select>
+            <Select
+              style={{ margin: 10, width: 125 }}
+              placeholder="Role"
+              onChange={value => {
+                setRole(value);
+              }}
+            >
+              <Option value="DOCTOR">Doctor</Option>
+              <Option value="PACIENTE">Paciente</Option>
+            </Select>
 
-      <div style={{ margin: 10 }}>
-        <Button title="Save" onClick={onSave} type="primary">
-          Guardar
-        </Button>
+            <div style={{ margin: 10 }}>
+              <Button title="Save" onClick={onSave} type="primary">
+                Guardar
+              </Button>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
