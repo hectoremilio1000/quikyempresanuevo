@@ -453,8 +453,29 @@ function ResultadoPrueba({ datosPacienteNuevo }) {
             </View>
             <View
               style={{
+                marginTop: 15,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 8,
+                }}
+              >
+                LABORATORIOS SAN MATEO RFC: LBE2001242S
+              </Text>
+              <Text
+                style={{
+                  fontSize: 8,
+                }}
+              >
+                ZONA SECA CENTRAL DE ABASTOS; MÓDULO H LOCAL 12 COLONIA
+                COSIJOEZA
+              </Text>
+            </View>
+            <View
+              style={{
                 flexDirection: "row",
-                marginTop: 30,
+                marginTop: 15,
                 backgroundColor: "#34B1F0",
                 height: 30,
                 alignItems: "center",

@@ -446,7 +446,7 @@ function CrearResultado() {
       <Input
         value={sintomasPaciente}
         onChange={e => setSintomasPaciente(e.target.value)}
-        placeholder="Escribe el tratamiento que le dieron al paciente"
+        placeholder="Escribe los síntomas del paciente"
         style={styles.input}
       />
 
@@ -454,11 +454,13 @@ function CrearResultado() {
         value={metodoPrueba}
         onChange={e => setMetodoPrueba(e.target.value)}
         style={styles.input}
+        placeholder="Escribe el método de la prueba"
       />
       <Input
         value={muestraPrueba}
         onChange={e => setMuestraPrueba(e.target.value)}
         style={styles.input}
+        placeholder="Escribe la muestra"
       />
       <Select
         style={{ margin: 10, width: 125 }}
