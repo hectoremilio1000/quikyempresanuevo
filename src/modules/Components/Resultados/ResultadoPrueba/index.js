@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   viewer: {
-    width: window.innerWidth, //the pdf viewer will take up all of the width and height
-    height: window.innerHeight,
+    width: "100%", //the pdf viewer will take up all of the width and height
+    height: "100%",
   },
   divider: {
     borderTop: "5px solid #2DA3CC",
@@ -116,71 +116,96 @@ const styles = StyleSheet.create({
   },
 });
 
-const datos = {
-  idPaciente: "1",
-  nombrePaciente: "Héctor Emilio Velasquez Perez",
-  edadPaciente: 14,
-  sexoPaciente: "masculino",
-  medicoPaciente: "Shurick Emanuel",
-  fechaIngresoPaciente: "27-06-22",
-  horaIngresoPaciente: "9:15",
-  horaOrdenPaciente: "10:20",
-  fechaOrdenPaciente: "27-07-22",
-  ordenID: "sdfa33e12das",
-  estudio: "UROANÁLISIS",
-  pesoPaciente: 53,
-  alturaPaciente: 1.5,
-  imcPaciente: 23.6,
-  frecuenciaPaciente: 150,
-  temperaturaPaciente: 36.6,
-  presionPaciente: 84,
-  saturacionPaciente: 95,
-  diagnosticoPaciente: "se tomo la prueba porque presenta síntomas de COVID",
-  tratamientoPaciente: "Antibiótico cada 8 horas",
-  sintomasPaciente: "Le duele la cabeza",
-  categoríaPrueba: "INMUNOLOGÍA",
-  nombrePrueba: "ANTÍGENO DE SARS-COV 2 (PRUEBA RÁPIDA COVID)",
-  metodoPrueba: "Inmunocromatografia específica",
-  muestraPrueba: "Exudado Nasofaríngeo",
-  resultadoPrueba: "POSITIVO",
-  nombreQuimicaResponsable: "BRENDA MONSERRAT GAZGA DIAZ",
-};
+// const datos = {
+//   idPaciente: "1",
+//   nombrePaciente: "Héctor Emilio Velasquez Perez",
+//   edadPaciente: 14,
+//   sexoPaciente: "masculino",
+//   medicoPaciente: "Shurick Emanuel",
+//   fechaIngresoPaciente: "27-06-22",
+//   horaIngresoPaciente: "9:15",
+//   horaOrdenPaciente: "10:20",
+//   fechaOrdenPaciente: "27-07-22",
+//   ordenID: "sdfa33e12das",
+//   pesoPaciente: 53,
+//   alturaPaciente: 1.5,
+//   imcPaciente: 23.6,
+//   frecuenciaPaciente: 150,
+//   temperaturaPaciente: 36.6,
+//   presionPaciente: 84,
+//   saturacionPaciente: 95,
+//   diagnosticoPaciente: "se tomo la prueba porque presenta síntomas de COVID",
+//   tratamientoPaciente: "Antibiótico cada 8 horas",
+//   sintomasPaciente: "Le duele la cabeza",
+//   categoríaPrueba: "INMUNOLOGÍA",
+//   nombrePrueba: "ANTÍGENO DE SARS-COV 2 (PRUEBA RÁPIDA COVID)",
+//   metodoPrueba: "Inmunocromatografia específica",
+//   muestraPrueba: "Exudado Nasofaríngeo",
+//   resultadoPrueba: "POSITIVO",
+//   nombreQuimicaResponsable: "BRENDA MONSERRAT GAZGA DIAZ",
+// };
 
-const {
-  idPaciente,
-  nombrePaciente,
-  edadPaciente,
-  sexoPaciente,
-  medicoPaciente,
-  fechaIngresoPaciente,
-  horaIngresoPaciente,
-  fechaOrdenPaciente,
-  horaOrdenPaciente,
-  ordenID,
-  estudio,
-  pesoPaciente,
-  alturaPaciente,
-  imcPaciente,
-  temperaturaPaciente,
-  presionPaciente,
-  saturacionPaciente,
-  frecuenciaPaciente,
-  diagnosticoPaciente,
-  tratamientoPaciente,
-  sintomasPaciente,
-  categoríaPrueba,
-  nombrePrueba,
-  metodoPrueba,
-  muestraPrueba,
-  resultadoPrueba,
-  nombreQuimicaResponsable,
-} = datos;
+// const {
+//   idPaciente,
+//   nombrePaciente,
+//   edadPaciente,
+//   sexoPaciente,
+//   medicoPaciente,
+//   fechaIngresoPaciente,
+//   horaIngresoPaciente,
+//   fechaOrdenPaciente,
+//   horaOrdenPaciente,
+//   ordenID,
+//   pesoPaciente,
+//   alturaPaciente,
+//   imcPaciente,
+//   temperaturaPaciente,
+//   presionPaciente,
+//   saturacionPaciente,
+//   frecuenciaPaciente,
+//   diagnosticoPaciente,
+//   tratamientoPaciente,
+//   sintomasPaciente,
+//   categoríaPrueba,
+//   nombrePrueba,
+//   metodoPrueba,
+//   muestraPrueba,
+//   resultadoPrueba,
+//   nombreQuimicaResponsable,
+// } = datos;
 
-const IMC = () => {
-  return pesoPaciente / alturaPaciente;
-};
+// const IMC = () => {
+//   return pesoPaciente / alturaPaciente;
+// };
 
-function ResultadoPrueba() {
+function ResultadoPrueba({ datosPacienteNuevo }) {
+  const {
+    nombrePaciente,
+    edadPaciente,
+    sexoPaciente,
+    fechaIngresoPaciente,
+    horaIngresoPaciente,
+    fechaOrdenPaciente,
+    horaOrdenPaciente,
+    ordenID,
+    nombrePrueba,
+    pesoPaciente,
+    alturaPaciente,
+    IMCPaciente,
+    frecuenciaPaciente,
+    temperaturaPaciente,
+    presionPaciente,
+    saturacionPaciente,
+    categoríaPrueba,
+    diagnosticoPaciente,
+    tratamientoPaciente,
+    sintomasPaciente,
+    metodoPrueba,
+    nombreQuimicaResponsable,
+    resultadoPrueba,
+    muestraPrueba,
+    medicoPaciente,
+  } = datosPacienteNuevo;
   return (
     <PDFViewer style={styles.viewer}>
       {/* Start of the document*/}
@@ -221,7 +246,7 @@ function ResultadoPrueba() {
               dato1="MÉDICO:"
               datoPaciente1={`${medicoPaciente}`}
               dato2="ID:"
-              datoPaciente2={`${idPaciente}`}
+              datoPaciente2={`${ordenID}`}
             />
           </View>
 
@@ -258,7 +283,7 @@ function ResultadoPrueba() {
             />
             <DatosAntropometricos
               dato1="IMC:"
-              datoPaciente1={`${IMC().toFixed(1)} `}
+              datoPaciente1={`${IMCPaciente} `}
               dato2="FRECUENCIA CARDIACA"
               datoPaciente2={`${frecuenciaPaciente} bpm`}
             />

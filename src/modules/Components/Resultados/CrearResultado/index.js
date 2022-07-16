@@ -18,36 +18,7 @@ import { Paciente } from "../../../../models";
 
 //icono
 import { PlusCircleOutlined } from "@ant-design/icons";
-
-const datos = {
-  idPaciente: "1",
-  nombrePaciente: "Héctor Emilio Velasquez Perez",
-  edadPaciente: 14,
-  sexoPaciente: "masculino",
-  medicoPaciente: "Shurick Emanuel",
-  fechaIngresoPaciente: "27-06-22",
-  horaIngresoPaciente: "9:15",
-  horaOrdenPaciente: "10:20",
-  fechaOrdenPaciente: "27-07-22",
-  ordenID: "sdfa33e12das",
-  estudio: "UROANÁLISIS",
-  pesoPaciente: 53,
-  alturaPaciente: 1.5,
-  imcPaciente: 23.6,
-  frecuenciaPaciente: 150,
-  temperaturaPaciente: 36.6,
-  presionPaciente: 84,
-  saturacionPaciente: 95,
-  diagnosticoPaciente: "se tomo la prueba porque presenta síntomas de COVID",
-  tratamientoPaciente: "Antibiótico cada 8 horas",
-  sintomasPaciente: "Le duele la cabeza",
-  categoríaPrueba: "INMUNOLOGÍA",
-  nombrePrueba: "ANTÍGENO DE SARS-COV 2 (PRUEBA RÁPIDA COVID)",
-  metodoPrueba: "Inmunocromatografia específica",
-  muestraPrueba: "Exudado Nasofaríngeo",
-  resultadoPrueba: "POSITIVO",
-  nombreQuimicaResponsable: "BRENDA MONSERRAT GAZGA DIAZ",
-};
+import ResultadoPrueba from "../ResultadoPrueba";
 
 const {
   aws_user_files_s3_bucket_region: region,
@@ -73,11 +44,31 @@ function CrearResultado() {
   const [horaIngresoPaciente, setHoraIngresoPaciente] = useState("");
   const [fechaOrdenPaciente, setFechaOrdenPaciente] = useState("");
   const [horaOrdenPaciente, setHoraOrdenPaciente] = useState("");
-  const [ordenID, setordenID] = useState("");
-  const [estudio, setEstudio] = useState("");
+  const [ordenID, setordenID] = useState(uuidv4());
+  const [nombrePrueba, setNombrePrueba] = useState(
+    "ANTÍGENO DE SARS-COV 2 (PRUEBA RÁPIDA COVID)"
+  );
   const [pesoPaciente, setPesoPaciente] = useState("");
   const [alturaPaciente, setAlturaPaciente] = useState("");
   const [IMCPaciente, setIMCPaciente] = useState("");
+  const [frecuenciaPaciente, setFrecuenciaPaciente] = useState("");
+  const [temperaturaPaciente, setTemperaturaPaciente] = useState("");
+  const [presionPaciente, setPresionPaciente] = useState("");
+  const [saturacionPaciente, setSaturacionPaciente] = useState("");
+  const [categoríaPrueba, setCategoríaPrueba] = useState("INMUNOLOGÍA");
+  const [medicoPaciente, setMedicoPaciente] = useState("");
+  const [diagnosticoPaciente, setDiagnosticoPaciente] = useState("");
+  const [tratamientoPaciente, setTratamientoPaciente] = useState("");
+  const [sintomasPaciente, setSintomasPaciente] = useState("");
+  const [metodoPrueba, setMetodoPrueba] = useState(
+    "Inmunocromatografia específica"
+  );
+  const [muestraPrueba, setMuestraPrueba] = useState("Exudado Nasofaríngeo");
+  const [resultadoPrueba, setResultadoPrueba] = useState("");
+  const [nombreQuimicaResponsable, setNombreQuimicaResponsable] = useState(
+    "BRENDA MONSERRAT GAZGA DIAZ"
+  );
+  const [crearPDF, setCrearPDF] = useState(false);
 
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -96,6 +87,12 @@ function CrearResultado() {
   const [estudios3, setEstudios3] = useState("");
 
   const [mostrar, setMostrar] = useState(false);
+
+  const [datosPDF, setDatosPDF] = useState({});
+
+  const calculoIMC = async () => {
+    return await setIMCPaciente((pesoPaciente / alturaPaciente).toFixed(2));
+  };
 
   const onChange2 = async e => {
     e.preventDefault();
@@ -160,32 +157,86 @@ function CrearResultado() {
   };
 
   const onSave = async () => {
-    const newpaciente = await DataStore.save(
-      new Paciente({
-        nombre: nombrePaciente,
+    calculoIMC();
+    // const newpaciente = await DataStore.save(
+    //   new Paciente({
+    //     nombre: nombrePaciente,
 
-        email: email,
-        whatsapp: whatsapp,
-        role: role,
-        image: pdf,
-        key: key,
-        url: url,
-        image2: pdf2,
-        key2: key2,
-        url2: url2,
+    //     email: email,
+    //     whatsapp: whatsapp,
+    //     role: role,
+    //     image: pdf,
+    //     key: key,
+    //     url: url,
+    //     image2: pdf2,
+    //     key2: key2,
+    //     url2: url2,
 
-        fechaOrden: fechaOrden,
-        estudios: estudio,
-      })
-    );
-    setPaciente2(newpaciente);
+    //     fechaOrden: fechaOrden,
+    //   })
+    // );
+    // setPaciente2(newpaciente);
 
     message.success("El paciente se ha creado");
-    console.log(pdf2, key2, url2, pdf, key);
+
+    console.log(
+      nombrePaciente,
+      edadPaciente,
+      sexoPaciente,
+      fechaIngresoPaciente,
+      horaIngresoPaciente,
+      fechaOrdenPaciente,
+      horaOrdenPaciente,
+      ordenID,
+      nombrePrueba,
+      pesoPaciente,
+      alturaPaciente,
+      IMCPaciente,
+      frecuenciaPaciente,
+      temperaturaPaciente,
+      presionPaciente,
+      saturacionPaciente,
+      categoríaPrueba,
+      diagnosticoPaciente,
+      tratamientoPaciente,
+      sintomasPaciente,
+      metodoPrueba,
+      nombreQuimicaResponsable,
+      resultadoPrueba,
+      medicoPaciente
+    );
   };
 
-  const onMostrar = e => {
-    setMostrar(!mostrar);
+  const onCreatePDF = async e => {
+    e.preventDefault();
+    const datosPDF = await {
+      nombrePaciente,
+      edadPaciente,
+      sexoPaciente,
+      fechaIngresoPaciente,
+      horaIngresoPaciente,
+      fechaOrdenPaciente,
+      horaOrdenPaciente,
+      ordenID,
+      nombrePrueba,
+      pesoPaciente,
+      alturaPaciente,
+      IMCPaciente,
+      frecuenciaPaciente,
+      temperaturaPaciente,
+      presionPaciente,
+      saturacionPaciente,
+      categoríaPrueba,
+      diagnosticoPaciente,
+      tratamientoPaciente,
+      sintomasPaciente,
+      metodoPrueba,
+      nombreQuimicaResponsable,
+      resultadoPrueba,
+      muestraPrueba,
+    };
+    setDatosPDF(datosPDF);
+    setCrearPDF(!crearPDF);
   };
 
   return (
@@ -199,7 +250,7 @@ function CrearResultado() {
         style={styles.input}
       />
       <div>
-        <InputNumber
+        <Input
           value={edadPaciente}
           onChange={e => setEdadPaciente(e.target.value)}
           placeholder="Edad paciente"
@@ -212,7 +263,7 @@ function CrearResultado() {
           }}
         />
         <div>
-          <InputNumber
+          <Input
             value={pesoPaciente}
             onChange={e => setPesoPaciente(e.target.value)}
             placeholder="Peso Paciente"
@@ -225,10 +276,64 @@ function CrearResultado() {
             }}
           />
         </div>
-        <InputNumber
+        <Input
           value={alturaPaciente}
           onChange={e => setAlturaPaciente(e.target.value)}
           placeholder="Altura Paciente"
+          style={{
+            margin: 10,
+            backgroundColor: "white",
+            padding: 5,
+            borderRadius: 5,
+            width: 150,
+          }}
+        />
+      </div>
+      <Input
+        value={frecuenciaPaciente}
+        onChange={e => setFrecuenciaPaciente(e.target.value)}
+        placeholder="Frecuencia Paciente"
+        style={{
+          margin: 10,
+          backgroundColor: "white",
+          padding: 5,
+          borderRadius: 5,
+          width: 150,
+        }}
+      />
+      <div>
+        <Input
+          value={temperaturaPaciente}
+          onChange={e => setTemperaturaPaciente(e.target.value)}
+          placeholder="Temperatura Paciente"
+          style={{
+            margin: 10,
+            backgroundColor: "white",
+            padding: 5,
+            borderRadius: 5,
+            width: 150,
+          }}
+        />
+      </div>
+      <div>
+        <Input
+          value={presionPaciente}
+          onChange={e => setPresionPaciente(e.target.value)}
+          placeholder="Presión Paciente"
+          style={{
+            margin: 10,
+            backgroundColor: "white",
+            padding: 5,
+            borderRadius: 5,
+            width: 150,
+          }}
+        />
+      </div>
+      <div>
+        <Input
+          value={saturacionPaciente}
+          onChange={e => setSaturacionPaciente(e.target.value)}
+          placeholder="Saturación Paciente"
           style={{
             margin: 10,
             backgroundColor: "white",
@@ -251,41 +356,129 @@ function CrearResultado() {
       <div>
         <DatePicker
           onChange={DateFechaIngresoPaciente}
-          style={styles.input}
-          placeholder="Fecha de ingreso"
+          style={{
+            width: 200,
+            margin: 10,
+            backgroundColor: "white",
+            padding: 8,
+            borderRadius: 5,
+          }}
           size="middle"
+          placeholder="Fecha de ingreso"
         />
       </div>
       <div>
         <TimePicker
           onChange={HourHoraIngresoPaciente}
-          style={styles.input}
-          placeholder="Hora de ingreso"
+          style={{
+            width: 200,
+            margin: 10,
+            backgroundColor: "white",
+            padding: 8,
+            borderRadius: 5,
+          }}
           size="middle"
+          placeholder="Hora de ingreso"
         />
       </div>
       <div>
         <DatePicker
           onChange={DateFechaOrdenPaciente}
-          style={styles.input}
-          placeholder="Fecha Orden"
+          style={{
+            width: 200,
+            margin: 10,
+            backgroundColor: "white",
+            padding: 8,
+            borderRadius: 5,
+          }}
           size="middle"
+          placeholder="Fecha Orden"
         />
       </div>
       <div>
         <TimePicker
           onChange={HourHoraOrdenPaciente}
-          style={styles.input}
-          placeholder="Hora de ingreso"
+          style={{
+            width: 200,
+            margin: 10,
+            backgroundColor: "white",
+            padding: 8,
+            borderRadius: 5,
+          }}
           size="middle"
+          placeholder="Hora de ingreso"
         />
       </div>
       <Input
-        value={estudio}
-        onChange={e => setEstudio(e.target.value)}
-        placeholder="Estudio"
+        value={nombrePrueba}
+        onChange={e => setNombrePrueba(e.target.value)}
         style={styles.input}
       />
+      <Input
+        value={categoríaPrueba}
+        onChange={e => setCategoríaPrueba(e.target.value)}
+        style={styles.input}
+      />
+      <Input
+        value={medicoPaciente}
+        onChange={e => setMedicoPaciente(e.target.value)}
+        placeholder="Nombre completo del Médico"
+        style={styles.input}
+      />
+      <Input
+        value={diagnosticoPaciente}
+        onChange={e => setDiagnosticoPaciente(e.target.value)}
+        placeholder="Escribe el diagnóstico que le dieron al paciente"
+        style={styles.input}
+      />
+      <Input
+        value={tratamientoPaciente}
+        onChange={e => setTratamientoPaciente(e.target.value)}
+        placeholder="Escribe el tratamiento que le dieron al paciente"
+        style={styles.input}
+      />
+      <Input
+        value={sintomasPaciente}
+        onChange={e => setSintomasPaciente(e.target.value)}
+        placeholder="Escribe el tratamiento que le dieron al paciente"
+        style={styles.input}
+      />
+
+      <Input
+        value={metodoPrueba}
+        onChange={e => setMetodoPrueba(e.target.value)}
+        style={styles.input}
+      />
+      <Input
+        value={muestraPrueba}
+        onChange={e => setMuestraPrueba(e.target.value)}
+        style={styles.input}
+      />
+      <Select
+        style={{ margin: 10 }}
+        placeholder="Resultado prueba"
+        onChange={value => {
+          setResultadoPrueba(value);
+        }}
+      >
+        <Option value="NEGATIVO">NEGATIVO</Option>
+        <Option value="POSITIVO">POSITIVO</Option>
+      </Select>
+      <Input
+        value={nombreQuimicaResponsable}
+        onChange={e => setNombreQuimicaResponsable(e.target.value)}
+        style={styles.input}
+      />
+
+      <div style={{ margin: 10 }}>
+        <Button title="Crear PDF" onClick={onCreatePDF} type="primary">
+          Crear PDF
+        </Button>
+      </div>
+
+      <div>
+        {crearPDF ? <ResultadoPrueba datosPacienteNuevo={datosPDF} /> : <></>}
+      </div>
 
       <Input
         value={email}
