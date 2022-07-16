@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import {
   Input,
   Button,
@@ -476,9 +477,18 @@ function CrearResultado() {
         </Button>
       </div>
 
-      <div>
+      <div width="100%">
         {crearPDF ? <ResultadoPrueba datosPacienteNuevo={datosPDF} /> : <></>}
       </div>
+
+      {/* <PDFDownloadLink
+        document={<ResultadoPrueba datosPacienteNuevo={datosPDF} />}
+        fileName="somename.pdf"
+      >
+        {({ blob, url, loading, error }) =>
+          loading ? "Loading document..." : "Download now!"
+        }
+      </PDFDownloadLink> */}
 
       <Input
         value={email}

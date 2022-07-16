@@ -6,6 +6,7 @@ import {
   StyleSheet,
   PDFViewer,
   Image,
+  PDFDownloadLink,
 } from "@react-pdf/renderer";
 import SectionTop from "./SectionTop";
 import DatosAntropometricos from "./DatosAntropometricos";
@@ -36,8 +37,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   viewer: {
-    width: "100%", //the pdf viewer will take up all of the width and height
-    height: "100%",
+    width: window.innerWidth / 2,
+    height: window.innerHeight / 2,
   },
   divider: {
     borderTop: "5px solid #2DA3CC",
