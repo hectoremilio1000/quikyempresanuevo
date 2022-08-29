@@ -77,6 +77,14 @@ function Administrador3() {
       </>
     );
   }
+
+  // if (hector[0] === "Quimicos") {
+  //   return (
+  //     <>
+  //       <LayoutAdmin2 signOut={SignOut} user={authUser} sub={sub} />
+  //     </>
+  //   );
+  // }
 }
 
 const styles = {

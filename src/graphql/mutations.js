@@ -1,15 +1,26 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createPruebas = /* GraphQL */ `
-  mutation CreatePruebas(
-    $input: CreatePruebasInput!
-    $condition: ModelPruebasConditionInput
+export const createORDEN = /* GraphQL */ `
+  mutation CreateORDEN(
+    $input: CreateORDENInput!
+    $condition: ModelORDENConditionInput
   ) {
-    createPruebas(input: $input, condition: $condition) {
+    createORDEN(input: $input, condition: $condition) {
       id
-      nombre
+      status
+      fechaOrden
+      HoraOrden
+      total
+      pacienteID
       imagen
+      estudiosURL
+      doctorID
+      resultado
+      PRUEBACHECARS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -18,15 +29,26 @@ export const createPruebas = /* GraphQL */ `
     }
   }
 `;
-export const updatePruebas = /* GraphQL */ `
-  mutation UpdatePruebas(
-    $input: UpdatePruebasInput!
-    $condition: ModelPruebasConditionInput
+export const updateORDEN = /* GraphQL */ `
+  mutation UpdateORDEN(
+    $input: UpdateORDENInput!
+    $condition: ModelORDENConditionInput
   ) {
-    updatePruebas(input: $input, condition: $condition) {
+    updateORDEN(input: $input, condition: $condition) {
       id
-      nombre
+      status
+      fechaOrden
+      HoraOrden
+      total
+      pacienteID
       imagen
+      estudiosURL
+      doctorID
+      resultado
+      PRUEBACHECARS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -35,15 +57,26 @@ export const updatePruebas = /* GraphQL */ `
     }
   }
 `;
-export const deletePruebas = /* GraphQL */ `
-  mutation DeletePruebas(
-    $input: DeletePruebasInput!
-    $condition: ModelPruebasConditionInput
+export const deleteORDEN = /* GraphQL */ `
+  mutation DeleteORDEN(
+    $input: DeleteORDENInput!
+    $condition: ModelORDENConditionInput
   ) {
-    deletePruebas(input: $input, condition: $condition) {
+    deleteORDEN(input: $input, condition: $condition) {
       id
-      nombre
+      status
+      fechaOrden
+      HoraOrden
+      total
+      pacienteID
       imagen
+      estudiosURL
+      doctorID
+      resultado
+      PRUEBACHECARS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -52,93 +85,32 @@ export const deletePruebas = /* GraphQL */ `
     }
   }
 `;
-export const createBLOG = /* GraphQL */ `
-  mutation CreateBLOG(
-    $input: CreateBLOGInput!
-    $condition: ModelBLOGConditionInput
+export const createDOCTOR = /* GraphQL */ `
+  mutation CreateDOCTOR(
+    $input: CreateDOCTORInput!
+    $condition: ModelDOCTORConditionInput
   ) {
-    createBLOG(input: $input, condition: $condition) {
+    createDOCTOR(input: $input, condition: $condition) {
       id
-      titulo
-      text
-      foto
-      categoria
-      fecha
-      creadoPor
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateBLOG = /* GraphQL */ `
-  mutation UpdateBLOG(
-    $input: UpdateBLOGInput!
-    $condition: ModelBLOGConditionInput
-  ) {
-    updateBLOG(input: $input, condition: $condition) {
-      id
-      titulo
-      text
-      foto
-      categoria
-      fecha
-      creadoPor
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteBLOG = /* GraphQL */ `
-  mutation DeleteBLOG(
-    $input: DeleteBLOGInput!
-    $condition: ModelBLOGConditionInput
-  ) {
-    deleteBLOG(input: $input, condition: $condition) {
-      id
-      titulo
-      text
-      foto
-      categoria
-      fecha
-      creadoPor
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const createEnfermeras = /* GraphQL */ `
-  mutation CreateEnfermeras(
-    $input: CreateEnfermerasInput!
-    $condition: ModelEnfermerasConditionInput
-  ) {
-    createEnfermeras(input: $input, condition: $condition) {
-      id
-      nombre
-      email
-      whats
-      direccion
-      numexterior
-      numinterior
-      codigopostal
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      especialidad
+      calle
+      numeroExterior
+      numeroInterior
       colonia
+      cp
       municipio
       ciudad
       estado
-      edad
-      cedula
-      antiguedad
-      especialidad
-      curso
-      sub
+      pais
+      email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -147,30 +119,32 @@ export const createEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const updateEnfermeras = /* GraphQL */ `
-  mutation UpdateEnfermeras(
-    $input: UpdateEnfermerasInput!
-    $condition: ModelEnfermerasConditionInput
+export const updateDOCTOR = /* GraphQL */ `
+  mutation UpdateDOCTOR(
+    $input: UpdateDOCTORInput!
+    $condition: ModelDOCTORConditionInput
   ) {
-    updateEnfermeras(input: $input, condition: $condition) {
+    updateDOCTOR(input: $input, condition: $condition) {
       id
-      nombre
-      email
-      whats
-      direccion
-      numexterior
-      numinterior
-      codigopostal
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      especialidad
+      calle
+      numeroExterior
+      numeroInterior
       colonia
+      cp
       municipio
       ciudad
       estado
-      edad
-      cedula
-      antiguedad
-      especialidad
-      curso
-      sub
+      pais
+      email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -179,30 +153,134 @@ export const updateEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const deleteEnfermeras = /* GraphQL */ `
-  mutation DeleteEnfermeras(
-    $input: DeleteEnfermerasInput!
-    $condition: ModelEnfermerasConditionInput
+export const deleteDOCTOR = /* GraphQL */ `
+  mutation DeleteDOCTOR(
+    $input: DeleteDOCTORInput!
+    $condition: ModelDOCTORConditionInput
   ) {
-    deleteEnfermeras(input: $input, condition: $condition) {
+    deleteDOCTOR(input: $input, condition: $condition) {
       id
-      nombre
-      email
-      whats
-      direccion
-      numexterior
-      numinterior
-      codigopostal
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      especialidad
+      calle
+      numeroExterior
+      numeroInterior
       colonia
+      cp
       municipio
       ciudad
       estado
+      pais
+      email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createDATOSPACIENTE = /* GraphQL */ `
+  mutation CreateDATOSPACIENTE(
+    $input: CreateDATOSPACIENTEInput!
+    $condition: ModelDATOSPACIENTEConditionInput
+  ) {
+    createDATOSPACIENTE(input: $input, condition: $condition) {
+      id
+      peso
+      altura
+      indiceMasaCorporal
+      presionArterial
+      saturacion
+      diagnostico
+      tratamiento
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateDATOSPACIENTE = /* GraphQL */ `
+  mutation UpdateDATOSPACIENTE(
+    $input: UpdateDATOSPACIENTEInput!
+    $condition: ModelDATOSPACIENTEConditionInput
+  ) {
+    updateDATOSPACIENTE(input: $input, condition: $condition) {
+      id
+      peso
+      altura
+      indiceMasaCorporal
+      presionArterial
+      saturacion
+      diagnostico
+      tratamiento
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteDATOSPACIENTE = /* GraphQL */ `
+  mutation DeleteDATOSPACIENTE(
+    $input: DeleteDATOSPACIENTEInput!
+    $condition: ModelDATOSPACIENTEConditionInput
+  ) {
+    deleteDATOSPACIENTE(input: $input, condition: $condition) {
+      id
+      peso
+      altura
+      indiceMasaCorporal
+      presionArterial
+      saturacion
+      diagnostico
+      tratamiento
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createPACIENTE = /* GraphQL */ `
+  mutation CreatePACIENTE(
+    $input: CreatePACIENTEInput!
+    $condition: ModelPACIENTEConditionInput
+  ) {
+    createPACIENTE(input: $input, condition: $condition) {
+      id
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      sexo
+      fechaNacimiento
       edad
-      cedula
-      antiguedad
-      especialidad
-      curso
-      sub
+      calle
+      numExterior
+      numInterior
+      colonia
+      cp
+      municipio
+      ciudad
+      estado
+      pais
+      Email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -211,18 +289,34 @@ export const deleteEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const createUser = /* GraphQL */ `
-  mutation CreateUser(
-    $input: CreateUserInput!
-    $condition: ModelUserConditionInput
+export const updatePACIENTE = /* GraphQL */ `
+  mutation UpdatePACIENTE(
+    $input: UpdatePACIENTEInput!
+    $condition: ModelPACIENTEConditionInput
   ) {
-    createUser(input: $input, condition: $condition) {
+    updatePACIENTE(input: $input, condition: $condition) {
       id
-      nombre
-      email
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      sexo
+      fechaNacimiento
+      edad
+      calle
+      numExterior
+      numInterior
+      colonia
+      cp
+      municipio
+      ciudad
+      estado
+      pais
+      Email
       whatsapp
-      role
-      sub
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -231,18 +325,34 @@ export const createUser = /* GraphQL */ `
     }
   }
 `;
-export const updateUser = /* GraphQL */ `
-  mutation UpdateUser(
-    $input: UpdateUserInput!
-    $condition: ModelUserConditionInput
+export const deletePACIENTE = /* GraphQL */ `
+  mutation DeletePACIENTE(
+    $input: DeletePACIENTEInput!
+    $condition: ModelPACIENTEConditionInput
   ) {
-    updateUser(input: $input, condition: $condition) {
+    deletePACIENTE(input: $input, condition: $condition) {
       id
-      nombre
-      email
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      sexo
+      fechaNacimiento
+      edad
+      calle
+      numExterior
+      numInterior
+      colonia
+      cp
+      municipio
+      ciudad
+      estado
+      pais
+      Email
       whatsapp
-      role
-      sub
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -251,18 +361,322 @@ export const updateUser = /* GraphQL */ `
     }
   }
 `;
-export const deleteUser = /* GraphQL */ `
-  mutation DeleteUser(
-    $input: DeleteUserInput!
-    $condition: ModelUserConditionInput
+export const createREFERENCIAS = /* GraphQL */ `
+  mutation CreateREFERENCIAS(
+    $input: CreateREFERENCIASInput!
+    $condition: ModelREFERENCIASConditionInput
   ) {
-    deleteUser(input: $input, condition: $condition) {
+    createREFERENCIAS(input: $input, condition: $condition) {
+      id
+      referencia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateREFERENCIAS = /* GraphQL */ `
+  mutation UpdateREFERENCIAS(
+    $input: UpdateREFERENCIASInput!
+    $condition: ModelREFERENCIASConditionInput
+  ) {
+    updateREFERENCIAS(input: $input, condition: $condition) {
+      id
+      referencia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteREFERENCIAS = /* GraphQL */ `
+  mutation DeleteREFERENCIAS(
+    $input: DeleteREFERENCIASInput!
+    $condition: ModelREFERENCIASConditionInput
+  ) {
+    deleteREFERENCIAS(input: $input, condition: $condition) {
+      id
+      referencia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createPARAMETROS = /* GraphQL */ `
+  mutation CreatePARAMETROS(
+    $input: CreatePARAMETROSInput!
+    $condition: ModelPARAMETROSConditionInput
+  ) {
+    createPARAMETROS(input: $input, condition: $condition) {
       id
       nombre
+      pruebachecarID
+      REFERENCIAS {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      pARAMETROSREFERENCIASId
+    }
+  }
+`;
+export const updatePARAMETROS = /* GraphQL */ `
+  mutation UpdatePARAMETROS(
+    $input: UpdatePARAMETROSInput!
+    $condition: ModelPARAMETROSConditionInput
+  ) {
+    updatePARAMETROS(input: $input, condition: $condition) {
+      id
+      nombre
+      pruebachecarID
+      REFERENCIAS {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      pARAMETROSREFERENCIASId
+    }
+  }
+`;
+export const deletePARAMETROS = /* GraphQL */ `
+  mutation DeletePARAMETROS(
+    $input: DeletePARAMETROSInput!
+    $condition: ModelPARAMETROSConditionInput
+  ) {
+    deletePARAMETROS(input: $input, condition: $condition) {
+      id
+      nombre
+      pruebachecarID
+      REFERENCIAS {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      pARAMETROSREFERENCIASId
+    }
+  }
+`;
+export const createPRUEBACHECAR = /* GraphQL */ `
+  mutation CreatePRUEBACHECAR(
+    $input: CreatePRUEBACHECARInput!
+    $condition: ModelPRUEBACHECARConditionInput
+  ) {
+    createPRUEBACHECAR(input: $input, condition: $condition) {
+      id
+      nombre
+      categoria
+      precio
+      precioDescuento
+      descripcionLarga
+      descripcionCorta
+      tiempoEntrega
+      indicaciones
+      tipoMuestra
+      tipoContenedor
+      unidad
+      PARAMETROS {
+        nextToken
+        startedAt
+      }
+      ordenID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updatePRUEBACHECAR = /* GraphQL */ `
+  mutation UpdatePRUEBACHECAR(
+    $input: UpdatePRUEBACHECARInput!
+    $condition: ModelPRUEBACHECARConditionInput
+  ) {
+    updatePRUEBACHECAR(input: $input, condition: $condition) {
+      id
+      nombre
+      categoria
+      precio
+      precioDescuento
+      descripcionLarga
+      descripcionCorta
+      tiempoEntrega
+      indicaciones
+      tipoMuestra
+      tipoContenedor
+      unidad
+      PARAMETROS {
+        nextToken
+        startedAt
+      }
+      ordenID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deletePRUEBACHECAR = /* GraphQL */ `
+  mutation DeletePRUEBACHECAR(
+    $input: DeletePRUEBACHECARInput!
+    $condition: ModelPRUEBACHECARConditionInput
+  ) {
+    deletePRUEBACHECAR(input: $input, condition: $condition) {
+      id
+      nombre
+      categoria
+      precio
+      precioDescuento
+      descripcionLarga
+      descripcionCorta
+      tiempoEntrega
+      indicaciones
+      tipoMuestra
+      tipoContenedor
+      unidad
+      PARAMETROS {
+        nextToken
+        startedAt
+      }
+      ordenID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createPaciente = /* GraphQL */ `
+  mutation CreatePaciente(
+    $input: CreatePacienteInput!
+    $condition: ModelPacienteConditionInput
+  ) {
+    createPaciente(input: $input, condition: $condition) {
+      id
+      nombre
+      apellidoPaterno
+      apellidoMaterno
       email
       whatsapp
       role
-      sub
+      image
+      url
+      key
+      fechaOrden
+      estudios
+      image2
+      estudios3
+      estudios2
+      url2
+      key2
+      image3
+      url3
+      key3
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updatePaciente = /* GraphQL */ `
+  mutation UpdatePaciente(
+    $input: UpdatePacienteInput!
+    $condition: ModelPacienteConditionInput
+  ) {
+    updatePaciente(input: $input, condition: $condition) {
+      id
+      nombre
+      apellidoPaterno
+      apellidoMaterno
+      email
+      whatsapp
+      role
+      image
+      url
+      key
+      fechaOrden
+      estudios
+      image2
+      estudios3
+      estudios2
+      url2
+      key2
+      image3
+      url3
+      key3
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deletePaciente = /* GraphQL */ `
+  mutation DeletePaciente(
+    $input: DeletePacienteInput!
+    $condition: ModelPacienteConditionInput
+  ) {
+    deletePaciente(input: $input, condition: $condition) {
+      id
+      nombre
+      apellidoPaterno
+      apellidoMaterno
+      email
+      whatsapp
+      role
+      image
+      url
+      key
+      fechaOrden
+      estudios
+      image2
+      estudios3
+      estudios2
+      url2
+      key2
+      image3
+      url3
+      key3
       createdAt
       updatedAt
       _version

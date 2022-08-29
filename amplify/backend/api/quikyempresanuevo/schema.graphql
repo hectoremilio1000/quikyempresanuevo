@@ -1,3 +1,162 @@
+enum SEXO {
+  MASCULINO
+  FEMENINO
+}
+
+enum STATUSORDEN {
+  NUEVO
+  COMPLETADO
+  CANCELADO
+}
+
+type ORDEN @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  status: STATUSORDEN
+  fechaOrden: String
+  HoraOrden: String
+  total: String
+  pacienteID: ID! @index(name: "byPACIENTE")
+  imagen: String
+  estudiosURL: String
+  doctorID: ID! @index(name: "byDOCTOR")
+  resultado: [String]
+  PRUEBACHECARS: [PRUEBACHECAR] @hasMany(indexName: "byORDEN", fields: ["id"])
+}
+
+enum ESPECIALIDAD {
+  MEDICOGENERAL
+  HEMATOLOGIA
+  MEDICINAINTERNA
+  CARDIOLOGIA
+  CIRUGIA
+  UROLOGIA
+  GINECOLOGIA
+  PEDIATRIA
+  OTRO
+}
+
+type DOCTOR @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombres: String
+  apellidoPaterno: String
+  apellidoMaterno: String
+  especialidad: ESPECIALIDAD
+  calle: String
+  numeroExterior: String
+  numeroInterior: String
+  colonia: String
+  cp: String
+  municipio: String
+  ciudad: String
+  estado: String
+  pais: String
+  email: String
+  whatsapp: String
+  ORDENS: [ORDEN] @hasMany(indexName: "byDOCTOR", fields: ["id"])
+}
+
+type DATOSPACIENTE @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  peso: String
+  altura: String
+  indiceMasaCorporal: String
+  presionArterial: String
+  saturacion: String
+  diagnostico: String
+  tratamiento: String
+}
+
+type PACIENTE @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombres: String
+  apellidoPaterno: String
+  apellidoMaterno: String
+  sexo: SEXO
+  fechaNacimiento: String
+  edad: String
+  calle: String
+  numExterior: String
+  numInterior: String
+  colonia: String
+  cp: String
+  municipio: String
+  ciudad: String
+  estado: String
+  pais: String
+  Email: String
+  whatsapp: String
+  ORDENS: [ORDEN] @hasMany(indexName: "byPACIENTE", fields: ["id"])
+}
+
+type REFERENCIAS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  referencia: [String]
+}
+
+type PARAMETROS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: [String]
+  pruebachecarID: ID! @index(name: "byPRUEBACHECAR")
+  REFERENCIAS: REFERENCIAS @hasOne
+}
+
+enum UNIDAD {
+  ML
+  MGDL
+  PORCENTAJE
+  C
+  NINGUNO
+}
+
+enum CONTENEDOR {
+  LILA
+  AZUL
+  DORADO
+  ROJO
+  FRASCOESTERIL
+  STUART
+  FRASCOHEMOCULTIVO
+  NA
+}
+
+enum MUESTRA {
+  HECES
+  SUERO
+  SANGRETOTAL
+  ORINA
+  EXUDADOFARINGEO
+  EXUDADONASOFARINGEO
+  EXUDADOURETRAL
+  BIOPSIASORGANOSESPECIALES
+}
+
+enum CATEGORIA {
+  HEMATOLOGIA
+  QUIMICASANGUINEA
+  COAGULACION
+  SEROLOGIA
+  UROANALISIS
+  MICROBIOLOGIA
+  PRUEBARAPIDA
+}
+
+type PRUEBACHECAR @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String
+  categoria: CATEGORIA
+  precio: String
+  precioDescuento: String
+  descripcionLarga: String
+  descripcionCorta: String
+  tiempoEntrega: String
+  indicaciones: String
+  tipoMuestra: MUESTRA
+  tipoContenedor: CONTENEDOR
+  unidad: UNIDAD
+  PARAMETROS: [PARAMETROS] @hasMany(indexName: "byPRUEBACHECAR", fields: ["id"])
+  ordenID: ID! @index(name: "byORDEN")
+}
+
 enum ROLE {
   PACIENTE
   DOCTOR

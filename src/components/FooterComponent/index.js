@@ -32,7 +32,7 @@ function FooterComponent() {
                 <li className="text-white list-unstyled">Bolsa de trabajo</li>
               </a>
 
-              <a href="/enrutarUsuario" className="text-decoration-none">
+              <a href="enrutarUsuario/signin" className="text-decoration-none">
                 <li className="text-center text-white list-unstyled">
                   Paciente
                 </li>

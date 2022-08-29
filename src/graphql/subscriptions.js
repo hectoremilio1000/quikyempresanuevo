@@ -1,12 +1,23 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreatePruebas = /* GraphQL */ `
-  subscription OnCreatePruebas {
-    onCreatePruebas {
+export const onCreateORDEN = /* GraphQL */ `
+  subscription OnCreateORDEN {
+    onCreateORDEN {
       id
-      nombre
+      status
+      fechaOrden
+      HoraOrden
+      total
+      pacienteID
       imagen
+      estudiosURL
+      doctorID
+      resultado
+      PRUEBACHECARS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -15,12 +26,23 @@ export const onCreatePruebas = /* GraphQL */ `
     }
   }
 `;
-export const onUpdatePruebas = /* GraphQL */ `
-  subscription OnUpdatePruebas {
-    onUpdatePruebas {
+export const onUpdateORDEN = /* GraphQL */ `
+  subscription OnUpdateORDEN {
+    onUpdateORDEN {
       id
-      nombre
+      status
+      fechaOrden
+      HoraOrden
+      total
+      pacienteID
       imagen
+      estudiosURL
+      doctorID
+      resultado
+      PRUEBACHECARS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -29,12 +51,23 @@ export const onUpdatePruebas = /* GraphQL */ `
     }
   }
 `;
-export const onDeletePruebas = /* GraphQL */ `
-  subscription OnDeletePruebas {
-    onDeletePruebas {
+export const onDeleteORDEN = /* GraphQL */ `
+  subscription OnDeleteORDEN {
+    onDeleteORDEN {
       id
-      nombre
+      status
+      fechaOrden
+      HoraOrden
+      total
+      pacienteID
       imagen
+      estudiosURL
+      doctorID
+      resultado
+      PRUEBACHECARS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -43,81 +76,29 @@ export const onDeletePruebas = /* GraphQL */ `
     }
   }
 `;
-export const onCreateBLOG = /* GraphQL */ `
-  subscription OnCreateBLOG {
-    onCreateBLOG {
+export const onCreateDOCTOR = /* GraphQL */ `
+  subscription OnCreateDOCTOR {
+    onCreateDOCTOR {
       id
-      titulo
-      text
-      foto
-      categoria
-      fecha
-      creadoPor
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onUpdateBLOG = /* GraphQL */ `
-  subscription OnUpdateBLOG {
-    onUpdateBLOG {
-      id
-      titulo
-      text
-      foto
-      categoria
-      fecha
-      creadoPor
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onDeleteBLOG = /* GraphQL */ `
-  subscription OnDeleteBLOG {
-    onDeleteBLOG {
-      id
-      titulo
-      text
-      foto
-      categoria
-      fecha
-      creadoPor
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onCreateEnfermeras = /* GraphQL */ `
-  subscription OnCreateEnfermeras {
-    onCreateEnfermeras {
-      id
-      nombre
-      email
-      whats
-      direccion
-      numexterior
-      numinterior
-      codigopostal
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      especialidad
+      calle
+      numeroExterior
+      numeroInterior
       colonia
+      cp
       municipio
       ciudad
       estado
-      edad
-      cedula
-      antiguedad
-      especialidad
-      curso
-      sub
+      pais
+      email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -126,27 +107,29 @@ export const onCreateEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateEnfermeras = /* GraphQL */ `
-  subscription OnUpdateEnfermeras {
-    onUpdateEnfermeras {
+export const onUpdateDOCTOR = /* GraphQL */ `
+  subscription OnUpdateDOCTOR {
+    onUpdateDOCTOR {
       id
-      nombre
-      email
-      whats
-      direccion
-      numexterior
-      numinterior
-      codigopostal
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      especialidad
+      calle
+      numeroExterior
+      numeroInterior
       colonia
+      cp
       municipio
       ciudad
       estado
-      edad
-      cedula
-      antiguedad
-      especialidad
-      curso
-      sub
+      pais
+      email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -155,27 +138,119 @@ export const onUpdateEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteEnfermeras = /* GraphQL */ `
-  subscription OnDeleteEnfermeras {
-    onDeleteEnfermeras {
+export const onDeleteDOCTOR = /* GraphQL */ `
+  subscription OnDeleteDOCTOR {
+    onDeleteDOCTOR {
       id
-      nombre
-      email
-      whats
-      direccion
-      numexterior
-      numinterior
-      codigopostal
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      especialidad
+      calle
+      numeroExterior
+      numeroInterior
       colonia
+      cp
       municipio
       ciudad
       estado
+      pais
+      email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateDATOSPACIENTE = /* GraphQL */ `
+  subscription OnCreateDATOSPACIENTE {
+    onCreateDATOSPACIENTE {
+      id
+      peso
+      altura
+      indiceMasaCorporal
+      presionArterial
+      saturacion
+      diagnostico
+      tratamiento
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateDATOSPACIENTE = /* GraphQL */ `
+  subscription OnUpdateDATOSPACIENTE {
+    onUpdateDATOSPACIENTE {
+      id
+      peso
+      altura
+      indiceMasaCorporal
+      presionArterial
+      saturacion
+      diagnostico
+      tratamiento
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteDATOSPACIENTE = /* GraphQL */ `
+  subscription OnDeleteDATOSPACIENTE {
+    onDeleteDATOSPACIENTE {
+      id
+      peso
+      altura
+      indiceMasaCorporal
+      presionArterial
+      saturacion
+      diagnostico
+      tratamiento
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreatePACIENTE = /* GraphQL */ `
+  subscription OnCreatePACIENTE {
+    onCreatePACIENTE {
+      id
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      sexo
+      fechaNacimiento
       edad
-      cedula
-      antiguedad
-      especialidad
-      curso
-      sub
+      calle
+      numExterior
+      numInterior
+      colonia
+      cp
+      municipio
+      ciudad
+      estado
+      pais
+      Email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -184,15 +259,31 @@ export const onDeleteEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
+export const onUpdatePACIENTE = /* GraphQL */ `
+  subscription OnUpdatePACIENTE {
+    onUpdatePACIENTE {
       id
-      nombre
-      email
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      sexo
+      fechaNacimiento
+      edad
+      calle
+      numExterior
+      numInterior
+      colonia
+      cp
+      municipio
+      ciudad
+      estado
+      pais
+      Email
       whatsapp
-      role
-      sub
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -201,15 +292,31 @@ export const onCreateUser = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser {
-    onUpdateUser {
+export const onDeletePACIENTE = /* GraphQL */ `
+  subscription OnDeletePACIENTE {
+    onDeletePACIENTE {
       id
-      nombre
-      email
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      sexo
+      fechaNacimiento
+      edad
+      calle
+      numExterior
+      numInterior
+      colonia
+      cp
+      municipio
+      ciudad
+      estado
+      pais
+      Email
       whatsapp
-      role
-      sub
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -218,15 +325,286 @@ export const onUpdateUser = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser {
-    onDeleteUser {
+export const onCreateREFERENCIAS = /* GraphQL */ `
+  subscription OnCreateREFERENCIAS {
+    onCreateREFERENCIAS {
+      id
+      referencia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateREFERENCIAS = /* GraphQL */ `
+  subscription OnUpdateREFERENCIAS {
+    onUpdateREFERENCIAS {
+      id
+      referencia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteREFERENCIAS = /* GraphQL */ `
+  subscription OnDeleteREFERENCIAS {
+    onDeleteREFERENCIAS {
+      id
+      referencia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreatePARAMETROS = /* GraphQL */ `
+  subscription OnCreatePARAMETROS {
+    onCreatePARAMETROS {
       id
       nombre
+      pruebachecarID
+      REFERENCIAS {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      pARAMETROSREFERENCIASId
+    }
+  }
+`;
+export const onUpdatePARAMETROS = /* GraphQL */ `
+  subscription OnUpdatePARAMETROS {
+    onUpdatePARAMETROS {
+      id
+      nombre
+      pruebachecarID
+      REFERENCIAS {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      pARAMETROSREFERENCIASId
+    }
+  }
+`;
+export const onDeletePARAMETROS = /* GraphQL */ `
+  subscription OnDeletePARAMETROS {
+    onDeletePARAMETROS {
+      id
+      nombre
+      pruebachecarID
+      REFERENCIAS {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      pARAMETROSREFERENCIASId
+    }
+  }
+`;
+export const onCreatePRUEBACHECAR = /* GraphQL */ `
+  subscription OnCreatePRUEBACHECAR {
+    onCreatePRUEBACHECAR {
+      id
+      nombre
+      categoria
+      precio
+      precioDescuento
+      descripcionLarga
+      descripcionCorta
+      tiempoEntrega
+      indicaciones
+      tipoMuestra
+      tipoContenedor
+      unidad
+      PARAMETROS {
+        nextToken
+        startedAt
+      }
+      ordenID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdatePRUEBACHECAR = /* GraphQL */ `
+  subscription OnUpdatePRUEBACHECAR {
+    onUpdatePRUEBACHECAR {
+      id
+      nombre
+      categoria
+      precio
+      precioDescuento
+      descripcionLarga
+      descripcionCorta
+      tiempoEntrega
+      indicaciones
+      tipoMuestra
+      tipoContenedor
+      unidad
+      PARAMETROS {
+        nextToken
+        startedAt
+      }
+      ordenID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeletePRUEBACHECAR = /* GraphQL */ `
+  subscription OnDeletePRUEBACHECAR {
+    onDeletePRUEBACHECAR {
+      id
+      nombre
+      categoria
+      precio
+      precioDescuento
+      descripcionLarga
+      descripcionCorta
+      tiempoEntrega
+      indicaciones
+      tipoMuestra
+      tipoContenedor
+      unidad
+      PARAMETROS {
+        nextToken
+        startedAt
+      }
+      ordenID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreatePaciente = /* GraphQL */ `
+  subscription OnCreatePaciente {
+    onCreatePaciente {
+      id
+      nombre
+      apellidoPaterno
+      apellidoMaterno
       email
       whatsapp
       role
-      sub
+      image
+      url
+      key
+      fechaOrden
+      estudios
+      image2
+      estudios3
+      estudios2
+      url2
+      key2
+      image3
+      url3
+      key3
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdatePaciente = /* GraphQL */ `
+  subscription OnUpdatePaciente {
+    onUpdatePaciente {
+      id
+      nombre
+      apellidoPaterno
+      apellidoMaterno
+      email
+      whatsapp
+      role
+      image
+      url
+      key
+      fechaOrden
+      estudios
+      image2
+      estudios3
+      estudios2
+      url2
+      key2
+      image3
+      url3
+      key3
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeletePaciente = /* GraphQL */ `
+  subscription OnDeletePaciente {
+    onDeletePaciente {
+      id
+      nombre
+      apellidoPaterno
+      apellidoMaterno
+      email
+      whatsapp
+      role
+      image
+      url
+      key
+      fechaOrden
+      estudios
+      image2
+      estudios3
+      estudios2
+      url2
+      key2
+      image3
+      url3
+      key3
       createdAt
       updatedAt
       _version

@@ -1,12 +1,23 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getPruebas = /* GraphQL */ `
-  query GetPruebas($id: ID!) {
-    getPruebas(id: $id) {
+export const getORDEN = /* GraphQL */ `
+  query GetORDEN($id: ID!) {
+    getORDEN(id: $id) {
       id
-      nombre
+      status
+      fechaOrden
+      HoraOrden
+      total
+      pacienteID
       imagen
+      estudiosURL
+      doctorID
+      resultado
+      PRUEBACHECARS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -15,17 +26,24 @@ export const getPruebas = /* GraphQL */ `
     }
   }
 `;
-export const listPruebas = /* GraphQL */ `
-  query ListPruebas(
-    $filter: ModelPruebasFilterInput
+export const listORDENS = /* GraphQL */ `
+  query ListORDENS(
+    $filter: ModelORDENFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPruebas(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listORDENS(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        nombre
+        status
+        fechaOrden
+        HoraOrden
+        total
+        pacienteID
         imagen
+        estudiosURL
+        doctorID
+        resultado
         createdAt
         updatedAt
         _version
@@ -37,14 +55,14 @@ export const listPruebas = /* GraphQL */ `
     }
   }
 `;
-export const syncPruebas = /* GraphQL */ `
-  query SyncPruebas(
-    $filter: ModelPruebasFilterInput
+export const syncORDENS = /* GraphQL */ `
+  query SyncORDENS(
+    $filter: ModelORDENFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncPruebas(
+    syncORDENS(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -52,8 +70,15 @@ export const syncPruebas = /* GraphQL */ `
     ) {
       items {
         id
-        nombre
+        status
+        fechaOrden
+        HoraOrden
+        total
+        pacienteID
         imagen
+        estudiosURL
+        doctorID
+        resultado
         createdAt
         updatedAt
         _version
@@ -65,103 +90,29 @@ export const syncPruebas = /* GraphQL */ `
     }
   }
 `;
-export const getBLOG = /* GraphQL */ `
-  query GetBLOG($id: ID!) {
-    getBLOG(id: $id) {
+export const getDOCTOR = /* GraphQL */ `
+  query GetDOCTOR($id: ID!) {
+    getDOCTOR(id: $id) {
       id
-      titulo
-      text
-      foto
-      categoria
-      fecha
-      creadoPor
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const listBLOGS = /* GraphQL */ `
-  query ListBLOGS(
-    $filter: ModelBLOGFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listBLOGS(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        titulo
-        text
-        foto
-        categoria
-        fecha
-        creadoPor
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncBLOGS = /* GraphQL */ `
-  query SyncBLOGS(
-    $filter: ModelBLOGFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncBLOGS(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        titulo
-        text
-        foto
-        categoria
-        fecha
-        creadoPor
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getEnfermeras = /* GraphQL */ `
-  query GetEnfermeras($id: ID!) {
-    getEnfermeras(id: $id) {
-      id
-      nombre
-      email
-      whats
-      direccion
-      numexterior
-      numinterior
-      codigopostal
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      especialidad
+      calle
+      numeroExterior
+      numeroInterior
       colonia
+      cp
       municipio
       ciudad
       estado
-      edad
-      cedula
-      antiguedad
-      especialidad
-      curso
-      sub
+      pais
+      email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -170,32 +121,30 @@ export const getEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const listEnfermeras = /* GraphQL */ `
-  query ListEnfermeras(
-    $filter: ModelEnfermerasFilterInput
+export const listDOCTORS = /* GraphQL */ `
+  query ListDOCTORS(
+    $filter: ModelDOCTORFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listEnfermeras(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listDOCTORS(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        nombre
-        email
-        whats
-        direccion
-        numexterior
-        numinterior
-        codigopostal
+        nombres
+        apellidoPaterno
+        apellidoMaterno
+        especialidad
+        calle
+        numeroExterior
+        numeroInterior
         colonia
+        cp
         municipio
         ciudad
         estado
-        edad
-        cedula
-        antiguedad
-        especialidad
-        curso
-        sub
+        pais
+        email
+        whatsapp
         createdAt
         updatedAt
         _version
@@ -207,14 +156,355 @@ export const listEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const syncEnfermeras = /* GraphQL */ `
-  query SyncEnfermeras(
-    $filter: ModelEnfermerasFilterInput
+export const syncDOCTORS = /* GraphQL */ `
+  query SyncDOCTORS(
+    $filter: ModelDOCTORFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncEnfermeras(
+    syncDOCTORS(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        nombres
+        apellidoPaterno
+        apellidoMaterno
+        especialidad
+        calle
+        numeroExterior
+        numeroInterior
+        colonia
+        cp
+        municipio
+        ciudad
+        estado
+        pais
+        email
+        whatsapp
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getDATOSPACIENTE = /* GraphQL */ `
+  query GetDATOSPACIENTE($id: ID!) {
+    getDATOSPACIENTE(id: $id) {
+      id
+      peso
+      altura
+      indiceMasaCorporal
+      presionArterial
+      saturacion
+      diagnostico
+      tratamiento
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listDATOSPACIENTES = /* GraphQL */ `
+  query ListDATOSPACIENTES(
+    $filter: ModelDATOSPACIENTEFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDATOSPACIENTES(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        peso
+        altura
+        indiceMasaCorporal
+        presionArterial
+        saturacion
+        diagnostico
+        tratamiento
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncDATOSPACIENTES = /* GraphQL */ `
+  query SyncDATOSPACIENTES(
+    $filter: ModelDATOSPACIENTEFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncDATOSPACIENTES(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        peso
+        altura
+        indiceMasaCorporal
+        presionArterial
+        saturacion
+        diagnostico
+        tratamiento
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getPACIENTE = /* GraphQL */ `
+  query GetPACIENTE($id: ID!) {
+    getPACIENTE(id: $id) {
+      id
+      nombres
+      apellidoPaterno
+      apellidoMaterno
+      sexo
+      fechaNacimiento
+      edad
+      calle
+      numExterior
+      numInterior
+      colonia
+      cp
+      municipio
+      ciudad
+      estado
+      pais
+      Email
+      whatsapp
+      ORDENS {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listPACIENTES = /* GraphQL */ `
+  query ListPACIENTES(
+    $filter: ModelPACIENTEFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPACIENTES(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        nombres
+        apellidoPaterno
+        apellidoMaterno
+        sexo
+        fechaNacimiento
+        edad
+        calle
+        numExterior
+        numInterior
+        colonia
+        cp
+        municipio
+        ciudad
+        estado
+        pais
+        Email
+        whatsapp
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncPACIENTES = /* GraphQL */ `
+  query SyncPACIENTES(
+    $filter: ModelPACIENTEFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncPACIENTES(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        nombres
+        apellidoPaterno
+        apellidoMaterno
+        sexo
+        fechaNacimiento
+        edad
+        calle
+        numExterior
+        numInterior
+        colonia
+        cp
+        municipio
+        ciudad
+        estado
+        pais
+        Email
+        whatsapp
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getREFERENCIAS = /* GraphQL */ `
+  query GetREFERENCIAS($id: ID!) {
+    getREFERENCIAS(id: $id) {
+      id
+      referencia
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listREFERENCIAS = /* GraphQL */ `
+  query ListREFERENCIAS(
+    $filter: ModelREFERENCIASFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listREFERENCIAS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncREFERENCIAS = /* GraphQL */ `
+  query SyncREFERENCIAS(
+    $filter: ModelREFERENCIASFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncREFERENCIAS(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getPARAMETROS = /* GraphQL */ `
+  query GetPARAMETROS($id: ID!) {
+    getPARAMETROS(id: $id) {
+      id
+      nombre
+      pruebachecarID
+      REFERENCIAS {
+        id
+        referencia
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      pARAMETROSREFERENCIASId
+    }
+  }
+`;
+export const listPARAMETROS = /* GraphQL */ `
+  query ListPARAMETROS(
+    $filter: ModelPARAMETROSFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPARAMETROS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        nombre
+        pruebachecarID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        pARAMETROSREFERENCIASId
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncPARAMETROS = /* GraphQL */ `
+  query SyncPARAMETROS(
+    $filter: ModelPARAMETROSFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncPARAMETROS(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -223,22 +513,68 @@ export const syncEnfermeras = /* GraphQL */ `
       items {
         id
         nombre
-        email
-        whats
-        direccion
-        numexterior
-        numinterior
-        codigopostal
-        colonia
-        municipio
-        ciudad
-        estado
-        edad
-        cedula
-        antiguedad
-        especialidad
-        curso
-        sub
+        pruebachecarID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        pARAMETROSREFERENCIASId
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getPRUEBACHECAR = /* GraphQL */ `
+  query GetPRUEBACHECAR($id: ID!) {
+    getPRUEBACHECAR(id: $id) {
+      id
+      nombre
+      categoria
+      precio
+      precioDescuento
+      descripcionLarga
+      descripcionCorta
+      tiempoEntrega
+      indicaciones
+      tipoMuestra
+      tipoContenedor
+      unidad
+      PARAMETROS {
+        nextToken
+        startedAt
+      }
+      ordenID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listPRUEBACHECARS = /* GraphQL */ `
+  query ListPRUEBACHECARS(
+    $filter: ModelPRUEBACHECARFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPRUEBACHECARS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        nombre
+        categoria
+        precio
+        precioDescuento
+        descripcionLarga
+        descripcionCorta
+        tiempoEntrega
+        indicaciones
+        tipoMuestra
+        tipoContenedor
+        unidad
+        ordenID
         createdAt
         updatedAt
         _version
@@ -250,15 +586,67 @@ export const syncEnfermeras = /* GraphQL */ `
     }
   }
 `;
-export const getUser = /* GraphQL */ `
-  query GetUser($id: ID!) {
-    getUser(id: $id) {
+export const syncPRUEBACHECARS = /* GraphQL */ `
+  query SyncPRUEBACHECARS(
+    $filter: ModelPRUEBACHECARFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncPRUEBACHECARS(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        nombre
+        categoria
+        precio
+        precioDescuento
+        descripcionLarga
+        descripcionCorta
+        tiempoEntrega
+        indicaciones
+        tipoMuestra
+        tipoContenedor
+        unidad
+        ordenID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getPaciente = /* GraphQL */ `
+  query GetPaciente($id: ID!) {
+    getPaciente(id: $id) {
       id
       nombre
+      apellidoPaterno
+      apellidoMaterno
       email
       whatsapp
       role
-      sub
+      image
+      url
+      key
+      fechaOrden
+      estudios
+      image2
+      estudios3
+      estudios2
+      url2
+      key2
+      image3
+      url3
+      key3
       createdAt
       updatedAt
       _version
@@ -267,20 +655,34 @@ export const getUser = /* GraphQL */ `
     }
   }
 `;
-export const listUsers = /* GraphQL */ `
-  query ListUsers(
-    $filter: ModelUserFilterInput
+export const listPacientes = /* GraphQL */ `
+  query ListPacientes(
+    $filter: ModelPacienteFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listPacientes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         nombre
+        apellidoPaterno
+        apellidoMaterno
         email
         whatsapp
         role
-        sub
+        image
+        url
+        key
+        fechaOrden
+        estudios
+        image2
+        estudios3
+        estudios2
+        url2
+        key2
+        image3
+        url3
+        key3
         createdAt
         updatedAt
         _version
@@ -292,14 +694,14 @@ export const listUsers = /* GraphQL */ `
     }
   }
 `;
-export const syncUsers = /* GraphQL */ `
-  query SyncUsers(
-    $filter: ModelUserFilterInput
+export const syncPacientes = /* GraphQL */ `
+  query SyncPacientes(
+    $filter: ModelPacienteFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncUsers(
+    syncPacientes(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -308,10 +710,24 @@ export const syncUsers = /* GraphQL */ `
       items {
         id
         nombre
+        apellidoPaterno
+        apellidoMaterno
         email
         whatsapp
         role
-        sub
+        image
+        url
+        key
+        fechaOrden
+        estudios
+        image2
+        estudios3
+        estudios2
+        url2
+        key2
+        image3
+        url3
+        key3
         createdAt
         updatedAt
         _version

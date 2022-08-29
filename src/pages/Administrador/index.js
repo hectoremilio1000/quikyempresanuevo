@@ -8,6 +8,7 @@ import { Spin } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import LayoutAdministrador from "../../modules/LayoutAdministrador/index";
+import LayoutAdmin2 from "../../modules/LayoutAdmin2";
 I18n.putVocabularies(translations);
 
 I18n.putVocabularies({
@@ -66,6 +67,14 @@ function Administrador() {
           Cerrar Sesión
         </Button>
       </Container>
+    );
+  }
+
+  if (hector[0] === "Quimicos") {
+    return (
+      <>
+        <LayoutAdmin2 signOut={SignOut} user={authUser} sub={sub} />
+      </>
     );
   }
 

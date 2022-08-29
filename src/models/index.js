@@ -2,14 +2,91 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
+const Sexo = {
+  "MASCULINO": "MASCULINO",
+  "FEMENINO": "FEMENINO"
+};
+
+const Statusorden = {
+  "NUEVO": "NUEVO",
+  "COMPLETADO": "COMPLETADO",
+  "CANCELADO": "CANCELADO"
+};
+
+const Categoria = {
+  "HEMATOLOGIA": "HEMATOLOGIA",
+  "QUIMICASANGUINEA": "QUIMICASANGUINEA",
+  "COAGULACION": "COAGULACION",
+  "SEROLOGIA": "SEROLOGIA",
+  "UROANALISIS": "UROANALISIS",
+  "MICROBIOLOGIA": "MICROBIOLOGIA",
+  "PRUEBARAPIDA": "PRUEBARAPIDA"
+};
+
+const Muestra = {
+  "HECES": "HECES",
+  "SUERO": "SUERO",
+  "SANGRETOTAL": "SANGRETOTAL",
+  "ORINA": "ORINA",
+  "EXUDADOFARINGEO": "EXUDADOFARINGEO",
+  "EXUDADONASOFARINGEO": "EXUDADONASOFARINGEO",
+  "EXUDADOURETRAL": "EXUDADOURETRAL",
+  "BIOPSIASORGANOSESPECIALES": "BIOPSIASORGANOSESPECIALES"
+};
+
+const Contenedor = {
+  "LILA": "LILA",
+  "AZUL": "AZUL",
+  "DORADO": "DORADO",
+  "ROJO": "ROJO",
+  "FRASCOESTERIL": "FRASCOESTERIL",
+  "STUART": "STUART",
+  "FRASCOHEMOCULTIVO": "FRASCOHEMOCULTIVO",
+  "NA": "NA"
+};
+
+const Unidad = {
+  "ML": "ML",
+  "MGDL": "MGDL",
+  "PORCENTAJE": "PORCENTAJE",
+  "C": "C",
+  "NINGUNO": "NINGUNO"
+};
+
+const Especialidad = {
+  "MEDICOGENERAL": "MEDICOGENERAL",
+  "HEMATOLOGIA": "HEMATOLOGIA",
+  "MEDICINAINTERNA": "MEDICINAINTERNA",
+  "CARDIOLOGIA": "CARDIOLOGIA",
+  "CIRUGIA": "CIRUGIA",
+  "UROLOGIA": "UROLOGIA",
+  "GINECOLOGIA": "GINECOLOGIA",
+  "PEDIATRIA": "PEDIATRIA",
+  "OTRO": "OTRO"
+};
+
 const Role = {
   "PACIENTE": "PACIENTE",
   "DOCTOR": "DOCTOR"
 };
 
-const { Paciente } = initSchema(schema);
+const { ORDEN, PRUEBACHECAR, PARAMETROS, REFERENCIAS, DOCTOR, DATOSPACIENTE, PACIENTE, Paciente } = initSchema(schema);
 
 export {
+  ORDEN,
+  PRUEBACHECAR,
+  PARAMETROS,
+  REFERENCIAS,
+  DOCTOR,
+  DATOSPACIENTE,
+  PACIENTE,
   Paciente,
+  Sexo,
+  Statusorden,
+  Categoria,
+  Muestra,
+  Contenedor,
+  Unidad,
+  Especialidad,
   Role
 };
