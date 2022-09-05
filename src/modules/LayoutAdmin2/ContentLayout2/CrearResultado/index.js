@@ -6,10 +6,10 @@ import { Container } from "react-bootstrap";
 import config from "../../../../aws-exports";
 
 import { useNavigate } from "react-router-dom";
-import { Paciente } from "../../../../models";
 
 //icono
 import { PlusCircleOutlined } from "@ant-design/icons";
+import { PACIENTE } from "../../../../models";
 
 const {
   aws_user_files_s3_bucket_region: region,
@@ -102,7 +102,7 @@ function CrearResultado() {
 
   const onSave = async () => {
     const newpaciente = await DataStore.save(
-      new Paciente({
+      new PACIENTE({
         nombre: nombre,
         apellidoPaterno: apellidoPaterno,
         apellidoMaterno: apellidoMaterno,

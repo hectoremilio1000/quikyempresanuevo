@@ -17,7 +17,7 @@ const { Title } = Typography;
 const { Item } = Form;
 const { Option } = Select;
 
-function CrearOrden() {
+function NuevoResultado() {
   const onFinish = values => {
     console.log(values);
   };
@@ -26,6 +26,7 @@ function CrearOrden() {
     console.log("Failed:", errorInfo);
   };
   const format = "HH:mm";
+
   return (
     <Row>
       <Col xs={24}>
@@ -47,45 +48,19 @@ function CrearOrden() {
           onFinishFailed={onFinishFailed}
         >
           <Item
-            label="Id paciente"
-            name="idPaciente"
+            label="Id Orden"
+            name="idOrden"
             rules={[
               {
                 required: true,
-                message: "Por favor ingresa el id del paciente",
+                message: "Por favor ingresa el id de la orden",
               },
             ]}
           >
             <Input />
           </Item>
 
-          <Item
-            label="Id Doctor"
-            name="idDoctor"
-            rules={[
-              {
-                required: true,
-                message: "Por favor ingresa el id del Doctor",
-              },
-            ]}
-          >
-            <Input />
-          </Item>
-
-          <Item
-            label="Id Prueba"
-            name="idPrueba"
-            rules={[
-              {
-                required: true,
-                message: "Por favor ingresa el id de la prueba",
-              },
-            ]}
-          >
-            <Input />
-          </Item>
-
-          <Item label="Fecha Orden" name="fechaOrden">
+          <Item label="Fecha Resultado" name="fechaResultado">
             <DatePicker placeholder="fecha" />
           </Item>
           <Item label="Hora Orden" name="horaOrden">
@@ -116,4 +91,4 @@ function CrearOrden() {
   );
 }
 
-export default CrearOrden;
+export default NuevoResultado;

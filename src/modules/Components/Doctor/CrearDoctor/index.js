@@ -81,33 +81,72 @@ function CrearDoctor() {
           >
             <Input />
           </Item>
+          <Item
+            label="Especialidad"
+            name="especialidad"
+            rules={[
+              {
+                required: true,
+                message: "Por favor ingresa el sexo del paciente",
+              },
+            ]}
+          >
+            <Select placeholder="Médico General">
+              <Option value="MEDICOGENERAL">Médico General</Option>
+              <Option value="HEMATOLOGIA">Hematología</Option>
+              <Option value="MEDICINAINTERNA">Medicina Interna</Option>
+              <Option value="CARDIOLOGIA">Cardiología</Option>
 
+              <Option value="CIRUGIA">Cirugía</Option>
+              <Option value="UROLOGIA">Urología</Option>
+              <Option value="GINECOLOGIA">Ginecología</Option>
+              <Option value="PEDIATRIA">Pediatría</Option>
+              <Option value="OTRO">Otro</Option>
+              <Option value="NOAPLICA">No aplica</Option>
+            </Select>
+          </Item>
           <Item label="Fecha de nacimiento" name="fechaNacimientoPaciente">
             <DatePicker placeholder="fecha" />
           </Item>
           <Item label="Edad" name="edadPaciente">
             <InputNumber style={{ width: "50%" }} placeholder="solo números" />
           </Item>
-          <Item label="Dirección" name="direccionPaciente">
-            <Input placeholder="Independencia 1423 colonia centro c.p. 68000 Oaxaca de Juárez Oaxaca" />
-          </Item>
-          <Item
-            label="Email o whats escoger"
-            name="correoelectronicoWhatsescogerPaciente"
-          >
-            <Select>
-              <Option value="correoelectronicodirigido">
-                Correo electrónico paciente
-              </Option>
-              <Option value="whatsdirigido">Whatsapp paciente</Option>
-            </Select>
+          <Item label="Calle" name="calle">
+            <Input placeholder="Independencia" />
           </Item>
 
-          <Item
-            label="Email o whats escribir"
-            name="correoelectronicoWhatsescribirPaciente"
-          >
-            <Input placeholder="escríbelo" />
+          <Item label="Num. ext." name="numexterior">
+            <Input placeholder="132" />
+          </Item>
+
+          <Item label="Num. int." name="numinterior">
+            <Input placeholder="2" />
+          </Item>
+          <Item label="Colonia" name="colonia">
+            <Input placeholder="centro" />
+          </Item>
+          <Item label="C.P." name="cp">
+            <Input placeholder="68000" />
+          </Item>
+
+          <Item label="Municipio" name="municipio">
+            <Input placeholder="Oaxaca de Juárez" />
+          </Item>
+
+          <Item label="Estado" name="estado">
+            <Input placeholder="Oaxaca" />
+          </Item>
+
+          <Item label="País" name="pais">
+            <Input placeholder="México" />
+          </Item>
+
+          <Item label="Email" name="email">
+            <Input placeholder="ejemplo@hotmail.com" />
+          </Item>
+
+          <Item label="Whatsapp" name="whatsapp">
+            <Input placeholder="ejemplo@hotmail.com" />
           </Item>
 
           <Item

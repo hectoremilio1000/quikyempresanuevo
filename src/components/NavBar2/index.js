@@ -10,6 +10,7 @@ import {
   GlobalOutlined,
   FileSearchOutlined,
   DollarCircleOutlined,
+  BorderOuterOutlined,
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children, type) {
@@ -28,6 +29,7 @@ const items = [
     getItem("Buscador de pruebas", "otraspruebas", <FileSearchOutlined />),
     getItem("Bolsa de Trabajo", "bolsatrabajo", <DollarCircleOutlined />),
     getItem("Blog", "blog", <GlobalOutlined />),
+    getItem("Maquila", "maquila", <BorderOuterOutlined />),
   ]),
 ];
 

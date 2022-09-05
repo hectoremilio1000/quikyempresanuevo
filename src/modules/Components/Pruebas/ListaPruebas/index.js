@@ -1,97 +1,165 @@
-import React from "react";
-import listaPruebas from "../../../../assets/Admin/listaPruebas";
-import { Table } from "antd";
-
-const columns = [
-  {
-    title: "Nombre",
-    width: 120,
-    dataIndex: "nombrePrueba",
-    key: "nombrePrueba",
-    fixed: "left",
-  },
-  {
-    title: "precio",
-    width: 80,
-    dataIndex: "precioPrueba",
-    key: "precioPrueba",
-    fixed: "left",
-  },
-  {
-    title: "categoria",
-    dataIndex: "categoriaPrueba",
-    key: "categoriaPrueba",
-  },
-  {
-    title: "imagen",
-    dataIndex: "imagenPrueba",
-    key: "imagenPrueba",
-  },
-  {
-    title: "creadoPor",
-    dataIndex: "creadoPorPrueba",
-    key: "creadoPorPrueba",
-  },
-  {
-    title: "Precio Prueba Viejo",
-    dataIndex: "PrecioPruebaViejo",
-    key: "PrecioPruebaViejo",
-  },
-
-  {
-    title: "descripción Larga",
-    width: 200,
-    dataIndex: "descripcionLargaPrueba",
-    key: "descripcionLargaPrueba",
-  },
-  {
-    title: "descripción Corta",
-    width: 150,
-    dataIndex: "descripcionCortaPrueba",
-    key: "descripcionCortaPrueba",
-  },
-  {
-    title: "tiempo Entrega",
-    dataIndex: "tiempoEntregaPrueba",
-    key: "tiempoEntregaPrueba",
-  },
-  {
-    title: "comentarios Prueba",
-    dataIndex: "comentariosPrueba",
-    key: "comentariosPrueba",
-  },
-  {
-    title: "tipo",
-    dataIndex: "tipoMuestraPrueba",
-    key: "tipoMuestraPrueba",
-  },
-  {
-    title: "requerimiento",
-    dataIndex: "requerimientoPrueba",
-    key: "requerimientoPrueba",
-  },
-  {
-    title: "id",
-    dataIndex: "id",
-    key: "id",
-  },
-  {
-    title: "key",
-    dataIndex: "key",
-    key: "key",
-  },
-];
+import React, { useEffect, useRef, useState } from "react";
+import { SearchOutlined } from "@ant-design/icons";
+import { Button, Input, Space, Table } from "antd";
+import Highlighter from "react-highlight-words";
+import { DataStore } from "aws-amplify";
+import { PRUEBACHECAR } from "../../../../models";
 
 function ListaPruebas() {
+  const [pruebas, setPruebas] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [searchedColumn, setSearchedColumn] = useState("");
+  const searchInput = useRef(null);
+
+  const handleSearch = (selectedKeys, confirm, dataIndex) => {
+    confirm();
+    setSearchText(selectedKeys[0]);
+    setSearchedColumn(dataIndex);
+  };
+  const handleReset = clearFilters => {
+    clearFilters();
+    setSearchText("");
+  };
+
+  const fetchPruebas = async () => {
+    const pruebas = await DataStore.query(PRUEBACHECAR);
+    setPruebas(pruebas);
+  };
+
+  useEffect(() => {
+    fetchPruebas();
+  }, []);
+
+  console.log(pruebas);
+
+  const getColumnSearchProps = dataIndex => ({
+    filterDropdown: ({
+      setSelectedKeys,
+      selectedKeys,
+      confirm,
+      clearFilters,
+    }) => (
+      <div
+        style={{
+          padding: 8,
+        }}
+      >
+        <Input
+          ref={searchInput}
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={e =>
+            setSelectedKeys(e.target.value ? [e.target.value] : [])
+          }
+          onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+          style={{
+            marginBottom: 8,
+            display: "block",
+          }}
+        />
+        <Space>
+          <Button
+            type="primary"
+            onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+            icon={<SearchOutlined />}
+            size="small"
+            style={{
+              width: 90,
+            }}
+          >
+            Search
+          </Button>
+          <Button
+            onClick={() => clearFilters && handleReset(clearFilters)}
+            size="small"
+            style={{
+              width: 90,
+            }}
+          >
+            Reset
+          </Button>
+          <Button
+            type="link"
+            size="small"
+            onClick={() => {
+              confirm({
+                closeDropdown: false,
+              });
+              setSearchText(selectedKeys[0]);
+              setSearchedColumn(dataIndex);
+            }}
+          >
+            Filter
+          </Button>
+        </Space>
+      </div>
+    ),
+    filterIcon: filtered => (
+      <SearchOutlined
+        style={{
+          color: filtered ? "#1890ff" : undefined,
+        }}
+      />
+    ),
+    onFilter: (value, record) =>
+      record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+    onFilterDropdownVisibleChange: visible => {
+      if (visible) {
+        setTimeout(() => searchInput.current?.select(), 100);
+      }
+    },
+    render: text =>
+      searchedColumn === dataIndex ? (
+        <Highlighter
+          highlightStyle={{
+            backgroundColor: "#ffc069",
+            padding: 0,
+          }}
+          searchWords={[searchText]}
+          autoEscape
+          textToHighlight={text ? text.toString() : ""}
+        />
+      ) : (
+        text
+      ),
+  });
+
+  const columns = [
+    {
+      title: "Id",
+      dataIndex: "id",
+      key: "id",
+      width: "30%",
+      ...getColumnSearchProps("nombres"),
+    },
+    {
+      title: "Nombre",
+      dataIndex: "nombre",
+      key: "nombre",
+      width: "30%",
+      ...getColumnSearchProps("nombres"),
+    },
+
+    {
+      title: "Categoría",
+      dataIndex: "categoria",
+      key: "categoria",
+    },
+    {
+      title: "Parámetro",
+      dataIndex: "parametro",
+      key: "parametro",
+    },
+    {
+      title: "Referencia",
+      dataIndex: "referencias",
+      key: "referencias",
+    },
+  ];
+
   return (
     <>
-      <h4 className="p-2">Lista pruebas</h4>
-      <Table
-        dataSource={listaPruebas}
-        columns={columns}
-        scroll={{ x: 2000 }}
-        rowKey="key"
-      />
+      <Table columns={columns} dataSource={pruebas} rowKey="id" />
     </>
   );
 }

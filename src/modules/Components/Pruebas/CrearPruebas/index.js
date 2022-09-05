@@ -84,45 +84,16 @@ function CrearPruebas() {
                 },
               ]}
             >
-              <Select placeholder="Hematología">
-                <Option value="Hematología">Hematología</Option>
-                <Option value="QuímicaSanguíne">Química Sanguínea</Option>
-                <Option value="Coagulación">Coagulación</Option>
-                <Option value="Serología">Serología</Option>
-                <Option value="Uroanálisis">Uroanálisis</Option>
-                <Option value="Microbiología">Microbiología</Option>
+              <Select placeholder="Selecciona">
+                <Option value="HEMATOLOGIA">Hematología</Option>
+                <Option value="QUIMICASANGUINEA">Química Sanguínea</Option>
+                <Option value="COAGULACION">Coagulación</Option>
+                <Option value="SEROLOGIA">Serología</Option>
+                <Option value="UROANALISIS">Uroanálisis</Option>
+                <Option value="MICROBIOLOGIA">Microbiología</Option>
+                <Option value="PRUEBARAPIDA">Microbiología</Option>
               </Select>
             </Item>
-            {/* <Item
-              name="imagenPrueba"
-              label="Cargar imagen"
-              valuePropName="fileUpload"
-              getValueFromEvent={normFile}
-            >
-              <Upload
-                action={pruebaDetails.imagenPrueba}
-                beforeUpload={Upload.LIST_IGNORE}
-              >
-                <Button icon={<UploadOutlined />}>Subir</Button>
-              </Upload>
-            </Item> */}
-            <Item
-              label="Creado por"
-              name="creadoporPrueba"
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor ingresa tu nombre",
-                },
-              ]}
-            >
-              <Select placeholder="DAVID SANDOVAL CHÁVEZ">
-                <Option value="luzmaría">LUZ MARÍA GARCÍA GARCÍA</Option>
-
-                <Option value="davidsandoval">DAVID SANDOVAL CHÁVEZ</Option>
-              </Select>
-            </Item>
-
             <Item
               label="Precio de la Prueba"
               name="precioPrueba"
@@ -135,6 +106,7 @@ function CrearPruebas() {
             >
               <InputNumber placeholder="120" prefix="$" />
             </Item>
+
             <Item
               label="Precio Descuento"
               name="precioDescuento"
@@ -147,6 +119,7 @@ function CrearPruebas() {
             >
               <InputNumber placeholder="80" prefix="$" />
             </Item>
+
             <Item
               label="Descripción larga"
               name="descripcionLargaPrueba"
@@ -163,6 +136,7 @@ function CrearPruebas() {
 El segundo paso se llama prueba inversa. La parte líquida de la sangre sin células (suero) se mezcla con sangre que se sabe que pertenece al tipo A o al tipo B. Las personas con sangre tipo A tienen anticuerpos anti-B. Las personas que tienen sangre tipo B tienen anticuerpos anti-A. El tipo de sangre O contiene ambos tipos de anticuerpos."
               />
             </Item>
+
             <Item
               label="Descripción corta"
               name="descripcionCortaPrueba"
@@ -178,6 +152,7 @@ El segundo paso se llama prueba inversa. La parte líquida de la sangre sin cél
                 placeholder="ej: Solicita esta prueba para conocer tu grupo sanguíneo"
               />
             </Item>
+
             <Item
               label="Tiempo de entrega"
               name="tiempoEntregaPrueba"
@@ -206,28 +181,29 @@ El segundo paso se llama prueba inversa. La parte líquida de la sangre sin cél
                 placeholder="ej: Recolectar aproximadamente 10 ml (mitad de frasco) de orina (primera o segunda de la mañana) en frasco de plástico estéril. No deben transcurrir más de 2 horas de recolección antes de ir a dejarlo al laboratorio."
               />
             </Item>
+
             <Item
               label="Tipo de Muestra"
               name="tipoMuestraPrueba"
               rules={[
                 {
                   required: true,
-                  message: "Por favor ingresa el tiempo de entrega",
+                  message: "Por favor ingresa el tipo de muestra",
                 },
               ]}
             >
-              <Select placeholder="Heces">
-                <Option value="heces">Heces</Option>
-                <Option value="suero">Suero</Option>
-                <Option value="sangretotal">Sangre total</Option>
-                <Option value="orina">Orina</Option>
-                <Option value="exsudadofaringeo">Exsudado faríngeo</Option>
-                <Option value="exudadonasofaringeo">
+              <Select placeholder="Selecciona">
+                <Option value="HECES">Heces</Option>
+                <Option value="SUERO">Suero</Option>
+                <Option value="SANGRETOTAL">Sangre total</Option>
+                <Option value="ORINA">Orina</Option>
+                <Option value="EXUDADOFARINGEO">Exsudado faríngeo</Option>
+                <Option value="EXUDADONASOFARINGEO">
                   Exudado Nasofaríngeo
                 </Option>
-                <Option value="exudadouretral">Exudado Uretral</Option>
-                <Option value="biopsiasorganosespeciales">
-                  Biopsias de organos especiales
+                <Option value="EXUDADOURETRAL">Exudado Uretral</Option>
+                <Option value="BIOPSIASORGANOSESPECIALES">
+                  Biopsias de órganos especiales
                 </Option>
               </Select>
             </Item>
@@ -242,20 +218,85 @@ El segundo paso se llama prueba inversa. La parte líquida de la sangre sin cél
                 },
               ]}
             >
-              <Select placeholder="Lila - EDTA">
-                <Option value="Lila-EDTA">Lila - EDTA</Option>
-                <Option value="Azul-Citrato de Sodio">
-                  Azul - Citrato de Sodio
-                </Option>
-                <Option value="Dorado-Gel">Dorado - Gel</Option>
-                <Option value="Rojo-Aditivo coagule">
-                  Rojo-Aditivo coagule
-                </Option>
-                <Option value="FrascoEstéril">Frasco Estéril</Option>
-                <Option value="Stuart-laminilla">Stuart-laminilla</Option>
-                <Option value="Frascohemocultivo">Frasco hemocultivo</Option>
+              <Select placeholder="Selecciona">
+                <Option value="LILA">Lila - EDTA</Option>
+                <Option value="AZUL">Azul - Citrato de Sodio</Option>
+                <Option value="DORADO">Dorado - Gel</Option>
+                <Option value="ROJO">Rojo-Aditivo coagule</Option>
+                <Option value="FRASCOESTERIL">Frasco Estéril</Option>
+                <Option value="STUART">Stuart-laminilla</Option>
+                <Option value="FRASCOHEMOCULTIVO">Frasco hemocultivo</Option>
+                <Option value="NA">No aplica</Option>
               </Select>
             </Item>
+
+            <Item
+              label="Unidad"
+              name="unidad"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa la unidad de medida",
+                },
+              ]}
+            >
+              <Select placeholder="Selecciona">
+                <Option value="ML">ML</Option>
+                <Option value="MGDL">MGDL</Option>
+                <Option value="PORCENTAJE">PORCENTAJE</Option>
+                <Option value="C">C</Option>
+                <Option value="NINGUNO">NINGUNO</Option>
+              </Select>
+            </Item>
+
+            <Item
+              label="Parámetros"
+              name="parametros"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa los parametros",
+                },
+              ]}
+            >
+              <Input.Group compact>
+                <Input placeholder="parametro 1" />
+                <Input placeholder="parametro 1" />
+              </Input.Group>
+            </Item>
+
+            <Item
+              label="Referencias"
+              name="referencia"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa las referencias",
+                },
+              ]}
+            >
+              <Input.Group compact>
+                <Input placeholder="referencia parametro 1" />
+                <Input placeholder="referencia 2" />
+              </Input.Group>
+            </Item>
+
+            {/* <Item
+              label="Creado por"
+              name="creadoporPrueba"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa tu nombre",
+                },
+              ]}
+            >
+              <Select placeholder="DAVID SANDOVAL CHÁVEZ">
+                <Option value="luzmaría">LUZ MARÍA GARCÍA GARCÍA</Option>
+
+                <Option value="davidsandoval">DAVID SANDOVAL CHÁVEZ</Option>
+              </Select>
+            </Item> */}
 
             <Item
               wrapperCol={{

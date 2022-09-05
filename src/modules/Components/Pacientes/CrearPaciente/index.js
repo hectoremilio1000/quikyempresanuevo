@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Row,
   Col,
@@ -12,11 +12,17 @@ import {
   Button,
 } from "antd";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 const { Item } = Form;
 const { Option } = Select;
 
 function CrearPaciente() {
+  const [mostrar, setMostrar] = useState(false);
+
+  const Mostrar = () => {
+    setMostrar(!mostrar);
+  };
+
   const onFinish = values => {
     console.log(values);
   };
@@ -82,22 +88,20 @@ function CrearPaciente() {
           </Item>
 
           <Item
-              label="Sexo"
-              name="sexo"
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor ingresa el sexo del paciente",
-                },
-              ]}
-              
-            >
-              <Select placeholder="Hombre">
-                <Option value="hombre">Hombre</Option>
-                <Option value="mujer">Mujer</Option>
-               
-              </Select>
-            </Item>
+            label="Sexo"
+            name="sexo"
+            rules={[
+              {
+                required: true,
+                message: "Por favor ingresa el sexo del paciente",
+              },
+            ]}
+          >
+            <Select placeholder="Hombre">
+              <Option value="HOMBRE">Hombre</Option>
+              <Option value="MUJER">Mujer</Option>
+            </Select>
+          </Item>
 
           <Item label="Fecha de nacimiento" name="fechaNacimientoPaciente">
             <DatePicker placeholder="fecha" />
@@ -114,43 +118,58 @@ function CrearPaciente() {
           <Item label="Num. int." name="numinterior">
             <Input placeholder="2" />
           </Item>
-          <Item label="C.P." name="cp">
-            <Input placeholder="68000" />
-          </Item>
           <Item label="Colonia" name="colonia">
             <Input placeholder="centro" />
           </Item>
+          <Item label="C.P." name="cp">
+            <Input placeholder="68000" />
+          </Item>
+
           <Item label="Municipio" name="municipio">
             <Input placeholder="Oaxaca de Juárez" />
           </Item>
+
           <Item label="Estado" name="estado">
             <Input placeholder="Oaxaca" />
           </Item>
+
           <Item label="País" name="pais">
             <Input placeholder="México" />
           </Item>
+
           <Item label="Email" name="email">
             <Input placeholder="ejemplo@hotmail.com" />
           </Item>
-          
-          <Item
-            label="Email o whats escoger"
-            name="correoelectronicoWhatsescogerPaciente"
-          >
-            <Select>
-              <Option value="correoelectronicodirigido">
-                Correo electrónico paciente
-              </Option>
-              <Option value="whatsdirigido">Whatsapp paciente</Option>
-            </Select>
+
+          <Item label="Whatsapp" name="whatsapp">
+            <Input placeholder="ejemplo@hotmail.com" />
           </Item>
 
-          <Item
-            label="Email o whats escribir"
-            name="correoelectronicoWhatsescribirPaciente"
-          >
-            <Input placeholder="escríbelo" />
-          </Item>
+          <div>
+            <Button onClick={Mostrar}>Otros datos</Button>
+            {mostrar && (
+              <div>
+                <Item label="Peso" name="peso">
+                  <Input placeholder="peso" />
+                </Item>
+                <Item label="Altura" name="altura">
+                  <Input placeholder="altura" />
+                </Item>
+                <Item label="Presión Arterial" name="presionArterial">
+                  <Input placeholder="presionArterial" />
+                </Item>
+                <Item label="Saturación" name="saturacion">
+                  <Input placeholder="saturacion" />
+                </Item>
+                <Item label="Diagnóstico" name="diagnostico">
+                  <Input placeholder="diagnostico" />
+                </Item>
+                <Item label="Tratamiento" name="tratamiento">
+                  <Input placeholder="tratamiento" />
+                </Item>
+              </div>
+            )}
+          </div>
 
           <Item
             wrapperCol={{

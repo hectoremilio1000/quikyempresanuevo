@@ -1,3 +1,9 @@
+enum METODOPAGO {
+  EFECTIVO
+  TARJETA
+  TRANSFERENCIA
+}
+
 enum SEXO {
   MASCULINO
   FEMENINO
@@ -20,7 +26,10 @@ type ORDEN @model @auth(rules: [{allow: public}]) {
   estudiosURL: String
   doctorID: ID! @index(name: "byDOCTOR")
   resultado: [String]
-  PRUEBACHECARS: [PRUEBACHECAR] @hasMany(indexName: "byORDEN", fields: ["id"])
+  pruebachecarID: ID! @index(name: "byPRUEBACHECAR")
+  metodoPago: METODOPAGO
+  horaResultado: String
+  fechaResultado: String
 }
 
 enum ESPECIALIDAD {
@@ -33,6 +42,7 @@ enum ESPECIALIDAD {
   GINECOLOGIA
   PEDIATRIA
   OTRO
+  NOAPLICA
 }
 
 type DOCTOR @model @auth(rules: [{allow: public}]) {
@@ -55,17 +65,6 @@ type DOCTOR @model @auth(rules: [{allow: public}]) {
   ORDENS: [ORDEN] @hasMany(indexName: "byDOCTOR", fields: ["id"])
 }
 
-type DATOSPACIENTE @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  peso: String
-  altura: String
-  indiceMasaCorporal: String
-  presionArterial: String
-  saturacion: String
-  diagnostico: String
-  tratamiento: String
-}
-
 type PACIENTE @model @auth(rules: [{allow: public}]) {
   id: ID!
   nombres: String
@@ -86,18 +85,13 @@ type PACIENTE @model @auth(rules: [{allow: public}]) {
   Email: String
   whatsapp: String
   ORDENS: [ORDEN] @hasMany(indexName: "byPACIENTE", fields: ["id"])
-}
-
-type REFERENCIAS @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  referencia: [String]
-}
-
-type PARAMETROS @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  nombre: [String]
-  pruebachecarID: ID! @index(name: "byPRUEBACHECAR")
-  REFERENCIAS: REFERENCIAS @hasOne
+  peso: String
+  altura: String
+  indiceMasaCorporal: String
+  presionArterial: String
+  saturacion: String
+  diagnostico: String
+  tratamiento: String
 }
 
 enum UNIDAD {
@@ -153,35 +147,8 @@ type PRUEBACHECAR @model @auth(rules: [{allow: public}]) {
   tipoMuestra: MUESTRA
   tipoContenedor: CONTENEDOR
   unidad: UNIDAD
-  PARAMETROS: [PARAMETROS] @hasMany(indexName: "byPRUEBACHECAR", fields: ["id"])
-  ordenID: ID! @index(name: "byORDEN")
-}
-
-enum ROLE {
-  PACIENTE
-  DOCTOR
-}
-
-type Paciente @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  nombre: String
-  apellidoPaterno: String
-  apellidoMaterno: String
-  email: String
-  whatsapp: String
-  role: ROLE
-  image: String
-  url: String
-  key: String
-  fechaOrden: String
-  estudios: String
-  image2: String
-  estudios3: String
-  estudios2: String
-  url2: String
-  key2: String
-  image3: String
-  url3: String
-  key3: String
+  ORDENS: [ORDEN] @hasMany(indexName: "byPRUEBACHECAR", fields: ["id"])
+  parametro: [String]
+  referencias: [String]
 }
  

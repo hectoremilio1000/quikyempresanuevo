@@ -76,19 +76,35 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "PRUEBACHECARS": {
-                    "name": "PRUEBACHECARS",
-                    "isArray": true,
+                "pruebachecarID": {
+                    "name": "pruebachecarID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "metodoPago": {
+                    "name": "metodoPago",
+                    "isArray": false,
                     "type": {
-                        "model": "PRUEBACHECAR"
+                        "enum": "Metodopago"
                     },
                     "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "ordenID"
-                    }
+                    "attributes": []
+                },
+                "horaResultado": {
+                    "name": "horaResultado",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "fechaResultado": {
+                    "name": "fechaResultado",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -133,261 +149,6 @@ export const schema = {
                     }
                 },
                 {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "PRUEBACHECAR": {
-            "name": "PRUEBACHECAR",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "nombre": {
-                    "name": "nombre",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "categoria": {
-                    "name": "categoria",
-                    "isArray": false,
-                    "type": {
-                        "enum": "Categoria"
-                    },
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "precio": {
-                    "name": "precio",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "precioDescuento": {
-                    "name": "precioDescuento",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "descripcionLarga": {
-                    "name": "descripcionLarga",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "descripcionCorta": {
-                    "name": "descripcionCorta",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "tiempoEntrega": {
-                    "name": "tiempoEntrega",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "indicaciones": {
-                    "name": "indicaciones",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "tipoMuestra": {
-                    "name": "tipoMuestra",
-                    "isArray": false,
-                    "type": {
-                        "enum": "Muestra"
-                    },
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "tipoContenedor": {
-                    "name": "tipoContenedor",
-                    "isArray": false,
-                    "type": {
-                        "enum": "Contenedor"
-                    },
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "unidad": {
-                    "name": "unidad",
-                    "isArray": false,
-                    "type": {
-                        "enum": "Unidad"
-                    },
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "PARAMETROS": {
-                    "name": "PARAMETROS",
-                    "isArray": true,
-                    "type": {
-                        "model": "PARAMETROS"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "pruebachecarID"
-                    }
-                },
-                "ordenID": {
-                    "name": "ordenID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "PRUEBACHECARS",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byORDEN",
-                        "fields": [
-                            "ordenID"
-                        ]
-                    }
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "PARAMETROS": {
-            "name": "PARAMETROS",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "nombre": {
-                    "name": "nombre",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "pruebachecarID": {
-                    "name": "pruebachecarID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "REFERENCIAS": {
-                    "name": "REFERENCIAS",
-                    "isArray": false,
-                    "type": {
-                        "model": "REFERENCIAS"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "HAS_ONE",
-                        "associatedWith": "id",
-                        "targetName": "parametrosReferenciasId"
-                    }
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "parametrosReferenciasId": {
-                    "name": "parametrosReferenciasId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                }
-            },
-            "syncable": true,
-            "pluralName": "PARAMETROS",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
                     "type": "key",
                     "properties": {
                         "name": "byPRUEBACHECAR",
@@ -395,66 +156,6 @@ export const schema = {
                             "pruebachecarID"
                         ]
                     }
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "REFERENCIAS": {
-            "name": "REFERENCIAS",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "referencia": {
-                    "name": "referencia",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "REFERENCIAS",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
                 },
                 {
                     "type": "auth",
@@ -647,107 +348,6 @@ export const schema = {
                 }
             ]
         },
-        "DATOSPACIENTE": {
-            "name": "DATOSPACIENTE",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "peso": {
-                    "name": "peso",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "altura": {
-                    "name": "altura",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "indiceMasaCorporal": {
-                    "name": "indiceMasaCorporal",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "presionArterial": {
-                    "name": "presionArterial",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "saturacion": {
-                    "name": "saturacion",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "diagnostico": {
-                    "name": "diagnostico",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "tratamiento": {
-                    "name": "tratamiento",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "DATOSPACIENTES",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
         "PACIENTE": {
             "name": "PACIENTE",
             "fields": {
@@ -893,6 +493,55 @@ export const schema = {
                         "associatedWith": "pacienteID"
                     }
                 },
+                "peso": {
+                    "name": "peso",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "altura": {
+                    "name": "altura",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "indiceMasaCorporal": {
+                    "name": "indiceMasaCorporal",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "presionArterial": {
+                    "name": "presionArterial",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "saturacion": {
+                    "name": "saturacion",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "diagnostico": {
+                    "name": "diagnostico",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "tratamiento": {
+                    "name": "tratamiento",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -935,8 +584,8 @@ export const schema = {
                 }
             ]
         },
-        "Paciente": {
-            "name": "Paciente",
+        "PRUEBACHECAR": {
+            "name": "PRUEBACHECAR",
             "fields": {
                 "id": {
                     "name": "id",
@@ -952,133 +601,113 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "apellidoPaterno": {
-                    "name": "apellidoPaterno",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "apellidoMaterno": {
-                    "name": "apellidoMaterno",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "email": {
-                    "name": "email",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "whatsapp": {
-                    "name": "whatsapp",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "role": {
-                    "name": "role",
+                "categoria": {
+                    "name": "categoria",
                     "isArray": false,
                     "type": {
-                        "enum": "Role"
+                        "enum": "Categoria"
                     },
                     "isRequired": false,
                     "attributes": []
                 },
-                "image": {
-                    "name": "image",
+                "precio": {
+                    "name": "precio",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "url": {
-                    "name": "url",
+                "precioDescuento": {
+                    "name": "precioDescuento",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "key": {
-                    "name": "key",
+                "descripcionLarga": {
+                    "name": "descripcionLarga",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "fechaOrden": {
-                    "name": "fechaOrden",
+                "descripcionCorta": {
+                    "name": "descripcionCorta",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "estudios": {
-                    "name": "estudios",
+                "tiempoEntrega": {
+                    "name": "tiempoEntrega",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "image2": {
-                    "name": "image2",
+                "indicaciones": {
+                    "name": "indicaciones",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "estudios3": {
-                    "name": "estudios3",
+                "tipoMuestra": {
+                    "name": "tipoMuestra",
                     "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "enum": "Muestra"
+                    },
                     "isRequired": false,
                     "attributes": []
                 },
-                "estudios2": {
-                    "name": "estudios2",
+                "tipoContenedor": {
+                    "name": "tipoContenedor",
                     "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "enum": "Contenedor"
+                    },
                     "isRequired": false,
                     "attributes": []
                 },
-                "url2": {
-                    "name": "url2",
+                "unidad": {
+                    "name": "unidad",
                     "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "enum": "Unidad"
+                    },
                     "isRequired": false,
                     "attributes": []
                 },
-                "key2": {
-                    "name": "key2",
-                    "isArray": false,
-                    "type": "String",
+                "ORDENS": {
+                    "name": "ORDENS",
+                    "isArray": true,
+                    "type": {
+                        "model": "ORDEN"
+                    },
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "pruebachecarID"
+                    }
                 },
-                "image3": {
-                    "name": "image3",
-                    "isArray": false,
+                "parametro": {
+                    "name": "parametro",
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
-                "url3": {
-                    "name": "url3",
-                    "isArray": false,
+                "referencias": {
+                    "name": "referencias",
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
-                },
-                "key3": {
-                    "name": "key3",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -1098,7 +727,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Pacientes",
+            "pluralName": "PRUEBACHECARS",
             "attributes": [
                 {
                     "type": "model",
@@ -1124,6 +753,14 @@ export const schema = {
         }
     },
     "enums": {
+        "Metodopago": {
+            "name": "Metodopago",
+            "values": [
+                "EFECTIVO",
+                "TARJETA",
+                "TRANSFERENCIA"
+            ]
+        },
         "Sexo": {
             "name": "Sexo",
             "values": [
@@ -1139,29 +776,29 @@ export const schema = {
                 "CANCELADO"
             ]
         },
-        "Categoria": {
-            "name": "Categoria",
+        "Especialidad": {
+            "name": "Especialidad",
             "values": [
+                "MEDICOGENERAL",
                 "HEMATOLOGIA",
-                "QUIMICASANGUINEA",
-                "COAGULACION",
-                "SEROLOGIA",
-                "UROANALISIS",
-                "MICROBIOLOGIA",
-                "PRUEBARAPIDA"
+                "MEDICINAINTERNA",
+                "CARDIOLOGIA",
+                "CIRUGIA",
+                "UROLOGIA",
+                "GINECOLOGIA",
+                "PEDIATRIA",
+                "OTRO",
+                "NOAPLICA"
             ]
         },
-        "Muestra": {
-            "name": "Muestra",
+        "Unidad": {
+            "name": "Unidad",
             "values": [
-                "HECES",
-                "SUERO",
-                "SANGRETOTAL",
-                "ORINA",
-                "EXUDADOFARINGEO",
-                "EXUDADONASOFARINGEO",
-                "EXUDADOURETRAL",
-                "BIOPSIASORGANOSESPECIALES"
+                "ML",
+                "MGDL",
+                "PORCENTAJE",
+                "C",
+                "NINGUNO"
             ]
         },
         "Contenedor": {
@@ -1177,38 +814,32 @@ export const schema = {
                 "NA"
             ]
         },
-        "Unidad": {
-            "name": "Unidad",
+        "Muestra": {
+            "name": "Muestra",
             "values": [
-                "ML",
-                "MGDL",
-                "PORCENTAJE",
-                "C",
-                "NINGUNO"
+                "HECES",
+                "SUERO",
+                "SANGRETOTAL",
+                "ORINA",
+                "EXUDADOFARINGEO",
+                "EXUDADONASOFARINGEO",
+                "EXUDADOURETRAL",
+                "BIOPSIASORGANOSESPECIALES"
             ]
         },
-        "Especialidad": {
-            "name": "Especialidad",
+        "Categoria": {
+            "name": "Categoria",
             "values": [
-                "MEDICOGENERAL",
                 "HEMATOLOGIA",
-                "MEDICINAINTERNA",
-                "CARDIOLOGIA",
-                "CIRUGIA",
-                "UROLOGIA",
-                "GINECOLOGIA",
-                "PEDIATRIA",
-                "OTRO"
-            ]
-        },
-        "Role": {
-            "name": "Role",
-            "values": [
-                "PACIENTE",
-                "DOCTOR"
+                "QUIMICASANGUINEA",
+                "COAGULACION",
+                "SEROLOGIA",
+                "UROANALISIS",
+                "MICROBIOLOGIA",
+                "PRUEBARAPIDA"
             ]
         }
     },
     "nonModels": {},
-    "version": "ccc7b35f1a32291c4f769934db77ce03"
+    "version": "31b5af6c6f3bdcfe9254a816a8a9854c"
 };

@@ -26,12 +26,14 @@ import SignUpPaciente from "../../pages/Administrador2/SignUpPaciente/index";
 import ConfirmEmailPaciente from "../../pages/Administrador2/ConfirmEmailPaciente/index";
 import ForgotPasswordPaciente from "../../pages/Administrador2/ForgotPasswordPaciente/index";
 import NewPasswordPaciente from "../../pages/Administrador2/NewPasswordPaciente/index";
+import Maquila from "../../pages/Maquila/index";
 
 function AppRoutes() {
   return (
     <Routes>
       {/* routes nav y home */}
       <Route path="blog" element={<Blog />} />
+      <Route path="maquila" element={<Maquila />} />
       <Route path="privacidad" element={<Privacidad />} />
       <Route path="bolsatrabajo" element={<BolsaTrabajo />} />
       <Route path="otraspruebas" element={<OtrasPruebas />} />

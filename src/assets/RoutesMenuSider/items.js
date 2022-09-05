@@ -54,6 +54,7 @@ const itemsRoutes = [
     getItem("Lista de Pacientes", "8", <TeamOutlined />),
   ]),
   getItem("Resultados", "sub5", <FilePdfOutlined />, [
+    getItem("Nuevo Resultado", "17", <FileDoneOutlined />),
     getItem("Crear Resultado", "9", <FileDoneOutlined />),
     getItem("Lista de Resultados", "10", <FileSearchOutlined />),
     getItem("Resultado Prueba", "11", <FileSearchOutlined />),

@@ -2,10 +2,10 @@ import { DataStore } from "aws-amplify";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Paciente } from "../../../../models";
 import { Auth } from "aws-amplify";
 import { Button, Table } from "antd";
 import { useNavigate } from "react-router-dom";
+import { PACIENTE } from "../../../../models";
 
 const columns = [
   {
@@ -43,7 +43,7 @@ function ListaEstudios() {
     if (!emailAuth) {
       return;
     }
-    DataStore.query(Paciente, paciente => paciente.email("eq", emailAuth)).then(
+    DataStore.query(PACIENTE, paciente => paciente.email("eq", emailAuth)).then(
       paciente => setPaciente(paciente)
     );
   }, [emailAuth]);
