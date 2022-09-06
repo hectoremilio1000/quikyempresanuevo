@@ -91,7 +91,8 @@ function CrearPruebas() {
                 <Option value="SEROLOGIA">Serología</Option>
                 <Option value="UROANALISIS">Uroanálisis</Option>
                 <Option value="MICROBIOLOGIA">Microbiología</Option>
-                <Option value="PRUEBARAPIDA">Microbiología</Option>
+                <Option value="PRUEBASCOVID">Pruebas COVID</Option>
+                <Option value="PRUEBASESPECIALES">Pruebas Especiales</Option>
               </Select>
             </Item>
             <Item
