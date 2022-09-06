@@ -93,6 +93,7 @@ function CrearPruebas() {
                 <Option value="MICROBIOLOGIA">Microbiología</Option>
                 <Option value="PRUEBASCOVID">Pruebas COVID</Option>
                 <Option value="PRUEBASESPECIALES">Pruebas Especiales</Option>
+                 <Option value="GINECOLOGIA">Ginecología</Option>
               </Select>
             </Item>
             <Item
@@ -206,6 +207,9 @@ El segundo paso se llama prueba inversa. La parte líquida de la sangre sin cél
                 <Option value="BIOPSIASORGANOSESPECIALES">
                   Biopsias de órganos especiales
                 </Option>
+                 <Option value="EXUDADODECERVIX">
+                  Exudado de Cervix
+                </Option>
               </Select>
             </Item>
 
@@ -227,6 +231,7 @@ El segundo paso se llama prueba inversa. La parte líquida de la sangre sin cél
                 <Option value="FRASCOESTERIL">Frasco Estéril</Option>
                 <Option value="STUART">Stuart-laminilla</Option>
                 <Option value="FRASCOHEMOCULTIVO">Frasco hemocultivo</Option>
+                <Option value="FRASCOCITOLOGIALIQUIDA">Frasco Citología Líquida</Option>
                 <Option value="NA">No aplica</Option>
               </Select>
             </Item>
@@ -245,7 +250,7 @@ El segundo paso se llama prueba inversa. La parte líquida de la sangre sin cél
                 <Option value="ML">ML</Option>
                 <Option value="MGDL">MGDL</Option>
                 <Option value="PORCENTAJE">PORCENTAJE</Option>
-                <Option value="C">C</Option>
+                <Option value="/C">/C</Option>
                 <Option value="NINGUNO">NINGUNO</Option>
               </Select>
             </Item>
