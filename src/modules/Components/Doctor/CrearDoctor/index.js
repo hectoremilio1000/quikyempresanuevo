@@ -102,7 +102,7 @@ function CrearDoctor() {
               <Option value="GINECOLOGIA">Ginecología</Option>
               <Option value="PEDIATRIA">Pediatría</Option>
               <Option value="OTRO">Otro</Option>
-              <Option value="NOAPLICA">No aplica</Option>
+              <Option value="AQUIENCORRESPONDA">A quien corresponda</Option>
             </Select>
           </Item>
           <Item label="Fecha de nacimiento" name="fechaNacimientoPaciente">
