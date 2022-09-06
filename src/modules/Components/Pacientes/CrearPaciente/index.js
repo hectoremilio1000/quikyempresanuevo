@@ -100,6 +100,7 @@ function CrearPaciente() {
             <Select placeholder="Hombre">
               <Option value="HOMBRE">Hombre</Option>
               <Option value="MUJER">Mujer</Option>
+              <Option value="OTRO">Otro</Option>
             </Select>
           </Item>
 
