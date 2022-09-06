@@ -249,54 +249,11 @@ El segundo paso se llama prueba inversa. La parte líquida de la sangre sin cél
               </Select>
             </Item>
 
-            <Item
-              label="Parámetros"
-              name="parametros"
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor ingresa los parametros",
-                },
-              ]}
-            >
-              <Input.Group compact>
-                <Input placeholder="parametro 1" />
-                <Input placeholder="parametro 1" />
-              </Input.Group>
-            </Item>
+           
 
-            <Item
-              label="Referencias"
-              name="referencia"
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor ingresa las referencias",
-                },
-              ]}
-            >
-              <Input.Group compact>
-                <Input placeholder="referencia parametro 1" />
-                <Input placeholder="referencia 2" />
-              </Input.Group>
-            </Item>
+          
 
-            {/* <Item
-              label="Creado por"
-              name="creadoporPrueba"
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor ingresa tu nombre",
-                },
-              ]}
-            >
-              <Select placeholder="DAVID SANDOVAL CHÁVEZ">
-                <Option value="luzmaría">LUZ MARÍA GARCÍA GARCÍA</Option>
-
-                <Option value="davidsandoval">DAVID SANDOVAL CHÁVEZ</Option>
-              </Select>
-            </Item> */}
+           
 
             <Item
               wrapperCol={{

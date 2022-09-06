@@ -30,7 +30,7 @@ function ListaPruebas() {
     fetchPruebas();
   }, []);
 
-  console.log(pruebas);
+  console.log(pruebas)
 
   const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({

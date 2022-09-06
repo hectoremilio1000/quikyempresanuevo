@@ -1,4 +1,22 @@
 {
+  "newparams": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-quikyempresanuevo-newparams-01426-authRole",
+      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-newparams-01426-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-newparams-01426-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-quikyempresanuevo-newparams-01426-deployment",
+      "UnauthRoleName": "amplify-quikyempresanuevo-newparams-01426-unauthRole",
+      "StackName": "amplify-quikyempresanuevo-newparams-01426",
+      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-newparams-01426/de674a30-2d78-11ed-9b4f-0e9e1e3d6c73",
+      "AmplifyAppId": "d2wjr7momz2mwu"
+    },
+    "categories": {
+      "auth": {
+        "quikyempresanuevo": {}
+      }
+    }
+  },
   "nuevo": {
     "awscloudformation": {
       "AuthRoleName": "amplify-quikyempresanuevo-nuevo-151044-authRole",

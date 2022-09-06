@@ -72,9 +72,11 @@ const Categoria = {
   "PRUEBARAPIDA": "PRUEBARAPIDA"
 };
 
-const { ORDEN, DOCTOR, PACIENTE, PRUEBACHECAR } = initSchema(schema);
+const { REFERENS, PARAMS, ORDEN, DOCTOR, PACIENTE, PRUEBACHECAR } = initSchema(schema);
 
 export {
+  REFERENS,
+  PARAMS,
   ORDEN,
   DOCTOR,
   PACIENTE,

@@ -17,6 +17,7 @@ import Enfermeras from "../Components/Empleo/Enfermeras";
 import General from "../Components/Empleo/General";
 import ResultadoPrueba from "../Components/Resultados/ResultadoPrueba/index";
 import NuevoResultado from "../Components/Resultados/NuevoResultado";
+import CrearParametros from '../Components/Pruebas/CrearParametros/index';
 const { Content } = Layout;
 
 function ContentLayoutAdmin({ current }) {
@@ -30,7 +31,12 @@ function ContentLayoutAdmin({ current }) {
         <div className="site-layout-background" style={{ minHeight: 100 }}>
           <ListaPruebas />
         </div>
-      ) : current === "3" ? (
+        ): current === "18" ? (
+        <div className="site-layout-background" style={{ minHeight: 100 }}>
+          <CrearParametros />
+        </div>
+      )
+          : current === "3" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
           <CrearDoctor />
         </div>

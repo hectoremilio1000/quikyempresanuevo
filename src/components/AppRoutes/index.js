@@ -27,6 +27,7 @@ import ConfirmEmailPaciente from "../../pages/Administrador2/ConfirmEmailPacient
 import ForgotPasswordPaciente from "../../pages/Administrador2/ForgotPasswordPaciente/index";
 import NewPasswordPaciente from "../../pages/Administrador2/NewPasswordPaciente/index";
 import Maquila from "../../pages/Maquila/index";
+import CrearParametros from '../../modules/Components/Pruebas/CrearParametros/index';
 
 function AppRoutes() {
   return (
@@ -71,6 +72,7 @@ function AppRoutes() {
 
       {/* rotue administrador con todos los componentes */}
       <Route path="admin2" element={<Administrador />} />
+      <Route path="admin2/parametros/:id" element={<CrearParametros />} />
 
       {/* routes por definir */}
 

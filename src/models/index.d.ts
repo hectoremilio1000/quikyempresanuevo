@@ -72,6 +72,14 @@ export enum Categoria {
 
 
 
+type REFERENSMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type PARAMSMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type ORDENMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -86,6 +94,27 @@ type PACIENTEMetaData = {
 
 type PRUEBACHECARMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class REFERENS {
+  readonly id: string;
+  readonly referencia?: (string | null)[] | null;
+  readonly paramsID: string;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<REFERENS, REFERENSMetaData>);
+  static copyOf(source: REFERENS, mutator: (draft: MutableModel<REFERENS, REFERENSMetaData>) => MutableModel<REFERENS, REFERENSMetaData> | void): REFERENS;
+}
+
+export declare class PARAMS {
+  readonly id: string;
+  readonly params?: (string | null)[] | null;
+  readonly REFERENS?: (REFERENS | null)[] | null;
+  readonly pruebachecarID: string;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<PARAMS, PARAMSMetaData>);
+  static copyOf(source: PARAMS, mutator: (draft: MutableModel<PARAMS, PARAMSMetaData>) => MutableModel<PARAMS, PARAMSMetaData> | void): PARAMS;
 }
 
 export declare class ORDEN {
@@ -180,8 +209,7 @@ export declare class PRUEBACHECAR {
   readonly tipoContenedor?: Contenedor | keyof typeof Contenedor | null;
   readonly unidad?: Unidad | keyof typeof Unidad | null;
   readonly ORDENS?: (ORDEN | null)[] | null;
-  readonly parametro?: (string | null)[] | null;
-  readonly referencias?: (string | null)[] | null;
+  readonly PARAMS?: (PARAMS | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<PRUEBACHECAR, PRUEBACHECARMetaData>);

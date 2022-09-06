@@ -1,5 +1,171 @@
 export const schema = {
     "models": {
+        "REFERENS": {
+            "name": "REFERENS",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "referencia": {
+                    "name": "referencia",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "paramsID": {
+                    "name": "paramsID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "REFERENS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byPARAMS",
+                        "fields": [
+                            "paramsID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "PARAMS": {
+            "name": "PARAMS",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "params": {
+                    "name": "params",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "REFERENS": {
+                    "name": "REFERENS",
+                    "isArray": true,
+                    "type": {
+                        "model": "REFERENS"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "paramsID"
+                    }
+                },
+                "pruebachecarID": {
+                    "name": "pruebachecarID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "PARAMS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byPRUEBACHECAR",
+                        "fields": [
+                            "pruebachecarID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "ORDEN": {
             "name": "ORDEN",
             "fields": {
@@ -693,21 +859,19 @@ export const schema = {
                         "associatedWith": "pruebachecarID"
                     }
                 },
-                "parametro": {
-                    "name": "parametro",
+                "PARAMS": {
+                    "name": "PARAMS",
                     "isArray": true,
-                    "type": "String",
+                    "type": {
+                        "model": "PARAMS"
+                    },
                     "isRequired": false,
                     "attributes": [],
-                    "isArrayNullable": true
-                },
-                "referencias": {
-                    "name": "referencias",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "pruebachecarID"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -841,5 +1005,5 @@ export const schema = {
         }
     },
     "nonModels": {},
-    "version": "31b5af6c6f3bdcfe9254a816a8a9854c"
+    "version": "3a9e06f45349c64ecd99f0081adc7fb1"
 };

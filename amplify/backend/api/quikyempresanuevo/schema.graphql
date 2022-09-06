@@ -1,3 +1,16 @@
+type REFERENS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  referencia: [String]
+  paramsID: ID! @index(name: "byPARAMS")
+}
+
+type PARAMS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  params: [String]
+  REFERENS: [REFERENS] @hasMany(indexName: "byPARAMS", fields: ["id"])
+  pruebachecarID: ID! @index(name: "byPRUEBACHECAR")
+}
+
 enum METODOPAGO {
   EFECTIVO
   TARJETA
@@ -148,7 +161,6 @@ type PRUEBACHECAR @model @auth(rules: [{allow: public}]) {
   tipoContenedor: CONTENEDOR
   unidad: UNIDAD
   ORDENS: [ORDEN] @hasMany(indexName: "byPRUEBACHECAR", fields: ["id"])
-  parametro: [String]
-  referencias: [String]
+  PARAMS: [PARAMS] @hasMany(indexName: "byPRUEBACHECAR", fields: ["id"])
 }
  

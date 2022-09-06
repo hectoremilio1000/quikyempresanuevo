@@ -23,6 +23,7 @@ import {
   MonitorOutlined,
   ReconciliationOutlined,
   ScheduleOutlined,
+  CaretRightOutlined
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children, type) {
@@ -39,6 +40,7 @@ const itemsRoutes = [
   getItem("Pruebas", "sub1", <AppstoreOutlined />, [
     getItem("Crear Pruebas", "1", <HighlightOutlined />),
     getItem("Lista Pruebas", "2", <UnorderedListOutlined />),
+    getItem("Parametros", "18", <CaretRightOutlined />),
   ]),
   getItem("Doctores", "sub2", <MedicineBoxOutlined />, [
     getItem("Crear Doctor", "3", <BranchesOutlined />),
