@@ -1,5 +1,225 @@
 export const schema = {
     "models": {
+        "UNIDAD": {
+            "name": "UNIDAD",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "unidad": {
+                    "name": "unidad",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Unidadenums"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "paramsID": {
+                    "name": "paramsID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "UNIDADS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byPARAMS",
+                        "fields": [
+                            "paramsID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "BLOG": {
+            "name": "BLOG",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "titulo": {
+                    "name": "titulo",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "subtitulo": {
+                    "name": "subtitulo",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "imagen1": {
+                    "name": "imagen1",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "url1": {
+                    "name": "url1",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "texto1": {
+                    "name": "texto1",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "imagen2": {
+                    "name": "imagen2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "url2": {
+                    "name": "url2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "texto2": {
+                    "name": "texto2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "imagen3": {
+                    "name": "imagen3",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "url3": {
+                    "name": "url3",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "texto3": {
+                    "name": "texto3",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "fecha": {
+                    "name": "fecha",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "autor": {
+                    "name": "autor",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "BLOGS",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "REFERENS": {
             "name": "REFERENS",
             "fields": {
@@ -10,19 +230,25 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "referencia": {
-                    "name": "referencia",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
                 "paramsID": {
                     "name": "paramsID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
+                    "attributes": []
+                },
+                "referencia1": {
+                    "name": "referencia1",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "referencia2": {
+                    "name": "referencia2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -86,14 +312,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "params": {
-                    "name": "params",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
                 "REFERENS": {
                     "name": "REFERENS",
                     "isArray": true,
@@ -114,6 +332,27 @@ export const schema = {
                     "type": "ID",
                     "isRequired": true,
                     "attributes": []
+                },
+                "param": {
+                    "name": "param",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "UNIDAD": {
+                    "name": "UNIDAD",
+                    "isArray": true,
+                    "type": {
+                        "model": "UNIDAD"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "paramsID"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -836,15 +1075,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "unidad": {
-                    "name": "unidad",
-                    "isArray": false,
-                    "type": {
-                        "enum": "Unidad"
-                    },
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "ORDENS": {
                     "name": "ORDENS",
                     "isArray": true,
@@ -917,6 +1147,16 @@ export const schema = {
         }
     },
     "enums": {
+        "Unidadenums": {
+            "name": "Unidadenums",
+            "values": [
+                "ML",
+                "MGDL",
+                "PORCENTAJE",
+                "C",
+                "NINGUNO"
+            ]
+        },
         "Metodopago": {
             "name": "Metodopago",
             "values": [
@@ -953,16 +1193,6 @@ export const schema = {
                 "PEDIATRIA",
                 "OTRO",
                 "NOAPLICA"
-            ]
-        },
-        "Unidad": {
-            "name": "Unidad",
-            "values": [
-                "ML",
-                "MGDL",
-                "PORCENTAJE",
-                "C",
-                "NINGUNO"
             ]
         },
         "Contenedor": {
@@ -1005,5 +1235,5 @@ export const schema = {
         }
     },
     "nonModels": {},
-    "version": "3a9e06f45349c64ecd99f0081adc7fb1"
+    "version": "33deda676395146833e8f4a375011f5b"
 };

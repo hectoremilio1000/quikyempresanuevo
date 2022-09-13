@@ -1,5 +1,13 @@
 import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
 
+export enum Unidadenums {
+  ML = "ML",
+  MGDL = "MGDL",
+  PORCENTAJE = "PORCENTAJE",
+  C = "C",
+  NINGUNO = "NINGUNO"
+}
+
 export enum Metodopago {
   EFECTIVO = "EFECTIVO",
   TARJETA = "TARJETA",
@@ -28,14 +36,6 @@ export enum Especialidad {
   PEDIATRIA = "PEDIATRIA",
   OTRO = "OTRO",
   NOAPLICA = "NOAPLICA"
-}
-
-export enum Unidad {
-  ML = "ML",
-  MGDL = "MGDL",
-  PORCENTAJE = "PORCENTAJE",
-  C = "C",
-  NINGUNO = "NINGUNO"
 }
 
 export enum Contenedor {
@@ -72,6 +72,14 @@ export enum Categoria {
 
 
 
+type UNIDADMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type BLOGMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type REFERENSMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -96,10 +104,42 @@ type PRUEBACHECARMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+export declare class UNIDAD {
+  readonly id: string;
+  readonly unidad?: Unidadenums | keyof typeof Unidadenums | null;
+  readonly paramsID: string;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<UNIDAD, UNIDADMetaData>);
+  static copyOf(source: UNIDAD, mutator: (draft: MutableModel<UNIDAD, UNIDADMetaData>) => MutableModel<UNIDAD, UNIDADMetaData> | void): UNIDAD;
+}
+
+export declare class BLOG {
+  readonly id: string;
+  readonly titulo?: string | null;
+  readonly subtitulo?: string | null;
+  readonly imagen1?: string | null;
+  readonly url1?: string | null;
+  readonly texto1?: string | null;
+  readonly imagen2?: string | null;
+  readonly url2?: string | null;
+  readonly texto2?: string | null;
+  readonly imagen3?: string | null;
+  readonly url3?: string | null;
+  readonly texto3?: string | null;
+  readonly fecha?: string | null;
+  readonly autor?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<BLOG, BLOGMetaData>);
+  static copyOf(source: BLOG, mutator: (draft: MutableModel<BLOG, BLOGMetaData>) => MutableModel<BLOG, BLOGMetaData> | void): BLOG;
+}
+
 export declare class REFERENS {
   readonly id: string;
-  readonly referencia?: (string | null)[] | null;
   readonly paramsID: string;
+  readonly referencia1?: string | null;
+  readonly referencia2?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<REFERENS, REFERENSMetaData>);
@@ -108,9 +148,10 @@ export declare class REFERENS {
 
 export declare class PARAMS {
   readonly id: string;
-  readonly params?: (string | null)[] | null;
   readonly REFERENS?: (REFERENS | null)[] | null;
   readonly pruebachecarID: string;
+  readonly param?: string | null;
+  readonly UNIDAD?: (UNIDAD | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<PARAMS, PARAMSMetaData>);
@@ -207,7 +248,6 @@ export declare class PRUEBACHECAR {
   readonly indicaciones?: string | null;
   readonly tipoMuestra?: Muestra | keyof typeof Muestra | null;
   readonly tipoContenedor?: Contenedor | keyof typeof Contenedor | null;
-  readonly unidad?: Unidad | keyof typeof Unidad | null;
   readonly ORDENS?: (ORDEN | null)[] | null;
   readonly PARAMS?: (PARAMS | null)[] | null;
   readonly createdAt?: string | null;

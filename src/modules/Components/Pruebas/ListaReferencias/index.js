@@ -1,16 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table } from "antd";
+import { Button, Input, Space, Spin, Table } from "antd";
 import Highlighter from "react-highlight-words";
 import { DataStore } from "aws-amplify";
-import { PRUEBACHECAR } from "../../../../models";
+import { useNavigate } from "react-router-dom";
+import { PARAMS } from "../../../../models";
 
-function ListaPruebas() {
-  const [pruebas, setPruebas] = useState([]);
+function ListaReferencias() {
+   const [parametros, setParametros] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
-
+  const navigate = useNavigate();
+  
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
@@ -21,16 +23,16 @@ function ListaPruebas() {
     setSearchText("");
   };
 
-  const fetchPruebas = async () => {
-    const pruebas = await DataStore.query(PRUEBACHECAR);
-    setPruebas(pruebas);
+    const fetchParametros = async () => {
+    const parametros = await DataStore.query(PARAMS);
+    setParametros(parametros);
   };
 
   useEffect(() => {
-    fetchPruebas();
+    fetchParametros();
   }, []);
 
-  const getColumnSearchProps = dataIndex => ({
+   const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
@@ -122,44 +124,53 @@ function ListaPruebas() {
       ),
   });
 
-  const columns = [
+    const columns = [
     {
       title: "Id",
       dataIndex: "id",
       key: "id",
       width: "30%",
       ...getColumnSearchProps("nombres"),
+      },
+      {
+      title: "Parámetro",
+      dataIndex: "param",
+      key: "param",
     },
     {
-      title: "Nombre",
-      dataIndex: "nombre",
-      key: "nombre",
+      title: "Id Prueba",
+      dataIndex: "pruebachecarID",
+      key: "pruebachecarID",
       width: "30%",
       ...getColumnSearchProps("nombres"),
+      },
+ 
+    
+    {
+      title: "Referencia1",
+      dataIndex: "referencia1",
+      key: "referencia1",
+      },
+     {
+      title: "Referencia2",
+      dataIndex: "referencia2",
+      key: "referencia2",
     },
+    ];
+  
+  if (!parametros) {
+    return <Spin size="large"/>
+  }
 
-    {
-      title: "Categoría",
-      dataIndex: "categoria",
-      key: "categoria",
-    },
-    {
-      title: "Parámetro",
-      dataIndex: "parametro",
-      key: "parametro",
-    },
-    {
-      title: "Referencia",
-      dataIndex: "referencias",
-      key: "referencias",
-    },
-  ];
 
   return (
     <>
-      <Table columns={columns} dataSource={pruebas} rowKey="id" />
+      <Table columns={columns} dataSource={parametros} rowKey="id" onRow={(parametrosItem) => ({
+          onClick: () => navigate(`/referencias/${parametrosItem.id}`),
+        })}
+      />
     </>
-  );
+  )
 }
 
-export default ListaPruebas;
+export default ListaReferencias

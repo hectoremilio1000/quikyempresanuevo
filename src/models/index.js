@@ -2,6 +2,14 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
+const Unidadenums = {
+  "ML": "ML",
+  "MGDL": "MGDL",
+  "PORCENTAJE": "PORCENTAJE",
+  "C": "C",
+  "NINGUNO": "NINGUNO"
+};
+
 const Metodopago = {
   "EFECTIVO": "EFECTIVO",
   "TARJETA": "TARJETA",
@@ -30,14 +38,6 @@ const Especialidad = {
   "PEDIATRIA": "PEDIATRIA",
   "OTRO": "OTRO",
   "NOAPLICA": "NOAPLICA"
-};
-
-const Unidad = {
-  "ML": "ML",
-  "MGDL": "MGDL",
-  "PORCENTAJE": "PORCENTAJE",
-  "C": "C",
-  "NINGUNO": "NINGUNO"
 };
 
 const Contenedor = {
@@ -72,20 +72,22 @@ const Categoria = {
   "PRUEBARAPIDA": "PRUEBARAPIDA"
 };
 
-const { REFERENS, PARAMS, ORDEN, DOCTOR, PACIENTE, PRUEBACHECAR } = initSchema(schema);
+const { UNIDAD, BLOG, REFERENS, PARAMS, ORDEN, DOCTOR, PACIENTE, PRUEBACHECAR } = initSchema(schema);
 
 export {
+  UNIDAD,
+  BLOG,
   REFERENS,
   PARAMS,
   ORDEN,
   DOCTOR,
   PACIENTE,
   PRUEBACHECAR,
+  Unidadenums,
   Metodopago,
   Sexo,
   Statusorden,
   Especialidad,
-  Unidad,
   Contenedor,
   Muestra,
   Categoria

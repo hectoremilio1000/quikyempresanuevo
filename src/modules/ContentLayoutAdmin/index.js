@@ -17,7 +17,9 @@ import Enfermeras from "../Components/Empleo/Enfermeras";
 import General from "../Components/Empleo/General";
 import ResultadoPrueba from "../Components/Resultados/ResultadoPrueba/index";
 import NuevoResultado from "../Components/Resultados/NuevoResultado";
-import CrearParametros from '../Components/Pruebas/CrearParametros/index';
+import ListaReferencias from '../Components/Pruebas/ListaReferencias/index';
+import ListaParametros from "../Components/Pruebas/ListaParametros/index";
+import ListaUnidades from '../Components/Pruebas/ListaUnidades/index';
 const { Content } = Layout;
 
 function ContentLayoutAdmin({ current }) {
@@ -33,7 +35,16 @@ function ContentLayoutAdmin({ current }) {
         </div>
         ): current === "18" ? (
         <div className="site-layout-background" style={{ minHeight: 100 }}>
-          <CrearParametros />
+          <ListaParametros />
+        </div>
+      ) : current === "19" ? (
+        <div className="site-layout-background" style={{ minHeight: 100 }}>
+          <ListaReferencias />
+        </div>
+            )
+              : current === "20" ? (
+        <div className="site-layout-background" style={{ minHeight: 100 }}>
+          <ListaUnidades />
         </div>
       )
           : current === "3" ? (

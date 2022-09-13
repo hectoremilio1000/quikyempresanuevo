@@ -1,14 +1,39 @@
+type UNIDAD @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  unidad: UNIDADENUMS
+  paramsID: ID! @index(name: "byPARAMS")
+}
+
+type BLOG @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  titulo: String
+  subtitulo: String
+  imagen1: String
+  url1: String
+  texto1: String
+  imagen2: String
+  url2: String
+  texto2: String
+  imagen3: String
+  url3: String
+  texto3: String
+  fecha: String
+  autor: String
+}
+
 type REFERENS @model @auth(rules: [{allow: public}]) {
   id: ID!
-  referencia: [String]
   paramsID: ID! @index(name: "byPARAMS")
+  referencia1: String
+  referencia2: String
 }
 
 type PARAMS @model @auth(rules: [{allow: public}]) {
   id: ID!
-  params: [String]
   REFERENS: [REFERENS] @hasMany(indexName: "byPARAMS", fields: ["id"])
   pruebachecarID: ID! @index(name: "byPRUEBACHECAR")
+  param: String
+  UNIDAD: [UNIDAD] @hasMany(indexName: "byPARAMS", fields: ["id"])
 }
 
 enum METODOPAGO {
@@ -107,7 +132,7 @@ type PACIENTE @model @auth(rules: [{allow: public}]) {
   tratamiento: String
 }
 
-enum UNIDAD {
+enum UNIDADENUMS {
   ML
   MGDL
   PORCENTAJE
@@ -159,7 +184,6 @@ type PRUEBACHECAR @model @auth(rules: [{allow: public}]) {
   indicaciones: String
   tipoMuestra: MUESTRA
   tipoContenedor: CONTENEDOR
-  unidad: UNIDAD
   ORDENS: [ORDEN] @hasMany(indexName: "byPRUEBACHECAR", fields: ["id"])
   PARAMS: [PARAMS] @hasMany(indexName: "byPRUEBACHECAR", fields: ["id"])
 }

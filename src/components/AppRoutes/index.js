@@ -27,7 +27,9 @@ import ConfirmEmailPaciente from "../../pages/Administrador2/ConfirmEmailPacient
 import ForgotPasswordPaciente from "../../pages/Administrador2/ForgotPasswordPaciente/index";
 import NewPasswordPaciente from "../../pages/Administrador2/NewPasswordPaciente/index";
 import Maquila from "../../pages/Maquila/index";
-import CrearParametros from '../../modules/Components/Pruebas/CrearParametros/index';
+import CrearParametrosFinales from '../Parametros/CrearParametrosFinales/index';
+import CrearReferenciaParam from '../Referencias/CrearReferenciaParam/index';
+import CrearUnidadesParams from '../CrearUnidadesParams/index';
 
 function AppRoutes() {
   return (
@@ -72,8 +74,9 @@ function AppRoutes() {
 
       {/* rotue administrador con todos los componentes */}
       <Route path="admin2" element={<Administrador />} />
-      <Route path="admin2/parametros/:id" element={<CrearParametros />} />
-
+      <Route path="parametros/:id" element={<CrearParametrosFinales />} />
+      <Route path="referencias/:id" element={<CrearReferenciaParam />} />
+      <Route path="unidades/:id" element={<CrearUnidadesParams />} />
       {/* routes por definir */}
 
       <Route path="enrutarUsuario/doctor" element={<UsuarioDoctor />} />

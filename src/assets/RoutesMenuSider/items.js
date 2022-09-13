@@ -23,7 +23,9 @@ import {
   MonitorOutlined,
   ReconciliationOutlined,
   ScheduleOutlined,
-  CaretRightOutlined
+  CaretRightOutlined,
+  ExportOutlined,
+  VerticalRightOutlined
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children, type) {
@@ -41,6 +43,8 @@ const itemsRoutes = [
     getItem("Crear Pruebas", "1", <HighlightOutlined />),
     getItem("Lista Pruebas", "2", <UnorderedListOutlined />),
     getItem("Parametros", "18", <CaretRightOutlined />),
+    getItem("Referencias", "19", <ExportOutlined />),
+    getItem("Unidades", "20", <VerticalRightOutlined />),
   ]),
   getItem("Doctores", "sub2", <MedicineBoxOutlined />, [
     getItem("Crear Doctor", "3", <BranchesOutlined />),
