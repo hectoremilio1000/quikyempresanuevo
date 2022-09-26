@@ -2,12 +2,42 @@ import React, { useEffect, useRef, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Spin, Table } from "antd";
 import Highlighter from "react-highlight-words";
-import { DataStore } from "aws-amplify";
+import { API, DataStore, graphqlOperation } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
-import { PARAMS } from "../../../../models";
+// import { PARAMS } from "../../../../models";
+
+ const listPARAMS = /* GraphQL */ `
+  query ListPARAMS(
+    $filter: ModelPARAMSFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPARAMS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        REFERENS {
+        items {
+          id
+          referencia1
+        }
+      }
+        pruebachecarID
+        param
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 
 function ListaReferencias() {
-   const [parametros, setParametros] = useState([]);
+  const [parametros, setParametros] = useState([]);
+  const [paramsGraphq, setParamsGraphq] = useState([])
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -24,13 +54,29 @@ function ListaReferencias() {
   };
 
     const fetchParametros = async () => {
-    const parametros = await DataStore.query(PARAMS);
-    setParametros(parametros);
+    // const parametros = await DataStore.query(PARAMS);
+    // setParametros(parametros);
   };
 
   useEffect(() => {
     fetchParametros();
   }, []);
+
+  const fetchParamsGraphq = async () => {
+    const paramsGraphq = await API.graphql(graphqlOperation(listPARAMS))
+    setParamsGraphq(paramsGraphq.data.listPARAMS.items)
+  }
+
+  useEffect(() => {
+    fetchParamsGraphq();
+  },[]
+   
+ )  
+
+  // console.log(parametros);
+  console.log(paramsGraphq);
+
+  // console.log(paramsGraphq[0]?.REFERENS?.items[0].referencia1)
 
    const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({
@@ -126,7 +172,7 @@ function ListaReferencias() {
 
     const columns = [
     {
-      title: "Id",
+      title: "Id Párametro",
       dataIndex: "id",
       key: "id",
       width: "30%",
@@ -148,14 +194,11 @@ function ListaReferencias() {
     
     {
       title: "Referencia1",
-      dataIndex: "referencia1",
-      key: "referencia1",
+      dataIndex: "REFERENS",
+      key: "REFERENS",
+      // render: (referencia) => `${referencia?.items[0].referencia1}`,
       },
-     {
-      title: "Referencia2",
-      dataIndex: "referencia2",
-      key: "referencia2",
-    },
+     
     ];
   
   if (!parametros) {
@@ -165,7 +208,7 @@ function ListaReferencias() {
 
   return (
     <>
-      <Table columns={columns} dataSource={parametros} rowKey="id" onRow={(parametrosItem) => ({
+      <Table columns={columns} dataSource={paramsGraphq} rowKey="id" onRow={(parametrosItem) => ({
           onClick: () => navigate(`/referencias/${parametrosItem.id}`),
         })}
       />

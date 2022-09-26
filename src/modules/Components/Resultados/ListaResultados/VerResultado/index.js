@@ -7,7 +7,7 @@ import { Layout } from "antd";
 
 import { Button, Container } from "react-bootstrap";
 import { DataStore, Storage } from "aws-amplify";
-import { PACIENTE } from "../../../../../models";
+// import { PACIENTE } from "../../../../../models";
 
 const { Header, Content, Sider } = Layout;
 
@@ -32,11 +32,11 @@ function VerResultado() {
   const { id } = useParams();
 
   useEffect(() => {
-    DataStore.query(PACIENTE).then(pacientes => setPacientes(pacientes));
+    // DataStore.query(PACIENTE).then(pacientes => setPacientes(pacientes));
   }, []);
 
   useEffect(() => {
-    DataStore.query(PACIENTE, id).then(setResultado);
+    // DataStore.query(PACIENTE, id).then(setResultado);
   }, [id]);
 
   // console.log(resultado)

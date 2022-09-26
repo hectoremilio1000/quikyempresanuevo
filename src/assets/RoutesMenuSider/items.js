@@ -77,6 +77,11 @@ const itemsRoutes = [
     getItem("Enfermera", "15", <ReconciliationOutlined />),
     getItem("General", "16", <ScheduleOutlined />),
   ]),
+  
+  getItem("Reinicio", "sub9", <MonitorOutlined />, [
+    getItem("Pruebas", "21", <ReconciliationOutlined />),
+   
+  ]),
 ];
 
 export default itemsRoutes;

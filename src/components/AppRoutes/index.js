@@ -41,7 +41,7 @@ function AppRoutes() {
       <Route path="bolsatrabajo" element={<BolsaTrabajo />} />
       <Route path="otraspruebas" element={<OtrasPruebas />} />
       <Route path="/" element={<Home />} />
-      <Route path="blog/:id" element={<Blog />} />
+      {/* <Route path="blog" element={<Blog />} /> */}
 
       {/* routes administrador */}
 

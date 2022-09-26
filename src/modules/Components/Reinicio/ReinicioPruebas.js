@@ -1,46 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Card, Form, Input, Divider, List, Button, Table, Spin, Typography, Space,  } from "antd";
-import Highlighter from "react-highlight-words";
-import { useParams } from "react-router-dom";
-
 import { API, graphqlOperation } from 'aws-amplify';
-
+import React, { useEffect, useRef, useState } from "react";
+// import {listPARAMETROS, listPRUEBAS, listREFERENCIAS} from '../../../graphql/queries'
+import { Button, Input, Space, Spin, Table } from "antd";
+import Highlighter from "react-highlight-words";
 import { useNavigate } from "react-router-dom";
-import { DataStore } from "aws-amplify";
 import { SearchOutlined } from "@ant-design/icons";
-// import { PRUEBAS } from "../../../models";
-import { listPARAMETROSCREADO } from "../../../graphqlCreado";
 
-// import { PRUEBACHECAR } from "../../../models";
-
-
-function CrearParametrosFinales() {
-  const [prueba, setPrueba] = useState(null);
+function ReinicioPruebas() {
+  const [pruebas, setPruebas] = useState([]);
   const [parametros, setParametros] = useState([]);
+  const [referencias, setReferencias1] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
   const navigate = useNavigate();
 
-  const { id } = useParams();
 
-useEffect(() => {
-  // DataStore.query(PRUEBAS, id).then(setPrueba)
-}, [id])
-  
-  console.log(prueba)
-
-
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
-  //tableparametros
-    const handleSearch = (selectedKeys, confirm, dataIndex) => {
+   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
@@ -50,15 +26,31 @@ useEffect(() => {
     setSearchText("");
   };
 
-   const fetchParametros = async () => {
-    const parametros = await API.graphql(graphqlOperation(listPARAMETROSCREADO));
+  const fetchPruebas = async () => {
+    // const pruebas = await API.graphql(graphqlOperation(listPRUEBAS));
+    setPruebas(pruebas?.data?.listPRUEBAS?.items)
+  }
+  useEffect(() => {
+    fetchPruebas();
+  }, [])
+
+  const fetchReferencias = async () => {
+    // const referencias = await API.graphql(graphqlOperation(listREFERENCIAS));
+    setParametros(referencias?.data?.listREFERENCIAS?.items)
+  }
+  useEffect(() => {
+    fetchReferencias();
+  }, [])
+
+  const fetchParametros = async () => {
+    // const parametros = await API.graphql(graphqlOperation(listPARAMETROS));
     setParametros(parametros?.data?.listPARAMETROS?.items)
   }
   useEffect(() => {
     fetchParametros();
   }, [])
 
-    const getColumnSearchProps = dataIndex => ({
+   const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
@@ -155,89 +147,50 @@ useEffect(() => {
       title: "Id",
       dataIndex: "id",
       key: "id",
-      width: "20%",
-      
+      width: "30%",
+      ...getColumnSearchProps("nombres"),
+    },
+    {
+      title: "Nombre Prueba",
+      dataIndex: "nombrePrueba",
+      key: "nombrePrueba",
+      width: "30%",
+      ...getColumnSearchProps("nombres"),
+    },
+
+    {
+      title: "Categoría prueba",
+      dataIndex: "categoria",
+      key: "categoria",
     },
     {
       title: "Parámetro",
-      dataIndex: "nombreParametro",
+      dataIndex: "parametro",
       key: "parametro",
-      width: "30%",
     },
-    
-     {
-      title: "Referencia1",
-      dataIndex: "REFERENCIAS",
-       key: "REFERENCIAS",
-       width: "15%",
-      render:(referencia)=>`${referencia?.nombreReferencia1}`
-    },
-      {
-      title: "Referencia2",
-      dataIndex: "REFERENCIAS",
-        key: "REFERENCIAS",
-        width: "15%",
-      render:(referencia)=>`${referencia?.nombreReferencia2 }`
-    },
-      {
-      title: "Editar",
-      dataIndex: "",
-        key: "",
-        width: "20%",
-      render:(referencia)=><Button type="primary">Editar</Button>
+    {
+      title: "Referencia",
+      dataIndex: "referencias",
+      key: "referencias",
     },
   ];
 
-    console.log(parametros);
-
-   if (!parametros) {
+  console.log(pruebas);
+  console.log(parametros);
+  console.log(referencias);
+  
+   if (!pruebas) {
     return <Spin size="large"/>
    }
+  
   return (
-    <Card title={`Prueba ${id}`} style={{ margin: 20 }} extra={prueba?.nombre}>
-      <Typography.Title level={5}>Crea un parámetro de la prueba {prueba?.nombrePrueba}:</Typography.Title>
-       <Form
-      name="basic"
-     
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-      >
-        <Form.Item
-          label="Parámetro"
-        name="parametro"  rules={[
-                {
-                  required: true,
-                  message: "Por favor ingresa el parámetro",
-                },
-              ]}>
-      <Input
-        style={{
-          width: '50%',
-        }}
-       
-          />
-           </Form.Item>
-        <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Agregar
-        </Button>
-      </Form.Item>
-      </Form>
-      <Divider />
-      <Typography.Title level={5}>Ver parámetros de {prueba?.nombrePrueba} para editar sus Referencias:</Typography.Title>
-<Table columns={columns} dataSource={parametros} rowKey="id" onRow={(parametroItem)=>({onClick:()=>navigate(`/referencias/${parametroItem.id}`)})}
+     <>
+      <Table columns={columns} dataSource={pruebas} rowKey="id" onRow={(pruebaItem) => ({
+          onClick: () => navigate(`/parametros/${pruebaItem.id}`),
+        })}
       />
-      <Divider />
-      <Typography.Title level={5}>Ver parámetros de {prueba?.nombrePrueba}:</Typography.Title>
-<Table columns={columns} dataSource={parametros} rowKey="id" 
-      />
-     
-      </Card>
+    </>
   )
 }
 
-export default CrearParametrosFinales
+export default ReinicioPruebas

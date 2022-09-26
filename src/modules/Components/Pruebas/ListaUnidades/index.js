@@ -4,7 +4,7 @@ import { Button, Input, Space, Spin, Table } from "antd";
 import Highlighter from "react-highlight-words";
 import { DataStore } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
-import { PARAMS } from "../../../../models";
+// import { PARAMS } from "../../../../models";
 
 function ListaUnidades() {
   const [parametros, setParametros] = useState([]);
@@ -24,8 +24,8 @@ function ListaUnidades() {
   };
 
     const fetchParametros = async () => {
-    const parametros = await DataStore.query(PARAMS);
-    setParametros(parametros);
+    // const parametros = await DataStore.query(PARAMS);
+    // setParametros(parametros);
     };
   
    useEffect(() => {

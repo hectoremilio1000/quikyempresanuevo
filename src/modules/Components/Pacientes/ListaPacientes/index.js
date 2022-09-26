@@ -3,7 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import Highlighter from "react-highlight-words";
 import React, { useState, useEffect, useRef } from "react";
-import { PACIENTE } from "../../../../models";
+// import { PACIENTE } from "../../../../models";
 
 function ListaPacientes() {
   const [pacientes, setPacientes] = useState([]);
@@ -22,7 +22,7 @@ function ListaPacientes() {
   };
 
   const fetchPacientes = async () => {
-    const pacientes = await DataStore.query(PACIENTE);
+    // const pacientes = await DataStore.query(PACIENTE);
     setPacientes(pacientes);
   };
 

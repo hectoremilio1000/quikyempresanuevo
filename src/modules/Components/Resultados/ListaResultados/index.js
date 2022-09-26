@@ -4,7 +4,7 @@ import { Button, Input, Space, Table, Tag } from "antd";
 import Highlighter from "react-highlight-words";
 import { DataStore } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
-import { ORDEN, Statusorden } from "../../../../models";
+// import { ORDEN, Statusorden } from "../../../../models";
 
 function ListaResultados() {
   const [ordenes, setOrdenes] = useState([]);
@@ -24,10 +24,10 @@ function ListaResultados() {
   const navigate = useNavigate();
 
   const fetchOrdenes = async () => {
-    const ordenesFetch = await DataStore.query(ORDEN, order =>
-      order.status("eq", "COMPLETADO")
-    );
-    setOrdenes(ordenesFetch);
+    // const ordenesFetch = await DataStore.query(ORDEN, order =>
+    //   order.status("eq", "COMPLETADO")
+    // );
+    // setOrdenes(ordenesFetch);
   };
 
   useEffect(() => {
@@ -127,7 +127,7 @@ function ListaResultados() {
 
   const renderOrderStatus = orderStatus => {
     const statusToColor = {
-      [Statusorden.COMPLETADO]: "green",
+      // [Statusorden.COMPLETADO]: "green",
     };
     return <Tag color={statusToColor[orderStatus]}> {orderStatus}</Tag>;
   };

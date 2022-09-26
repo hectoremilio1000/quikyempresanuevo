@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 const listItems = [
   {
     href: "/blog",
-    title: "¿Centaurus 5 veces más contagiosa?",
+    title: "La venopunción es un procedimiento invasivo ¿es necesario un consentimiento informado?",
     avatar: "https://joeschmoe.io/api/v1/jon",
     description:
-      "¿Sabes cual prueba de COVID es la que debes solicitar en caso de que presentes Síntomas?",
+      "Buenas prácticas de flebotomía de la OMS considera la toma de muestra sanguíneas como un procedimiento invasivo.",
     content:
-      "La OMS comenta que se está expandiendo a una velocidad mayor que Omicrón...",
+      "Al introducir un objeto extraño dentro del cuerpo perforando el epitelio es suficiente..",
     image:
-      "https://quikyempresanuevo-storage-03418b58110747-dev.s3.amazonaws.com/public/images/imagenesblog/centaurus+covid+child+muerte+mexico.png",
+      "https://img.freepik.com/free-photo/friendly-hospital-phlebotomist-collecting-blood-sample-from-patient-lab-preparation-blood-test-by-female-doctor-medical-uniform-table-white-bright-room_657921-879.jpg",
   },
 ];
 
@@ -53,23 +53,23 @@ function Content7() {
         renderItem={item => (
           <List.Item
             key={item.title}
-            actions={[
-              <IconText
-                icon={StarOutlined}
-                text="156"
-                key="list-vertical-star-o"
-              />,
-              <IconText
-                icon={LikeOutlined}
-                text="156"
-                key="list-vertical-like-o"
-              />,
-              <IconText
-                icon={MessageOutlined}
-                text="2"
-                key="list-vertical-message"
-              />,
-            ]}
+            // actions={[
+            //   <IconText
+            //     icon={StarOutlined}
+            //     text="156"
+            //     key="list-vertical-star-o"
+            //   />,
+            //   <IconText
+            //     icon={LikeOutlined}
+            //     text="156"
+            //     key="list-vertical-like-o"
+            //   />,
+            //   <IconText
+            //     icon={MessageOutlined}
+            //     text="2"
+            //     key="list-vertical-message"
+            //   />,
+            // ]}
             extra={
               <img
                 width={272}
@@ -80,7 +80,7 @@ function Content7() {
             }
           >
             <List.Item.Meta
-              avatar={<Avatar src={item.avatar} />}
+             
               title={<a href={item.href}>{item.title}</a>}
               description={item.description}
             />

@@ -3,7 +3,7 @@ import { DataStore } from "aws-amplify";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import Highlighter from "react-highlight-words";
-import { DOCTOR } from "../../../../models";
+// import { DOCTOR } from "../../../../models";
 
 function ListaDoctores() {
   const [doctores, setDoctores] = useState([]);
@@ -22,8 +22,8 @@ function ListaDoctores() {
   };
 
   const fetchDoctores = async () => {
-    const doctores = await DataStore.query(DOCTOR);
-    setDoctores(doctores);
+    // const doctores = await DataStore.query(DOCTOR);
+    // setDoctores(doctores);
   };
 
   useEffect(() => {

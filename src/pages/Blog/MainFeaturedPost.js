@@ -6,8 +6,8 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 
-function MainFeaturedPost({ portada }) {
-  console.log(portada);
+function MainFeaturedPost({ post, portada }) {
+  
 
   return (
     <Paper
@@ -16,10 +16,10 @@ function MainFeaturedPost({ portada }) {
         backgroundColor: "grey.800",
         color: "#fff",
         mb: 4,
-        height: "50vh",
+        height: "70vh",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        backgroundPosition: "bottom",
         backgroundImage: `url(${portada[0].imagenportada})`,
       }}
     >

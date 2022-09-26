@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
@@ -11,10 +11,14 @@ import MainFeaturedPost from "./MainFeaturedPost";
 import FeaturedPost from "./FeaturedPost";
 import Main from "./Main";
 import Sidebar from "./Sidebar";
+import { DataStore } from 'aws-amplify'
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
+import { Spin } from 'antd';
+
 
 import blog from "../../assets/data2/blog";
+import { BLOG } from "../../models";
 
 // const sections = [
 //   { title: "Technology", url: "#" },
@@ -29,7 +33,7 @@ import blog from "../../assets/data2/blog";
 //   { title: "Travel", url: "#" },
 // ];
 
-const mainFeaturedPost = {
+const post = {
   title: "Covid en México",
   description: "Sabes cual es la prueba indicada para ti?",
   image: "../../assets/images/blog/centaurus covid child muerte mexico.png",
@@ -60,11 +64,11 @@ const portada = [
   {
     id: 1,
     imagenportada:
-      "https://quikyempresanuevo-storage-03418b58110747-dev.s3.amazonaws.com/public/images/imagenesblog/centaurus+covid+child+muerte+mexico.png",
-    fechaportada: "10-07-22",
-    textoprincipal: "¿Centaurus 5 veces más contagiosa?",
+      "https://img.freepik.com/free-photo/friendly-hospital-phlebotomist-collecting-blood-sample-from-patient-lab-preparation-blood-test-by-female-doctor-medical-uniform-table-white-bright-room_657921-879.jpg",
+    fechaportada: "25-09-22",
+    textoprincipal: "¿La venopunción es un procedimiento invasivo? ",
     textosecundario:
-      "La OMS comenta que se está expandiendo a una velocidad mayor que Omicrón",
+      "¿Es necesario un consentimiento informado?",
   },
   {
     id: 2,
@@ -81,6 +85,7 @@ const posts = [
     id: 1,
     title:
       "De acuerdo con la Organización Mundial de la Salud (OMS), la variante Centaurus es más contagiosa que Omicrón",
+    subtitle:"¿Por qué muta tanto el virus?",
     body: "Después de un repunte masivo en casos de COVID en la quinta ola, dos nuevas subvariantes habían salido a la luz y son conocidas como BA.4 y BA.5, lo cual hace que se pongan en alerta algunos países. Ya que son consideradas las más contagiosas, porque tienen mutaciones que les permiten evadir la inmunidad.",
     date: "10/07/22",
     nombre: "Héctor Emilio Velásquez Pérez",
@@ -93,7 +98,7 @@ const posts = [
     text2:
       "Las primeras evidencias del extranjero sugirieron que la nueva subvariante 2.75 tenía algunas características que pueden mejorar su capacidad para evadir la inmunidad similar a las subvariantes BA.4 y BA.4 y la BA.2.75 puede ser más transmisible que BA.2, dijo el Ministerio de Salud.",
     image3:
-      "https://www.elfinanciero.com.mx/resizer/oKduQtxLU4Wbmi56Rq93J2Sy1d8=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/VPUB733J3JFWVCHG2C7A4B54WY.jpeg",
+      "https://www.prensa-latina.cu/wp-content/uploads/2022/04/Covid-India-9.jpg",
     text3:
       "Centaurus es como se le conoce por el hecho de que tiene 16 mutaciones que fueron adquiridas al momento. Lo cual significa que no se adquirieron las variaciones de una en una, sino todas a la vez. Ocho de esas mutaciones se encuentran dentro de la proteína espiga S, la cual es la que más se relaciona con la transmisibilidad del SARS-CoV-2, así como también dos de ellas se muestran ser demasiado eficaces, ya que pueden evadir los anticuerpos que generan las vacunas, esto según el Bloom Lab.",
     image4: "https://pbs.twimg.com/media/FWpmc54aMAAcmIf?format=jpg&name=small",
@@ -133,9 +138,27 @@ const sidebar = {
 const theme = createTheme();
 
 function Blog() {
+  const [postBlog, setPostBlog] = useState([])
+
+  const fetchBlog = async () => {
+    const postFetch = await DataStore.query(BLOG)
+    setPostBlog(postFetch);
+  }
+
+  useEffect(() => {
+    fetchBlog();
+  }, [])
+
+  console.log(postBlog);
+  
+
   const { url } = useNavigate();
 
   let seccionesHeader = blog.map(a => [a.secciones, a.key, a.id]);
+
+  if (!postBlog) {
+    return (<Spin size="large"/>)
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -143,7 +166,7 @@ function Blog() {
       <Container maxWidth="lg">
         <Header title="Blog San Mateo" sections={seccionesHeader} />
         <main>
-          <MainFeaturedPost portada={portada} />
+          <MainFeaturedPost portada={portada} post={post} />
           {/* <Grid container spacing={4}>
             {featuredPosts.map(post => (
               <FeaturedPost key={post.title} post={post} />
@@ -152,7 +175,7 @@ function Blog() {
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <Main
               title="Todo lo relevante a la salud lo podrás encontrar Aquí"
-              posts={posts}
+              posts={postBlog}
               url={url}
             />
             <Sidebar

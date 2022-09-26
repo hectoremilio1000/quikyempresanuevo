@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { DataStore } from "aws-amplify";
-import { PARAMS, PRUEBACHECAR } from "../../../models";
+// import { PARAMS, PRUEBACHECAR } from "../../../models";
 
 function CrearReferenciaParam() {
   const [parametro, setParametro] = useState(null);
@@ -22,14 +22,14 @@ function CrearReferenciaParam() {
   const { id } = useParams();
 
 useEffect(() => {
-  DataStore.query(PARAMS, id).then(setParametro)
+  // DataStore.query(PARAMS, id).then(setParametro)
 }, [id])
   
   useEffect(() => {
     if (!idPrueba) {
       return
     }
-  DataStore.query(PRUEBACHECAR, idPrueba).then(setPrueba)
+  // DataStore.query(PRUEBACHECAR, idPrueba).then(setPrueba)
   }, [idPrueba])
   
   

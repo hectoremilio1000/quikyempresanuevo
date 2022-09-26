@@ -28,55 +28,56 @@ function Main({ posts, url, title }) {
       <Divider />
       {posts.map(post => (
         <div className="markdown" key={post.id}>
-          <Typography component="h2" variant="h5">
-            {post.title}
+          <Typography component="h2" variant="h5"  style={{fontWeight: 'bold'}}>
+            {post.titulo}
           </Typography>
 
           <Typography variant="subtitle1" color="text.secondary">
-            {post.date}
+            {post.fecha}
           </Typography>
-          <Typography component="subtitle2" variant="text.secondary">
-            {post.nombre}
+          <Typography variant="text.secondary" style={{fontStyle: 'italic'}}>
+            {post.autor}
           </Typography>
-          <Image width={"100%"} src={post.image1} />
+          <Image width={"100%"} src={post.imagen1} />
+            <Typography component="h2" variant="h5"  className="mt-4" style={{fontWeight: 'bold'}}>
+            {post.subtitulo}
+          </Typography>
+          <p
+            style={{ overflow: "hidden", textOverflow: "ellipsis" }}
+            
+          >
+            {/* {truncate(post.body)} */}
+            {post.texto1}
+          </p>
+          <Image width={"100%"} src={post.imagen2} />
           <p
             style={{ overflow: "hidden", textOverflow: "ellipsis" }}
             className="mt-4"
           >
             {/* {truncate(post.body)} */}
-            {post.body}
+            {post.texto2}
           </p>
-          <Image width={"100%"} src={post.image2} />
+          <Image width={"100%"} src={post.imagen3} />
           <p
             style={{ overflow: "hidden", textOverflow: "ellipsis" }}
             className="mt-4"
           >
             {/* {truncate(post.body)} */}
-            {post.text1}
+            {post.texto3}
           </p>
-          <Image width={"100%"} src={post.image3} />
-          <p
-            style={{ overflow: "hidden", textOverflow: "ellipsis" }}
-            className="mt-4"
-          >
-            {/* {truncate(post.body)} */}
-            {post.text2}
-          </p>
-          <Image width={"100%"} src={post.image4} />
-          <p
-            style={{ overflow: "hidden", textOverflow: "ellipsis" }}
-            className="mt-4"
-          >
-            {/* {truncate(post.body)} */}
-            {post.text3}
-          </p>
-          {/* <Link to={`${url}/${post.id}`}>
-            <Typography variant="subtitle1" color="primary">
-              Continuar leyendo
-            </Typography>
-          </Link> */}
+          
+          
+          <Divider/>
         </div>
-      ))}
+      )).sort((a,b) =>{
+        if (a?.props?.children[1]?.props?.children > b?.props?.children[1]?.props?.children) {
+    return -1;
+  }
+  if (a?.props?.children[1]?.props?.children < b?.props?.children[1]?.props?.children) {
+    return 1;
+  }
+  return 0;    
+      })}
     </Grid>
   );
 }

@@ -3,7 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Spin, Table } from "antd";
 import Highlighter from "react-highlight-words";
 import { DataStore } from "aws-amplify";
-import { PRUEBACHECAR } from "../../../../models";
+// import { PRUEBACHECAR } from "../../../../models";
 import { useNavigate } from "react-router-dom";
 
 function ListaParametros() {
@@ -24,8 +24,8 @@ function ListaParametros() {
   };
 
   const fetchPruebas = async () => {
-    const pruebas = await DataStore.query(PRUEBACHECAR);
-    setPruebas(pruebas);
+    // const pruebas = await DataStore.query(PRUEBACHECAR);
+    // setPruebas(pruebas);
   };
 
   useEffect(() => {

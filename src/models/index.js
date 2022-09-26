@@ -2,93 +2,10 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
-const Unidadenums = {
-  "ML": "ML",
-  "MGDL": "MGDL",
-  "PORCENTAJE": "PORCENTAJE",
-  "C": "C",
-  "NINGUNO": "NINGUNO"
-};
 
-const Metodopago = {
-  "EFECTIVO": "EFECTIVO",
-  "TARJETA": "TARJETA",
-  "TRANSFERENCIA": "TRANSFERENCIA"
-};
 
-const Sexo = {
-  "MASCULINO": "MASCULINO",
-  "FEMENINO": "FEMENINO"
-};
-
-const Statusorden = {
-  "NUEVO": "NUEVO",
-  "COMPLETADO": "COMPLETADO",
-  "CANCELADO": "CANCELADO"
-};
-
-const Especialidad = {
-  "MEDICOGENERAL": "MEDICOGENERAL",
-  "HEMATOLOGIA": "HEMATOLOGIA",
-  "MEDICINAINTERNA": "MEDICINAINTERNA",
-  "CARDIOLOGIA": "CARDIOLOGIA",
-  "CIRUGIA": "CIRUGIA",
-  "UROLOGIA": "UROLOGIA",
-  "GINECOLOGIA": "GINECOLOGIA",
-  "PEDIATRIA": "PEDIATRIA",
-  "OTRO": "OTRO",
-  "NOAPLICA": "NOAPLICA"
-};
-
-const Contenedor = {
-  "LILA": "LILA",
-  "AZUL": "AZUL",
-  "DORADO": "DORADO",
-  "ROJO": "ROJO",
-  "FRASCOESTERIL": "FRASCOESTERIL",
-  "STUART": "STUART",
-  "FRASCOHEMOCULTIVO": "FRASCOHEMOCULTIVO",
-  "NA": "NA"
-};
-
-const Muestra = {
-  "HECES": "HECES",
-  "SUERO": "SUERO",
-  "SANGRETOTAL": "SANGRETOTAL",
-  "ORINA": "ORINA",
-  "EXUDADOFARINGEO": "EXUDADOFARINGEO",
-  "EXUDADONASOFARINGEO": "EXUDADONASOFARINGEO",
-  "EXUDADOURETRAL": "EXUDADOURETRAL",
-  "BIOPSIASORGANOSESPECIALES": "BIOPSIASORGANOSESPECIALES"
-};
-
-const Categoria = {
-  "HEMATOLOGIA": "HEMATOLOGIA",
-  "QUIMICASANGUINEA": "QUIMICASANGUINEA",
-  "COAGULACION": "COAGULACION",
-  "SEROLOGIA": "SEROLOGIA",
-  "UROANALISIS": "UROANALISIS",
-  "MICROBIOLOGIA": "MICROBIOLOGIA",
-  "PRUEBARAPIDA": "PRUEBARAPIDA"
-};
-
-const { UNIDAD, BLOG, REFERENS, PARAMS, ORDEN, DOCTOR, PACIENTE, PRUEBACHECAR } = initSchema(schema);
+const { BLOG } = initSchema(schema);
 
 export {
-  UNIDAD,
-  BLOG,
-  REFERENS,
-  PARAMS,
-  ORDEN,
-  DOCTOR,
-  PACIENTE,
-  PRUEBACHECAR,
-  Unidadenums,
-  Metodopago,
-  Sexo,
-  Statusorden,
-  Especialidad,
-  Contenedor,
-  Muestra,
-  Categoria
+  BLOG
 };

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 //icono
 import { PlusCircleOutlined } from "@ant-design/icons";
-import { PACIENTE } from "../../../../models";
+// import { PACIENTE } from "../../../../models";
 
 const {
   aws_user_files_s3_bucket_region: region,
@@ -102,23 +102,23 @@ function CrearResultado() {
 
   const onSave = async () => {
     const newpaciente = await DataStore.save(
-      new PACIENTE({
-        nombre: nombre,
-        apellidoPaterno: apellidoPaterno,
-        apellidoMaterno: apellidoMaterno,
-        email: email,
-        whatsapp: whatsapp,
-        role: role,
-        image: pdf,
-        key: key,
-        url: url,
-        image2: pdf2,
-        key2: key2,
-        url2: url2,
+      // new PACIENTE({
+      //   nombre: nombre,
+      //   apellidoPaterno: apellidoPaterno,
+      //   apellidoMaterno: apellidoMaterno,
+      //   email: email,
+      //   whatsapp: whatsapp,
+      //   role: role,
+      //   image: pdf,
+      //   key: key,
+      //   url: url,
+      //   image2: pdf2,
+      //   key2: key2,
+      //   url2: url2,
 
-        fechaOrden: fechaOrden,
-        estudios: estudios,
-      })
+      //   fechaOrden: fechaOrden,
+      //   estudios: estudios,
+      // })
     );
     setPaciente2(newpaciente);
 

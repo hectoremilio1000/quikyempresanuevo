@@ -3,7 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table, Tag } from "antd";
 import Highlighter from "react-highlight-words";
 import { DataStore } from "aws-amplify";
-import { ORDEN, Statusorden } from "../../../../models";
+// import { ORDEN, Statusorden } from "../../../../models";
 
 function ListaOrdenes() {
   const [ordenes, setOrdenes] = useState([]);
@@ -23,10 +23,10 @@ function ListaOrdenes() {
   };
 
   const fetchOrdenes = async () => {
-    const ordenesFetch = await DataStore.query(ORDEN, order =>
-      order.or(order => order.status("eq", "NUEVO").status("eq", "CANCELADO"))
-    );
-    setOrdenes(ordenesFetch);
+    // const ordenesFetch = await DataStore.query(ORDEN, order =>
+    //   order.or(order => order.status("eq", "NUEVO").status("eq", "CANCELADO"))
+    // );
+    // setOrdenes(ordenesFetch);
   };
 
   useEffect(() => {
@@ -127,9 +127,9 @@ function ListaOrdenes() {
 
   const renderOrderStatus = orderStatus => {
     const statusToColor = {
-      [Statusorden.NUEVO]: "blue",
+      // [Statusorden.NUEVO]: "blue",
 
-      [Statusorden.CANCELADO]: "red",
+      // [Statusorden.CANCELADO]: "red",
     };
     return <Tag color={statusToColor[orderStatus]}> {orderStatus}</Tag>;
   };

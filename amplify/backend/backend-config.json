@@ -49,7 +49,7 @@
     }
   },
   "storage": {
-    "s3quikyempresanuevostorage613bad21": {
+    "s3quikyempresanuevomaingitmain": {
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": []

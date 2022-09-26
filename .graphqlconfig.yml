@@ -1,5 +1,5 @@
 projects:
-  quikyempresanuevo-dev:
+  quikyempresanuevo-reinicio:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.js
@@ -11,7 +11,7 @@ projects:
         generatedFileName: ''
         docsFilePath: src/graphql
         region: us-east-1
-        apiId: lokzlsvcffg7fdfmbmup6lxxhm
+        apiId: n3g35xncana23dkamvbw34gqia
         maxDepth: 2
 extensions:
   amplify:

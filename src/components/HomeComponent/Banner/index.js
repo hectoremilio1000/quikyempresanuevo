@@ -27,8 +27,7 @@ function Banner() {
               </a>
             </div>
             <h1 className="pt-5 text-start proximamente">
-              Empresa 100% confiable. Sucursales en la Ciudad de <b>Oaxaca</b> y
-              próximamente en <b>CDMX</b>
+              Nos encontramos en la Ciudad de Oaxaca y en CDMX
             </h1>
           </div>
         </div>

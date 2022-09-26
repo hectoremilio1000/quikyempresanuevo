@@ -3,7 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import Highlighter from "react-highlight-words";
 import { DataStore } from "aws-amplify";
-import { PRUEBACHECAR } from "../../../../models";
+// import { PRUEBACHECAR } from "../../../../models";
 
 function ListaPruebas() {
   const [pruebas, setPruebas] = useState([]);
@@ -21,14 +21,24 @@ function ListaPruebas() {
     setSearchText("");
   };
 
-  const fetchPruebas = async () => {
-    const pruebas = await DataStore.query(PRUEBACHECAR);
-    setPruebas(pruebas);
-  };
+  
 
   useEffect(() => {
+    function fetchPruebas() {
+      // DataStore.query(PRUEBACHECAR).then((pruebas) => {
+      //   setPruebas(pruebas)
+      // })
+    }
+
     fetchPruebas();
+
+    // const subscription = DataStore.observe(PRUEBACHECAR).subscribe((value) => {
+    //   fetchPruebas(value);
+    // })
+    // return () => subscription.unsubscribe();
   }, []);
+
+  console.log(pruebas)
 
   const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({

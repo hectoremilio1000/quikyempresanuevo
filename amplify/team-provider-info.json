@@ -1,32 +1,14 @@
 {
-  "newparams": {
+  "main": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-quikyempresanuevo-newparams-01426-authRole",
-      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-newparams-01426-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-newparams-01426-authRole",
+      "AuthRoleName": "amplify-quikyempresanuevo-main-81012-authRole",
+      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-main-81012-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-main-81012-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-quikyempresanuevo-newparams-01426-deployment",
-      "UnauthRoleName": "amplify-quikyempresanuevo-newparams-01426-unauthRole",
-      "StackName": "amplify-quikyempresanuevo-newparams-01426",
-      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-newparams-01426/de674a30-2d78-11ed-9b4f-0e9e1e3d6c73",
-      "AmplifyAppId": "d2wjr7momz2mwu"
-    },
-    "categories": {
-      "auth": {
-        "quikyempresanuevo": {}
-      }
-    }
-  },
-  "nuevo": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-quikyempresanuevo-nuevo-151044-authRole",
-      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-nuevo-151044-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-nuevo-151044-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-quikyempresanuevo-nuevo-151044-deployment",
-      "UnauthRoleName": "amplify-quikyempresanuevo-nuevo-151044-unauthRole",
-      "StackName": "amplify-quikyempresanuevo-nuevo-151044",
-      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-nuevo-151044/6b4e52e0-2ad1-11ed-986b-129f1a1cc911",
+      "DeploymentBucketName": "amplify-quikyempresanuevo-main-81012-deployment",
+      "UnauthRoleName": "amplify-quikyempresanuevo-main-81012-unauthRole",
+      "StackName": "amplify-quikyempresanuevo-main-81012",
+      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-main-81012/50617230-3be0-11ed-8b87-1204983a3e5b",
       "AmplifyAppId": "d2wjr7momz2mwu"
     },
     "categories": {
@@ -45,42 +27,6 @@
       "UnauthRoleName": "amplify-quikyempresanuevo-devnew-40340-unauthRole",
       "StackName": "amplify-quikyempresanuevo-devnew-40340",
       "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-devnew-40340/e63c2f50-28e1-11ed-87a3-0e075a0539b1",
-      "AmplifyAppId": "d2wjr7momz2mwu"
-    },
-    "categories": {
-      "auth": {
-        "quikyempresanuevo": {}
-      }
-    }
-  },
-  "main": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-quikyempresanuevo-main-13318-authRole",
-      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-main-13318-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-main-13318-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-quikyempresanuevo-main-13318-deployment",
-      "UnauthRoleName": "amplify-quikyempresanuevo-main-13318-unauthRole",
-      "StackName": "amplify-quikyempresanuevo-main-13318",
-      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-main-13318/ab23ff50-d25c-11ec-90bc-127c4bb0201d",
-      "AmplifyAppId": "d2wjr7momz2mwu"
-    },
-    "categories": {
-      "auth": {
-        "quikyempresanuevo": {}
-      }
-    }
-  },
-  "staging": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-amplify6fff9a05c0e44-staging-170813-authRole",
-      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-amplify6fff9a05c0e44-staging-170813-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-amplify6fff9a05c0e44-staging-170813-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-amplify6fff9a05c0e44-staging-170813-deployment",
-      "UnauthRoleName": "amplify-amplify6fff9a05c0e44-staging-170813-unauthRole",
-      "StackName": "amplify-amplify6fff9a05c0e44-staging-170813",
-      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-amplify6fff9a05c0e44-staging-170813/f1ad0310-d14c-11ec-a081-1228cd5d3451",
       "AmplifyAppId": "d2wjr7momz2mwu"
     },
     "categories": {
@@ -123,6 +69,42 @@
       "UnauthRoleName": "amplify-quikyempresanuevo-devnuevo-230013-unauthRole",
       "StackName": "amplify-quikyempresanuevo-devnuevo-230013",
       "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-devnuevo-230013/6c7011f0-28e1-11ed-95d1-12dc0bdef6a7",
+      "AmplifyAppId": "d2wjr7momz2mwu"
+    },
+    "categories": {
+      "auth": {
+        "quikyempresanuevo": {}
+      }
+    }
+  },
+  "probargit": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-quikyempresanuevo-probargit-42019-authRole",
+      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-probargit-42019-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-probargit-42019-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-quikyempresanuevo-probargit-42019-deployment",
+      "UnauthRoleName": "amplify-quikyempresanuevo-probargit-42019-unauthRole",
+      "StackName": "amplify-quikyempresanuevo-probargit-42019",
+      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-probargit-42019/74b7c320-340e-11ed-81ea-12d4edaa2d7d",
+      "AmplifyAppId": "d2wjr7momz2mwu"
+    },
+    "categories": {
+      "auth": {
+        "quikyempresanuevo": {}
+      }
+    }
+  },
+  "reinicio": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-quikyempresanuevo-reinicio-05741-authRole",
+      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-reinicio-05741-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-reinicio-05741-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-quikyempresanuevo-reinicio-05741-deployment",
+      "UnauthRoleName": "amplify-quikyempresanuevo-reinicio-05741-unauthRole",
+      "StackName": "amplify-quikyempresanuevo-reinicio-05741",
+      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-quikyempresanuevo-reinicio-05741/a54c5be0-364d-11ed-9802-12109f278cd7",
       "AmplifyAppId": "d2wjr7momz2mwu"
     },
     "categories": {

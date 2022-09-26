@@ -20,6 +20,7 @@ import NuevoResultado from "../Components/Resultados/NuevoResultado";
 import ListaReferencias from '../Components/Pruebas/ListaReferencias/index';
 import ListaParametros from "../Components/Pruebas/ListaParametros/index";
 import ListaUnidades from '../Components/Pruebas/ListaUnidades/index';
+import ReinicioPruebas from '../Components/Reinicio/ReinicioPruebas';
 const { Content } = Layout;
 
 function ContentLayoutAdmin({ current }) {
@@ -107,7 +108,11 @@ function ContentLayoutAdmin({ current }) {
         <div className="site-layout-background" style={{ minHeight: 100 }}>
           <General />
         </div>
-      ) : (
+      ) : current === "21" ? (
+        <div className="site-layout-background" style={{ minHeight: 100 }}>
+          <ReinicioPruebas />
+        </div>
+      ): (
         <div style={{}}></div>
       )}
     </Content>

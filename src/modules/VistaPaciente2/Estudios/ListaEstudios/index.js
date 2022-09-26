@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Auth } from "aws-amplify";
 import { Button, Table } from "antd";
 import { useNavigate } from "react-router-dom";
-import { PACIENTE } from "../../../../models";
+// import { PACIENTE } from "../../../../models";
 
 const columns = [
   {
@@ -43,9 +43,9 @@ function ListaEstudios() {
     if (!emailAuth) {
       return;
     }
-    DataStore.query(PACIENTE, paciente => paciente.email("eq", emailAuth)).then(
-      paciente => setPaciente(paciente)
-    );
+    // DataStore.query(PACIENTE, paciente => paciente.email("eq", emailAuth)).then(
+    //   paciente => setPaciente(paciente)
+    // );
   }, [emailAuth]);
 
   // console.log(paciente)
