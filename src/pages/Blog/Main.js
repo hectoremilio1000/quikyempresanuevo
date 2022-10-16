@@ -38,7 +38,7 @@ function Main({ posts, url, title }) {
           <Typography variant="text.secondary" style={{fontStyle: 'italic'}}>
             {post.autor}
           </Typography>
-          <Image width={"100%"} src={post.imagen1} />
+          <Image width={"100%"} src={post.url1} />
             <Typography component="h2" variant="h5"  className="mt-4" style={{fontWeight: 'bold'}}>
             {post.subtitulo}
           </Typography>
@@ -49,7 +49,7 @@ function Main({ posts, url, title }) {
             {/* {truncate(post.body)} */}
             {post.texto1}
           </p>
-          <Image width={"100%"} src={post.imagen2} />
+          <Image width={"100%"} src={post.url2} />
           <p
             style={{ overflow: "hidden", textOverflow: "ellipsis" }}
             className="mt-4"
@@ -57,7 +57,7 @@ function Main({ posts, url, title }) {
             {/* {truncate(post.body)} */}
             {post.texto2}
           </p>
-          <Image width={"100%"} src={post.imagen3} />
+          <Image width={"100%"} src={post.url3} />
           <p
             style={{ overflow: "hidden", textOverflow: "ellipsis" }}
             className="mt-4"
@@ -71,12 +71,10 @@ function Main({ posts, url, title }) {
         </div>
       )).sort((a,b) =>{
         if (a?.props?.children[1]?.props?.children > b?.props?.children[1]?.props?.children) {
-    return -1;
+          return -1
   }
-  if (a?.props?.children[1]?.props?.children < b?.props?.children[1]?.props?.children) {
-    return 1;
-  }
-  return 0;    
+  
+        return 0;
       })}
     </Grid>
   );

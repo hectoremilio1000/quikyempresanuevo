@@ -30,6 +30,7 @@ import Maquila from "../../pages/Maquila/index";
 import CrearParametrosFinales from '../Parametros/CrearParametrosFinales/index';
 import CrearReferenciaParam from '../Referencias/CrearReferenciaParam/index';
 import CrearUnidadesParams from '../CrearUnidadesParams/index';
+import EditarBlog from '../../modules/Components/Blog/EditarBlog';
 
 function AppRoutes() {
   return (
@@ -41,7 +42,6 @@ function AppRoutes() {
       <Route path="bolsatrabajo" element={<BolsaTrabajo />} />
       <Route path="otraspruebas" element={<OtrasPruebas />} />
       <Route path="/" element={<Home />} />
-      {/* <Route path="blog" element={<Blog />} /> */}
 
       {/* routes administrador */}
 
@@ -78,6 +78,9 @@ function AppRoutes() {
       <Route path="referencias/:id" element={<CrearReferenciaParam />} />
       <Route path="unidades/:id" element={<CrearUnidadesParams />} />
       {/* routes por definir */}
+
+      {/* Rutas para blog */}
+      <Route path="admin2/blog/:id" element={<EditarBlog />} />
 
       <Route path="enrutarUsuario/doctor" element={<UsuarioDoctor />} />
       <Route path="enrutarUsuario/profile" element={<Profile />} />

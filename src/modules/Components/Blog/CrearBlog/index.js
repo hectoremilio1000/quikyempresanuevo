@@ -142,6 +142,7 @@ texto2,
      })
        )
        message.success("El blog se ha creado");
+        window.location.reload(false);
      } catch (error) {
       message.error("Hubo un error contacta al administrador");
      }
@@ -168,7 +169,7 @@ texto2,
             backgroundColor: "white",
             padding: 5,
             borderRadius: 5,
-            width: 125,
+            
           }}
         />
     

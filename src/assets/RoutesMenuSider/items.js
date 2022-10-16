@@ -42,7 +42,7 @@ const itemsRoutes = [
   getItem("Pruebas", "sub1", <AppstoreOutlined />, [
     getItem("Crear Pruebas", "1", <HighlightOutlined />),
     getItem("Lista Pruebas", "2", <UnorderedListOutlined />),
-    getItem("Parametros", "18", <CaretRightOutlined />),
+    getItem("Parámetros", "18", <CaretRightOutlined />),
     getItem("Referencias", "19", <ExportOutlined />),
     getItem("Unidades", "20", <VerticalRightOutlined />),
   ]),
@@ -50,9 +50,9 @@ const itemsRoutes = [
     getItem("Crear Doctor", "3", <BranchesOutlined />),
     getItem("Lista Doctores", "4", <ContactsOutlined />),
   ]),
-  getItem("Ordenes", "sub3", <ContainerOutlined />, [
+  getItem("Órdenes", "sub3", <ContainerOutlined />, [
     getItem("Crear Orden", "5", <FolderAddOutlined />),
-    getItem("Lista de Ordenes", "6", <ReadOutlined />),
+    getItem("Lista de Órdenes", "6", <ReadOutlined />),
   ]),
 
   getItem("Pacientes", "sub4", <SmileOutlined />, [
@@ -68,7 +68,7 @@ const itemsRoutes = [
 
   getItem("Blog", "sub6", <HddOutlined />, [
     getItem("Crear Blog", "12", <LaptopOutlined />),
-    getItem("Editar Blog", "13", <GroupOutlined />),
+    getItem("Lista Blog's", "13", <GroupOutlined />),
   ]),
   getItem("Administrador", "sub7", <HddOutlined />, [
     getItem("Cortes", "14", <LaptopOutlined />),
