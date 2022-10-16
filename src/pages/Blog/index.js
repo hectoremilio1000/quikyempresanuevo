@@ -88,9 +88,9 @@ function Blog() {
 
   let seccionesHeader = blog.map(a => [a.secciones, a.key, a.id]);
 
-  // if (!postBlog) {
-  //   return (<Spin size="large"/>)
-  // }
+  if (!postBlog) {
+   return (<Spin size="large"/>)
+   }
 
   return (
     <ThemeProvider theme={theme}>
