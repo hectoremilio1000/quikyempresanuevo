@@ -36,12 +36,12 @@ function AppRoutes() {
   return (
     <Routes>
       {/* routes nav y home */}
+      <Route path="/" element={<Home />} />
       <Route path="blog" element={<Blog />} />
       <Route path="maquila" element={<Maquila />} />
       <Route path="privacidad" element={<Privacidad />} />
       <Route path="bolsatrabajo" element={<BolsaTrabajo />} />
       <Route path="otraspruebas" element={<OtrasPruebas />} />
-      <Route path="/" element={<Home />} />
 
       {/* routes administrador */}
 

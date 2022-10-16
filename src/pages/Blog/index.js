@@ -11,10 +11,11 @@ import MainFeaturedPost from "./MainFeaturedPost";
 import FeaturedPost from "./FeaturedPost";
 import Main from "./Main";
 import Sidebar from "./Sidebar";
-import { DataStore } from 'aws-amplify'
+import { DataStore, Predicates } from "aws-amplify";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { Spin } from 'antd';
+import { Amplify, Hub } from "@aws-amplify/core";
 
 
 import blog from "../../assets/data2/blog";
@@ -75,12 +76,28 @@ function Blog() {
   const [postBlog, setPostBlog] = useState([])
 
   const fetchBlog = async () => {
-    const postFetch = await DataStore.query(BLOG)
+    const postFetch = await DataStore.query(BLOG, Predicates.ALL)
     setPostBlog(postFetch);
   }
 
   useEffect(() => {
-    fetchBlog();
+    const removeListener = Hub.listen("datastore", async (capsule) => {
+      const {
+        payload: { event, data },
+      } = capsule;
+ 
+      console.log("DataStore event", event, data);
+
+      if (event === "ready") {
+        fetchBlog();
+      }
+    })
+
+    DataStore.start();
+    return () => {
+      removeListener();
+    };
+    
   }, [])
   
 
@@ -88,9 +105,7 @@ function Blog() {
 
   let seccionesHeader = blog.map(a => [a.secciones, a.key, a.id]);
 
-  if (!postBlog) {
-   return (<Spin size="large"/>)
-   }
+
 
   return (
     <ThemeProvider theme={theme}>

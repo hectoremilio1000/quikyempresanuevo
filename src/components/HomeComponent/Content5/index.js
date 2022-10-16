@@ -106,7 +106,7 @@ const DataNew = [
 function Content5() {
   return (
     <div className="pt-4 text-center bg-light">
-      <h1 className="fw-bold fs-2 p-3">¿Qué pruebas tienen disponibles?</h1>
+      <h1 className="fw-bold fs-2 p-3">Tenemos todas las pruebas que necesites</h1>
       <div>
         <List
           grid={{
@@ -157,16 +157,7 @@ function Content5() {
                     borderRadius: 5,
                   }}
                 >
-                  <a
-                    href="https://wa.me/+5219511028474"
-                    style={{
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {" "}
-                    ¡Reserva ya!{" "}
-                  </a>
+                  
                 </Button>
               </Card>
             </List.Item>
