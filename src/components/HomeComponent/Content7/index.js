@@ -46,7 +46,7 @@ function Content7() {
         footer={
           <div>
             <Link to="/blog">
-              <p className="fs-4 fw-bold text-center">Visita nuestro blog</p>
+              <p className="fs-3 fw-bold text-center">Visita nuestro blog</p>
             </Link>
           </div>
         }

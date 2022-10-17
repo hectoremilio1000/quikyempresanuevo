@@ -23,7 +23,7 @@ function OtrasPruebasContent1() {
       </div>
       <div className="d-flex justify-content-center divButton">
         <a href="https://wa.me/+5219511028474">
-          <button className="btn btn-success rounded">¡Reserva ya!</button>
+          <button className="btn btn-success rounded">¡Pide información ahora!</button>
         </a>
       </div>
     </Container>

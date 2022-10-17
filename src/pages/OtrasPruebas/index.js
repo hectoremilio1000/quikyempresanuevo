@@ -6,7 +6,7 @@ function OtrasPruebas() {
   return (
     <>
       <OtrasPruebasContent1 />
-      <OtrasPruebasContent2 />
+      {/* <OtrasPruebasContent2 /> */}
     </>
   );
 }

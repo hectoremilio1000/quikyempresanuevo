@@ -38,7 +38,7 @@ const DataNew = [
     nombreprueba: "Grupo Sanguíneo y RH",
     category: "PRUEBA_RAPIDA",
     imagen:
-      "https://img.freepik.com/vector-gratis/examen-sangre-coronavirus_23-2148540142.jpg",
+      "https://khn.org/wp-content/uploads/sites/2/2020/09/GettyImages-490075766.jpg",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:
@@ -55,7 +55,7 @@ const DataNew = [
     nombreprueba: "Prueba Antidoping (6 drogas)",
     category: "PRUEBA_RAPIDA",
     imagen:
-      "https://img.freepik.com/vector-gratis/prueba-orina-chequeo-enfermedades-hospital-o-laboratorio-clinico_87771-10493.jpg",
+      "https://www.boletinindustrial.com/fotos/productos/full-Panel_InstantView.png",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:
@@ -72,7 +72,7 @@ const DataNew = [
     nombreprueba: "Glucosa Capilar",
     category: "PRUEBA_RAPIDA",
     imagen:
-      "https://img.freepik.com/vector-gratis/ilustracion-concepto-diabetes_114360-3670.jpg",
+      "https://assets1.farmaciasanpablo.com.mx/landings/_blog/consultorio/examen-de-glucosa-perfil-diabetico.jpg",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:
@@ -89,7 +89,7 @@ const DataNew = [
     nombreprueba: "Biometría Hemática",
     category: "PRUEBA_RAPIDA",
     imagen:
-      "https://img.freepik.com/vector-gratis/ilustracion-concepto-desarrollo-vacunas_114360-2233.jpg",
+      "https://quimialab.com/wp-content/uploads/2019/05/LabBiometriaHematica.png",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:
@@ -122,7 +122,7 @@ function Content5() {
           footer={
             <div>
               <Link to="/otraspruebas">
-                <p className="fs-4 fw-bold">Otras pruebas...</p>
+                <p className="fs-4 fw-bold">Solicita es muy fácil</p>
               </Link>
             </div>
           }

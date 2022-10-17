@@ -7,7 +7,7 @@ import {
   DatePicker,
   TimePicker,
   Typography,
-  Form
+  Form,
 } from "antd";
 
 import React, { useState } from "react";
@@ -69,8 +69,10 @@ function CrearBlog() {
       setUrl1(url);
       setKey1(key);
       console.log("archivo guardado");
+      message.success("imagen 1 cargada exitósamente");
     } catch (error) {
       console.log(error);
+      message.error("No se subió correctamente, contacta al administrador");
     }
    };
    const onChange2 = async e => {
@@ -91,8 +93,10 @@ function CrearBlog() {
       setUrl2(url);
       setKey2(key);
       console.log("archivo guardado");
+      message.success("imagen 2 cargada exitósamente");
     } catch (error) {
       console.log(error);
+      message.error("No se subió correctamente, contacta al administrador");
     }
    };
    const onChange3 = async e => {
@@ -113,8 +117,10 @@ function CrearBlog() {
       setUrl3(url);
       setKey3(key);
       console.log("archivo guardado");
+      message.success("imagen 3 cargada exitósamente");
     } catch (error) {
       console.log(error);
+      message.error("No se subió correctamente, contacta al administrador");
     }
    };
   
@@ -144,7 +150,8 @@ texto2,
        message.success("El blog se ha creado");
         window.location.reload(false);
      } catch (error) {
-      message.error("Hubo un error contacta al administrador");
+       message.error("Hubo un error contacta al administrador");
+       
      }
   }
 
