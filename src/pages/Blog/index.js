@@ -11,15 +11,19 @@ import MainFeaturedPost from "./MainFeaturedPost";
 import FeaturedPost from "./FeaturedPost";
 import Main from "./Main";
 import Sidebar from "./Sidebar";
-import { DataStore, Predicates } from "aws-amplify";
+import { API, DataStore, graphqlOperation } from "aws-amplify";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { Spin } from 'antd';
 import { Amplify, Hub } from "@aws-amplify/core";
 
 
+
+
 import blog from "../../assets/data2/blog";
 import { BLOG } from "../../models";
+import { listBLOGS } from "../../graphql/queries";
+import { useBlogContext } from "../../Contexts/BlogContexts";
 
 const post = {
   title: "Covid en México",
@@ -73,33 +77,42 @@ const sidebar = {
 const theme = createTheme();
 
 function Blog() {
-  const [postBlog, setPostBlog] = useState([])
+  const { blogCon } = useBlogContext();
+  const [blogNuevos, setBlogNuevos] = useState([])
+  const [postBlog, setPostBlog] = useState([]);
+  const [showSpin, setShowSpin] = useState(true);
 
-  const fetchBlog = async () => {
-    const postFetch = await DataStore.query(BLOG, Predicates.ALL)
-    setPostBlog(postFetch);
+  const fetchBlogNuevos = async () => {
+    try {
+      const blogsFinales = await API.graphql(graphqlOperation(listBLOGS));
+      setBlogNuevos(blogsFinales);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
-    const removeListener = Hub.listen("datastore", async (capsule) => {
-      const {
-        payload: { event, data },
-      } = capsule;
- 
-      console.log("DataStore event", event, data);
+    fetchBlogNuevos();
+  }, [])
+  
 
-      if (event === "ready") {
-        fetchBlog();
-      }
-    })
+  const fetchBlog = async () => {
+    const postFetch = await DataStore.query(BLOG)
+    setPostBlog(postFetch);
+    setShowSpin(false);
+  }
 
-    DataStore.start();
-    return () => {
-      removeListener();
-    };
+  useEffect(() => {
+    setShowSpin(true);
+   
+    fetchBlog();
     
   }, [])
   
+  console.log(postBlog);
+  console.log(blogNuevos)
+
+  console.log(blogCon);
 
   const { url } = useNavigate();
 
@@ -120,11 +133,16 @@ function Blog() {
             ))}
           </Grid> */}
           <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main
-              title="Todo lo relevante a la salud lo podrás encontrar Aquí"
-              posts={postBlog}
-              url={url}
-            />
+            {showSpin ? (
+              <Spin size="large" />
+            ) : (
+              <Main
+                title="Todo lo relevante a la salud lo podrás encontrar Aquí"
+                posts={postBlog}
+                url={url}
+              />
+            )}
+
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}

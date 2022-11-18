@@ -166,9 +166,13 @@ function ListaPruebas() {
   ];
 
   return (
+   
     <>
+   
       <Table columns={columns} dataSource={pruebas} rowKey="id" />
+   
     </>
+    
   );
 }
 

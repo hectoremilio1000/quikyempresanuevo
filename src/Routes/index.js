@@ -12,24 +12,27 @@ import NavBar2 from "../components/NavBar2";
 
 import Copyright from "../components/Copyright";
 import AppRoutes from "../components/AppRoutes";
+import BlogContextProvider from "../Contexts/BlogContexts";
 
 const { Header, Content, Footer } = Layout;
 
 function Routing() {
   return (
     <BrowserRouter>
-      <Layout className="layout">
-        <Header className="header">
-          <NavBar2 />
-        </Header>
-        <Content className="site-layout-content">
-          <AppRoutes />
-        </Content>
-        <Footer className="FooterIndex">
-          <FooterComponent />
-          <Copyright />
-        </Footer>
-      </Layout>
+      <BlogContextProvider>
+        <Layout className="layout">
+          <Header className="header">
+            <NavBar2 />
+          </Header>
+          <Content className="site-layout-content">
+            <AppRoutes />
+          </Content>
+          <Footer className="FooterIndex">
+            <FooterComponent />
+            <Copyright />
+          </Footer>
+        </Layout>
+      </BlogContextProvider>
     </BrowserRouter>
   );
 }
