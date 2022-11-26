@@ -54,6 +54,8 @@ function Administrador() {
     navigate("/", { replace: true });
   };
 
+  console.log('hola user', authUser);
+
   let hector = authUser?.signInUserSession?.idToken?.payload["cognito:groups"];
   if (hector === undefined) {
     return (

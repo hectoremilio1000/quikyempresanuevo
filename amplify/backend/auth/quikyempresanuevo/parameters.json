@@ -3,10 +3,14 @@
   "resourceName": "quikyempresanuevo",
   "serviceType": "imported",
   "region": "us-east-1",
-  "requiredAttributes": ["email"],
+  "requiredAttributes": [
+    "email"
+  ],
   "passwordPolicyMinLength": 7,
   "passwordPolicyCharacters": [],
   "mfaConfiguration": "OFF",
-  "autoVerifiedAttributes": ["email"],
+  "autoVerifiedAttributes": [
+    "email"
+  ],
   "mfaTypes": []
 }

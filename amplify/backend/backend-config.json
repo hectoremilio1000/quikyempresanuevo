@@ -1,6 +1,6 @@
 {
   "auth": {
-    "quikyempresanuevo427ee5ec": {
+    "quikyempresanuevo": {
       "service": "Cognito",
       "serviceType": "imported",
       "providerPlugin": "awscloudformation",
