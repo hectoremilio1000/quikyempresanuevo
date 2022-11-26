@@ -31,6 +31,10 @@
         "quikyempresanuevoc8971c22": {
           "bucketName": "quikyempresanuevo-main-git-main81012-main",
           "region": "us-east-1"
+        },
+        "quikyempresanuevoffe0d4e9": {
+          "bucketName": "quikyempresanuevo-main-git-main81012-main",
+          "region": "us-east-1"
         }
       }
     }

@@ -54,7 +54,7 @@
     }
   },
   "storage": {
-    "quikyempresanuevoc8971c22": {
+    "quikyempresanuevoffe0d4e9": {
       "service": "S3",
       "serviceType": "imported",
       "providerPlugin": "awscloudformation",
