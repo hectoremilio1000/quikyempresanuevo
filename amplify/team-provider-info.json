@@ -12,11 +12,17 @@
       "AmplifyAppId": "d2wjr7momz2mwu"
     },
     "categories": {
+      "storage": {
+        "quikyempresanuevoc8971c22": {
+          "bucketName": "quikyempresanuevo-main-git-main81012-main",
+          "region": "us-east-1"
+        }
+      },
       "auth": {
-        "quikyempresanuevo": {
+        "quikyempresanuevo427ee5ec": {
           "userPoolId": "us-east-1_SNHBkjUDm",
           "userPoolName": "quikyempresanuevo-reinicio",
-          "webClientId": "1395mro70k0n0bfp597vf6fpo1",
+          "webClientId": "5rtsvc6nds939jdpdlbf6qmli",
           "nativeClientId": "1395mro70k0n0bfp597vf6fpo1",
           "identityPoolId": "us-east-1:27632f9a-a5db-48b4-9888-68643985d928",
           "identityPoolName": "testAuthIdentityPool__reinicio",
@@ -25,12 +31,6 @@
           "authRoleName": "amplify-quikyempresanuevo-reinicio-05741-authRole",
           "unauthRoleArn": "arn:aws:iam::900765165512:role/amplify-quikyempresanuevo-reinicio-05741-unauthRole",
           "unauthRoleName": "amplify-quikyempresanuevo-reinicio-05741-unauthRole"
-        }
-      },
-      "storage": {
-        "quikyempresanuevoc8971c22": {
-          "bucketName": "quikyempresanuevo-main-git-main81012-main",
-          "region": "us-east-1"
         }
       }
     }
