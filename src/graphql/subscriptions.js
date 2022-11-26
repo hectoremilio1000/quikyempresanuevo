@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateBLOG = /* GraphQL */ `
-  subscription OnCreateBLOG {
-    onCreateBLOG {
+  subscription OnCreateBLOG($filter: ModelSubscriptionBLOGFilterInput) {
+    onCreateBLOG(filter: $filter) {
       id
       titulo
       subtitulo
@@ -27,8 +27,8 @@ export const onCreateBLOG = /* GraphQL */ `
   }
 `;
 export const onUpdateBLOG = /* GraphQL */ `
-  subscription OnUpdateBLOG {
-    onUpdateBLOG {
+  subscription OnUpdateBLOG($filter: ModelSubscriptionBLOGFilterInput) {
+    onUpdateBLOG(filter: $filter) {
       id
       titulo
       subtitulo
@@ -52,8 +52,8 @@ export const onUpdateBLOG = /* GraphQL */ `
   }
 `;
 export const onDeleteBLOG = /* GraphQL */ `
-  subscription OnDeleteBLOG {
-    onDeleteBLOG {
+  subscription OnDeleteBLOG($filter: ModelSubscriptionBLOGFilterInput) {
+    onDeleteBLOG(filter: $filter) {
       id
       titulo
       subtitulo

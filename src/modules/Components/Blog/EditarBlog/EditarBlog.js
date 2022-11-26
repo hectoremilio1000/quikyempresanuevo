@@ -7,7 +7,7 @@ import { BLOG } from '../../../../models';
 import { Typography } from 'antd';
 import { Image } from "antd";
 import { v4 as uuidv4 } from "uuid"
-import { AmplifyS3Image } from "@aws-amplify/ui-react/legacy";
+
 import config from "../../../../aws-exports";
 import {useNavigate} from 'react-router-dom'
 

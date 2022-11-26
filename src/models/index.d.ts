@@ -1,12 +1,16 @@
-import { ModelInit, MutableModel } from "@aws-amplify/datastore";
+import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
 import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
-type BLOGMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
+
+
+
 
 type EagerBLOG = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<BLOG, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
   readonly id: string;
   readonly titulo?: string | null;
   readonly subtitulo?: string | null;
@@ -26,6 +30,10 @@ type EagerBLOG = {
 }
 
 type LazyBLOG = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<BLOG, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
   readonly id: string;
   readonly titulo?: string | null;
   readonly subtitulo?: string | null;
@@ -46,6 +54,6 @@ type LazyBLOG = {
 
 export declare type BLOG = LazyLoading extends LazyLoadingDisabled ? EagerBLOG : LazyBLOG
 
-export declare const BLOG: (new (init: ModelInit<BLOG, BLOGMetaData>) => BLOG) & {
-  copyOf(source: BLOG, mutator: (draft: MutableModel<BLOG, BLOGMetaData>) => MutableModel<BLOG, BLOGMetaData> | void): BLOG;
+export declare const BLOG: (new (init: ModelInit<BLOG>) => BLOG) & {
+  copyOf(source: BLOG, mutator: (draft: MutableModel<BLOG>) => MutableModel<BLOG> | void): BLOG;
 }
