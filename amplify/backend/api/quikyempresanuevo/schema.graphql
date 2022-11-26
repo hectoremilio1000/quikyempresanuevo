@@ -14,4 +14,3 @@ type BLOG @model @auth(rules: [{allow: public}]) {
   autor: String
   fecha: String
 }
- 

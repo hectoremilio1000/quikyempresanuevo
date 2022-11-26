@@ -154,7 +154,7 @@ texto2,
        
      }
   }
-
+ 
  
   return (
     <div style={{ margin: 20 }}>
