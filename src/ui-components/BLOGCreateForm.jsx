@@ -27,61 +27,61 @@ export default function BLOGCreateForm(props) {
     titulo: undefined,
     subtitulo: undefined,
     texto1: undefined,
-    imagen1: undefined,
-    url1: undefined,
     texto2: undefined,
-    imagen2: undefined,
-    url2: undefined,
     texto3: undefined,
+    imagen1: undefined,
+    imagen2: undefined,
     imagen3: undefined,
+    fecha: undefined,
+    url1: undefined,
+    url2: undefined,
     url3: undefined,
     autor: undefined,
-    fecha: undefined,
   };
   const [titulo, setTitulo] = React.useState(initialValues.titulo);
   const [subtitulo, setSubtitulo] = React.useState(initialValues.subtitulo);
   const [texto1, setTexto1] = React.useState(initialValues.texto1);
-  const [imagen1, setImagen1] = React.useState(initialValues.imagen1);
-  const [url1, setUrl1] = React.useState(initialValues.url1);
   const [texto2, setTexto2] = React.useState(initialValues.texto2);
-  const [imagen2, setImagen2] = React.useState(initialValues.imagen2);
-  const [url2, setUrl2] = React.useState(initialValues.url2);
   const [texto3, setTexto3] = React.useState(initialValues.texto3);
+  const [imagen1, setImagen1] = React.useState(initialValues.imagen1);
+  const [imagen2, setImagen2] = React.useState(initialValues.imagen2);
   const [imagen3, setImagen3] = React.useState(initialValues.imagen3);
+  const [fecha, setFecha] = React.useState(initialValues.fecha);
+  const [url1, setUrl1] = React.useState(initialValues.url1);
+  const [url2, setUrl2] = React.useState(initialValues.url2);
   const [url3, setUrl3] = React.useState(initialValues.url3);
   const [autor, setAutor] = React.useState(initialValues.autor);
-  const [fecha, setFecha] = React.useState(initialValues.fecha);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setTitulo(initialValues.titulo);
     setSubtitulo(initialValues.subtitulo);
     setTexto1(initialValues.texto1);
-    setImagen1(initialValues.imagen1);
-    setUrl1(initialValues.url1);
     setTexto2(initialValues.texto2);
-    setImagen2(initialValues.imagen2);
-    setUrl2(initialValues.url2);
     setTexto3(initialValues.texto3);
+    setImagen1(initialValues.imagen1);
+    setImagen2(initialValues.imagen2);
     setImagen3(initialValues.imagen3);
+    setFecha(initialValues.fecha);
+    setUrl1(initialValues.url1);
+    setUrl2(initialValues.url2);
     setUrl3(initialValues.url3);
     setAutor(initialValues.autor);
-    setFecha(initialValues.fecha);
     setErrors({});
   };
   const validations = {
     titulo: [],
     subtitulo: [],
     texto1: [],
-    imagen1: [],
-    url1: [],
     texto2: [],
-    imagen2: [],
-    url2: [],
     texto3: [],
+    imagen1: [],
+    imagen2: [],
     imagen3: [],
+    fecha: [],
+    url1: [],
+    url2: [],
     url3: [],
     autor: [],
-    fecha: [],
   };
   const runValidationTasks = async (fieldName, value) => {
     let validationResponse = validateField(value, validations[fieldName]);
@@ -104,16 +104,16 @@ export default function BLOGCreateForm(props) {
           titulo,
           subtitulo,
           texto1,
-          imagen1,
-          url1,
           texto2,
-          imagen2,
-          url2,
           texto3,
+          imagen1,
+          imagen2,
           imagen3,
+          fecha,
+          url1,
+          url2,
           url3,
           autor,
-          fecha,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -165,16 +165,16 @@ export default function BLOGCreateForm(props) {
               titulo: value,
               subtitulo,
               texto1,
-              imagen1,
-              url1,
               texto2,
-              imagen2,
-              url2,
               texto3,
+              imagen1,
+              imagen2,
               imagen3,
+              fecha,
+              url1,
+              url2,
               url3,
               autor,
-              fecha,
             };
             const result = onChange(modelFields);
             value = result?.titulo ?? value;
@@ -200,16 +200,16 @@ export default function BLOGCreateForm(props) {
               titulo,
               subtitulo: value,
               texto1,
-              imagen1,
-              url1,
               texto2,
-              imagen2,
-              url2,
               texto3,
+              imagen1,
+              imagen2,
               imagen3,
+              fecha,
+              url1,
+              url2,
               url3,
               autor,
-              fecha,
             };
             const result = onChange(modelFields);
             value = result?.subtitulo ?? value;
@@ -235,16 +235,16 @@ export default function BLOGCreateForm(props) {
               titulo,
               subtitulo,
               texto1: value,
-              imagen1,
-              url1,
               texto2,
-              imagen2,
-              url2,
               texto3,
+              imagen1,
+              imagen2,
               imagen3,
+              fecha,
+              url1,
+              url2,
               url3,
               autor,
-              fecha,
             };
             const result = onChange(modelFields);
             value = result?.texto1 ?? value;
@@ -260,76 +260,6 @@ export default function BLOGCreateForm(props) {
         {...getOverrideProps(overrides, "texto1")}
       ></TextField>
       <TextField
-        label="Imagen1"
-        isRequired={false}
-        isReadOnly={false}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              titulo,
-              subtitulo,
-              texto1,
-              imagen1: value,
-              url1,
-              texto2,
-              imagen2,
-              url2,
-              texto3,
-              imagen3,
-              url3,
-              autor,
-              fecha,
-            };
-            const result = onChange(modelFields);
-            value = result?.imagen1 ?? value;
-          }
-          if (errors.imagen1?.hasError) {
-            runValidationTasks("imagen1", value);
-          }
-          setImagen1(value);
-        }}
-        onBlur={() => runValidationTasks("imagen1", imagen1)}
-        errorMessage={errors.imagen1?.errorMessage}
-        hasError={errors.imagen1?.hasError}
-        {...getOverrideProps(overrides, "imagen1")}
-      ></TextField>
-      <TextField
-        label="Url1"
-        isRequired={false}
-        isReadOnly={false}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              titulo,
-              subtitulo,
-              texto1,
-              imagen1,
-              url1: value,
-              texto2,
-              imagen2,
-              url2,
-              texto3,
-              imagen3,
-              url3,
-              autor,
-              fecha,
-            };
-            const result = onChange(modelFields);
-            value = result?.url1 ?? value;
-          }
-          if (errors.url1?.hasError) {
-            runValidationTasks("url1", value);
-          }
-          setUrl1(value);
-        }}
-        onBlur={() => runValidationTasks("url1", url1)}
-        errorMessage={errors.url1?.errorMessage}
-        hasError={errors.url1?.hasError}
-        {...getOverrideProps(overrides, "url1")}
-      ></TextField>
-      <TextField
         label="Texto2"
         isRequired={false}
         isReadOnly={false}
@@ -340,16 +270,16 @@ export default function BLOGCreateForm(props) {
               titulo,
               subtitulo,
               texto1,
-              imagen1,
-              url1,
               texto2: value,
-              imagen2,
-              url2,
               texto3,
+              imagen1,
+              imagen2,
               imagen3,
+              fecha,
+              url1,
+              url2,
               url3,
               autor,
-              fecha,
             };
             const result = onChange(modelFields);
             value = result?.texto2 ?? value;
@@ -365,76 +295,6 @@ export default function BLOGCreateForm(props) {
         {...getOverrideProps(overrides, "texto2")}
       ></TextField>
       <TextField
-        label="Imagen2"
-        isRequired={false}
-        isReadOnly={false}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              titulo,
-              subtitulo,
-              texto1,
-              imagen1,
-              url1,
-              texto2,
-              imagen2: value,
-              url2,
-              texto3,
-              imagen3,
-              url3,
-              autor,
-              fecha,
-            };
-            const result = onChange(modelFields);
-            value = result?.imagen2 ?? value;
-          }
-          if (errors.imagen2?.hasError) {
-            runValidationTasks("imagen2", value);
-          }
-          setImagen2(value);
-        }}
-        onBlur={() => runValidationTasks("imagen2", imagen2)}
-        errorMessage={errors.imagen2?.errorMessage}
-        hasError={errors.imagen2?.hasError}
-        {...getOverrideProps(overrides, "imagen2")}
-      ></TextField>
-      <TextField
-        label="Url2"
-        isRequired={false}
-        isReadOnly={false}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              titulo,
-              subtitulo,
-              texto1,
-              imagen1,
-              url1,
-              texto2,
-              imagen2,
-              url2: value,
-              texto3,
-              imagen3,
-              url3,
-              autor,
-              fecha,
-            };
-            const result = onChange(modelFields);
-            value = result?.url2 ?? value;
-          }
-          if (errors.url2?.hasError) {
-            runValidationTasks("url2", value);
-          }
-          setUrl2(value);
-        }}
-        onBlur={() => runValidationTasks("url2", url2)}
-        errorMessage={errors.url2?.errorMessage}
-        hasError={errors.url2?.hasError}
-        {...getOverrideProps(overrides, "url2")}
-      ></TextField>
-      <TextField
         label="Texto3"
         isRequired={false}
         isReadOnly={false}
@@ -445,16 +305,16 @@ export default function BLOGCreateForm(props) {
               titulo,
               subtitulo,
               texto1,
-              imagen1,
-              url1,
               texto2,
-              imagen2,
-              url2,
               texto3: value,
+              imagen1,
+              imagen2,
               imagen3,
+              fecha,
+              url1,
+              url2,
               url3,
               autor,
-              fecha,
             };
             const result = onChange(modelFields);
             value = result?.texto3 ?? value;
@@ -470,6 +330,76 @@ export default function BLOGCreateForm(props) {
         {...getOverrideProps(overrides, "texto3")}
       ></TextField>
       <TextField
+        label="Imagen1"
+        isRequired={false}
+        isReadOnly={false}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              titulo,
+              subtitulo,
+              texto1,
+              texto2,
+              texto3,
+              imagen1: value,
+              imagen2,
+              imagen3,
+              fecha,
+              url1,
+              url2,
+              url3,
+              autor,
+            };
+            const result = onChange(modelFields);
+            value = result?.imagen1 ?? value;
+          }
+          if (errors.imagen1?.hasError) {
+            runValidationTasks("imagen1", value);
+          }
+          setImagen1(value);
+        }}
+        onBlur={() => runValidationTasks("imagen1", imagen1)}
+        errorMessage={errors.imagen1?.errorMessage}
+        hasError={errors.imagen1?.hasError}
+        {...getOverrideProps(overrides, "imagen1")}
+      ></TextField>
+      <TextField
+        label="Imagen2"
+        isRequired={false}
+        isReadOnly={false}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              titulo,
+              subtitulo,
+              texto1,
+              texto2,
+              texto3,
+              imagen1,
+              imagen2: value,
+              imagen3,
+              fecha,
+              url1,
+              url2,
+              url3,
+              autor,
+            };
+            const result = onChange(modelFields);
+            value = result?.imagen2 ?? value;
+          }
+          if (errors.imagen2?.hasError) {
+            runValidationTasks("imagen2", value);
+          }
+          setImagen2(value);
+        }}
+        onBlur={() => runValidationTasks("imagen2", imagen2)}
+        errorMessage={errors.imagen2?.errorMessage}
+        hasError={errors.imagen2?.hasError}
+        {...getOverrideProps(overrides, "imagen2")}
+      ></TextField>
+      <TextField
         label="Imagen3"
         isRequired={false}
         isReadOnly={false}
@@ -480,16 +410,16 @@ export default function BLOGCreateForm(props) {
               titulo,
               subtitulo,
               texto1,
-              imagen1,
-              url1,
               texto2,
-              imagen2,
-              url2,
               texto3,
+              imagen1,
+              imagen2,
               imagen3: value,
+              fecha,
+              url1,
+              url2,
               url3,
               autor,
-              fecha,
             };
             const result = onChange(modelFields);
             value = result?.imagen3 ?? value;
@@ -505,6 +435,111 @@ export default function BLOGCreateForm(props) {
         {...getOverrideProps(overrides, "imagen3")}
       ></TextField>
       <TextField
+        label="Fecha"
+        isRequired={false}
+        isReadOnly={false}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              titulo,
+              subtitulo,
+              texto1,
+              texto2,
+              texto3,
+              imagen1,
+              imagen2,
+              imagen3,
+              fecha: value,
+              url1,
+              url2,
+              url3,
+              autor,
+            };
+            const result = onChange(modelFields);
+            value = result?.fecha ?? value;
+          }
+          if (errors.fecha?.hasError) {
+            runValidationTasks("fecha", value);
+          }
+          setFecha(value);
+        }}
+        onBlur={() => runValidationTasks("fecha", fecha)}
+        errorMessage={errors.fecha?.errorMessage}
+        hasError={errors.fecha?.hasError}
+        {...getOverrideProps(overrides, "fecha")}
+      ></TextField>
+      <TextField
+        label="Url1"
+        isRequired={false}
+        isReadOnly={false}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              titulo,
+              subtitulo,
+              texto1,
+              texto2,
+              texto3,
+              imagen1,
+              imagen2,
+              imagen3,
+              fecha,
+              url1: value,
+              url2,
+              url3,
+              autor,
+            };
+            const result = onChange(modelFields);
+            value = result?.url1 ?? value;
+          }
+          if (errors.url1?.hasError) {
+            runValidationTasks("url1", value);
+          }
+          setUrl1(value);
+        }}
+        onBlur={() => runValidationTasks("url1", url1)}
+        errorMessage={errors.url1?.errorMessage}
+        hasError={errors.url1?.hasError}
+        {...getOverrideProps(overrides, "url1")}
+      ></TextField>
+      <TextField
+        label="Url2"
+        isRequired={false}
+        isReadOnly={false}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              titulo,
+              subtitulo,
+              texto1,
+              texto2,
+              texto3,
+              imagen1,
+              imagen2,
+              imagen3,
+              fecha,
+              url1,
+              url2: value,
+              url3,
+              autor,
+            };
+            const result = onChange(modelFields);
+            value = result?.url2 ?? value;
+          }
+          if (errors.url2?.hasError) {
+            runValidationTasks("url2", value);
+          }
+          setUrl2(value);
+        }}
+        onBlur={() => runValidationTasks("url2", url2)}
+        errorMessage={errors.url2?.errorMessage}
+        hasError={errors.url2?.hasError}
+        {...getOverrideProps(overrides, "url2")}
+      ></TextField>
+      <TextField
         label="Url3"
         isRequired={false}
         isReadOnly={false}
@@ -515,16 +550,16 @@ export default function BLOGCreateForm(props) {
               titulo,
               subtitulo,
               texto1,
-              imagen1,
-              url1,
               texto2,
-              imagen2,
-              url2,
               texto3,
+              imagen1,
+              imagen2,
               imagen3,
+              fecha,
+              url1,
+              url2,
               url3: value,
               autor,
-              fecha,
             };
             const result = onChange(modelFields);
             value = result?.url3 ?? value;
@@ -550,16 +585,16 @@ export default function BLOGCreateForm(props) {
               titulo,
               subtitulo,
               texto1,
-              imagen1,
-              url1,
               texto2,
-              imagen2,
-              url2,
               texto3,
+              imagen1,
+              imagen2,
               imagen3,
+              fecha,
+              url1,
+              url2,
               url3,
               autor: value,
-              fecha,
             };
             const result = onChange(modelFields);
             value = result?.autor ?? value;
@@ -573,41 +608,6 @@ export default function BLOGCreateForm(props) {
         errorMessage={errors.autor?.errorMessage}
         hasError={errors.autor?.hasError}
         {...getOverrideProps(overrides, "autor")}
-      ></TextField>
-      <TextField
-        label="Fecha"
-        isRequired={false}
-        isReadOnly={false}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              titulo,
-              subtitulo,
-              texto1,
-              imagen1,
-              url1,
-              texto2,
-              imagen2,
-              url2,
-              texto3,
-              imagen3,
-              url3,
-              autor,
-              fecha: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.fecha ?? value;
-          }
-          if (errors.fecha?.hasError) {
-            runValidationTasks("fecha", value);
-          }
-          setFecha(value);
-        }}
-        onBlur={() => runValidationTasks("fecha", fecha)}
-        errorMessage={errors.fecha?.errorMessage}
-        hasError={errors.fecha?.hasError}
-        {...getOverrideProps(overrides, "fecha")}
       ></TextField>
       <Flex
         justifyContent="space-between"

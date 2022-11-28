@@ -22,7 +22,7 @@ import { Amplify, Hub } from "@aws-amplify/core";
 
 import blog from "../../assets/data2/blog";
 import { BLOG } from "../../models";
-import { listBLOGS } from "../../graphql/queries";
+// import { listBLOGS } from "../../graphql/queries";
 import { useBlogContext } from "../../Contexts/BlogContexts";
 
 const post = {
@@ -82,18 +82,18 @@ function Blog() {
   const [postBlog, setPostBlog] = useState([]);
   const [showSpin, setShowSpin] = useState(true);
 
-  const fetchBlogNuevos = async () => {
-    try {
-      const blogsFinales = await API.graphql(graphqlOperation(listBLOGS));
-      setBlogNuevos(blogsFinales);
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const fetchBlogNuevos = async () => {
+  //   try {
+  //     const blogsFinales = await API.graphql(graphqlOperation(listBLOGS));
+  //     setBlogNuevos(blogsFinales);
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
-  useEffect(() => {
-    fetchBlogNuevos();
-  }, [])
+  // useEffect(() => {
+  //   fetchBlogNuevos();
+  // }, [])
   
 
   const fetchBlog = async () => {
