@@ -16,6 +16,7 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { Spin } from 'antd';
 import { Amplify, Hub } from "@aws-amplify/core";
+import * as queries from '../../graphql/queries'
 
 
 
@@ -96,9 +97,15 @@ function Blog() {
   // }, [])
   
 
+  // const fetchBlog = async () => {
+  //   const postFetch = await API.query(BLOG)
+  //   setPostBlog(postFetch);
+  //   setShowSpin(false);
+  // }
+
   const fetchBlog = async () => {
-    const postFetch = await DataStore.query(BLOG)
-    setPostBlog(postFetch);
+    const postFetch = await API.graphql({ query: queries.listBLOGS });
+    setPostBlog(postFetch?.data?.listBLOGS?.items);
     setShowSpin(false);
   }
 
@@ -110,9 +117,7 @@ function Blog() {
   }, [])
   
   console.log(postBlog);
-  console.log(blogNuevos)
-
-  console.log(blogCon);
+  // console.log(blogNuevos)
 
   const { url } = useNavigate();
 

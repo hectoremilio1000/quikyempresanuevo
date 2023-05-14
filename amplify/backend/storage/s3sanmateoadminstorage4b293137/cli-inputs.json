@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3sanmateoadminstorage4b293137",
+  "bucketName": "sanmateoadmin-storage-4b293137",
+  "policyUUID": "6c5e422d",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

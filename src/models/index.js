@@ -2,10 +2,30 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
+const Servicio = {
+  "EXCELENTE": "EXCELENTE",
+  "REGULAR": "REGULAR",
+  "MALO": "MALO"
+};
 
+const Sexotipo = {
+  "MASCULINO": "MASCULINO",
+  "FEMENINO": "FEMENINO"
+};
 
-const { BLOG } = initSchema(schema);
+const { RESULTADOGENERAL, RESULTADOORDEN, EncuestaServicio, ORDENPRUEBA, ORDEN, PARAMETROS, PRUEBA, DOCTOR, PACIENTE, BLOG } = initSchema(schema);
 
 export {
-  BLOG
+  RESULTADOGENERAL,
+  RESULTADOORDEN,
+  EncuestaServicio,
+  ORDENPRUEBA,
+  ORDEN,
+  PARAMETROS,
+  PRUEBA,
+  DOCTOR,
+  PACIENTE,
+  BLOG,
+  Servicio,
+  Sexotipo
 };

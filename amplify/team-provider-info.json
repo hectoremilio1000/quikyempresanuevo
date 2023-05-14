@@ -10,6 +10,17 @@
       "StackName": "amplify-sanmateoadmin-staging-150320",
       "StackId": "arn:aws:cloudformation:us-east-1:648055517850:stack/amplify-sanmateoadmin-staging-150320/a210d330-6e64-11ed-a6e0-120b28ff0187",
       "AmplifyAppId": "d35nfmh1qjaunj"
+    },
+    "categories": {
+      "auth": {
+        "sanMateoAdmin": {}
+      },
+      "storage": {
+        "s3sanmateoadminstorage4b293137": {}
+      },
+      "api": {
+        "sanMateoAdmin": {}
+      }
     }
   }
 }

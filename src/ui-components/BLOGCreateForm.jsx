@@ -6,10 +6,10 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { fetchByPath, validateField } from "./utils";
-import { BLOG } from "../models";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { BLOG } from "../models";
+import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
 export default function BLOGCreateForm(props) {
   const {
@@ -17,26 +17,26 @@ export default function BLOGCreateForm(props) {
     onSuccess,
     onError,
     onSubmit,
-    onCancel,
     onValidate,
     onChange,
     overrides,
     ...rest
   } = props;
   const initialValues = {
-    titulo: undefined,
-    subtitulo: undefined,
-    texto1: undefined,
-    texto2: undefined,
-    texto3: undefined,
-    imagen1: undefined,
-    imagen2: undefined,
-    imagen3: undefined,
-    fecha: undefined,
-    url1: undefined,
-    url2: undefined,
-    url3: undefined,
-    autor: undefined,
+    titulo: "",
+    subtitulo: "",
+    texto1: "",
+    texto2: "",
+    texto3: "",
+    imagen1: "",
+    imagen2: "",
+    imagen3: "",
+    fecha: "",
+    url1: "",
+    url2: "",
+    url3: "",
+    autor: "",
+    slug: "",
   };
   const [titulo, setTitulo] = React.useState(initialValues.titulo);
   const [subtitulo, setSubtitulo] = React.useState(initialValues.subtitulo);
@@ -51,6 +51,7 @@ export default function BLOGCreateForm(props) {
   const [url2, setUrl2] = React.useState(initialValues.url2);
   const [url3, setUrl3] = React.useState(initialValues.url3);
   const [autor, setAutor] = React.useState(initialValues.autor);
+  const [slug, setSlug] = React.useState(initialValues.slug);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setTitulo(initialValues.titulo);
@@ -66,6 +67,7 @@ export default function BLOGCreateForm(props) {
     setUrl2(initialValues.url2);
     setUrl3(initialValues.url3);
     setAutor(initialValues.autor);
+    setSlug(initialValues.slug);
     setErrors({});
   };
   const validations = {
@@ -82,8 +84,17 @@ export default function BLOGCreateForm(props) {
     url2: [],
     url3: [],
     autor: [],
+    slug: [],
   };
-  const runValidationTasks = async (fieldName, value) => {
+  const runValidationTasks = async (
+    fieldName,
+    currentValue,
+    getDisplayValue
+  ) => {
+    const value =
+      currentValue && getDisplayValue
+        ? getDisplayValue(currentValue)
+        : currentValue;
     let validationResponse = validateField(value, validations[fieldName]);
     const customValidator = fetchByPath(onValidate, fieldName);
     if (customValidator) {
@@ -114,6 +125,7 @@ export default function BLOGCreateForm(props) {
           url2,
           url3,
           autor,
+          slug,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -138,6 +150,11 @@ export default function BLOGCreateForm(props) {
           modelFields = onSubmit(modelFields);
         }
         try {
+          Object.entries(modelFields).forEach(([key, value]) => {
+            if (typeof value === "string" && value.trim() === "") {
+              modelFields[key] = undefined;
+            }
+          });
           await DataStore.save(new BLOG(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
@@ -151,13 +168,14 @@ export default function BLOGCreateForm(props) {
           }
         }
       }}
-      {...rest}
       {...getOverrideProps(overrides, "BLOGCreateForm")}
+      {...rest}
     >
       <TextField
         label="Titulo"
         isRequired={false}
         isReadOnly={false}
+        value={titulo}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -175,6 +193,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.titulo ?? value;
@@ -193,6 +212,7 @@ export default function BLOGCreateForm(props) {
         label="Subtitulo"
         isRequired={false}
         isReadOnly={false}
+        value={subtitulo}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -210,6 +230,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.subtitulo ?? value;
@@ -228,6 +249,7 @@ export default function BLOGCreateForm(props) {
         label="Texto1"
         isRequired={false}
         isReadOnly={false}
+        value={texto1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -245,6 +267,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.texto1 ?? value;
@@ -263,6 +286,7 @@ export default function BLOGCreateForm(props) {
         label="Texto2"
         isRequired={false}
         isReadOnly={false}
+        value={texto2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -280,6 +304,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.texto2 ?? value;
@@ -298,6 +323,7 @@ export default function BLOGCreateForm(props) {
         label="Texto3"
         isRequired={false}
         isReadOnly={false}
+        value={texto3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -315,6 +341,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.texto3 ?? value;
@@ -333,6 +360,7 @@ export default function BLOGCreateForm(props) {
         label="Imagen1"
         isRequired={false}
         isReadOnly={false}
+        value={imagen1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -350,6 +378,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.imagen1 ?? value;
@@ -368,6 +397,7 @@ export default function BLOGCreateForm(props) {
         label="Imagen2"
         isRequired={false}
         isReadOnly={false}
+        value={imagen2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -385,6 +415,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.imagen2 ?? value;
@@ -403,6 +434,7 @@ export default function BLOGCreateForm(props) {
         label="Imagen3"
         isRequired={false}
         isReadOnly={false}
+        value={imagen3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -420,6 +452,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.imagen3 ?? value;
@@ -438,6 +471,7 @@ export default function BLOGCreateForm(props) {
         label="Fecha"
         isRequired={false}
         isReadOnly={false}
+        value={fecha}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -455,6 +489,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.fecha ?? value;
@@ -473,6 +508,7 @@ export default function BLOGCreateForm(props) {
         label="Url1"
         isRequired={false}
         isReadOnly={false}
+        value={url1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -490,6 +526,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.url1 ?? value;
@@ -508,6 +545,7 @@ export default function BLOGCreateForm(props) {
         label="Url2"
         isRequired={false}
         isReadOnly={false}
+        value={url2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -525,6 +563,7 @@ export default function BLOGCreateForm(props) {
               url2: value,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.url2 ?? value;
@@ -543,6 +582,7 @@ export default function BLOGCreateForm(props) {
         label="Url3"
         isRequired={false}
         isReadOnly={false}
+        value={url3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -560,6 +600,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3: value,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.url3 ?? value;
@@ -578,6 +619,7 @@ export default function BLOGCreateForm(props) {
         label="Autor"
         isRequired={false}
         isReadOnly={false}
+        value={autor}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -595,6 +637,7 @@ export default function BLOGCreateForm(props) {
               url2,
               url3,
               autor: value,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.autor ?? value;
@@ -609,6 +652,43 @@ export default function BLOGCreateForm(props) {
         hasError={errors.autor?.hasError}
         {...getOverrideProps(overrides, "autor")}
       ></TextField>
+      <TextField
+        label="Slug"
+        isRequired={false}
+        isReadOnly={false}
+        value={slug}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              titulo,
+              subtitulo,
+              texto1,
+              texto2,
+              texto3,
+              imagen1,
+              imagen2,
+              imagen3,
+              fecha,
+              url1,
+              url2,
+              url3,
+              autor,
+              slug: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.slug ?? value;
+          }
+          if (errors.slug?.hasError) {
+            runValidationTasks("slug", value);
+          }
+          setSlug(value);
+        }}
+        onBlur={() => runValidationTasks("slug", slug)}
+        errorMessage={errors.slug?.errorMessage}
+        hasError={errors.slug?.hasError}
+        {...getOverrideProps(overrides, "slug")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}
@@ -616,21 +696,16 @@ export default function BLOGCreateForm(props) {
         <Button
           children="Clear"
           type="reset"
-          onClick={resetStateValues}
+          onClick={(event) => {
+            event.preventDefault();
+            resetStateValues();
+          }}
           {...getOverrideProps(overrides, "ClearButton")}
         ></Button>
         <Flex
           gap="15px"
           {...getOverrideProps(overrides, "RightAlignCTASubFlex")}
         >
-          <Button
-            children="Cancel"
-            type="button"
-            onClick={() => {
-              onCancel && onCancel();
-            }}
-            {...getOverrideProps(overrides, "CancelButton")}
-          ></Button>
           <Button
             children="Submit"
             type="submit"

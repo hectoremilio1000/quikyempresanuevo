@@ -6,38 +6,38 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { fetchByPath, validateField } from "./utils";
-import { BLOG } from "../models";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { BLOG } from "../models";
+import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
 export default function BLOGUpdateForm(props) {
   const {
-    id,
-    bLOG,
+    id: idProp,
+    bLOG: bLOGModelProp,
     onSuccess,
     onError,
     onSubmit,
-    onCancel,
     onValidate,
     onChange,
     overrides,
     ...rest
   } = props;
   const initialValues = {
-    titulo: undefined,
-    subtitulo: undefined,
-    texto1: undefined,
-    texto2: undefined,
-    texto3: undefined,
-    imagen1: undefined,
-    imagen2: undefined,
-    imagen3: undefined,
-    fecha: undefined,
-    url1: undefined,
-    url2: undefined,
-    url3: undefined,
-    autor: undefined,
+    titulo: "",
+    subtitulo: "",
+    texto1: "",
+    texto2: "",
+    texto3: "",
+    imagen1: "",
+    imagen2: "",
+    imagen3: "",
+    fecha: "",
+    url1: "",
+    url2: "",
+    url3: "",
+    autor: "",
+    slug: "",
   };
   const [titulo, setTitulo] = React.useState(initialValues.titulo);
   const [subtitulo, setSubtitulo] = React.useState(initialValues.subtitulo);
@@ -52,9 +52,12 @@ export default function BLOGUpdateForm(props) {
   const [url2, setUrl2] = React.useState(initialValues.url2);
   const [url3, setUrl3] = React.useState(initialValues.url3);
   const [autor, setAutor] = React.useState(initialValues.autor);
+  const [slug, setSlug] = React.useState(initialValues.slug);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = { ...initialValues, ...bLOGRecord };
+    const cleanValues = bLOGRecord
+      ? { ...initialValues, ...bLOGRecord }
+      : initialValues;
     setTitulo(cleanValues.titulo);
     setSubtitulo(cleanValues.subtitulo);
     setTexto1(cleanValues.texto1);
@@ -68,16 +71,19 @@ export default function BLOGUpdateForm(props) {
     setUrl2(cleanValues.url2);
     setUrl3(cleanValues.url3);
     setAutor(cleanValues.autor);
+    setSlug(cleanValues.slug);
     setErrors({});
   };
-  const [bLOGRecord, setBLOGRecord] = React.useState(bLOG);
+  const [bLOGRecord, setBLOGRecord] = React.useState(bLOGModelProp);
   React.useEffect(() => {
     const queryData = async () => {
-      const record = id ? await DataStore.query(BLOG, id) : bLOG;
+      const record = idProp
+        ? await DataStore.query(BLOG, idProp)
+        : bLOGModelProp;
       setBLOGRecord(record);
     };
     queryData();
-  }, [id, bLOG]);
+  }, [idProp, bLOGModelProp]);
   React.useEffect(resetStateValues, [bLOGRecord]);
   const validations = {
     titulo: [],
@@ -93,8 +99,17 @@ export default function BLOGUpdateForm(props) {
     url2: [],
     url3: [],
     autor: [],
+    slug: [],
   };
-  const runValidationTasks = async (fieldName, value) => {
+  const runValidationTasks = async (
+    fieldName,
+    currentValue,
+    getDisplayValue
+  ) => {
+    const value =
+      currentValue && getDisplayValue
+        ? getDisplayValue(currentValue)
+        : currentValue;
     let validationResponse = validateField(value, validations[fieldName]);
     const customValidator = fetchByPath(onValidate, fieldName);
     if (customValidator) {
@@ -125,6 +140,7 @@ export default function BLOGUpdateForm(props) {
           url2,
           url3,
           autor,
+          slug,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -149,6 +165,11 @@ export default function BLOGUpdateForm(props) {
           modelFields = onSubmit(modelFields);
         }
         try {
+          Object.entries(modelFields).forEach(([key, value]) => {
+            if (typeof value === "string" && value.trim() === "") {
+              modelFields[key] = undefined;
+            }
+          });
           await DataStore.save(
             BLOG.copyOf(bLOGRecord, (updated) => {
               Object.assign(updated, modelFields);
@@ -163,14 +184,14 @@ export default function BLOGUpdateForm(props) {
           }
         }
       }}
-      {...rest}
       {...getOverrideProps(overrides, "BLOGUpdateForm")}
+      {...rest}
     >
       <TextField
         label="Titulo"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={titulo}
+        value={titulo}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -188,6 +209,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.titulo ?? value;
@@ -206,7 +228,7 @@ export default function BLOGUpdateForm(props) {
         label="Subtitulo"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={subtitulo}
+        value={subtitulo}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -224,6 +246,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.subtitulo ?? value;
@@ -242,7 +265,7 @@ export default function BLOGUpdateForm(props) {
         label="Texto1"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={texto1}
+        value={texto1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -260,6 +283,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.texto1 ?? value;
@@ -278,7 +302,7 @@ export default function BLOGUpdateForm(props) {
         label="Texto2"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={texto2}
+        value={texto2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -296,6 +320,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.texto2 ?? value;
@@ -314,7 +339,7 @@ export default function BLOGUpdateForm(props) {
         label="Texto3"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={texto3}
+        value={texto3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -332,6 +357,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.texto3 ?? value;
@@ -350,7 +376,7 @@ export default function BLOGUpdateForm(props) {
         label="Imagen1"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={imagen1}
+        value={imagen1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -368,6 +394,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.imagen1 ?? value;
@@ -386,7 +413,7 @@ export default function BLOGUpdateForm(props) {
         label="Imagen2"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={imagen2}
+        value={imagen2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -404,6 +431,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.imagen2 ?? value;
@@ -422,7 +450,7 @@ export default function BLOGUpdateForm(props) {
         label="Imagen3"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={imagen3}
+        value={imagen3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -440,6 +468,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.imagen3 ?? value;
@@ -458,7 +487,7 @@ export default function BLOGUpdateForm(props) {
         label="Fecha"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={fecha}
+        value={fecha}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -476,6 +505,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.fecha ?? value;
@@ -494,7 +524,7 @@ export default function BLOGUpdateForm(props) {
         label="Url1"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={url1}
+        value={url1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -512,6 +542,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.url1 ?? value;
@@ -530,7 +561,7 @@ export default function BLOGUpdateForm(props) {
         label="Url2"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={url2}
+        value={url2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -548,6 +579,7 @@ export default function BLOGUpdateForm(props) {
               url2: value,
               url3,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.url2 ?? value;
@@ -566,7 +598,7 @@ export default function BLOGUpdateForm(props) {
         label="Url3"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={url3}
+        value={url3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -584,6 +616,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3: value,
               autor,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.url3 ?? value;
@@ -602,7 +635,7 @@ export default function BLOGUpdateForm(props) {
         label="Autor"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={autor}
+        value={autor}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -620,6 +653,7 @@ export default function BLOGUpdateForm(props) {
               url2,
               url3,
               autor: value,
+              slug,
             };
             const result = onChange(modelFields);
             value = result?.autor ?? value;
@@ -634,6 +668,43 @@ export default function BLOGUpdateForm(props) {
         hasError={errors.autor?.hasError}
         {...getOverrideProps(overrides, "autor")}
       ></TextField>
+      <TextField
+        label="Slug"
+        isRequired={false}
+        isReadOnly={false}
+        value={slug}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              titulo,
+              subtitulo,
+              texto1,
+              texto2,
+              texto3,
+              imagen1,
+              imagen2,
+              imagen3,
+              fecha,
+              url1,
+              url2,
+              url3,
+              autor,
+              slug: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.slug ?? value;
+          }
+          if (errors.slug?.hasError) {
+            runValidationTasks("slug", value);
+          }
+          setSlug(value);
+        }}
+        onBlur={() => runValidationTasks("slug", slug)}
+        errorMessage={errors.slug?.errorMessage}
+        hasError={errors.slug?.hasError}
+        {...getOverrideProps(overrides, "slug")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}
@@ -641,7 +712,11 @@ export default function BLOGUpdateForm(props) {
         <Button
           children="Reset"
           type="reset"
-          onClick={resetStateValues}
+          onClick={(event) => {
+            event.preventDefault();
+            resetStateValues();
+          }}
+          isDisabled={!(idProp || bLOGModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -649,18 +724,13 @@ export default function BLOGUpdateForm(props) {
           {...getOverrideProps(overrides, "RightAlignCTASubFlex")}
         >
           <Button
-            children="Cancel"
-            type="button"
-            onClick={() => {
-              onCancel && onCancel();
-            }}
-            {...getOverrideProps(overrides, "CancelButton")}
-          ></Button>
-          <Button
             children="Submit"
             type="submit"
             variation="primary"
-            isDisabled={Object.values(errors).some((e) => e?.hasError)}
+            isDisabled={
+              !(idProp || bLOGModelProp) ||
+              Object.values(errors).some((e) => e?.hasError)
+            }
             {...getOverrideProps(overrides, "SubmitButton")}
           ></Button>
         </Flex>

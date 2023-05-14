@@ -26,7 +26,7 @@ function Main({ posts, url, title }) {
         {title}
       </Typography>
       <Divider />
-      {posts.map(post => (
+      {posts?.map(post => (
         <div className="markdown" key={post.id}>
           <Typography component="h2" variant="h5"  style={{fontWeight: 'bold'}}>
             {post.titulo}

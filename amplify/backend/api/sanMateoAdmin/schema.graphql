@@ -1,0 +1,148 @@
+type RESULTADOGENERAL @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  resultadoQuimico: String
+}
+
+type RESULTADOORDEN @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  parametro: String
+  resultado: String
+  ordenpruebaID: ID! @index(name: "byORDENPRUEBA")
+  interpretacionAutomatica: String
+}
+
+enum SERVICIO {
+  EXCELENTE
+  REGULAR
+  MALO
+}
+
+type EncuestaServicio @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  encuesta: SERVICIO
+  usuario: String
+}
+
+type ORDENPRUEBA @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  ordenID: ID! @index(name: "byORDEN")
+  PRUEBA: PRUEBA @hasOne
+  RESULTADOORDENS: [RESULTADOORDEN] @hasMany(indexName: "byORDENPRUEBA", fields: ["id"])
+}
+
+type ORDEN @model @auth(rules: [{allow: public}, {allow: private}]) {
+  id: ID!
+  estatus: String
+  fechaOrden: String
+  horaOrden: String
+  formatoPago: String
+  envioPaciente: String
+  totalPruebas: Float
+  sucursalMuestra: String
+  tratamiento: String
+  capturaOrden: String
+  ORDENPRUEBAS: [ORDENPRUEBA] @hasMany(indexName: "byORDEN", fields: ["id"])
+  diabetico: String
+  hipertenso: String
+  DOCTOR: DOCTOR @hasOne
+  padecimientos: String
+  medicamentos: String
+  diagnostico: String
+  envioDoctor: String
+  altura: Float
+  peso: Float
+  indiceMasaCorporal: Float
+  temperatura: Float
+  costoTotal: Float
+  saturacion: Int
+  frecuenciaCardiaca: Int
+  pacienteID: ID! @index(name: "byPACIENTE")
+  RESULTADOGENERAL: RESULTADOGENERAL @hasOne
+  fechaTomaMuestr: String
+  horaTomaMuestra: String
+}
+
+type PARAMETROS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombreParametro: String
+  unidad: String
+  referencia1: String
+  referencia2: String
+  pruebaID: ID! @index(name: "byPRUEBA")
+}
+
+type PRUEBA @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombre: String
+  categoria: String
+  precio: Float
+  precioDescuento: Float
+  descripcionCorta: String
+  tiempoEntrega: String
+  indicaciones: String
+  tipoMuestra: String
+  tipoContenedor: String
+  PARAMETROS: [PARAMETROS] @hasMany(indexName: "byPRUEBA", fields: ["id"])
+  ORDENPRUEBA: ORDENPRUEBA @belongsTo
+}
+
+type DOCTOR @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombres: String
+  apellidoPaterno: String
+  apellidoMaterno: String
+  especialidad: String
+  calle: String
+  numeroExterior: String
+  numeroInterior: String
+  colonia: String
+  cp: String
+  municipio: String
+  estado: String
+  pais: String
+  email: String
+  whatsapp: String
+}
+
+enum SEXOTIPO {
+  MASCULINO
+  FEMENINO
+}
+
+type PACIENTE @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nombres: String
+  apellidoPaterno: String
+  apellidoMaterno: String
+  sexo: SEXOTIPO
+  fechaNacimiento: String
+  edad: String
+  direccion: String
+  colonia: String
+  cp: String
+  municipio: String
+  estado: String
+  pais: String
+  email: String
+  whatsapp: String
+  ORDENS: [ORDEN] @hasMany(indexName: "byPACIENTE", fields: ["id"])
+}
+
+type BLOG @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  titulo: String
+  subtitulo: String
+  texto1: String
+  texto2: String
+  texto3: String
+  imagen1: String
+  imagen2: String
+  imagen3: String
+  fecha: String
+  url1: String
+  url2: String
+  url3: String
+  autor: String
+  slug: String
+}
+ 

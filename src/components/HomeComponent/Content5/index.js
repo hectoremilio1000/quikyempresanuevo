@@ -89,7 +89,7 @@ const DataNew = [
     nombreprueba: "Biometría Hemática",
     category: "PRUEBA_RAPIDA",
     imagen:
-      "https://quimialab.com/wp-content/uploads/2019/05/LabBiometriaHematica.png",
+      "https://cdn2.salud180.com/sites/default/files/styles/medium/public/gallerie/2022/5/biometria-hematica-que-enfermeda-es-detecta-este-estudio-de-sangre.jpg",
     precio: 60,
     preciodescuento: 70,
     descripcionlarga:

@@ -5,9 +5,9 @@
  **************************************************************************/
 
 import * as React from "react";
-import { BLOG } from "../models";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { BLOG } from "../models";
 export declare type ValidationResponse = {
     hasError: boolean;
     errorMessage?: string;
@@ -27,6 +27,7 @@ export declare type BLOGUpdateFormInputValues = {
     url2?: string;
     url3?: string;
     autor?: string;
+    slug?: string;
 };
 export declare type BLOGUpdateFormValidationValues = {
     titulo?: ValidationFunction<string>;
@@ -42,23 +43,25 @@ export declare type BLOGUpdateFormValidationValues = {
     url2?: ValidationFunction<string>;
     url3?: ValidationFunction<string>;
     autor?: ValidationFunction<string>;
+    slug?: ValidationFunction<string>;
 };
-export declare type FormProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type BLOGUpdateFormOverridesProps = {
-    BLOGUpdateFormGrid?: FormProps<GridProps>;
-    titulo?: FormProps<TextFieldProps>;
-    subtitulo?: FormProps<TextFieldProps>;
-    texto1?: FormProps<TextFieldProps>;
-    texto2?: FormProps<TextFieldProps>;
-    texto3?: FormProps<TextFieldProps>;
-    imagen1?: FormProps<TextFieldProps>;
-    imagen2?: FormProps<TextFieldProps>;
-    imagen3?: FormProps<TextFieldProps>;
-    fecha?: FormProps<TextFieldProps>;
-    url1?: FormProps<TextFieldProps>;
-    url2?: FormProps<TextFieldProps>;
-    url3?: FormProps<TextFieldProps>;
-    autor?: FormProps<TextFieldProps>;
+    BLOGUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    titulo?: PrimitiveOverrideProps<TextFieldProps>;
+    subtitulo?: PrimitiveOverrideProps<TextFieldProps>;
+    texto1?: PrimitiveOverrideProps<TextFieldProps>;
+    texto2?: PrimitiveOverrideProps<TextFieldProps>;
+    texto3?: PrimitiveOverrideProps<TextFieldProps>;
+    imagen1?: PrimitiveOverrideProps<TextFieldProps>;
+    imagen2?: PrimitiveOverrideProps<TextFieldProps>;
+    imagen3?: PrimitiveOverrideProps<TextFieldProps>;
+    fecha?: PrimitiveOverrideProps<TextFieldProps>;
+    url1?: PrimitiveOverrideProps<TextFieldProps>;
+    url2?: PrimitiveOverrideProps<TextFieldProps>;
+    url3?: PrimitiveOverrideProps<TextFieldProps>;
+    autor?: PrimitiveOverrideProps<TextFieldProps>;
+    slug?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type BLOGUpdateFormProps = React.PropsWithChildren<{
     overrides?: BLOGUpdateFormOverridesProps | undefined | null;
@@ -68,7 +71,6 @@ export declare type BLOGUpdateFormProps = React.PropsWithChildren<{
     onSubmit?: (fields: BLOGUpdateFormInputValues) => BLOGUpdateFormInputValues;
     onSuccess?: (fields: BLOGUpdateFormInputValues) => void;
     onError?: (fields: BLOGUpdateFormInputValues, errorMessage: string) => void;
-    onCancel?: () => void;
     onChange?: (fields: BLOGUpdateFormInputValues) => BLOGUpdateFormInputValues;
     onValidate?: BLOGUpdateFormValidationValues;
 } & React.CSSProperties>;
